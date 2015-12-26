@@ -5,12 +5,18 @@ var metalsmith = require('metalsmith'),
     asciidoc = require('metalsmith-asciidoc'),
     updated = require('metalsmith-updated'),
     permalinks = require('metalsmith-permalinks'),
+    register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
     concat = require('metalsmith-concat'),
     highlight = require('metalsmith-highlight'),
     spellcheck = require('metalsmith-spellcheck'),
     formatcheck = require('metalsmith-formatcheck'),
     linkcheck = require('metalsmith-linkcheck');
+
+var handlebars = require('handlebars'),
+    common = require('./lib/common.js');
+
+handlebars.registerHelper('format_date', common.format_date);
 
 var slides_pattern = 'slides/*.adoc';
 
@@ -24,10 +30,15 @@ metalsmith(__dirname)
   .use(permalinks())
   .use(layouts({
     engine: 'handlebars',
+    partials: 'layouts/partials'
   }))
   .use(concat({
-    files: 'assets/js/slides/slides/*.js',
-    output: 'assets/js/slides/slides.js'
+    files: 'assets/css/site/*.css',
+    output: 'assets/css/site.css'
+  }))
+  .use(concat({
+    files: 'assets/js/site/*.js',
+    output: 'assets/js/site.js'
   }))
   .use(highlight())
   /*

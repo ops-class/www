@@ -1,0 +1,41 @@
+body {
+  padding-top: 60px;
+  position: relative;
+  color: #333;
+}
+div.logo-fixed {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 48px;
+}
+div.logo-fixed img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 64px;
+}
+.navbar-default {
+  background-color: transparent;
+}
+.navbar {
+  min-height: 64px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+    padding-top: 40px;
+    display: inline-block;
+  }
+  .navbar .navbar-nav.left {
+    float: right;
+  }
+  .navbar .navbar-nav.right {
+    float: left;
+  }
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+}

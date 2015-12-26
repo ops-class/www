@@ -1,0 +1,30 @@
+<!--
+<div class="container">
+  <div class="row" style="margin-top: 10px; margin-bottom: 20px;">
+    <div class="col-xs-12">
+      <hr />
+    </div>
+    <div class="small col-xs-12 col-md-4 col-md-offset-4 text-center">
+      Created {{ format_date created "normal" false }} <br />
+      Updated {{ format_date updated "normal" false }}
+    </div>
+  </div>
+</div>
+-->
+
+<script>
+var cb = function() {
+  var s = document.createElement("script");
+  s.src = "/assets/js/site.js";
+  document.body.appendChild(s);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) {
+  raf(cb);
+} else {
+  window.addEventListener('load', cb);
+}
+</script>
+
+</body>
+</html>

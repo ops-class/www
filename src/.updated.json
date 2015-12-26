@@ -4,5 +4,17 @@
         "hash": "402bae80f70969c5455a6ff7dbc72d76",
         "created": "2015-12-26T15:11:55.091Z",
         "updated": "2015-12-26T15:11:55.091Z"
+    },
+    "index.html": {
+        "filename": "index.html",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e",
+        "created": "2015-12-26T18:29:19.430Z",
+        "updated": "2015-12-26T19:57:34.813Z"
+    },
+    "assets/img/favicon/header.html": {
+        "filename": "assets/img/favicon/header.html",
+        "hash": "fccef9b7fe8eda1fd43d0df0d7aed357",
+        "created": "2015-12-26T18:45:14.246Z",
+        "updated": "2015-12-26T18:45:14.246Z"
     }
 }
