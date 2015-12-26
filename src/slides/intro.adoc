@@ -1,6 +1,7 @@
 ---
 title: "Introduction to CSE 421/521"
 author: Geoffrey Challen
+deck_convert: true
 description: >
   Introduction to an introduction to operating systems, the course staff, and
   course policies.

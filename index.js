@@ -17,7 +17,7 @@ var slides_pattern = 'slides/*.adoc';
 metalsmith(__dirname)
   .use(drafts())
   .use(filemetadata([
-    {pattern: slides_pattern, metadata: {'layout': 'slides/slides.hbt'}}
+    {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}}
   ]))
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
