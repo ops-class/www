@@ -19,3 +19,73 @@ tracks and saves your changes to OS/161 and enables effective collaboration.
 * https://www.gnu.org/software/gdb/[*GDB*]: the GNU debugger, a powerful
 debugging tool which will allow you to control and inspect your running
 system.
+  
+=== Objectives
+
+After completing ASST0 you should:
+
+. Understand the source code structure of OS/161, the software system we will
+be using this semester.
+. Be familiar with Git, a fast distributed source control system, and GDB,
+the GNU Debugger.
+. Understand how `sys161` (System/161) provides the hardware environment on
+which OS/161 runs.
+. Be comfortable reading the OS/161 source code and figuring out where and
+how things are done.
+. Be ready for link:/asst/1/[ASST1].
+
+=== A Note on Cut-and-Paste
+
+Another assignment objective is to get you up to speed working efficiently in
+a Linux development environment using standard tools. Over time, the original
+version of this assignment had come to contain a lot of cut-and-paste
+snippets that students could run from the command line.
+
+While students found this helpful, this year we have decided to remove many
+of these instructions and provide direction in English text instead. This is
+for the simple reason that too many students were simply skimming the
+assignment text while cutting and pasting the relevant sections into their
+terminal. (They would even get annoyed when we had left out a step--like
+changing into a different directory--and their decision to blindly
+cut-and-paste from the assignment backfired.)
+
+Unlike many of the things you will find online ASST0 is _not a tutorial._ You
+will go slower, but you will learn a lot more from figuring out what to do if
+we tell you:
+____
+Run the first OS/161 thread test and then shut down your kernel.
+____
+than if we tell you:
+....
+trinity@zion:~$ sys161 kernel "tt1;q"
+....
+
+=== Collaboration Guidelines
+
+ASST0 focuses on getting your environment set up and asking you to begin
+familiarizing yourself with the OS/161 source you will be modifying. There is
+a small amount of coding involved, but not too much. Here are the guidelines
+for how to work together and work with your partner (if you have one):
+
+TIP: Answering the code reading questions and performing the scripting and
+coding tasks for ASST0 side-by-side with your partner is *strongly
+encouraged*.
+  
+TIP: Helping other students set up Vagrant, use the `ops-class.org` online
+tools, and generally set up their environment is encouraged.
+    
+TIP: Helping each other with Git, GDB, Eclipse, and OS/161 toolchain
+components is encouraged.
+    
+TIP: Discussing the code reading questions and browsing the source tree with
+other students is encouraged, *but students in separate groups should prepare
+answers separately*.
+    
+WARNING: Dividing the code reading questions, scripting and development tasks
+between partners is acceptable but not encouraged.
+  
+CAUTION: Copying any answers from anyone who is not your partner or anywhere
+else and submitting them as your own is cheating.</strong>
+  
+CAUTION: *You may not refer to or incorporate any external sources without
+explicit permission footnote:[Which you are unlikely to get.].

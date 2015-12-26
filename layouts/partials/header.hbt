@@ -49,10 +49,8 @@ _gaq.push(['_trackPageview']);
 
   <body>
     <div class="container">
-      <div class="logo-fixed">
-        <a href="/"><img src="/assets/img/logos/ops-class.jpg" alt="ops-class.org logo"/></a>
-      </div>
       <nav class="navbar navbar-default navbar-fixed-top">
+        <a class="logo-fixed" href="/"><img src="/assets/img/logos/ops-class.jpg" alt="ops-class.org logo"/></a>
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
