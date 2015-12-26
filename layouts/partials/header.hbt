@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>ops-class.org&mdash;Learn Operating Systems Online</title>
-<link rel="stylesheet" type="text/css" href="/assets/css/site.css">
+    <title>ops-class.org&mdash;Learn Operating Systems Online</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/site.css">
 
-<link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<!--
 <script type="text/javascript">
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-45109275-1']);
+_gaq.push(['_setAccount', 'UA-71773451-1']);
 _gaq.push(['_trackPageview']);
 
 (function() {
@@ -45,47 +44,46 @@ _gaq.push(['_trackPageview']);
   s.parentNode.insertBefore(ga, s);
 })();
 </script>
--->
 
-</head>
+  </head>
 
-<body>
-  <div class="container">
-    <div class="logo-fixed">
-      <a href="/"><img src="/assets/img/logos/ops-class.jpg" alt="ops-class.org logo"/></a>
-    </div>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <div class="row">
-            <div class="col-sm-6">
-              <ul class="nav navbar-nav left">
-                <li><a title="Lecture slides, notes, and videos."
-                       href="/lectures/">lectures</a></li>
-                <li><a title="Exams to test your knowledge of OS concepts."
-                       href="/exams/">exams</a></li>
-                <li><a title="Links to information about specific courses using ops-class.org."
-                       href="/courses/">courses</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-6">
-              <ul class="nav navbar-nav right">
-                <li><a title="Hack the kernel! OS/161-based operating system assignments."
-                       href="/asst/">assignments</a></li>
-                <li><a title="Discourse-based course discussion forum."
-                       href="https://discourse.ops-class.org">discuss</a></li>
-              </ul>
+  <body>
+    <div class="container">
+      <div class="logo-fixed">
+        <a href="/"><img src="/assets/img/logos/ops-class.jpg" alt="ops-class.org logo"/></a>
+      </div>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <div class="row">
+              <div class="col-sm-6">
+                <ul class="nav navbar-nav left">
+                  <li><a title="Lecture slides, notes, and videos."
+                         href="/lectures/">lectures</a></li>
+                  <li><a title="Exams to test your knowledge of OS concepts."
+                         href="/exams/">exams</a></li>
+                  <li><a title="Links to information about specific courses using ops-class.org."
+                         href="/courses/">courses</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <ul class="nav navbar-nav right">
+                  <li><a title="Hack the kernel! OS/161-based operating system assignments."
+                         href="/asst/">assignments</a></li>
+                  <li><a title="Discourse-based course discussion forum."
+                         href="https://discourse.ops-class.org">discuss</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
-  </div>
+      </nav>
+    </div>
