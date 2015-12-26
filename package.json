@@ -1,0 +1,27 @@
+{
+  "name": "www.ops-class.org",
+  "version": "0.0.1",
+  "description": "www.ops-class.org static website sources, including assignments, guides, slides, and course-specific materials.",
+  "readmeFilename": "README.adoc",
+  "bugs": {
+    "url": "https://github.com/ops-class/www/issues"
+  },
+  "homepage": "https://github.com/ops-class/www",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ops-class/www.git"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Operating systems",
+    "ops-class.org."
+  ],
+  "author": {
+    "name": "Geoffrey Challen",
+    "email": "challen@buffalo.edu"
+  },
+  "license": "MIT"
+}
