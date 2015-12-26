@@ -1,0 +1,21 @@
+---
+title: "Introduction to OS/161"
+---
+== Introduction
+
+[.lead]
+ASST0 introduces you to the codebase and tools that you will be using
+throughout the rest of the `ops-class.org` assignments.
+
+It is unlikely that you have used OS/161 before, but some of the
+other tools may be familiar to you:
+
+* http://os161.eecs.harvard.edu[*OS/161*]: OS/161 includes both
+. the sources of the the operating system you will be designing,
+implementing, running and debugging, and
+. `sys161`, the machine simulator which will run your operating system.
+* https://git-scm.com/[*Git*]: a fast distributed source control system that
+tracks and saves your changes to OS/161 and enables effective collaboration.
+* https://www.gnu.org/software/gdb/[*GDB*]: the GNU debugger, a powerful
+debugging tool which will allow you to control and inspect your running
+system.

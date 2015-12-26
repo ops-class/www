@@ -66,9 +66,12 @@ _gaq.push(['_trackPageview']);
             <div class="row">
               <div class="col-sm-6">
                 <ul class="nav navbar-nav left">
-                  <li><a title="Lecture slides, notes, and videos."
-                         href="/lectures/">lectures</a></li>
-                  <li><a title="Exams to test your knowledge of OS concepts."
+                  <li><a id="menu-lectures"
+                         title="Lecture slides, notes, and videos."
+                         href="/lectures/">lectures</a>
+                  </li>
+                  <li><a id="menu-courses"
+                         title="Exams to test your knowledge of OS concepts."
                          href="/exams/">exams</a></li>
                   <li><a title="Links to information about specific courses using ops-class.org."
                          href="/courses/">courses</a></li>
@@ -76,9 +79,11 @@ _gaq.push(['_trackPageview']);
               </div>
               <div class="col-sm-6">
                 <ul class="nav navbar-nav right">
-                  <li><a title="Hack the kernel! OS/161-based operating system assignments."
+                  <li><a id="menu-asst"
+                         title="Hack the kernel! OS/161-based operating system assignments."
                          href="/asst/">assignments</a></li>
-                  <li><a title="Discourse-based course discussion forum."
+                  <li><a id="menu-discuss"
+                         title="Discourse-based course discussion forum."
                          href="https://discourse.ops-class.org">discuss</a></li>
                 </ul>
               </div>

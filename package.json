@@ -27,6 +27,7 @@
   "dependencies": {
     "async": "^1.5.0",
     "cheerio": "^0.19.0",
+    "fs": "0.0.2",
     "handlebars": "^4.0.5",
     "http-server": "^0.8.5",
     "metalsmith": "^2.1.0",
@@ -35,6 +36,7 @@
     "metalsmith-concat": "^3.0.3",
     "metalsmith-drafts": "0.0.1",
     "metalsmith-filemetadata": "0.0.4",
+    "metalsmith-formatcheck": "^0.2.0",
     "metalsmith-highlight": "^1.0.4",
     "metalsmith-layouts": "^1.4.2",
     "metalsmith-linkcheck": "^0.2.0",

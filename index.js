@@ -15,24 +15,28 @@ var metalsmith = require('metalsmith'),
     linkcheck = require('metalsmith-linkcheck');
 
 var handlebars = require('handlebars'),
+    fs = require('fs'),
     common = require('./lib/common.js');
-
+  
+handlebars.registerPartial('header', fs.readFileSync('layouts/partials/header.hbt').toString());
+handlebars.registerPartial('footer', fs.readFileSync('layouts/partials/footer.hbt').toString());
 handlebars.registerHelper('format_date', common.format_date);
 
 var slides_pattern = 'slides/*.adoc';
+var asst_pattern = 'asst/*.adoc';
 
 metalsmith(__dirname)
   .use(drafts())
   .use(filemetadata([
-    {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}}
+    {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}},
+    {pattern: asst_pattern, metadata: {'asst': true, 'layout': 'asst/asst.hbt'}}
   ]))
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
   .use(permalinks())
   .use(lessjavascript())
   .use(layouts({
-    engine: 'handlebars',
-    partials: 'layouts/partials'
+    engine: 'handlebars'
   }))
   .use(concat({
     files: 'assets/css/site/*.css',

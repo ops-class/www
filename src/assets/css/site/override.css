@@ -2,6 +2,14 @@ body {
   padding-top: 60px;
   position: relative;
   color: #333;
+  font-size: 16px;
+}
+code, kbd, pre, samp {
+  Consolas, "Courier New", monospace;
+}
+code {
+  background-color: inherit;
+  color: inherit;
 }
 div.logo-fixed {
   position: absolute;
