@@ -50,10 +50,9 @@ _gaq.push(['_trackPageview']);
 </head>
 
 <body>
-
   <div class="container">
     <div class="logo-fixed">
-      <img src="/assets/img/logos/ops-class.jpg">
+      <a href="/"><img src="/assets/img/logos/ops-class.jpg" alt="ops-class.org logo"/></a>
     </div>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -67,14 +66,22 @@ _gaq.push(['_trackPageview']);
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-sm-6">
               <ul class="nav navbar-nav left">
-                <li>Test</li>
+                <li><a title="Lecture slides, notes, and videos."
+                       href="/lectures/">lectures</a></li>
+                <li><a title="Exams to test your knowledge of OS concepts."
+                       href="/exams/">exams</a></li>
+                <li><a title="Links to information about specific courses using ops-class.org."
+                       href="/courses/">courses</a></li>
               </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6">
               <ul class="nav navbar-nav right">
-                <li>Me</li>
+                <li><a title="Hack the kernel! OS/161-based operating system assignments."
+                       href="/asst/">assignments</a></li>
+                <li><a title="Discourse-based course discussion forum."
+                       href="https://discourse.ops-class.org">discuss</a></li>
               </ul>
             </div>
           </div>

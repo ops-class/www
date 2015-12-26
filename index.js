@@ -7,6 +7,7 @@ var metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
+    lessjavascript = require('./lib/lessjavascript.js'),
     concat = require('metalsmith-concat'),
     highlight = require('metalsmith-highlight'),
     spellcheck = require('metalsmith-spellcheck'),
@@ -28,6 +29,7 @@ metalsmith(__dirname)
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
   .use(permalinks())
+  .use(lessjavascript())
   .use(layouts({
     engine: 'handlebars',
     partials: 'layouts/partials'
@@ -41,15 +43,14 @@ metalsmith(__dirname)
     output: 'assets/js/site.js'
   }))
   .use(highlight())
-  /*
   .use(spellcheck({ dicFile: 'dicts/en_US.dic',
                     affFile: 'dicts/en_US.aff',
                     exceptionFile: 'dicts/spelling_exceptions.json',
                     checkedPart: "div#content",
+                    failErrors: false,
                     verbose: true}))
   .use(formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false }))
   .use(linkcheck({ verbose: true , failWithoutNetwork: false }))
-  */
   .clean(true)
   .build(function throwErr (err) { 
     if (err) {
