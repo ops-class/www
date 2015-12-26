@@ -1,8 +1,10 @@
 all: build | silent
 
 build:
-	@npm install
 	@node index.js
+
+install:
+	@npm install
 
 silent:
 	@:

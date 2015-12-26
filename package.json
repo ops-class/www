@@ -26,6 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "handlebars": "^4.0.5",
+    "http-server": "^0.8.5",
     "metalsmith": "^2.1.0",
     "metalsmith-asciidoc": "^1.1.0",
     "metalsmith-collections": "^0.7.0",
