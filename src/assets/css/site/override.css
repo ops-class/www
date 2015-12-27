@@ -53,6 +53,10 @@ a.logo-fixed > img {
   color: black;
 }
 
+.nav > li > a.active {
+  color: black;
+}
+
 @media (min-width: 768px) {
   .navbar .navbar-nav {
     line-height: 20px;
@@ -80,6 +84,9 @@ a.logo-fixed > img {
 	  content: "\0000a0";
   }
   .nav > li > a:hover:after {
+    content: "_";
+  }
+  .nav > li > a.active:after {
     content: "_";
   }
 }

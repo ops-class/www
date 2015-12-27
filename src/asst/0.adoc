@@ -15,7 +15,8 @@ other tools may be familiar to you:
 * http://os161.eecs.harvard.edu[*OS/161*]: OS/161 includes both
 . the sources of the the operating system you will be designing,
 implementing, running and debugging, and
-. `sys161`, the machine simulator which will run your operating system.
+. a toolchain for cross compiling and running your kernel, including a
+machine simulator called `sys161` footnote:[Also known as System/161].
 * https://git-scm.com/[*Git*]: a fast distributed source control system that
 tracks and saves your changes to OS/161 and enables effective collaboration.
 * https://www.gnu.org/software/gdb/[*GDB*]: the GNU debugger, a powerful
@@ -26,15 +27,15 @@ system.
 
 After completing ASST0 you should:
 
-. Understand the source code structure of OS/161, the software system we will
-be using this semester.
+. Understand the source code structure of OS/161, the operating system you
+will be modifying.
 . Be familiar with Git, a fast distributed source control system, and GDB,
 the GNU Debugger.
-. Understand how `sys161` (System/161) provides the hardware environment on
-which OS/161 runs.
+. Understand how `sys161` provides the hardware environment on which your
+OS/161 kernel runs.
 . Be comfortable reading the OS/161 source code and figuring out where and
 how things are done.
-. Be ready for link:/asst/1/[ASST1].
+. Be able to, modify, build and run an OS/161 kernel.
 
 === A Note on Cut-and-Paste
 
@@ -98,11 +99,11 @@ explicit permission footnote:[Which you are extremely unlikely to get.].
   
 == Choosing and Initializing Your Development Environment
 
-Developing for OS/161 requires a specialized toolchain, including the
-`sys161` System/161 simulator along with a GCC cross-compiler allowing you to
-create MIPS r3000 binary executables that `sys161` can interpret.
+Developing for OS/161 requires a specialized set of tools, including the
+`sys161` simulator along with a GCC cross-compiler allowing you to create
+MIPS r3000 binary executables that `sys161` can execute.
 
-You have three options for how to run the OS/161 toolchain:
+You have three options for how to access the OS/161 toolchain:
 
 . Install the toolchain natively on your own Ubuntu machine
 . Run a Ubuntu virtual machine that has the toolchain installed as a guest on
@@ -150,7 +151,7 @@ Pick or create an empty directory to use for your OS/161 sources. Then clone
 our Vagrant repository into that directory:
 
 ....
-$ git clone https://github.com/ops-class/vagrant .
+git clone https://github.com/ops-class/vagrant .
 ....
 
 Once that's done, you should be able to run `vagrant up` from the directory
@@ -159,7 +160,7 @@ to complete the first time, and you need to be online so that Vagrant can
 download various external resources:
 
 ....
-$ vagrant up # This may take a few minutes
+vagrant up # This may take a few minutes
 ....
 
 Assuming `vagrant up` completes successfully, you should be able to log in to
@@ -191,8 +192,8 @@ of source code editor.
 === Do-It-Yourself Installation on Other Flavors of UNIX
 
 We don't support this option, but if you'd like to try instructions are
-available at the http://os161.eecs.harvard.edu[OS/161 website]. Linux and
-other UNIX variants are likely to work. Superheroes and the overly determined
-have gotten things to work on OSX. Other environments are unlikely to work.
-Please use the most recent version of the cross-compilation toolchain and
-System/161.
+available at the http://os161.eecs.harvard.edu[OS/161 website]. You will need
+to download, configure, compile and install from the OS/161 toolchain
+sources. Linux and other UNIX variants are likely to work. Superheroes and
+the overly determined have gotten things to work on OSX. Please use the most
+recent version of the cross-compilation toolchain and System/161.

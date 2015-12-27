@@ -36,10 +36,10 @@ metalsmith(__dirname)
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
   .use(footnotes())
   .use(permalinks())
-  .use(lessjavascript())
   .use(layouts({
     engine: 'handlebars'
   }))
+  .use(lessjavascript())
   .use(concat({
     files: 'assets/css/site/*.css',
     output: 'assets/css/site.css'
