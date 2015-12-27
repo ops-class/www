@@ -4,6 +4,7 @@ var metalsmith = require('metalsmith'),
     collections = require('metalsmith-collections'),
     asciidoc = require('metalsmith-asciidoc'),
     updated = require('metalsmith-updated'),
+    footnotes = require('./lib/footnotes.js'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
@@ -33,6 +34,7 @@ metalsmith(__dirname)
   ]))
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
+  .use(footnotes())
   .use(permalinks())
   .use(lessjavascript())
   .use(layouts({

@@ -41,6 +41,10 @@ a.logo-fixed > img {
   margin-top: 17px;
 }
 
+.alert td.icon {
+  padding-right: 20px;
+}
+
 @media (min-width: 768px) {
   .navbar .navbar-nav {
     line-height: 20px;

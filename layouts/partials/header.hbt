@@ -82,6 +82,7 @@ _gaq.push(['_trackPageview']);
                          href="/asst/">assignments</a></li>
                   <li><a id="menu-discuss"
                          title="Discourse-based course discussion forum."
+                         target="_blank"
                          href="https://discourse.ops-class.org">discuss</a></li>
                 </ul>
               </div>
