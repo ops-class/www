@@ -45,6 +45,14 @@ a.logo-fixed > img {
   padding-right: 20px;
 }
 
+.alert.alert-danger {
+  font-weight: bolder;
+}
+
+.popover-content {
+  color: black;
+}
+
 @media (min-width: 768px) {
   .navbar .navbar-nav {
     line-height: 20px;

@@ -1,6 +1,8 @@
 ---
 title: "Introduction to OS/161"
 ---
+:sectnums:
+
 == Introduction
 
 [.lead]
@@ -37,17 +39,17 @@ how things are done.
 === A Note on Cut-and-Paste
 
 Another assignment objective is to get you up to speed working efficiently in
-a Linux development environment using standard tools. Over time, the original
-version of this assignment had come to contain a lot of cut-and-paste
-snippets that students could run from the command line.
+a Linux development environment using standard tools. Earlier versions of
+this assignment had come to contain a lot of cut-and-paste snippets that
+students could run from the command line.
 
-While students found this helpful, this year we have decided to remove many
-of these instructions and provide direction in English text instead. This is
-for the simple reason that too many students were simply skimming the
-assignment text while cutting and pasting the relevant sections into their
-terminal. (They would even get annoyed when we had left out a step--like
-changing into a different directory--and their decision to blindly
-cut-and-paste from the assignment backfired.)
+While students found this helpful, we have decided to remove many of these
+instructions and provide direction in English text instead. This is for the
+simple reason that too many students were simply skimming the assignment text
+while cutting and pasting the relevant sections into their terminal. (They
+would even get annoyed when we had left out a step footnote:[Sometimes
+intentionally...]&mdash;like changing into a different directory--and their
+decision to blindly cut-and-paste from the assignment backfired.)
 
 Unlike many of the things you will find online ASST0 is _not a tutorial._ You
 will go slower, but you will learn a lot more from figuring out what to do if
@@ -59,6 +61,10 @@ than if we tell you:
 ....
 trinity@zion:~$ sys161 kernel "tt1;q"
 ....
+
+Following these kinds of written and spoken instructions will also better
+prepare you to interact with the course staff, who don't quite yet speak in
+Terminalese footnote:[We'll work on that for next year...].
 
 === Collaboration Guidelines
 
@@ -85,7 +91,108 @@ WARNING: Dividing the code reading questions, scripting and development tasks
 between partners is acceptable but not encouraged.
   
 CAUTION: Copying any answers from anyone who is not your partner or anywhere
-else and submitting them as your own is cheating.</strong>
+else and submitting them as your own is cheating.
   
-CAUTION: *You may not refer to or incorporate any external sources without
-explicit permission footnote:[Which you are unlikely to get.].
+CAUTION: You may not refer to or incorporate any external sources without
+explicit permission footnote:[Which you are extremely unlikely to get.].
+  
+== Choosing and Initializing Your Development Environment
+
+Developing for OS/161 requires a specialized toolchain, including the
+`sys161` System/161 simulator along with a GCC cross-compiler allowing you to
+create MIPS r3000 binary executables that `sys161` can interpret.
+
+You have three options for how to run the OS/161 toolchain:
+
+. Install the toolchain natively on your own Ubuntu machine
+. Run a Ubuntu virtual machine that has the toolchain installed as a guest on
+a Windows or Mac host
+. Use a toolchain that has been preinstalled on a shared machine accessible
+via SSH
+
+Each option is described in more detail below. However, #1 requires access to
+a computer running Ubuntu Linux, which you may or may not have. If you run
+Mac or Windows, #2 or #3 are your best options. And if your course staff has
+set up a shared machine for you, #3 is a very straightforward choice. That
+said, there are other tradeoffs to each choice, so we suggest that you read
+through your options carefully before making a decision.
+
+=== Ubuntu Host
+
+If you have a computer running Ubuntu Linux, we have packaged the OS/161
+toolchain for the last two Ubuntu LTS releases (12.04 Precise and 14.04
+Trusty) in a Launchpad PPA. Installation is simple:
+
+....
+sudo add-apt-repository ppa:geoffrey-challen/os161-toolchain
+sudo apt-get update
+sudo apt-get install os161-toolchain
+....
+
+If you don't have a computer running Linux, and you have a spare computer
+around, you may want to give Ubuntu a try. Maintaining your own Linux machine
+is a great way to learn more about system administration and, to some degree,
+about operating systems as well.
+
+=== Ubuntu Guest Using Vagrant
+
+If you'd prefer to develop on your own machine but don't run Ubuntu Linux, we
+have a Vagrant configuration allowing you to easily fire up a VirtualBox
+guest virtual machine on your Windows or Mac host footnote:[We'll talk a lot
+more about virtualization in class, but here's one example of how useful it
+can be.].
+
+The first step is to install https://www.vagrantup.com/[Vagrant], which
+happliy comes with installers for most common operating systems. Next you
+need to get our `Vagrantfile` which describes how to provision and configure
+your virtual machine. You'll need Git installed to complete this next step.
+Pick or create an empty directory to use for your OS/161 sources. Then clone
+our Vagrant repository into that directory:
+
+....
+$ git clone https://github.com/ops-class/vagrant .
+....
+
+Once that's done, you should be able to run `vagrant up` from the directory
+containing our `Vagrantfile`. Note that `vagrant up` will take a few minutes
+to complete the first time, and you need to be online so that Vagrant can
+download various external resources:
+
+....
+$ vagrant up # This may take a few minutes
+....
+
+Assuming `vagrant up` completes successfully, you should be able to log in to
+your running virtual machine and run the OS/161 tools:
+
+....
+$ vagrant ssh
+trinity@zion:~$ sys161
+sys161: System/161 release 2.0.4, compiled Dec 23 2015 21:58:13
+sys161: Usage: sys161 [sys161 options] kernel [kernel args...]
+...
+....
+
+By default our configuration shares the `src` subdirectory of the directory
+where you installed our `Vagrantfile` with the virtual machine, meaning that
+you can edit your OS/161 source code either inside or outside of the virtual
+machine. Given that by default our VM does not have a GUI, if you prefer a
+graphical source code editor you may want to edit your code using tools
+installed on the host. However, you need to be logged in to your VM to
+compile and run your OS/161 kernel.
+
+=== Preexisting External Installation
+
+You may have access to a shared machine with the OS/161 toolchain installed,
+allowing you to work remotely over SSH. While this is by far the easiest
+option, it does limit your ability to work offline and may affect your choice
+of source code editor.
+ 
+=== Do-It-Yourself Installation on Other Flavors of UNIX
+
+We don't support this option, but if you'd like to try instructions are
+available at the http://os161.eecs.harvard.edu[OS/161 website]. Linux and
+other UNIX variants are likely to work. Superheroes and the overly determined
+have gotten things to work on OSX. Other environments are unlikely to work.
+Please use the most recent version of the cross-compilation toolchain and
+System/161.
