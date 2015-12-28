@@ -64,8 +64,29 @@ trinity@zion:~$ sys161 kernel "tt1;q"
 ....
 
 Following these kinds of written and spoken instructions will also better
-prepare you to interact with the course staff, who don't quite yet speak in
-Terminalese footnote:[We'll work on that for next year...].
+prepare you to interact with the course staff, who tend to give instructions
+in English, not as executable terminal commands.
+
+=== A Note on Learning Git
+
+Another objective of this course is to help you learn to use common
+development tools, particularly Git. However, like most programming tools the
+best way to get started with and continue to learn Git is through the
+extensive online documentation and multiple good online tutorials.
+
+As a result, we have removed Git guides from the `ops-class.org`
+documentation. Not only is any documentation we could provide much less
+likely to be complete and up-to-date, but this will provide you with good
+practice in online learning. Feel free to ask your course staff or other
+students for help, either in person or using the online forum. Chances are
+many of them use Git or something similar on a daily basis. When you become a
+professional hacker, you will too.
+
+Like anything else, learning Git takes practice and patience. But here's one
+simple tip: *read Git commands outputs and error messages*. Git produces
+incredibly useful output, particularly when an error occurs. Frequently the
+output tells you _exactly_ what to do to address whatever issue you are
+facing, down to the commands that you should type.
 
 === Collaboration Guidelines
 
@@ -99,6 +120,7 @@ explicit permission footnote:[Which you are extremely unlikely to get.].
   
 == Choosing and Initializing Your Development Environment
 
+[.lead]
 Developing for OS/161 requires a specialized set of tools, including the
 `sys161` simulator along with a GCC cross-compiler allowing you to create
 MIPS r3000 binary executables that `sys161` can execute.
@@ -148,11 +170,7 @@ happliy comes with installers for most common operating systems. Next you
 need to get our `Vagrantfile` which describes how to provision and configure
 your virtual machine. You'll need Git installed to complete this next step.
 Pick or create an empty directory to use for your OS/161 sources. Then clone
-our Vagrant repository into that directory:
-
-....
-git clone https://github.com/ops-class/vagrant .
-....
+our Vagrant repository into that directory.
 
 Once that's done, you should be able to run `vagrant up` from the directory
 containing our `Vagrantfile`. Note that `vagrant up` will take a few minutes
@@ -182,6 +200,10 @@ graphical source code editor you may want to edit your code using tools
 installed on the host. However, you need to be logged in to your VM to
 compile and run your OS/161 kernel.
 
+If you are having trouble, make sure that all Vagrant commands (`vagrant up`,
+`vagrant ssh`, etc.) are run from the same directory as the `Vagrantfile` you
+created previously. That's just how Vagrant works.
+
 === Preexisting External Installation
 
 You may have access to a shared machine with the OS/161 toolchain installed,
@@ -197,3 +219,48 @@ to download, configure, compile and install from the OS/161 toolchain
 sources. Linux and other UNIX variants are likely to work. Superheroes and
 the overly determined have gotten things to work on OSX. Please use the most
 recent version of the cross-compilation toolchain and System/161.
+
+== Configuring, Building, and Running on OS/161 Kernel
+
+[.lead]
+Now that you have your development environment ready, on to the fun stuff:
+booting your first OS/161 kernel.
+
+=== Acquiring the OS/161 Source Code
+
+We distribute the OS/161 source code using Git. Starting with a clone of our
+repository makes it easy for us to distribute updates, bug fixes, and new
+OS/161 releases, which can be merged easily into your development repository.
+
+First, choose a directory to work in:
+
+* If you are using our Vagrant virtual machine,
+you can run Git either inside or outside of your virtual machine, assuming
+your host machine has Git installed. For simplicity, we suggest cloning the
+sources inside your virtual machine in `/home/trinity/src`, which should
+exist and be an empty directory.
+* If you have the toolchain installed natively you can create your source
+directory wherever you want.
+
+Let's say you've chosen a directory called `src`, which should either not
+exist or (in the case of the Vagrant VM) be empty. Clone
+https://gitlab.ops-class.org/staff/os161[our `ops-class.org` Git repository]
+into that directory.
+
+=== Configure Your OS/161 Source Tree
+
+The next step is to configure the OS/161 sources by running the `configure`
+command located at the root of your source tree. You need to do this (very
+short) step only when you completely remove your source tree for some reason.
+The only configuration step is to set up where various binaries--including
+system executable and your kernel--will be created when you run `make` in
+later steps. Run `configure -help` to find out more including available
+command line options.
+
+Note that by default OS/161 installs things to `$HOME/os161/root`, which is a
+fine plan to put things if you are working on a shared machine. For our
+dedicated VM we use `$HOME/root` to shorten the directory paths a bit, but
+this requires that you use the `--ostree` argument to `configure`. If you
+forget this argument either now or when you need to rerun `configure` later,
+you will install things into `$HOME/os161/root`. *This has caused confusion
+for some students previously, so please be careful.*
