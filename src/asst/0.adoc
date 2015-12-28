@@ -95,22 +95,20 @@ familiarizing yourself with the OS/161 source you will be modifying. There is
 a small amount of coding involved, but not too much. Here are the guidelines
 for how to work together and work with your partner (if you have one):
 
-TIP: Answering the code reading questions and performing the scripting and
-coding tasks for ASST0 side-by-side with your partner is *strongly
+TIP: Working side-by-side with your partner on ASST0 is *strongly
 encouraged*.
   
-TIP: Helping other students set up Vagrant, use the `ops-class.org` online
-tools, and generally set up their environment is encouraged.
+TIP: Helping other students set up their `ops-class.org` environment is
+encouraged.
     
-TIP: Helping each other with Git, GDB, Eclipse, and OS/161 toolchain
-components is encouraged.
+TIP: Helping each other with Git is encouraged.
     
-TIP: Discussing the code reading questions and browsing the source tree with
+TIP: Discussing the code reading questions and browsing the source code with
 other students is encouraged, *but students in separate groups should prepare
 answers separately*.
     
 WARNING: Dividing the code reading questions, scripting and development tasks
-between partners is acceptable but not encouraged.
+between partners is acceptable but discouraged.
   
 CAUTION: Copying any answers from anyone who is not your partner or anywhere
 else and submitting them as your own is cheating.
@@ -264,3 +262,17 @@ this requires that you use the `--ostree` argument to `configure`. If you
 forget this argument either now or when you need to rerun `configure` later,
 you will install things into `$HOME/os161/root`. *This has caused confusion
 for some students previously, so please be careful.*
+
+=== Configure Your OS/161 Kernel
+
+The kernel sources for OS/161 are in the `kern` subdirectory, which has its
+own configuration script. Change into `kern/conf` and look around. You should
+notice a configuration script, a base configuration file (`kern.conf`), and
+four configurations that include `kern.conf`.
+
+You should take a look at `kern.conf` and one of the configurations to get a
+sense of the format. But for now, the only thing we're concerned about is
+ensuring that we enable `dumbvm` for `ASST0`. You're going to write a
+full-fledged virtual memory (VM) system in `ASST3`, but for the first few
+assignments `dumbvm` provides enough of a "dumb" VM to allow you to proceed.
+Configure a kernel now with `dumbvm` enabled.
