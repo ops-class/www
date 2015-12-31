@@ -224,7 +224,7 @@ recent version of the cross-compilation toolchain and System/161.
 Now that you have your development environment ready, on to the fun stuff:
 booting your first OS/161 kernel.
 
-=== Acquiring the OS/161 Source Code
+=== Download the OS/161 Source Code
 
 We distribute the OS/161 source code using Git. Starting with a clone of our
 repository makes it easy for us to distribute updates, bug fixes, and new
@@ -276,3 +276,10 @@ ensuring that we enable `dumbvm` for `ASST0`. You're going to write a
 full-fledged virtual memory (VM) system in `ASST3`, but for the first few
 assignments `dumbvm` provides enough of a "dumb" VM to allow you to proceed.
 Configure a kernel now with `dumbvm` enabled.
+
+The OS/161 kernel configuration process sets various options that control how
+your kernel gets built, so unlike the configuration step above you will
+probably need to modify these files at some point during later assignments.
+In particular, `conf.kern` determines what source files get included in your
+kernel build, so if you add sources to the kernel you'll need to add them to
+`conf.kern` as well.
