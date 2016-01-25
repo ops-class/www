@@ -49,8 +49,12 @@ metalsmith(__dirname)
     output: 'assets/js/site.js'
   }))
   .use(concat({
-    files: 'assets/js/slides/desk/*.js',
-    output: 'assets/js/slides/desk.js'
+    files: 'assets/css/slides/deck/*.css',
+    output: 'assets/css/slides/deck.css'
+  }))
+  .use(concat({
+    files: 'assets/js/slides/deck/*.js',
+    output: 'assets/js/slides/deck.js'
   }))
   .use(highlight())
   /*
