@@ -48,6 +48,10 @@ metalsmith(__dirname)
     files: 'assets/js/site/*.js',
     output: 'assets/js/site.js'
   }))
+  .use(concat({
+    files: 'assets/js/slides/desk/*.js',
+    output: 'assets/js/slides/desk.js'
+  }))
   .use(highlight())
   /*
   .use(spellcheck({ dicFile: 'dicts/en_US.dic',
