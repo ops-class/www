@@ -330,7 +330,7 @@ li {
     .deck-container li:first-of-type {
       margin-top: 0.8em; }
     .deck-container li p {
-      margin-bottom: 0.5em; }
+      margin-bottom: 0.0em; }
   .deck-container .imageblock {
     font-size: 16px;
     text-align: center;
