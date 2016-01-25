@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{{#if title}}
+<title>{{ title }}</title>
+{{/if}}
+
+{{#if author }}
+<meta content="{{ author }}" name="author">
+{{/if}}
+
+<link href="/assets/css/slides/deck.css" rel="stylesheet" />
+<script src="/assets/js/slides/deck.js"></script>
+</head>
+
+<body class="article">
+{{{ contents }}}
+</body>
+
+<script src="/assets/js/slides/slides.js"></script>
+</body>
+</html>
