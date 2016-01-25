@@ -29,8 +29,8 @@ video::gDadfh0ZdBM[youtube,width=640,height=360,start=155,end=189]
 [.nooutline]
 == Why I'm Here
 
-[canvas-image="https://olivermanalese.files.wordpress.com/2013/08/tumblr_mcmvp31krd1qgu2vjo1_1280.jpg"]
 == Meme
+
 [.meme-bottom]
 I took the red pill
 
@@ -50,8 +50,10 @@ I took the red pill
 
 [.big.vcenter]*So be careful: this class can be transformative!*
 
-[canvas-image="http://laschoolreport.com/wp-content/uploads/2013/08/Sad-Teacher.jpg", role='nooutline']
 == Meme
+
+[.background]
+image:http://laschoolreport.com/wp-content/uploads/2013/08/Sad-Teacher.jpg[]
 
 [.meme-top]
 Took this class
@@ -64,10 +66,14 @@ Became a professor
 
 == Introducing the 2015 Course Staff
 
-[canvas-image="http://kickofjoy.com/wp-content/uploads/2014/04/5-Soulful-Ways-To-Support-Your-Best-Friends.jpg"]
 == Meme
+
+[.background]
+image:http://kickofjoy.com/wp-content/uploads/2014/04/5-Soulful-Ways-To-Support-Your-Best-Friends.jpg[]
+
 [.meme-top]
 Meet
+
 [.meme-bottom]
 Your new best friends
 
