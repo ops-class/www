@@ -1,0 +1,45 @@
+body.is-clone .clonepointer {
+  /* default convenient positioning for clone pointers */
+  position: absolute;
+  z-index: 10; }
+  body.is-clone .clonepointer.scale-on-click {
+    transition: transform 80ms linear;
+    -webkit-transition: -webkit-transform 80ms linear; }
+    body.is-clone .clonepointer.scale-on-click.pointer-click {
+      transition: transform 150ms linear;
+      -webkit-transition: -webkit-transform 150ms linear;
+      transform: translate(-50%, -50%) scale(1.5, 1.5) translate(50%, 50%);
+      -webkit-transform: translate(-50%, -50%) scale(1.5, 1.5) translate(50%, 50%); }
+
+.notes, .notes-target {
+  display: none; }
+
+body.has-clones .deck-container:not(.deck-globalscale):not(.deck-menu) > .slide.deck-current, body.has-clones .deck-container:not(.deck-globalscale):not(.deck-menu) > .slide.deck-child-current {
+  outline: 5px solid grey;
+  /* use outline to avoid layout issues with old themes and allow for precise pointer position estimation */
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  transform: translate(20px, 20px);
+  -webkit-transform: translate(20px, 20px); }
+  body.has-clones .deck-container:not(.deck-globalscale):not(.deck-menu) > .slide.deck-current + .slide, body.has-clones .deck-container:not(.deck-globalscale):not(.deck-menu) > .slide.deck-child-current + .slide {
+    outline: 5px solid grey;
+    overflow: hidden;
+    display: block !important;
+    visibility: visible;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%) scale(0.5) translate(50%, 50%) translate(200%, 0) translate(80px, 40px);
+    -webkit-transform: translate(-50%, -50%) scale(0.5) translate(50%, 50%) translate(200%, 0) translate(80px, 40px); }
+    body.has-clones .deck-container:not(.deck-globalscale):not(.deck-menu) > .slide.deck-current + .slide.deck-next, body.has-clones .deck-container:not(.deck-globalscale):not(.deck-menu) > .slide.deck-child-current + .slide.deck-next {
+      outline-color: red; }
+body.has-clones .deck-container:not(.deck-globalscale):not(.deck-menu) .notes-target {
+  display: block;
+  background: black;
+  color: #FFB;
+  padding: 5px;
+  position: absolute;
+  left: 840px;
+  right: 0;
+  top: 340px;
+  bottom: 0; }
