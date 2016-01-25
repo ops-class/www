@@ -37,7 +37,7 @@ I took the red pill
 [.nooutline]
 == Why I'm Here
 
-[options='step']
+[.slider]
 * I took CS161 @ Harvard--now also known as CSE 421/521 at the
   University at Buffalo--from Margo Seltzer in 2001
 * At that point I was a physics major, but I wouldn't be for long..
@@ -84,13 +84,13 @@ We probably have the best course staff ever this year--a mixture of both a
 core of veteran TAs assisted by a large group of volunteers.
 
 .Teaching Assistants
-[options='step']
+[.slider]
 . *Jinghao Shi*: second year TA, wrote the definitive CSE 421/521 blog/help
 guide
 . *Guru Prasad Srinivasa*: third-year TA, actual Linux kernel hacker
 . *Zihe Chen*: third-year TA
 
-[options='step']
+[.slide]
 --
 Jinghao will teach recitations, Guru will supervise office hours, and Zihe
 will lead--but not do all of--the online grading.
@@ -101,7 +101,7 @@ will lead--but not do all of--the online grading.
 [.small]
 --
 .Ninjas:
-[options='step']
+[.slider]
 . *Jerry Antony Ajay*: just knows stuff
 . *Yihong Chen*: 2014 student
 . *Scott Florentino*: 2014 student
@@ -113,7 +113,7 @@ will lead--but not do all of--the online grading.
 . *Mack Ward*: 2014 student
 --
 
-[options='step']
+[.slide]
 --
 You'll see the ninjas during office hours but they will not do any grading.
 --
@@ -121,25 +121,25 @@ You'll see the ninjas during office hours but they will not do any grading.
 == Operating Systems Briefly Defined
 
 .Operating System:
-[options='step']
+[.slider]
 . A *computer program* that
 . *multiplexes hardware resources* and
 . *implements useful abstractions*.
 
-[options='step']
+[.slide]
 --
-The OS is just another computer program! [slide]#(If a large,
+The OS is just another computer program! [.slide]#(If a large,
 complex, mature and mission critical one.)#
 --
 
-[options='step']
+[.slide]
 --
 *Multiplexing* allows multiple people or programs to use the same set of
 hardware resources--processors, memory, disks, network connection--safely and
 efficiently.
 --
 
-[options='step']
+[.slide]
 --
 *Abstractions*--processes, threads, address spaces, files, and
 sockets--simplify the usage of hardware resources by organizing information
@@ -148,7 +148,7 @@ or implementing new capabilities.
 
 == Motivating This Class
 
-[options='step']
+[.slider]
 * How many of you have participated in OS development?
 * How many of you regularly program in languages that use operating system
 abstractions directly?
@@ -168,7 +168,7 @@ What's this for again?
 
 == Why Study Operating Systems?
 
-[options='step']
+[.slider]
 * *Reality*: this is how computers really work, and as a computer scientist or
   engineer you should know how computers really work.
 * *Ubiquity*: operating systems are everywhere and you are likely to eventually
@@ -179,7 +179,7 @@ What's this for again?
 
 == Why Program Operating Systems?
 
-[options='step']
+[.slider]
 * *Design*: programming operating systems stresses the importance of careful
   design and specification before coding begins. You will learn the value of
   design, probably the hard way.
@@ -194,9 +194,9 @@ What's this for again?
 
 == Course Structure
 
-[options='step']
+[.slider]
 * Conceptual learning...
-[options='step']
+[.slider]
 ** Lectures
 ** Recitations
 ** Exams
@@ -205,29 +205,29 @@ What's this for again?
 == Learning Objectives: Conceptual
 
 .When you finish CSE 421/521 you will:
-[options='step']
+[.slider]
 . understand the abstractions supported by modern operating systems
 . be able to describe how operating systems policies and mechanisms safely
   and efficiently multiplex hardware resources
 . be able to analyze historical, current, and emerging operating system
   designs and features
 
-[options='step']
+[.slide]
 --
 The main way we will know that you are learning is by your participation in
 class and recitations.
 --
-[options='step']
+[.slide]
 --
 You will be tested for mastery on exams.
 --
 
 == Conceptual Progression
 
-[.small,options='step']
+[.small.slider]
 * Introduction to operating system abstractions and structure.
 * Abstracting and multiplexing:
-[options='step']
+[.slider]
 ** the CPU--interrupts, context, threads, processes, processor scheduling,
    thread synchronization.
 ** memory--memory layout, address translation, paging and segmentation,
@@ -240,7 +240,7 @@ You will be tested for mastery on exams.
 
 == Learning the Concepts
 
-[options='step']
+[.slider]
 * Attend class.
 * Come to class on time:
 ** Music starts as soon as I can get into the room...
@@ -253,7 +253,7 @@ You will be tested for mastery on exams.
 
 == References
 
-[options='step']
+[.slide]
 --
 .Modern Operating Systems by Andrew Tanenbaum
 image::http://ecx.images-amazon.com/images/I/51dqadCuRiL.jpg[title="Modern Operating Systems by Andrew Tanenbaum",width="25%",link="http://www.amazon.com/Modern-Operating-Systems-Andrew-Tanenbaum/dp/013359162X/"]
@@ -265,7 +265,7 @@ image::http://ecx.images-amazon.com/images/I/51dqadCuRiL.jpg[title="Modern Opera
 image::http://ecx.images-amazon.com/images/I/71RwRPoFK%2BL.jpg[title="The C Programming Language by Kernighan and Ritchie",width="25%",link="http://www.amazon.com/C-Programming-Language-2nd/dp/0131103628/"]
 --
 
-[options='step']
+[.slide]
 --
 *Material presented in lecture takes priority over anything you find in
 a book or online.*
@@ -352,7 +352,7 @@ implementation due Friday May 15th @ 5PM.
 
 == 10,000 Hours
 
-[options='step']
+[.slider]
 * While many operating systems concepts are elegantly simple, implementing them
   is not.
 * Therefor, this class is not easy:
@@ -364,7 +364,7 @@ implementation due Friday May 15th @ 5PM.
 == Meme
 
 [.background]
-image:http://www.quickmeme.com/img/18/18df2b56513f75a0930a1b8f8eada16b1acb44ed986b69144e9f0abb8b2c5b33.jpg
+image:http://www.quickmeme.com/img/18/18df2b56513f75a0930a1b8f8eada16b1acb44ed986b69144e9f0abb8b2c5b33.jpg[]
 
 [.meme-top]
 Sorry
@@ -401,7 +401,7 @@ Learning is hard
 
 == ops-class.org Website
 
-[options='step']
+[.slider]
 * It's ready! (This has never happened before _before_ the first day of class...)
 * But it should actually be all operational, meaning that you can start on
   ASST0 once you have a partner and upload an SSH key.
@@ -414,7 +414,7 @@ Learning is hard
 
 [.small]
 --
-[options='step']
+[.slider]
 * Conceptual--(50%)
 ** 5%--Preterm Exam (Wednesday)
 ** 15%--Midterm Exam
@@ -426,7 +426,7 @@ Learning is hard
 ** 20%--ASST3
 --
 
-[options='step']
+[.slide]
 --
 The preterm exam is free points: 5% for showing up and doing your best.
 If you do not take the preterm your midterm and final exam scores will be
@@ -435,7 +435,7 @@ scaled appropriately.
 
 == Continuous Choose-Your-Own Grade Programming Evaluations
 
-[options='step']
+[.slider]
 * Almost all assignment grading in CSE421/521 is automated.
 * Therefore... you can have your code graded repeatedly whenever you like.
 * Therefore... you can stop each assignment whenever you are satisfied with
@@ -446,7 +446,7 @@ questions and designs) can *only be submitted once*.
 
 == Continuous Choose-Your-Own Grade Details and Caveats
 
-[options='step']
+[.slider]
 * Assignments are done in pairs, so find a partner who is interested in
   achieving the same grade as you are.
 ** The website has more advice on this...
@@ -466,10 +466,10 @@ a significant penalty.
 
 == Using Email
 
-[options='step']
+[.slider]
 * If you need to email the course staff (#staff@ops-class.org#), please consider
   the following:
-[options='step']
+[.slider]
 ** Is this information likely to be available on the website? If yes, go find it!
 ** Is the answer to this question likely to benefit other students? If yes, use Piazza.
 * Before you email me directly, please also consider the following:
@@ -490,7 +490,7 @@ a significant penalty.
 
 [.small]
 --
-[options='step']
+[.slider]
 * All three TAs and ten Ninjas will be holding office hours.
 ** We are hoping to have around 40 hours of office hours scheduled per week,
     meaning that you have plenty of opportunities to complete the challenging
@@ -508,7 +508,7 @@ a significant penalty.
 
 Partner groups are jointly responsible for joint work.
 
-[options='step']
+[.slider]
 * If any part is plagiarized, both partners fail.
 * If any part is plagiarized, both partners fail.
 * If you have concerns about work your partner has submitted, immediately
@@ -523,7 +523,7 @@ be cheating.
 
 == Getting Help: Helping Each Other
 
-[options='step']
+[.slider]
 * The course staff will be working as hard as you--and sometimes harder--but
   there are many of you and few of us. Look to your left and your right: these
   are your comrades.
@@ -538,7 +538,7 @@ be cheating.
 == Cheaters
 
 * I take cheating very seriously:
-[options='step']
+[.slider]
 ** Not because I am vindictive and mean...
 ** ... but because I believe in protecting and honoring those of you that
    work hard and play by the rules.
@@ -557,7 +557,7 @@ No matter how long it takes
 == Cheaters
 
 * We will use an online service to detect and investigating code similarity.
-[options='step']
+[.slider]
 ** It is very fast, so we can it on every submission.
 ** It is very accurate.
 ** We will compare your assignment against everything we can think of: this
@@ -587,7 +587,7 @@ image:http://www.phootoscelebrities.com/wp-content/uploads/2014/06/Barack-Obama-
 [.meme-top]
 Cheated in 421/521
 
-[.meme-bottom,options='step']
+[.meme-bottom.slide]
 Got an F
 
 == Meme
@@ -598,7 +598,7 @@ image:http://www.jewishjournal.com/images/articles/dos-equis-guy.JPG[]
 [.meme-top]
 Cheated in 421/521
 
-[.meme-bottom,options='step']
+[.meme-bottom.slide]
 Got an F
 
 == Meme
@@ -609,7 +609,7 @@ image:http://benchmarkitconsulting.com/wp-content/uploads/2013/02/AngryCat-266x3
 [.meme-top]
 Cheated in 421/521
 
-[.meme-bottom,options='step']
+[.meme-bottom.slide]
 Got an F
 
 == Meme
@@ -620,7 +620,7 @@ image:http://s1.totalprosports.com/wp-content/uploads/2015/01/Tom-Brady-trolls-C
 [.meme-top]
 Didn't deflate footballs
 
-[.meme-bottom,options='step']
+[.meme-bottom.slide]
 Got an F for copying code in 421/521
 
 == Meme
@@ -631,7 +631,7 @@ image:http://www.writespirit.net/wp-content/uploads/old-images/mother-teresa.jpg
 [.meme-top]
 Cheated in 421/521
 
-[.meme-bottom,options='step']
+[.meme-bottom.slide]
 Not really!
 
 == Meme
@@ -642,7 +642,7 @@ image:https://pbs.twimg.com/profile_images/1146014416/mark-zuckerberg.jpg[]
 [.meme-top]
 Didn't cheat in 421/521
 
-[.meme-bottom,options='step']
+[.meme-bottom.slide]
 Runs own business!
 
 == Questions About Collaboration?
@@ -666,7 +666,7 @@ Must do office hours!
 [.nooutline]
 == Errata
 
-[options='step']
+[.slider]
 * *Pre-class music*: if you have suggestions, please stop by my office hours.
   One request per student per semester and requests must be made in person.
 * Does UB think your name is "., foo bar", *and it isn't actually "., foo
