@@ -83,7 +83,7 @@ Your new best friends
 == Introducing the 2015 Course Staff
 
 We probably have the *best* course staff ever this year: a mixture of new
-TAs, veteran volunteers, and a large group of "ninjas"--students returning
+TAs, veteran volunteers, and a large group of "ninjas"&mdash;students returning
 from last year to help out.
 
 .Official Teaching Assistants
@@ -538,9 +538,12 @@ approach the course staff.
 * It is entirely your responsibility to ensure that your team's submission
 is fair and reflects your contributions.
 
+[.slide]
+--
 Pair programming assignments for CSE 421/521 are very clear about what kinds
 of collaboration are permitted. We consider violating these expectations to
 be cheating.
+--
 
 == Getting Help: Helping Each Other
 
