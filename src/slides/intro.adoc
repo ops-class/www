@@ -155,10 +155,14 @@ abstractions directly?
 * So why study operating systems? Why is this class even offered? *Why is it
 required?*
 
-[canvas-image="http://www.illuminatiagenda.com/wp-content/uploads/2013/01/jackie-chan-illuminati.jpg"]
 == Meme
+
+[.background]
+image:http://www.illuminatiagenda.com/wp-content/uploads/2013/01/jackie-chan-illuminati.jpg[]
+
 [.meme-top]
 Remind me
+
 [.meme-bottom]
 What's this for again?
 
@@ -301,10 +305,14 @@ You will be tested for mastery by each programming assignment.
 
 video::hii2SwI39ek[youtube,width=640,height=360,start=492,end=503]
 
-[canvas-image="http://images.vcpost.com/data/images/full/17029/kill-bill-vol-2.jpg", role="nooutline"]
 == Meme
+
+[.background]
+image:http://images.vcpost.com/data/images/full/17029/kill-bill-vol-2.jpg[]
+
 [.meme-top]
 Thought I was done
+
 [.meme-bottom]
 Then noticed ASST3
 
@@ -353,10 +361,14 @@ implementation due Friday May 15th @ 5PM.
 * However, this class is also worthwhile:
 ** [green]#4.14 (+0.31)# and [green]#4.59 (+0.76)# overall rating (2013).
 
-[canvas-image="http://www.quickmeme.com/img/18/18df2b56513f75a0930a1b8f8eada16b1acb44ed986b69144e9f0abb8b2c5b33.jpg"]
 == Meme
+
+[.background]
+image:http://www.quickmeme.com/img/18/18df2b56513f75a0930a1b8f8eada16b1acb44ed986b69144e9f0abb8b2c5b33.jpg
+
 [.meme-top]
 Sorry
+
 [.meme-bottom]
 Learning is hard
 
@@ -531,10 +543,14 @@ be cheating.
 ** ... but because I believe in protecting and honoring those of you that
    work hard and play by the rules.
 
-[canvas-image="https://jrarcieri.files.wordpress.com/2011/09/the-last-of-the-mohicans-original.jpg"]
 == Meme
+
+[.background]
+image:https://jrarcieri.files.wordpress.com/2011/09/the-last-of-the-mohicans-original.jpg[]
+
 [.meme-top]
 I will find cheaters
+
 [.meme-bottom]
 No matter how long it takes
 
@@ -548,10 +564,14 @@ No matter how long it takes
    years', last years', anything you can find online, assignments submitted at
    Harvard, etc.
 
-[canvas-image="http://www.scoutnetworkblog.com/wp-content/uploads/2011/03/girl-with-the-dragon-tattoo-noomi-rapace.jpg"]
 == Meme
+
+[.background]
+image:http://www.scoutnetworkblog.com/wp-content/uploads/2011/03/girl-with-the-dragon-tattoo-noomi-rapace.jpg[]
+
 [.meme-top]
 And when I do
+
 [.meme-bottom]
 I'll be mad
 
@@ -559,45 +579,69 @@ I'll be mad
 
 * We catch and fail cheaters. Not for the assignment: for the entire class.
 
-[canvas-image="http://www.phootoscelebrities.com/wp-content/uploads/2014/06/Barack-Obama-images-.jpg"]
 == Meme
+
+[.background]
+image:http://www.phootoscelebrities.com/wp-content/uploads/2014/06/Barack-Obama-images-.jpg[]
+
 [.meme-top]
 Cheated in 421/521
+
 [.meme-bottom,options='step']
 Got an F
 
-[canvas-image="http://www.jewishjournal.com/images/articles/dos-equis-guy.JPG"]
 == Meme
+
+[.background]
+image:http://www.jewishjournal.com/images/articles/dos-equis-guy.JPG[]
+
 [.meme-top]
 Cheated in 421/521
+
 [.meme-bottom,options='step']
 Got an F
 
-[canvas-image="http://benchmarkitconsulting.com/wp-content/uploads/2013/02/AngryCat-266x300.jpg"]
 == Meme
+
+[.background]
+image:http://benchmarkitconsulting.com/wp-content/uploads/2013/02/AngryCat-266x300.jpg[]
+
 [.meme-top]
 Cheated in 421/521
+
 [.meme-bottom,options='step']
 Got an F
 
-[canvas-image="http://s1.totalprosports.com/wp-content/uploads/2015/01/Tom-Brady-trolls-Colts.jpg"]
 == Meme
+
+[.background]
+image:http://s1.totalprosports.com/wp-content/uploads/2015/01/Tom-Brady-trolls-Colts.jpg[]
+
 [.meme-top]
-Didn't deflate football
+Didn't deflate footballs
+
 [.meme-bottom,options='step']
 Got an F for copying code in 421/521
 
-[canvas-image="http://www.writespirit.net/wp-content/uploads/old-images/mother-teresa.jpg"]
 == Meme
+
+[.background]
+image:http://www.writespirit.net/wp-content/uploads/old-images/mother-teresa.jpg[]
+
 [.meme-top]
 Cheated in 421/521
+
 [.meme-bottom,options='step']
 Not really!
 
-[canvas-image="https://pbs.twimg.com/profile_images/1146014416/mark-zuckerberg.jpg"]
 == Meme
+
+[.background]
+image:https://pbs.twimg.com/profile_images/1146014416/mark-zuckerberg.jpg[]
+
 [.meme-top]
 Didn't cheat in 421/521
+
 [.meme-bottom,options='step']
 Runs own business!
 
@@ -609,8 +653,11 @@ Runs own business!
 * If Buffalo Public Schools are closed, we will not have class.
 * If the University at Buffalo is closed, we will not have class.
 
-[canvas-image="memes/yihong-snow.jpg"]
 == Meme
+
+[.background]
+image:memes/yihong-snow.jpg[]
+
 [.meme-bottom]
 Must do office hours!
 
@@ -625,10 +672,14 @@ Must do office hours!
 * Does UB think your name is "., foo bar", *and it isn't actually "., foo
   bar"*? Please let us know (staff@ops-class.org).
 
-[canvas-image="http://1.bp.blogspot.com/_oOBwed426Vs/TEniVVa0ILI/AAAAAAAAAI8/D5xQBxhF7UI/s1600/\'David\'+Mr+Opportunity+Honda.jpg"]
 == Meme
+
+[.background]
+image:http://1.bp.blogspot.com/_oOBwed426Vs/TEniVVa0ILI/AAAAAAAAAI8/D5xQBxhF7UI/s1600/\'David\'+Mr+Opportunity+Honda.jpg[]
+
 [.meme-top]
 Sorry
+
 [.meme-bottom]
 I don't speak foreign!
 
