@@ -8,6 +8,7 @@ var metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
+		deck = require('./lib/deck.js'),
     lessjavascript = require('./lib/lessjavascript.js'),
     concat = require('metalsmith-concat'),
     highlight = require('metalsmith-highlight'),
@@ -45,6 +46,7 @@ metalsmith(__dirname)
   .use(layouts({
     engine: 'handlebars'
   }))
+	.use(deck())
   .use(lessjavascript())
   .use(concat({
     files: 'assets/css/site/*.css',

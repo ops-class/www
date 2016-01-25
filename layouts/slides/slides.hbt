@@ -18,7 +18,9 @@
 </head>
 
 <body class="article">
-{{{ contents }}}
+	<div class="deck-container">
+		{{{ contents }}}
+	</div>
 </body>
 
 <script src="/assets/js/slides/slides.js"></script>

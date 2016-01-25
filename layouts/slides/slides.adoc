@@ -3,7 +3,6 @@
 :backend: deckjs
 :deckjs_transition: none
 :icons: font
-:noheader: true
 :source-highlighter: coderay
 {{#if song }}
 :song: {{ song.name }} by {{ song.author }}
