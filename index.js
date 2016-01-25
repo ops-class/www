@@ -29,6 +29,12 @@ var asst_pattern = 'asst/*.adoc';
 metalsmith(__dirname)
   .use(drafts())
   .use(filemetadata([
+    {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.adoc'}},
+	]))
+  .use(layouts({
+    engine: 'handlebars'
+  }))
+  .use(filemetadata([
     {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}},
     {pattern: asst_pattern, metadata: {'asst': true, 'layout': 'asst/asst.hbt'}}
   ]))
