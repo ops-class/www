@@ -16,16 +16,6 @@ description: >
 
 video::9L8yEDcZ-QI[youtube,width=320,height=180]
 
-[.nooutline]
-== Let Me Tell You Why You're Here
-
-video::gDadfh0ZdBM[youtube,width=640,height=360,start=120,end=151]
-
-<<<
-
-video::gDadfh0ZdBM[youtube,width=640,height=360,start=155,end=189]
-
-[.nooutline]
 == Why I'm Here
 
 == Meme
@@ -117,8 +107,6 @@ students!
 
 <<<
 
-[.small]
---
 .Ninjas:
 [.slider]
 . *Dan Conway*
@@ -127,7 +115,6 @@ students!
 . *Benjamin Rueda*
 . *Mark Simpson*
 . *Yousuf Zubairi*
---
 
 [.slide]
 --
