@@ -51,8 +51,8 @@ the deck container.
 
     $.each($.deck('getSlides'), function(i, $slide) {
       var id = $slide.attr('id');
-      if (id) {
-        $datalist.append('<option value="' + id + '">');
+      if (id && $slide.hasClass('deck-goto')) {
+        $datalist.append('<option value="' + id + '">' + $slide.children().first().text() + '</option>');
       }
     });
   };

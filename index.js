@@ -68,16 +68,14 @@ metalsmith(__dirname)
   }))
   .use(highlight())
 	.use(beautify())
-  /*
   .use(spellcheck({ dicFile: 'dicts/en_US.dic',
                     affFile: 'dicts/en_US.aff',
                     exceptionFile: 'dicts/spelling_exceptions.json',
                     checkedPart: "div#content",
                     failErrors: false,
                     verbose: true}))
-	*/
   .use(formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false }))
-  //.use(linkcheck({ verbose: true , failWithoutNetwork: false }))
+  .use(linkcheck({ verbose: true , failWithoutNetwork: false }))
   .clean(true)
   .build(function throwErr (err) { 
     if (err) {

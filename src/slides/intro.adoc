@@ -9,6 +9,8 @@ description: >
 [.nooutline]
 == Welcome to CSE 421/521
 
+aoeuth
+
 .Today:
 * Meet the CSE 421/521 staff!
 * Introduction to course content

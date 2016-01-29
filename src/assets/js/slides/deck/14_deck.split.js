@@ -14,7 +14,7 @@ This module splits a long slide into multiple slides.
 	var $d = $(document);
 
 	createEmptySlide = function(title_el) {
-		slide = $(document.createElement('section'));
+		slide = $(document.createElement('div'));
 		slide.addClass('slide').append(title_el.clone());
 		return slide;
 	};
