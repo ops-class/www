@@ -33,7 +33,8 @@ metalsmith(__dirname)
     {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.adoc'}},
 	]))
   .use(layouts({
-    engine: 'handlebars'
+    engine: 'handlebars',
+		pattern: slides_pattern
   }))
   .use(filemetadata([
     {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}},
@@ -72,9 +73,9 @@ metalsmith(__dirname)
                     checkedPart: "div#content",
                     failErrors: false,
                     verbose: true}))
+	*/
   .use(formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false }))
-  .use(linkcheck({ verbose: true , failWithoutNetwork: false }))
-  */
+  //.use(linkcheck({ verbose: true , failWithoutNetwork: false }))
   .clean(true)
   .build(function throwErr (err) { 
     if (err) {
