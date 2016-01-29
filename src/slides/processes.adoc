@@ -9,7 +9,7 @@ song:
   author: "Alessia Cara"
   youtube: g5vUBQBykJ4
 ---
-[.nooutline]
+[.nooutline.spelling_exception]
 == Technical Women
 
 image::women/011.jpg[width="100%", title="Augusta Ada Lovelace King", link="http://en.wikipedia.org/wiki/Ada_Lovelace"]
@@ -34,7 +34,8 @@ video::{music}[youtube,width=0,height=0]
 * Thanks for taking the preterm!
 * If you are enrolled in the class you should be receiving course emails. If
 you would like to sign up for the email list, here is the link:
-https://www.ops-class.org/mailman/listinfo/ub
+[.spelling_exception]#https://www.ops-class.org/mailman/listinfo/ub#
+  "/\\d+ MB/": true,
 * We are still working on the website
 * Recitations will start next week.
 * The add/drop deadline is *Monday February 1st.*
@@ -118,7 +119,7 @@ organizing principle.
 .*Processes are the most fundamental operating system abstraction.*
 * Processes organize information about other abstractions and represent
 a single thing that the computer is "doing."
-* You know processes as app(lication)s.
+* You know processes as [.spelling_exception]#app(lication)s#.
 
 == Organizing Information
 
@@ -188,7 +189,7 @@ image::figures/returncode.svg[width="80%", role="expand"]
 * Allows processes to return a single int to the process that created
 them.
 * 0 typically indicates success; non-0, failure.
-* Analogous to older computers that would transform a set of punchcards
+* Analogous to older computers that would transform a set of punch cards
 into a "result."
 * `bash` exposes return codes as `$?`:
 
@@ -197,7 +198,7 @@ into a "result."
 image::figures/returncode-bash.svg[width="80%", role="expand"]
 --
 
-== $ p | pes # IPC: pipes
+== [.spelling_exception]#$ p | pes # IPC: pipes#
 
 image::figures/pipes.svg[width="100%"]
 
@@ -219,7 +220,7 @@ Systems programming:
 [.meme-bottom]
 A series of pipes!
 
-== $ kill -9 ubshuttle # IPC: signals
+== [.spelling_exception]#$ kill -9 ubshuttle # IPC: signals#
 
 image:figures/signals.svg[width="100%"]
 
@@ -279,7 +280,7 @@ common ideas.
 input, etc.
 * Redrawing the screen as necessary in response to user input, web page
 loading, etc.
-* Loading webpages--usually multiple parts _in parallel_ to speed
+* Loading web pages--usually multiple parts _in parallel_ to speed
 things up.
 
 [.slider]
@@ -317,7 +318,7 @@ image::figures/finding-bash.svg[width="100%"]
 
 image::figures/process-bash-3.svg[width="100%"]
 
-== $ ps -Lf # thread information
+== [.spelling_exception]#$ ps -Lf # thread information#
 
 image::figures/threads-bash.svg[width="100%"]
 
@@ -334,7 +335,7 @@ waiting on.
 * `TIME`: measure of the amount of time that the process has spent
 running.
 
-== $ ps -Lf # thread information
+== [.spelling_exception]#$ ps -Lf # thread information#
 
 image::figures/threads-bash.svg[width="100%"]
 
@@ -351,7 +352,7 @@ image::figures/process-bash-2.svg[width="100%"]
 [.slider]
 * I wish we could see a process with multiple threads...
 
-== $ ps -Lf # thread information
+== [.spelling_exception]#$ ps -Lf # thread information#
 
 image::figures/ps-threads.svg[width="90%", role="expand"]
 

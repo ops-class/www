@@ -5,11 +5,12 @@ author: Geoffrey Challen
 description: >
   Introduction to an introduction to operating systems, the course staff, and
   course policies.
+spelling_exceptions:
+  - TA'd
+  - staff@ops
 ---
 [.nooutline]
 == Welcome to CSE 421/521
-
-aoeuth
 
 .Today:
 * Meet the CSE 421/521 staff!
@@ -190,7 +191,7 @@ design and implement abstractions.
 design and specification before coding begins. You will learn the value of
 design, probably the hard way.
 * *Difficulty*: operating systems are large existing code bases where new
-solutions have stringest performance requirements. Programming operating
+solutions have stringent performance requirements. Programming operating
 systems will make you a better programmer and improve all of your subsequent
 work.
 * *Debugging*: debugging operating systems is challenging due to their multi-
@@ -260,12 +261,14 @@ how much you are absorbing...
 == References
 
 [.slide]
+[.spelling_exception]
 --
 .Modern Operating Systems by Andrew Tanenbaum
 image::http://ecx.images-amazon.com/images/I/51dqadCuRiL.jpg[title="Modern Operating Systems by Andrew Tanenbaum",width="25%",link="http://www.amazon.com/Modern-Operating-Systems-Andrew-Tanenbaum/dp/013359162X/"]
 --
 
 <<<
+[.spelling_exception]
 --
 .The C Programming Language
 image::http://ecx.images-amazon.com/images/I/71RwRPoFK%2BL.jpg[title="The C Programming Language by Kernighan and Ritchie",width="25%",link="http://www.amazon.com/C-Programming-Language-2nd/dp/0131103628/"]
