@@ -669,7 +669,7 @@ Runs own business!
 == Meme
 
 [.background]
-image:/assets/img/slides/memes/yihong-snow.jpg[]
+image:memes/yihong-snow.jpg[]
 
 [.meme-bottom]
 Must do office hours!

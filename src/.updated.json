@@ -1,15 +1,15 @@
 {
     "slides/intro.html": {
         "filename": "slides/intro.html",
-        "hash": "bf520f210f60b173b89d7a6e39e754e8",
+        "hash": "c4952ecd12da3fe8d9aa441f7ef077ad",
         "created": "2015-12-26T15:11:55.091Z",
-        "updated": "2016-01-25T18:52:35.545Z"
+        "updated": "2016-01-29T15:12:37.566Z"
     },
     "index.html": {
         "filename": "index.html",
-        "hash": "4b253e9f3e40006daaff943e4abe2ec1",
+        "hash": "f461bb279ccb4fdbc5faa3f89b90f6ff",
         "created": "2015-12-26T18:29:19.430Z",
-        "updated": "2016-01-26T17:14:44.707Z"
+        "updated": "2016-01-29T14:50:10.283Z"
     },
     "assets/img/favicon/header.html": {
         "filename": "assets/img/favicon/header.html",
@@ -28,5 +28,11 @@
         "hash": "cc6a32e64d344c4fa18db58f7aab5221",
         "created": "2015-12-26T22:42:17.117Z",
         "updated": "2016-01-25T04:36:24.394Z"
+    },
+    "slides/processes.html": {
+        "filename": "slides/processes.html",
+        "hash": "04e53336581f15b7a39d161d6e6cf306",
+        "created": "2016-01-29T15:12:37.566Z",
+        "updated": "2016-01-29T15:42:32.461Z"
     }
 }

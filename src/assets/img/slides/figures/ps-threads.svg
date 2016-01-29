@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="945.625"
+   height="593.07617"
+   viewBox="0 0 945.62501 593.07618"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="ps-threads.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="442.45112"
+     inkscape:cy="184.99164"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1032"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.03906254,-285.90207)">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="112.12693"
+       y="106.35008"
+       id="text2985"
+       sodipodi:linespacing="125%"
+       transform="translate(0,284.36218)"><tspan
+         sodipodi:role="line"
+         x="112.12693"
+         y="106.35008"
+         id="tspan2997" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-4.4419863e-08"
+       y="299.79855"
+       id="text3019"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="299.79855"
+         id="tspan3029"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold">[02:16:43 challen@www:~] $ ps 4261</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="324.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3005">  PID TTY      STAT   TIME COMMAND</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="349.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3007"> 4261 ?        Sl     0:00 /usr/sbin/apache2 -k start</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="374.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3009">[02:16:47 challen@www:~] $ ps -Lf 4261</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="399.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3011">UID        PID  PPID   LWP  C NLWP STIME TTY      STAT   TIME CMD</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="424.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3013">www-data  4261  2267  4261  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="449.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3015">www-data  4261  2267  4326  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="474.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3017">www-data  4261  2267  4327  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="499.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3019">www-data  4261  2267  4328  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="524.79858"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3021">www-data  4261  2267  4329  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="549.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3023">www-data  4261  2267  4330  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="574.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3025">www-data  4261  2267  4331  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="599.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3027">www-data  4261  2267  4332  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="624.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3030">www-data  4261  2267  4333  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="649.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3032">www-data  4261  2267  4334  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="674.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3034">www-data  4261  2267  4335  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="699.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3036">www-data  4261  2267  4336  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="724.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3038">www-data  4261  2267  4337  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="749.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3040">www-data  4261  2267  4338  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="774.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3042">www-data  4261  2267  4339  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="799.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3044">www-data  4261  2267  4340  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="824.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3046">www-data  4261  2267  4341  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="849.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3048">www-data  4261  2267  4342  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="874.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3066">www-data  4261  2267  4351  0   27 Jan22 ?        Sl     0:00 /usr/sbin/apache2</tspan></text>
+    <rect
+       style="opacity:0.27155175;fill:#00ff00;fill-opacity:1;stroke:none"
+       id="rect3050"
+       width="158.59395"
+       height="32.324883"
+       x="308.11682"
+       y="351.40576" />
+  </g>
+</svg>

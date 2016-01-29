@@ -1,0 +1,367 @@
+---
+title: "The Process Abstraction"
+date: 2015-01-30
+author: Geoffrey Challen
+description:
+  Introduction to the process abstraction and standard UNIX utilities.
+song:
+  name: "Wild Things"
+  author: "Alessia Cara"
+  youtube: g5vUBQBykJ4
+---
+[.nooutline]
+== Technical Women
+
+image::women/011.jpg[width="100%", title="Augusta Ada Lovelace King", link="http://en.wikipedia.org/wiki/Ada_Lovelace"]
+
+[.center.h2]
+icon:music[] link:http://www.alessiacara.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== $ ps -aux # Processes
+
+* Operating system abstractions.
+* Processes.
+* Inter-process communication (IPC).
+* Process examples.
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* Thanks for taking the preterm!
+* If you are enrolled in the class you should be receiving course emails. If
+you would like to sign up for the email list, here is the link:
+https://www.ops-class.org/mailman/listinfo/ub
+* We are still working on the website
+* Recitations will start next week.
+* The add/drop deadline is *Monday February 1st.*
+** You still have time this weekend to examine the assignments and
+decide if this course is right for you right now.
+
+[.nooutline]
+== Office Hours Protocol
+
+[.slider]
+* *Location* -- we'll start in the third floor area outside the official TA
+office and see how we go.
+* Please be respectful of the TAs and ninjas:
+[.slider]
+** Bother them relentlessly _during_ office hours...
+** and leave them alone _outside of_ office hours.
+
+[.nooutline]
+== Cold Calling
+
+[.slider]
+* I will cold call students during class, possibly using a tool integrate with
+the slides.
+* Cold calling is *not* designed to make anyone uncomfortable! Feel free to
+pass or say "I don't know."
+
+== Operating System Abstractions
+
+.Abstractions _simplify application design_ by:
+[.slider]
+* *hiding undesirable properties*,
+* *adding new capabilities*, and
+* *organizing information*.
+
+[.slide]
+--
+Abstractions provide an [.slide]*interface* to application programmers that
+separates [.slide]*policy* -- what the interface commits to accomplishing--from
+[.slide]*mechanism* -- how the interface is implemented.
+--
+
+== Example Abstraction: File
+
+.What *undesirable properties* do files hide?
+[.slider]
+* Disks are slow!
+* Chunks of storage are actually distributed all over the disk.
+* Disk storage may fail!
+
+.What *new capabilities* do files add?
+[.slider]
+* Growth and shrinking.
+* Organization into directories.
+
+.What *information* do files help organize?
+[.slider]
+* Ownership and permissions.
+* Access time, modification time, type, etc.
+
+== Preview of Coming Abstractions
+
+[.slider]
+* *Threads* abstract the CPU.
+* *Address spaces* abstract memory.
+* *Files* abstract the disk.
+* We will return to these abstractions. We are starting with an
+organizing principle.
+
+[cols="3*"]
+|===
+
+| image:figures/thread.svg[title="Thread",width="90%"]
+| image:figures/addressspace.svg[title="Address Space", width="90%"]
+| image:figures/file.svg[title="File", width="90%"]
+
+|===
+
+== The Process
+
+[.slider]
+.*Processes are the most fundamental operating system abstraction.*
+* Processes organize information about other abstractions and represent
+a single thing that the computer is "doing."
+* You know processes as app(lication)s.
+
+== Organizing Information
+
+Unlike threads, address spaces and files, processes are *not tied to a
+hardware component*. Instead, they contain other abstractions.
+
+[.small.slider]
+.Processes contain:
+* one or more *threads*,
+* an *address space*, and
+* zero or more open *file handles* representing *files*.
+
+image::figures/process.svg[title="The Process", width="50%", role="expand"]
+
+== Process as Protection Boundary
+
+The operating system is responsible for isolating processes from each
+other.
+
+[.slider]
+* What you do in your own process is your own business *but it shouldn't
+be able to crash the machine or effect other processes*—or at least
+processes started by other users.
+* Thus: safe intra-process communication is *your* problem; safe
+inter-process communication is an *operating system* problem.
+
+== Intra-Process Communication: Easy
+
+image::figures/intraprocess.svg[width="100%"]
+
+[.small.slider]
+* Communication between multiple threads in a process is usually
+accomplished using *shared memory*.
+* Threads within a process also share open file handles and both static
+and dynamically-allocated global variables.
+* Thread stacks and thus thread local variables are typically private.
+
+== [.small]#Intra-Process Communication: Easy... Maybe#
+
+image::figures/intraprocess.svg[width="100%"]
+
+[.slider]
+* *Sharing data requires synchronization mechanisms to ensure
+consistency.*
+* We will return to this later.
+
+== [.small]#Inter-Process Communication: Harder#
+
+image::figures/interprocess.svg[width="100%"]
+
+[.small.slider]
+* A variety of mechanism exist to enable inter-process communication
+(IPC), including shared files or sockets, exit codes, signals, pipes and
+shared memory.
+* All require coordination between the communicating processes.
+* Most have semantics limiting the degree to which processes can
+interfere with each other.
+** A process can't just send a SIGKILL to any other process running on
+the machine!
+
+== $ wait # IPC: return codes
+
+image::figures/returncode.svg[width="80%", role="expand"]
+
+[.smaller.slider]
+* Simplest and most-limited form of IPC.
+* Allows processes to return a single int to the process that created
+them.
+* 0 typically indicates success; non-0, failure.
+* Analogous to older computers that would transform a set of punchcards
+into a "result."
+* `bash` exposes return codes as `$?`:
+
+[.slide]
+--
+image::figures/returncode-bash.svg[width="80%", role="expand"]
+--
+
+== $ p | pes # IPC: pipes
+
+image::figures/pipes.svg[width="100%"]
+
+[.slider]
+* Pipes create a producer-consumer buffer between two processes.
+* Allows the output from one process to be used as the input to another.
+* The operating system manages a queue for each pipe to accommodate
+different input and output rates.
+* Facilitates the canonical chaining together of small UNIX utilities to
+do more sophisticated processing.
+
+== Meme
+
+[.background]
+image:http://www6.pcmag.com/media/images/429142-a-remembrance-and-defense-of-ted-stevens-series-of-tubes.jpg?thumb=y&width=740&height=426[]
+
+[.meme-top]
+Systems programming:
+[.meme-bottom]
+A series of pipes!
+
+== $ kill -9 ubshuttle # IPC: signals
+
+image:figures/signals.svg[width="100%"]
+
+[.small.slider]
+* Signals are a limited form of asynchronous communication between
+processes.
+* Processes can register a *signal handler* to run when a signal is
+received.
+* Users can send signals to processes owned by them; the super-user can
+send a signal to any process.
+* Processes can ignore most signals.
+** `SIGKILL` is a notable exception; used for non-graceful termination.
+** `SIGTERM` is used for graceful shutdown and sent by Control-C.
+
+== Meme
+
+[.background]
+image:http://media.ossblog.it/s/sud/sudo.jpg[]
+
+== We Will Return to IPC
+
+[.slider]
+* *return codes* -- we will discuss again when we learn about `wait()` and
+`_exit()`.
+** You will implement return codes for ASST2.
+* *pipes* -- we will discuss again when we learn about `fork()`.
+* *signals* -- are difficult to use and implement and not something we will
+return to.
+* *shared memory* -- we will discuss again when we learn about address
+spaces and virtual memory.
+
+== Processes v. Threads
+
+[.small.slider]
+* Potential confusing due to overlapping terminology--we can describe
+both a *process* and a *thread* as running.
+* Terminology can be helpful for remembering the distinction:
+** A computing *process* requires multiple resources: the CPU, memory,
+files, etc.
+** A *thread* of execution abstracts CPU state.
+* Processes _contain_ threads; threads _belong_ to a process.
+** Only one exception: the kernel may have threads of execution not
+associated with any user process
+** (Except the kernel process, which is a process, remember?)
+* A process is considered to be running when one or more of its threads
+are running.
+* Different operating systems use different terminology, but share
+common ideas.
+
+== Process Example: Firefox
+
+[.small]
+--
+[.slider]
+.*Firefox has multiple threads. What are they doing?*
+* Waiting for and processing interface events: mouse clicks, keyboard
+input, etc.
+* Redrawing the screen as necessary in response to user input, web page
+loading, etc.
+* Loading webpages--usually multiple parts _in parallel_ to speed
+things up.
+
+[.slider]
+.*Firefox is using memory. For what?*
+* Firefox.exe: the executable code of Firefox itself.
+* Shared libraries for web page parsing, security, etc.
+* Stacks storing local variables for running threads.
+* A heap storing dynamically-allocated memory.
+
+[.slider]
+.*Firefox has files open. Why?*
+* Configuration files.
+* Fonts.
+--
+
+== $ top # more process information
+
+image::figures/top.svg[width="100%"]
+
+== Process Example: bash
+
+[.slider]
+* Let's do this for real using standard Linux system utilities.
+
+== Finding bash
+
+image::figures/finding-bash.svg[width="100%"]
+
+[.slider]
+* `ps aux` gives me all process, then `grep` for the one I'm after.
+* ...or, do it all in one shot using `pgrep`.
+* ...or, if I know it's running in my current session a bare `ps` will do.
+
+== bash
+
+image::figures/process-bash-3.svg[width="100%"]
+
+== $ ps -Lf # thread information
+
+image::figures/threads-bash.svg[width="100%"]
+
+[.small.slider]
+.What are:
+* `UID`: user the process is running as.
+* `PID`: process ID.
+* `PPID`: parent process ID.
+* `PRI`: scheduling priority.
+* `SZ`: size of the core image of the process (kB).
+* `WCHAN`: if the process is not running, description of what it is
+waiting on.
+* `RSS`: total amount of resident memory is use by the process (kB).
+* `TIME`: measure of the amount of time that the process has spent
+running.
+
+== $ ps -Lf # thread information
+
+image::figures/threads-bash.svg[width="100%"]
+
+[.slider]
+* If `bash` had multiple threads running this view would show them, so
+`bash` does not have multiple threads.
+
+== bash
+
+image::figures/process-bash-2.svg[width="100%"]
+
+== $ ps # process information
+
+[.slider]
+* I wish we could see a process with multiple threads...
+
+== $ ps -Lf # thread information
+
+image::figures/ps-threads.svg[width="90%", role="expand"]
+
+[.nooutline]
+== Next Time
+
+[.slider]
+.The process lifecycle:
+* *birth* (`fork()`),
+* *change* (`exec()`),
+* *death* (`exit()`), and
+* *seance* (`wait()`).
+* Seance?

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1050.3507"
+   height="614.44336"
+   viewBox="0 0 1050.3507 614.44336"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="debugfs-show_super_stats2.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="357.04832"
+     inkscape:cy="206.13422"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1032"
+     inkscape:window-x="0"
+     inkscape:window-y="22"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(7.0304519,-285.67746)">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="112.12693"
+       y="106.35008"
+       id="text2985"
+       sodipodi:linespacing="125%"
+       transform="translate(0,284.36218)"><tspan
+         sodipodi:role="line"
+         x="112.12693"
+         y="106.35008"
+         id="tspan2997" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-4.4419863e-08"
+       y="299.79855"
+       id="text3019"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="299.79855"
+         id="tspan3029"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold">root@cse421:/# debugfs -R &quot;show_super_stats&quot; /dev/xvda1                                 </tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="324.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3172">...</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="349.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3897">Last checked:             Sun Jan  8 04:11:27 2012</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="374.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3899">Check interval:           15552000 (6 months)</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="399.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3901">Next check after:         Fri Jul  6 05:11:27 2012</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="424.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3903">Lifetime writes:          12 GB</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="449.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3905">Reserved blocks uid:      0 (user root)</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="474.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3907">Reserved blocks gid:      0 (group root)</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="499.79855"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3909">First inode:              11</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="524.79858"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3911">Inode size:               256</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="549.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3913">Required extra isize:     28</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="574.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3915">Desired extra isize:      28</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="599.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3917">Journal inode:            8</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="624.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3919">First orphan inode:       13109</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="649.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3921">Default directory hash:   half_md4</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="674.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3923">Directory Hash Seed:      83c4932d-8e3b-4d53-8783-d7259c110037</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="699.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3925">Journal backup:           inode blocks</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="724.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3927">Directories:              14832</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="749.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3929"> Group  0: block bitmap at 513, inode bitmap at 529, inode table at 545</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="774.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3931">           17965 free blocks, 0 free inodes, 703 used directories, 0 unused inodes</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="799.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3933">           [Checksum 0x111e]</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="824.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3935"> Group  1: block bitmap at 514, inode bitmap at 530, inode table at 1057</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="849.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3937">           251 free blocks, 0 free inodes, 673 used directories, 0 unused inodes</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="874.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3939">           [Checksum 0x3165]</tspan><tspan
+         sodipodi:role="line"
+         x="-4.4419863e-08"
+         y="899.79852"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+         id="tspan3174">...                                                      </tspan></text>
+    <rect
+       style="opacity:0.27155175;fill:#00ff00;fill-opacity:1;stroke:none"
+       id="rect3050"
+       width="610.13214"
+       height="32.324883"
+       x="0.020302117"
+       y="328.17224" />
+    <rect
+       style="opacity:0.27155175;fill:#00ff00;fill-opacity:1;stroke:none"
+       id="rect3042"
+       width="410.12192"
+       height="27.274111"
+       x="-3.0101552"
+       y="405.45148" />
+    <rect
+       y="479.19263"
+       x="-5.0101552"
+       height="56.56855"
+       width="365.67523"
+       id="rect3044"
+       style="opacity:0.27155175;fill:#00ff00;fill-opacity:1;stroke:none" />
+    <rect
+       style="opacity:0.27155175;fill:#00ff00;fill-opacity:1;stroke:none"
+       id="rect3046"
+       width="226.27417"
+       height="24.243668"
+       x="307.12698"
+       y="285.70526" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3007"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-4.0203149,285.67746)"><flowRegion
+         id="flowRegion3009"><rect
+           id="rect3011"
+           width="65.659912"
+           height="279.81226"
+           x="58.588848"
+           y="107.03472" /></flowRegion><flowPara
+         id="flowPara3013" /></flowRoot>    <rect
+       style="opacity:0.27155175;fill:#00ff00;fill-opacity:1;stroke:none"
+       id="rect3176"
+       width="393.9595"
+       height="24.243668"
+       x="-7.0304604"
+       y="706.4566" />
+    <rect
+       y="732.74084"
+       x="-2.9898503"
+       height="76.771606"
+       width="1012.1729"
+       id="rect3182"
+       style="opacity:0.27155175;fill:#00ff00;fill-opacity:1;stroke:none" />
+  </g>
+</svg>

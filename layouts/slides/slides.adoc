@@ -1,12 +1,10 @@
 = {{{ title }}}
 {{ author }}
-:backend: deckjs
-:deckjs_transition: none
 :icons: font
-:source-highlighter: coderay
 {{#if song }}
 :song: {{ song.name }} by {{ song.author }}
 :music: {{ song.youtube }}
 {{/if}}
+:imagesdir: /assets/img/slides/
 
 {{{ contents }}}

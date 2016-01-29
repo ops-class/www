@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="672.32367"
+   height="380.51178"
+   viewBox="0 0 672.32366 380.51179"
+   id="svg3007"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="rsdl-15.svg">
+  <defs
+     id="defs3009">
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutL"
+       style="overflow:visible">
+      <path
+         id="path4343"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="scale(0.8,0.8)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path4203"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <inkscape:path-effect
+       fuse_tolerance="0"
+       vertical_pattern="false"
+       prop_units="false"
+       tang_offset="0"
+       normal_offset="0"
+       spacing="0"
+       scale_y_rel="false"
+       prop_scale="1"
+       copytype="single_stretched"
+       pattern="M 0,0 1,0"
+       is_visible="true"
+       id="path-effect3005"
+       effect="skeletal" />
+    <marker
+       style="overflow:visible"
+       id="Arrow2Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path3799" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2"
+     inkscape:cx="337.73843"
+     inkscape:cy="176.16711"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1032"
+     inkscape:window-x="1921"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata3012">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-9.8802465,-431.45786)">
+    <text
+       transform="scale(0.9853772,1.0148398)"
+       xml:space="preserve"
+       style="font-size:19.77946854px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="77.969391"
+       y="363.34238"
+       id="text2987"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2989"
+         x="77.969391"
+         y="363.34238" /></text>
+    <g
+       id="g4108"
+       transform="matrix(0.5112276,-6.4982801e-4,6.3096231e-4,0.52651325,49.38148,482.66686)" />
+    <g
+       transform="matrix(0.5112276,-6.4982801e-4,6.3096231e-4,0.52651325,19.171596,482.66686)"
+       id="g4116" />
+    <g
+       id="g4063"
+       transform="translate(-240.41631,6.363961)">
+      <image
+         width="52.502525"
+         height="52.502525"
+         xlink:href="data:image/png;base64,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 "
+         id="image3109"
+         x="258.07471"
+         y="435.7005" />
+      <rect
+         y="433.08173"
+         x="257.36758"
+         height="68.143227"
+         width="191.13831"
+         id="rect4061"
+         style="fill:none;stroke:#000000;stroke-width:1.61530066;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Threads"
+     transform="translate(-0.61877584,-3.5219404)">
+    <rect
+       style="fill:#e9c6af;fill-opacity:1;stroke:#000000;stroke-width:0.43134266;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4618"
+       width="655.66461"
+       height="97.20961"
+       x="9.618763"
+       y="282.03375" />
+    <rect
+       y="183.53374"
+       x="9.618763"
+       height="97.20961"
+       width="655.66461"
+       id="rect4616"
+       style="fill:#decd87;fill-opacity:1;stroke:#000000;stroke-width:0.43134266;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       style="fill:#c6e9af;fill-opacity:1;stroke:#000000;stroke-width:0.43134266;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4614"
+       width="655.66461"
+       height="97.20961"
+       x="10.618763"
+       y="84.533714" />
+    <g
+       id="g3939"
+       transform="matrix(0.20323095,0,0,0.20323095,610.84812,144.06734)">
+      <g
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)"
+         id="g3096"
+         style="fill:#ffaaaa">
+        <rect
+           style="fill:#ffaaaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3091"
+           width="160.67072"
+           height="23.84864"
+           x="206.47694"
+           y="223.38344" />
+      </g>
+      <text
+         transform="scale(1.3532307,0.73897232)"
+         xml:space="preserve"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="-256.7648"
+         y="-52.383038"
+         id="text4006"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4008"
+           x="-256.7648"
+           y="-52.383038"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Thread <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4105">2</tspan></tspan><tspan
+           id="tspan3933"
+           sodipodi:role="line"
+           x="-256.7648"
+           y="62.412754"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Priority <tspan
+   id="tspan3927"
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold">2</tspan></tspan><tspan
+           sodipodi:role="line"
+           x="-256.7648"
+           y="177.20854"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           id="tspan4624">Quota 3</tspan></text>
+    </g>
+    <text
+       transform="scale(1.2345994,0.80997935)"
+       xml:space="preserve"
+       style="font-size:68.5753479px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-232.77429"
+       y="64.114082"
+       id="text3119"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3121"
+         x="-232.77429"
+         y="64.114082"
+         style="font-size:52.32698441px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia Bold" /></text>
+    <g
+       id="g3964"
+       transform="matrix(0.20323095,0,0,0.20323095,602.19128,238.7673)">
+      <g
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)"
+         id="g3966">
+        <rect
+           style="fill:#aaffaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3968"
+           width="160.67072"
+           height="23.84864"
+           x="206.47694"
+           y="223.38344" />
+      </g>
+      <text
+         transform="scale(1.3532307,0.73897232)"
+         xml:space="preserve"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="-256.7648"
+         y="-52.383038"
+         id="text3970"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3972"
+           x="-256.7648"
+           y="-52.383038"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Thread <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4103">5</tspan></tspan><tspan
+           id="tspan3976"
+           sodipodi:role="line"
+           x="-256.7648"
+           y="62.412754"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Priority <tspan
+   id="tspan3978"
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold">2</tspan></tspan><tspan
+           sodipodi:role="line"
+           x="-256.7648"
+           y="177.20854"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           id="tspan4620">Quota 5</tspan></text>
+    </g>
+    <g
+       id="g3996"
+       transform="matrix(0.20323095,0,0,0.20323095,139.90804,41.770877)">
+      <g
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)"
+         id="g3998">
+        <rect
+           style="fill:#aaffaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect4000"
+           width="160.67072"
+           height="23.84864"
+           x="206.47694"
+           y="223.38344" />
+      </g>
+      <text
+         transform="scale(1.3532307,0.73897232)"
+         xml:space="preserve"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="-256.7648"
+         y="-52.383038"
+         id="text4002"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4004"
+           x="-256.7648"
+           y="-52.383038"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Thread <tspan
+   id="tspan4006"
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold">1</tspan></tspan><tspan
+           id="tspan4009"
+           sodipodi:role="line"
+           x="-256.7648"
+           y="62.412754"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Priority <tspan
+   id="tspan4011"
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold">2</tspan></tspan><tspan
+           sodipodi:role="line"
+           x="-256.7648"
+           y="177.20854"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           id="tspan4622">Quota 3</tspan></text>
+    </g>
+    <g
+       transform="translate(79.195964,131.52186)"
+       id="g4335">
+      <g
+         transform="matrix(0.27501836,0,0,0.15018205,406.85377,153.63736)"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         id="g4341" />
+    </g>
+    <g
+       transform="matrix(0.20323095,0,0,0.20323095,90.908033,238.77088)"
+       id="g4416">
+      <g
+         id="g4418"
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)"
+         style="fill:#ffeeaa">
+        <rect
+           y="223.38344"
+           x="206.47694"
+           height="23.84864"
+           width="160.67072"
+           id="rect4420"
+           style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4422"
+         y="-52.383038"
+         x="-256.7648"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"
+         transform="scale(1.3532307,0.73897232)"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="-52.383038"
+           x="-256.7648"
+           id="tspan4424"
+           sodipodi:role="line">Thread <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4512">3</tspan></tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="62.412754"
+           x="-256.7648"
+           sodipodi:role="line"
+           id="tspan4428">Priority <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4545">1</tspan></tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="177.20854"
+           x="-256.7648"
+           sodipodi:role="line"
+           id="tspan4626">Quota 5</tspan></text>
+    </g>
+    <g
+       id="g4432"
+       transform="matrix(0.20323095,0,0,0.20323095,218.90804,238.77088)">
+      <g
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)"
+         id="g4434"
+         style="fill:#ffeeaa">
+        <rect
+           style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect4436"
+           width="160.67072"
+           height="23.84864"
+           x="206.47694"
+           y="223.38344" />
+      </g>
+      <text
+         transform="scale(1.3532307,0.73897232)"
+         xml:space="preserve"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="-256.7648"
+         y="-52.383038"
+         id="text4438"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4440"
+           x="-256.7648"
+           y="-52.383038"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Thread <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4520">8</tspan></tspan><tspan
+           id="tspan4444"
+           sodipodi:role="line"
+           x="-256.7648"
+           y="62.412754"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Priority <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4547">1</tspan></tspan><tspan
+           sodipodi:role="line"
+           x="-256.7648"
+           y="177.20854"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           id="tspan4628">Quota 5</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.20323095,0,0,0.20323095,91.408037,339.77088)"
+       id="g4448">
+      <g
+         id="g4450"
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)">
+        <rect
+           y="223.38344"
+           x="206.47694"
+           height="23.84864"
+           width="160.67072"
+           id="rect4452"
+           style="fill:#ffccaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4454"
+         y="-52.383038"
+         x="-256.7648"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"
+         transform="scale(1.3532307,0.73897232)"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="-52.383038"
+           x="-256.7648"
+           id="tspan4456"
+           sodipodi:role="line">Thread <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4518">9</tspan></tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="62.412754"
+           x="-256.7648"
+           sodipodi:role="line"
+           id="tspan4460">Priority <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4555">0</tspan></tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="177.20854"
+           x="-256.7648"
+           sodipodi:role="line"
+           id="tspan4634">Quota 5</tspan></text>
+    </g>
+    <g
+       id="g4464"
+       transform="matrix(0.20323095,0,0,0.20323095,219.40804,339.77088)">
+      <g
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)"
+         id="g4466"
+         style="fill:#ffccaa">
+        <rect
+           style="fill:#ffccaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect4468"
+           width="160.67072"
+           height="23.84864"
+           x="206.47694"
+           y="223.38344" />
+      </g>
+      <text
+         transform="scale(1.3532307,0.73897232)"
+         xml:space="preserve"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="-256.7648"
+         y="-52.383038"
+         id="text4470"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4472"
+           x="-256.7648"
+           y="-52.383038"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Thread <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4522">4</tspan></tspan><tspan
+           id="tspan4476"
+           sodipodi:role="line"
+           x="-256.7648"
+           y="62.412754"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Priority <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4553">0</tspan></tspan><tspan
+           sodipodi:role="line"
+           x="-256.7648"
+           y="177.20854"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           id="tspan4636">Quota 5</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.20323095,0,0,0.20323095,345.40804,237.27088)"
+       id="g4480">
+      <g
+         id="g4482"
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)"
+         style="fill:#ffeeaa">
+        <rect
+           y="223.38344"
+           x="206.47694"
+           height="23.84864"
+           width="160.67072"
+           id="rect4484"
+           style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4486"
+         y="-52.383038"
+         x="-256.7648"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"
+         transform="scale(1.3532307,0.73897232)"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="-52.383038"
+           x="-256.7648"
+           id="tspan4488"
+           sodipodi:role="line">Thread <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4516">6</tspan></tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="62.412754"
+           x="-256.7648"
+           sodipodi:role="line"
+           id="tspan4492">Priority <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4549">1</tspan></tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           y="177.20854"
+           x="-256.7648"
+           sodipodi:role="line"
+           id="tspan4630">Quota 5</tspan></text>
+    </g>
+    <g
+       id="g4496"
+       transform="matrix(0.20323095,0,0,0.20323095,471.90804,238.27088)">
+      <g
+         transform="matrix(3.7667944,0,0,10.74551,-1144.899,-2510.0638)"
+         id="g4498"
+         style="fill:#ffeeaa">
+        <rect
+           style="fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:0.31236476;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect4500"
+           width="160.67072"
+           height="23.84864"
+           x="206.47694"
+           y="223.38344" />
+      </g>
+      <text
+         transform="scale(1.3532307,0.73897232)"
+         xml:space="preserve"
+         style="font-size:91.83663177px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="-256.7648"
+         y="-52.383038"
+         id="text4502"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4504"
+           x="-256.7648"
+           y="-52.383038"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Thread <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4524">9</tspan></tspan><tspan
+           id="tspan4508"
+           sodipodi:role="line"
+           x="-256.7648"
+           y="62.412754"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium">Priority <tspan
+   style="font-weight:bold;-inkscape-font-specification:Lucida Bold"
+   id="tspan4551">1</tspan></tspan><tspan
+           sodipodi:role="line"
+           x="-256.7648"
+           y="177.20854"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Lucida Medium"
+           id="tspan4632">Quota 5</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="14.118762"
+       y="111.03372"
+       id="text4657"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4659"
+         x="14.118762"
+         y="111.03372"
+         style="font-size:32px">Priority 2: Quota 6</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4661"
+       y="210.03372"
+       x="12.118762"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:32px"
+         y="210.03372"
+         x="12.118762"
+         id="tspan4663"
+         sodipodi:role="line">Priority 1: Quota 20</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="13.118762"
+       y="307.53372"
+       id="text4665"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4667"
+         x="13.118762"
+         y="307.53372"
+         style="font-size:32px">Priority 0: Quota 10</tspan></text>
+  </g>
+</svg>
