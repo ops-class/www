@@ -35,7 +35,6 @@ video::{music}[youtube,width=0,height=0]
 * If you are enrolled in the class you should be receiving course emails. If
 you would like to sign up for the email list, here is the link:
 [.spelling_exception]#https://www.ops-class.org/mailman/listinfo/ub#
-  "/\\d+ MB/": true,
 * We are still working on the website
 * Recitations will start next week.
 * The add/drop deadline is *Monday February 1st.*
