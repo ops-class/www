@@ -12,6 +12,7 @@ var metalsmith = require('metalsmith'),
     lessjavascript = require('./lib/lessjavascript.js'),
     concat = require('metalsmith-concat'),
     highlight = require('metalsmith-highlight'),
+    beautify = require('metalsmith-beautify'),
     spellcheck = require('metalsmith-spellcheck'),
     formatcheck = require('metalsmith-formatcheck'),
     linkcheck = require('metalsmith-linkcheck');
@@ -66,6 +67,7 @@ metalsmith(__dirname)
     output: 'assets/js/slides/deck.js'
   }))
   .use(highlight())
+	.use(beautify())
   /*
   .use(spellcheck({ dicFile: 'dicts/en_US.dic',
                     affFile: 'dicts/en_US.aff',

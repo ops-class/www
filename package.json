@@ -32,6 +32,7 @@
     "handlebars": "^4.0.5",
     "http-server": "^0.8.5",
     "metalsmith": "^2.1.0",
+    "metalsmith-beautify": "0.0.7",
     "metalsmith-collections": "^0.7.0",
     "metalsmith-concat": "^3.0.3",
     "metalsmith-drafts": "0.0.1",

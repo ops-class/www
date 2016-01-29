@@ -1,6 +1,4 @@
 $(function() {
-  $('<div class="anim-pause slide" data-what="iframe"></div>').insertAfter('iframe');
-  $('<div class="anim-play slide" data-what="iframe"></div>').insertAfter('iframe');
   $('iframe').each(function (e) {
 
     $(this)[0].pause = function () {
