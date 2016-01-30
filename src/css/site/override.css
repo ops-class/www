@@ -5,11 +5,10 @@ body {
   font-size: 16px;
 }
 code, kbd, pre, samp {
-  Consolas, "Courier New", monospace;
+  font-family: Consolas, "Courier New", monospace;
 }
 code {
   background-color: inherit;
-  color: inherit;
 }
 a.logo-fixed {
   position: relative;

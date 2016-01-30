@@ -243,23 +243,29 @@ into that directory. *Note that a simple `git clone` will not do the right
 thing.* Take a look at the man page for `git clone` or peruse the help output
 to make sure you get it right.
 
+Note that we refer to this directory as your _source directory_. In contrast,
+your _root directory_ is where your built kernel and other binaries are
+installed and where you run `sys161`. That's an important piece of
+terminology to get right.
+
 === Configure Your OS/161 Source Tree
 
 The next step is to configure the OS/161 sources by running the `configure`
-command located at the root of your source tree. You need to do this (very
+command located at the base of your source tree. You need to do this (very
 short) step only when you completely remove your source tree for some reason.
 The only configuration step is to set up where various binaries--including
 system executable and your kernel--will be created when you run `make` in
 later steps. Run `configure -help` to find out more including available
 command line options.
 
-Note that by default OS/161 installs things to `$HOME/os161/root`, which is a
-fine plan to put things if you are working on a shared machine. For our
-dedicated VM we use `$HOME/root` to shorten the directory paths a bit, but
-this requires that you use the `--ostree` argument to `configure`. If you
-forget this argument either now or when you need to rerun `configure` later,
-you will install things into `$HOME/os161/root`. *This has caused confusion
-for some students previously, so please be careful.*
+Note that by default OS/161 installs things to the root directory
+`$HOME/os161/root`, which is a fine plan to put things if you are working on
+a shared machine. For our dedicated VM we use `$HOME/root` to shorten the
+directory paths a bit, but this requires that you use the `--ostree` argument
+to `configure`. If you forget this argument either now or when you need to
+rerun `configure` later, you will install things into `$HOME/os161/root`.
+*This has caused confusion for some students previously, so please be
+careful.*
 
 === Configure Your OS/161 Kernel
 
@@ -366,6 +372,60 @@ Before going on try the following exercises:
 * Configure System/161 to use a fixed value to initialize its random number
 generator. (This can be helpful when debugging non-deterministic kernel
 behavior.)
+
+=== Kernel Development Workflow
+
+As you saw above, building an OS/161 kernel from scratch involves five steps:
+
+. Configuring the entire OS/161 source tree by running `configure` in the
+top-level source directory
+. Configuring the kernel by running `config` in the `kern/conf` subdirectory
+. Building the dependencies by running `bmake depend` in the compilation
+subdirectory
+. Building the kernel by running `bmake`
+. Installing the kernel by running `bmake install`
+
+The first step only needs to be done when you download a new OS/161 source
+tree. The second step only needs to be done when you start a new assignment
+or add files to your kernel build by editing `kern/conf/conf.kern`.
+Rebuilding the dependencies in step three is also not usually necessary
+unless you have reconfigured your kernel.
+
+So that leaves the last two (`bmake ; bmake install`) as your normal kernel
+development workflow. Note that `bmake` is usually smart enough to detect
+what you changed and not recompile things unnecessarily, but if you think
+that it hasn't accomplished that correctly you can always run a `bmake clean`
+to force it to start over.
+
+However, if things aren't building properly you may want to rerun the kernel
+configuration and dependencies steps just to be sure. Step 1 is almost never
+necessary to repeat unless you've completely started over and removed your
+entire previous OS/161 source tree.
+
+=== Building the User Space Tools
+
+If you change into your root directory you should see only a few files,
+including your compiled kernel, a symbolic link pointing to that kernel, and
+the `sys161.conf` file that configures `sys161`. That's fine for now, and all
+your need until ASST2.
+
+But your OS/161 kernel would not be very interesting or useful if it couldn't
+run user programs. So let's build those now. Head over to the base of your
+source directory and run `bmake` followed by `bmake install`. This generates
+a lot of output, but when it's done return to your root directory. You should
+see a directory structure including `bin` and `testbin` directories
+containing cross-compiled user binaries that your OS/161 kernel will
+eventually be able to run.
+
+Note that building the user space tools is _not_ part of the kernel
+development cycle. Unless you modify or add tests in the `userland`
+subdirectory of your source directory--which you are encouraged to do--you
+should not need to rebuild or reinstall these binaries. And until you begin
+ASST2 your kernel can't run user binaries anyway, so this part of the build
+process is completely useless. We only point this out because compiling and
+installing the user space tools takes enough time to be annoying, so don't
+let it slow you down unnecessarily. Focus your development loop on your
+kernel.
 
 ////
 == Exploring the OS/161 Codebase

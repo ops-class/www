@@ -51,20 +51,20 @@ metalsmith(__dirname)
 	.use(deck())
   .use(lessjavascript())
   .use(concat({
-    files: 'assets/css/site/*.css',
-    output: 'assets/css/site.css'
+    files: 'css/site/*.css',
+    output: 'css/site.css'
   }))
   .use(concat({
-    files: 'assets/js/site/*.js',
-    output: 'assets/js/site.js'
+    files: 'js/site/*.js',
+    output: 'js/site.js'
   }))
   .use(concat({
-    files: 'assets/css/slides/deck/*.css',
-    output: 'assets/css/slides/deck.css'
+    files: 'css/slides/deck/*.css',
+    output: 'css/slides/deck.css'
   }))
   .use(concat({
-    files: 'assets/js/slides/deck/*.js',
-    output: 'assets/js/slides/deck.js'
+    files: 'js/slides/deck/*.js',
+    output: 'js/slides/deck.js'
   }))
   .use(highlight())
 	.use(beautify())

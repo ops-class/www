@@ -13,7 +13,7 @@
 <script>
 var cb = function() {
   var s = document.createElement("script");
-  s.src = "/assets/js/site.js";
+  s.src = "/js/site.js";
   document.body.appendChild(s);
 };
 var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;

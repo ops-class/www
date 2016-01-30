@@ -5,6 +5,6 @@
 :song: {{ song.name }} by {{ song.author }}
 :music: {{ song.youtube }}
 {{/if}}
-:imagesdir: /assets/img/slides
+:imagesdir: /img/slides
 
 {{{ contents }}}

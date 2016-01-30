@@ -13,8 +13,8 @@
 <meta content="{{ author }}" name="author">
 {{/if}}
 
-<link href="/assets/css/slides/deck.css" rel="stylesheet" />
-<script src="/assets/js/slides/deck.js"></script>
+<link href="/css/slides/deck.css" rel="stylesheet" />
+<script src="/js/slides/deck.js"></script>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 	</div>
 </div>
 
-<script src="/assets/js/slides/slides.js"></script>
+<script src="/js/slides/slides.js"></script>
 
 </body>
 </html>
