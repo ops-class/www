@@ -24,14 +24,8 @@
 
 		<div data-progress-size=": spe.bottom(3, 20) ; left: slide.left+'px' ; height: (3*designRatio)+'px'" data-progress="width: pFull * slide.width" style="background: #191995; position: absolute; z-index:-1"></div>
 		<div class="deck-status deck-progress-10"></div>
-		<div data-progress-size=": spe.bottom(12, 16) ; left: (slide.left+10)+'px' ; height: (24*designRatio)+'px'" style="padding-top:2px; position: absolute; z-index:-1">
-			<span class="var-author"></span>
-			<span class="var-title"></span>
-			(
-			<span class="deck-status-current"></span>
-			/
-			<span class="deck-status-total"></span>
-			)
+		<div class="deck-status-wrapper" data-progress-size=": spe.bottom(12, 16);left:(slide.left+10)+'px';height:(24*designRatio)+'px'" style="padding-top:2px; position: absolute; z-index:-1; display:none;">
+			(<span class="deck-status-current"></span> / <span class="deck-status-total"></span>)
 		</div>
 		<div> 
 			<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
