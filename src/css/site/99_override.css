@@ -11,7 +11,7 @@ code, kbd, pre, samp {
   font-family: Consolas, "Courier New", monospace;
 }
 code {
-	padding: none;
+	padding: inherit;
 	color: inherit;
   background-color: inherit;
 }

@@ -214,7 +214,7 @@ sources. Linux and other UNIX variants are likely to work. Superheroes have
 gotten things to work on OSX. Please use the most recent version of the
 cross-compilation toolchain and System/161.
 
-== Configuring, Building, and Running on OS/161 Kernel
+== Configuring, Building, and Running a Kernel
 
 [.lead]
 Now that you have your development environment ready, on to the fun stuff:
