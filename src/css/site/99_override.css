@@ -2,12 +2,17 @@ body {
   padding-top: 60px;
   position: relative;
   color: #333;
-  font-size: 16px;
+  font-size: 18px;
+}
+.lead {
+	font-size: 1.2em;
 }
 code, kbd, pre, samp {
   font-family: Consolas, "Courier New", monospace;
 }
 code {
+	padding: none;
+	color: inherit;
   background-color: inherit;
 }
 a.logo-fixed {
