@@ -40,7 +40,7 @@
     "metalsmith-formatcheck": "^0.2.0",
     "metalsmith-highlight": "^1.0.4",
     "metalsmith-layouts": "^1.4.2",
-    "metalsmith-linkcheck": "^0.2.0",
+    "metalsmith-linkcheck": "^0.2.1",
     "metalsmith-permalinks": "^0.4.1",
     "metalsmith-register-partials": "^1.0.2",
     "metalsmith-spellcheck": "^0.2.0",
