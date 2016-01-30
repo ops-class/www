@@ -639,3 +639,12 @@ source code. Command line tools like `vim` work well and, when combined with
 `ctags` and `tmux`, produce a very powerful command-line development
 environment. Graphical editors like Eclipse or Visual Studio are also fine
 but more of a hassle to set up. Decide what works best for you.
+
+Let's test some C code:
+
+----
+main(int argc, char ** argv) {
+  int i = 0;
+  return 0;
+}
+----
