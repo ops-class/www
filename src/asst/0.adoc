@@ -1,14 +1,14 @@
 ---
 title: "Introduction to OS/161"
 spelling_exceptions:
-  - PPA
+	- vfs
 ---
 :sectnums:
 
 == Introduction
 
 [.lead]
-ASST0 introduces you to the codebase and tools that you will be using
+ASST0 introduces you to the source code and tools that you will be using
 throughout the rest of the `ops-class.org` assignments.
 
 It is unlikely that you have used OS/161 before, but some of the
@@ -135,7 +135,7 @@ through your options carefully before making a decision.
 
 If you have a computer running Ubuntu Linux, we have packaged the OS/161
 toolchain for the last two Ubuntu [.spelling_exception]#LTS# releases (12.04
-Precise and 14.04 Trusty) in a Launchpad PPA. Installation is simple:
+Precise and 14.04 Trusty) in a Launchpad [.spelling_exception]#PPA#. Installation is simple:
 
 [source,bash]
 ----
@@ -299,7 +299,8 @@ One important note before you start. You are probably used to using
 https://www.gnu.org/software/make/[GNU `make`] to build software on UNIX-like
 systems. However, the OS/161 sources use
 http://www.crufty.net/help/sjg/bmake.htm[BSD `make`], which has a different
-`Makefile` syntax footnote:[Why? Because David Holland is a big
+`Makefile` syntax footnote:[Why? Because
+http://www.hcs.harvard.edu/~dholland/[David Holland] is a big
 http://www.netbsd.org/[NetBSD] hacker.]. To avoid confusion, BSD `make` has
 been installed on your system as `bmake`. So while you might normally run
 `make clean` to reset your build and remove all of the build targets, when
@@ -378,7 +379,7 @@ behavior.)
 As you saw above, building an OS/161 kernel from scratch involves five steps:
 
 . Configuring the entire OS/161 source tree by running `configure` in the
-top-level source directory
+root of the source directory
 . Configuring the kernel by running `config` in the `kern/conf` subdirectory
 . Building the dependencies by running `bmake depend` in the compilation
 subdirectory
@@ -427,308 +428,214 @@ installing the user space tools takes enough time to be annoying, so don't
 let it slow you down unnecessarily. Focus your development loop on your
 kernel.
 
-////
-== Exploring the OS/161 Codebase
+== Exploring OS/161
 
 [.lead]
-One of the challenges inherent to working with any preexisting codebase,
-OS/161 included, is determining what already exists so that you can identify
-what you need to add to accomplish some task.
+One of the core challenges of the `ops-class.org` assignments is working with
+OS/161, a large, complicated, and unfamiliar code base.
 
-To become familiar with a codebase, there is no substitute for actually
+OS/161 contains roughly 40K non-commenting lines of code and 25K comments
+spread across 570 C, header, and assembly files. Reading and understanding
+all of that code would take much more time than you want to spend. And of
+course you are going to make things worse, since your solutions will add
+considerably to what is already there footnote:[The ASS3 solution set adds 4K
+LoC.].
+
+Luckily, OS/161 contains a large amount of code that you never need to
+understand or change, some amount of code that you need to be familiar but
+not intimate with, and a small amount that you must understand in detail.
+Distinguishing between these categories is critical to your success. For
+example, the `LAMEbus`, `semaphore`, and `loadelf` source code each fall into
+one of these three categories. See if you can decide which is which, or
+return to this question after you work on some of the questions below.
+
+To become familiar with a code base, there is no substitute for actually
 poking around. Browse through the tree a bit to get a sense of how things are
 structured. Glance through some source code for files that look interesting.
-Admittedly, most code makes poor bedtime reading footnote:[Except perhaps as
-a soporific], but it is essential that you read the code. OS/161 is also a
-pedagogical codebase and includes a great deal of helpful commentary.
+OS/161 is also very well commented, as befits a pedagogical code base.
 
 Most of the OS/161 sources are C source (`.c`) and header (`.h`) files. Your
 kernel does also contain a bit of assembly code (`.S`) files. You will not
 need to understand or modify the assembly code, but it does contain some
-fairly interesting pieces of code executed at bootup and during context
-switches. So you may want to take a look at it at some point. It is also
-_extremely_ well commented footnote:[Thanks
-http://www.hcs.harvard.edu/~dholland/[David]!]
-
-=== Where to Start
+fairly interesting pieces of code executed during boot and during context
+switches. So you may want to take a look at it at some point. The assembly
+code is also _extremely_ well commented footnote:[Thanks David!].
 
 You should use the code reading questions below to guide an initial
-exploration of the OS/161 codebase. While the questions won't require you
-look at every line of code or even every file, we _strongly recommend_ that
-you at least glance at all the kernel sources in the `kern` subdirectory.
+exploration of the OS/161 sources. While the questions won't require you look
+at every line of code or even every file, we _strongly recommend_ that you at
+least glance at all the kernel sources in the `kern` subdirectory.
 
 Some parts of the code may seem confusing since we have not discussed how any
 OS/161 subsystems work. However, it is still useful to review the code now
 and get a high-level idea of what is happening in each subsystem. If you do
 not understand the low-level details now, that is fine.
 
-==== Top-level directory structure
+=== The Top of the Source Directory
 
-The top-level directory contains the following files and subdirectories:
+Your OS/161 source directory contains the following files:
 
-. `configure`: the top-level configuration script that configures the OS/161
-distribution. Note that it does *not* configure your OS/161 kernel, which is
-done separately and discussed in more detail below. The most important option
-to `configure` is `--ostree`, which sets the root directory there your kernel
-and user space binaries will be installed.
-. `Makefile`: top-level `Makefile`. Running `bmake` in this directory
-builds and installs the user space binaries but not the OS kernel.
-    including all the provided user-space utilities, but does not build the operating 
-    system kernel. (If you don't know anything about <kbd>make</kbd>, this
-    would be a good time to at least review the
-    <a href="http://mrbook.org/tutorials/make/">basics</a>.)</li>
-    OS/161 distribution, including all the provided utilities, but does not
-    configure the operating system kernel.</li>
-  <h4>The top-level directory</h4>
+* `CHANGES`: describes the evolution of OS/161 and changes in previous
+versions.
+* `configure`: the top-level configuration script that you ran previously.
+* `Makefile`: the top-level `Makefile` used to build the user space binaries.
 
-  <p>The top level directory of many software packages is called
-  <kbd>src</kbd> or <kbd>source</kbd>. The top of the OS/161 source tree is
-  also called <kbd>src</kbd>. In this directory, you will find the following
-  files:</p>
-  
-  <ul>
-    <li><kbd>configure</kbd>: top-level configuration script; configures the
-    OS/161 distribution, including all the provided utilities, but does not
-    configure the operating system kernel.</li>
-    <li><kbd>Makefile</kbd>: top-level makefile; builds the OS/161 distribution, 
-    including all the provided utilities, but does not build the operating 
-    system kernel. (If you don't know anything about <kbd>make</kbd>, this
-    would be a good time to at least review the
-    <a href="http://mrbook.org/tutorials/make/">basics</a>.)</li>
-  </ul>
+The source directory contains the following subdirectories:
 
-  <p>You will also find the following directories:</p>
+* `common/`: code used both by the kernel and user programs, mostly standard C library functions.
+* `design/`: contains design documents describing several OS/161 components.
+* `kern/`: the kernel source code, and the subdirectory where you will spend
+most of your time.
+* `man/`: the OS/161 man pages appear here.  The man pages 
+document (or specify) every program, every function in the C library, and
+every system call. You will use the system call man pages for reference in
+the course of ASST2. The man pages are HTML and can be read with any browser.
+* `mk/`: fragments of `Makefiles` used to build the system.
+* `userland/`: user space libraries and program code.
 
-  <ul>
-    <li><kbd>common/</kbd>: code used both by the kernel and user-level programs,
-    mostly standard C library functions.</li>
-    <li><kbd>kern/</kbd>: the kernel source code.</li>
-    <li><kbd>man/</kbd>: the OS/161 manual ("man pages") appear here.  The man pages 
-    document (or specify) every program, every function in the C library, 
-    and every system call. You will use the system call man pages for 
-    reference in the course of ASST2. The man pages are HTML and can 
-    be read with any browser.</li>
-    <li><kbd>mk/</kbd>: fragments of makesfiles used to build the system.</li>
-    <li><kbd>user/</kbd>: user-level libraries and program code.</li>
-    <li><kbd>design:/<kbd>: a few design notes about various parts of
-    OS/161.</li>
-  </ul>
+If you have previously configured and built in this directory there are also
+some additional files and directories that have been created, such as
+`defs.mk` and `build/`.
 
-  <blockquote class="aside">
-  <p>OS/161 borrows its directory structure from BSD UNIX. Why? See note
-  above about David Holland being a big BSD hacker.</p>
-  </blockquote>
+=== [.spelling_exception]#Userland#
 
-  <p>In the <kbd>user/</kbd> directory, you will find:</p>
-  
-  <ul>
-    <li><kbd>bin/</kbd>: all the utilities that are typically found in
-    <kbd>/bin/</kbd>&mdash;<kbd>cat</kbd>, <kbd>cp</kbd>, <kbd>ls</kbd>, etc.
-    Programs in <kbd>/bin/</kbd>
-    are considered fundamental utilities that the system needs to run.</li>
-    <li><kbd>include/</kbd>: these are the include files that you would typically find 
-    in <kbd>/usr/include</kbd> (in our case, a subset of them).  These are user 
-    level include files; not kernel include files.</li>
-    <li><kbd>lib/</kbd>: library code lives here.  We have only two libraries: 
-    <kbd>libc</kbd>, the C standard library, and <kbd>hostcompat</kbd>, which is 
-    for recompiling OS/161 programs for the host UNIX system.  There is also 
-    a <kbd>crt0</kbd> directory, which contains the startup code for user
-    programs.</li>
-    <li><kbd>sbin/</kbd>: this is the source code for the utilities typically found in 
-    <kbd>/sbin</kbd> on a typical UNIX installation. In our case, there are 
-    some utilities that let you halt the machine, power it off andreboot it, 
-    among other things.</li>
-    <li><kbd>testbin/</kbd>: these are pieces of test code that we will use to
-    test and grade your assignments.</li>
-  </ul>
+In the `userland/` source subdirectory, you will find:
 
-  <blockquote class="aside">
-  <p>if you have ever wondered why some programs on your system are in
-  <kbd>/bin/</kbd> while others are in <kbd>/usr/bin</kbd> or other places,
-  <a href="http://lists.busybox.net/pipermail/busybox/2010-December/074114.html">this
-  email</a> sheds some light on the split.</p>
-  </blockquote>
+* `bin/`: all the utilities that are typically found in
+`/bin/`&mdash;`cat`, `cp`, `ls`, etc. Programs in `/bin/` are considered
+fundamental utilities that the system needs to run.
+* `include/`: these are the include files that you would typically find 
+in `/usr/include` (in our case, a subset of them).  These are user include
+files, not kernel include files.
+* `lib/`: library code lives here.  We have only two libraries: 
+`libc`, the C standard library, and `hostcompat`, which is for recompiling
+OS/161 programs for the host UNIX system.  There is also a `crt0` directory,
+which contains the startup code for user programs.
+* `sbin/`: this is the source code for the utilities typically found in 
+`/sbin` on a typical UNIX installation. In our case, there are some utilities
+that let you halt the machine, power it off, and reboot it, among other things.
+* `testbin/`: these are pieces of test code that we will use to
+test and grade your assignments.
 
-  <p> You don't need to understand the files in <kbd>user/bin/</kbd>,
-  <kbd>user/sbin/</kbd>, and <kbd>user/testbin/</kbd> now, but you certainly
-  will later on. Eventually, you will want to modify these or write your own
-  utilities and these are good models.</p>
+You don't need to understand the files in `userland/bin/`, `userland/sbin/`,
+and `userland/testbin/` now, but you certainly will later on. Eventually, you
+will want to modify these or write your own utilities and these are good
+models. Similarly, you need not read and understand everything in
+`userland/lib` and `userland/include` but you should know enough about what's
+there to be able to get around the source tree easily.  The rest of our code
+walk-through is going to focus on `kern/`.
 
-  <p>Similarly, you need not read and understand everything in
-  <kbd>user/lib</kbd> and <kbd>user/include</kbd> but you should know enough
-  about what's there to be able to get around the source tree easily.  The
-  rest of our code walk-through is going to focus on <kbd>kern/</kbd>.</p>
+=== Kernel Sources
 
-  <h4>The <kbd>kern/</kbd> subdirectory</h4>
+Now let's navigate to the `kern/` source subdirectory. Once again, there is a
+`Makefile`.  This `Makefile` installs header files but does not build
+anything. In addition, we have more subdirectories for each component of the
+kernel as well as some utility directories and configuration files.
 
-  <p>Once again, there is a <kbd>Makefile</kbd>.  This <kbd>Makefile</kbd>
-  installs header files but does not build anything.</p>
+==== `kern/arch`
 
-  <p>In addition, we have more subdirectories for each component of the
-  kernel as well as some utility directories and configuration files.</p>
+This is where architecture-specific code goes. By architecture-specific, we
+mean the code that differs depending on the hardware platform on which you're
+running. There are two directories here: `mips` which contains code specific
+to the MIPS processor and `sys161` which contains code specific to the
+System/161 simulator.
 
-  <h4><kbd>kern/arch</kbd></h4>
+* `kern/arch/mips/conf/conf.arch`: this file tells the kernel
+configuration script where to find the machine-specific, low-level functions it
+needs (throughout `kern/arch/mips/`).
+* `kern/arch/mips/include/`: this folder and its subdirectories
+include files for the machine-specific constants and functions.
+* `kern/arch/mips/`: The other directories contain source files for 
+the machine-dependent code that the kernel needs to run.  Most of this code
+is quite low-level.
+* `kern/arch/sys161/conf/conf.arch`: Similar to `mips/conf/conf.arch`.
+* `kern/arch/sys161/include:` These files are include files for the 
+System/161-specific hardware, constants, and functions.
 
-  <p>This is where architecture-specific code goes. By architecture-specific,
-  we mean the code that differs depending on the hardware platform on which
-  you're running.  There are two directories here: <kbd>mips</kbd> which
-  contains code specific to the MIPS processor and <kbd>sys161</kbd> which
-  contains code specific to the System/161 simulator.</p>
+==== `kern/compile/`
 
-  <ul>
-    <li><kbd>kern/arch/mips/conf/conf.arch</kbd>: this file tells the kernel
-    config script where to find the machine-specific, low-level functions it
-    needs (throughout <kbd>kern/arch/mips/</kbd>).</li>
-  </ul>
+This is where you build kernels. In the compile directory, you will find one
+subdirectory for each kernel configuration target you have used you want to
+build. For example, if you configure your kernel with the `DUMBVM`
+configuration to turn on `dumbvm`, a `DUMBVM` subdirectory will be created in
+`kern/compile` where you can compile your `dumbvm` kernel. This directory and
+build organization is typical of UNIX installations and is not universal
+across all operating systems.
 
-  <ul>
-    <li><kbd>kern/arch/mips/include/</kbd>: this folder and its subdirectories
-    include files for the machine-specific constants and functions.</li>
-  </ul>
+* `kern/conf/config`: is the script that takes a configuration file, 
+like `GENERIC`, and creates the corresponding build directory.
 
-  {% question "default virtual memory compile option" %}
+==== `kern/dev/`
 
-  <ul>
-    <li><kbd>kern/arch/mips/</kbd>: The other directories contain source files for 
-    the machine-dependent code that the kernel needs to run.  Most of this code 
-    is quite low-level.</li>
-  </ul>
-  
-  {% question "OS/161 registers" %}
+This is where all the low level device management code is stored. Unless you
+are really interested, you can safely ignore most of this directory.
 
-  {% question "machine dependent code" %}
-  
-  <ul>
-    <li><kbd>kern/arch/sys161/conf/conf.arch</kbd>: Similar to
-    <kbd>mips/conf/conf.arch</kbd>.</li>
-    <li><kbd>kern/arch/sys161/include:</kbd> These files are include files for the 
-    System161-specific hardware, constants, and functions.
-    machine-specific constants and functions.</li>
-  </ul>
+==== `kern/include/`
 
-  {% question "using more than 512MB" %}
-  
-  <h4><kbd>kern/compile/</kbd></h4>
+These are the include files that the kernel needs. The `kern` subdirectory
+contains include files that are visible not only to the operating system
+itself, but also to user programs. Consider why it's named
+[.spelling_exception]#"kern"# and where the files end up when installed.
 
-  <p>This is where you build kernels.  In the compile directory, you
-  will find one subdirectory for each kernel you want to build.  In a
-  real installation, these will often correspond to things like a debug
-  build, a profiling build, etc.</p>
+==== `kern/lib/`
 
-  <p>In our world, each build directory will correspond to a programming
-  assignment, e.g., ASST1, ASST2, etc. These directories are created when you
-  configure a kernel, which you have just done previously. This directory and
-  build organization is typical of UNIX installations and is not universal
-  across all operating systems.</p>
+These contain library code used throughout the kernel: arrays, kernel
+`printf`, etc.
 
-  <ul>
-    <li><kbd>kern/conf/config</kbd>: is the script that takes a config file, 
-    like ASST1, and creates the corresponding build directory.</li>
-  </ul>
+==== `kern/main/`
 
-  <blockquote class="aside"><p>make sure that you should specify the complete
-    pathname <kbd>./config</kbd> when you configure OS/161. If you omit the
-    <kbd>./</kbd>, you may end up running the configuration command for the system
-    on which you are building OS/161, and that is almost guaranteed to produce
-    rather strange results!</p></blockquote>
+This is where the kernel is initialized and where the kernel main function
+and menu are implemented.
 
-  <h4><kbd>kern/dev/</kbd></h4>
+==== `kern/thread/`
 
-  <p>This is where all the low level device management code is stored.  Unless
-  you are really interested, you can safely ignore most of this directory.</p>
+This directory contains the code implementing the thread abstraction and
+synchronization primitives.
 
-  <h4><kbd>kern/include/</kbd></h4>
+==== `kern/synchprobs/`
 
-  <p>These are the include files that the kernel needs.  The <kbd>kern</kbd>
-  subdirectory contains include files that are visible not only to the
-  operating system itself, but also to user-level programs.  (Think about why
-  it's named "kern" and where the files end up when installed.)</p>
+This is the directory that contains the starter code that you will need to
+complete ASST1.
 
-  {% question "OS/161 busses" %}
-  
-  {% question "splx" %}
-  
-  {% question "explicitly-sized types" %}
-  
-  {% question "special type definitions" %}
-  
-  {% question "device driver interface" %}
-  
-  {% question "adding debug messages" %}
-  
-  {% question "defined synchronization primitives" %}
- 
-  {% question "yield v. sleep" %}
-  
-  {% question "OS/161 version" %}
+==== `kern/syscall/`
 
-  <h4><kbd>kern/lib/</kbd></h4>
+This is where you will add code to create and manage user level processes. As
+it stands now, OS/161 runs only kernel threads--there is no support for user
+level code. (Try running the shell from the OS/161 menu and see what
+happens.) In ASST2, you'll implement this support.
 
-  <p>These are library routines used throughout the kernel, e.g., arrays,
-  kernel printf, etc.</p>
+==== `kern/vm/`
 
-  <h4><kbd>kern/startup/</kbd></h4>
+This directory is also fairly vacant. In ASST3, you'll implement virtual
+memory and most of your code will go in here.
 
-  <p>This is where the kernel is initialized and where the kernel main function
-  is implemented.</p>
+==== `kern/vfs/`
 
-  <h4><kbd>kern/thread/</kbd></h4>
+The file system implementation has two directories which we'll present in
+turn. `kern/vfs` is the file system _independent_ layer&mdash;`vfs` stands
+for virtual file system. It establishes a framework into which you can add
+new file systems easily. You will want to go look at `vfs.h` and `vnode.h`
+before looking at this directory.
 
-  <p>Threads are the fundamental abstraction on which the kernel is built. For
-  the following questions <em>do not forget to look
-    back at header files!</em></p>
+==== `kern/fs/`
 
-  {% question "runnable threads data structure" %}
-  
-  {% question "provided synchronization primitives" %}
-  
-  {% question "zombie" %}
+This is where the actual file system implementations go. The subdirectory
+`sfs` contains the implementation of the simple file system.
 
-  <h4><kbd>kern/synchprobs/</kbd></h4>
+=== Editing OS/161
 
-  <p>This is the directory that contains the framework code that you will need 
-  to complete ASST1. Ignore it for now.</p>
+When you read and begin to modify source code, you will also want to absorb
+it's stylistic conventions. Like any other hacker, David Holland has his
+preferences about indentation, line width, function signatures, where to put
+braces, and tabs versus spaces. Adopting these will make it much easier to
+work on OS/161 and ensure that your changes fit in. This is also a critical
+skill to learn as you begin to contribute to other shared code bases. At
+minimum, you and your partner should agree on style so that you don't drive
+each other crazy or spend hours reformatting each others' code.
 
-  <h4><kbd>kern/syscall/</kbd></h4>
-
-  <p>This is where you will add code to create and manage user level processes.
-  As it stands now, OS/161 runs only kernel threads&mdash;there is no support
-  for user level code. (Try running the shell from the OS/161 menu and see what
-  happens.) In ASST2, you'll implement this support.</p>
-
-  <h4><kbd>kern/vm/</kbd></h4>
-
-  <p>This directory is also fairly vacant.  In ASST3, you'll implement virtual
-  memory and most of your code will go in here.</p>
-
-  {% question "copyin/copyout" %}
-  
-  {% question "malloc implementations" %}
-  
-  <h4><kbd>kern/vfs/</kbd></h4>
-
-  <p>The file system implementation has two directories. We'll talk about each
-  in turn.  <kbd>kern/vfs</kbd> is the filesystem independent
-  layer&mdash;<kbd>vfs</kbd> stands for virtual file system. It establishes a
-  framework into which you can add new file systems easily. You will want to go
-  look at <kbd>vfs.h</kbd> and <kbd>vnode.h</kbd> before looking at this
-  directory.</p>
-
-  {% question "read null:" %}
-  
-  {% question "cwd lock" %}
-  
-  <h4><kbd>kern/fs/</kbd></h4>
-
-  <p>This is where the actual file systems go. The subdirectory <tt>sfs</tt>
-  contains a simple default file system.</p>
-
-  {% question "vnodes and sfs" %}
-  
-  <h3>Submit your code reading answers</h3>
-  
-  <p>When you are satisfied with your answers to the code reading questions, submit them for grading
-  using the form below.</p>
-  
-  {% endform %}
-////
+While we don't specifically support any particular editing or code browsing
+software, we suggest that you use an editor that is designed for working with
+source code. Command line tools like `vim` work well and, when combined with
+`ctags` and `tmux`, produce a very powerful command-line development
+environment. Graphical editors like Eclipse or Visual Studio are also fine
+but more of a hassle to set up. Decide what works best for you.
