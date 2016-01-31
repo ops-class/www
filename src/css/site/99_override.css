@@ -94,3 +94,12 @@ a.logo-fixed > img {
     content: "_";
   }
 }
+ul#side li a:hover {
+	background: inherit;
+}
+ul#side li.active a {
+  color: #23527c;
+}
+ul#side li.active a:after {
+	content: "_";
+}

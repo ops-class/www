@@ -9,6 +9,7 @@ var metalsmith = require('metalsmith'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
 		deck = require('./lib/deck.js'),
+		asst = require('./lib/asst.js'),
     lessjavascript = require('./lib/lessjavascript.js'),
     concat = require('metalsmith-concat'),
     highlight = require('./lib/highlight.js'),
@@ -45,6 +46,7 @@ metalsmith(__dirname)
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
   .use(footnotes())
   .use(permalinks())
+	.use(asst())
   .use(layouts({
     engine: 'handlebars'
   }))

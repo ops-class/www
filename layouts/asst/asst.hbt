@@ -6,6 +6,14 @@
 			<div class="col-md-8 col-md-offset-2">
 				{{{ contents }}}
 			</div>
+			<div class="col-md-2 scrollspy">
+				<ul id="side" class="nav hidden-xs hidden-sm"
+								 data-spy="affix" style="padding-top:20px; padding-right:10px;">
+					{{#each sections}}
+					<li class="h5"><a href="#{{ this.id }}">{{ this.text }}</a></li>
+					{{/each}}
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

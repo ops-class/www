@@ -47,7 +47,7 @@ _gaq.push(['_trackPageview']);
 
 	</head>
 
-	<body>
+	<body data-spy="scroll" data-target=".scrollspy">
 		<div class="container">
 			<nav class="navbar navbar-default navbar-fixed-top">
 				<a class="logo-fixed" href="/"><img src="/img/logos/ops-class.jpg" alt="ops-class.org logo"/></a>
