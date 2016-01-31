@@ -8,7 +8,10 @@ var metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
-		deck = require('./lib/deck.js'),
+		slides = require('./lib/slides.js'),
+		outline = require('./lib/outline.js'),
+		copy = require('metalsmith-copy'),
+		path = require('path'),
 		asst = require('./lib/asst.js'),
     lessjavascript = require('./lib/lessjavascript.js'),
     concat = require('metalsmith-concat'),
@@ -27,30 +30,42 @@ handlebars.registerPartial('footer', fs.readFileSync('layouts/partials/footer.hb
 handlebars.registerHelper('format_date', common.format_date);
 
 var slides_pattern = 'slides/*.adoc';
+var outline_compiled_pattern = 'slides/**/index.html';
+var slides_compiled_pattern = 'slides/**/slides.html';
 var asst_pattern = 'asst/*.adoc';
 
 metalsmith(__dirname)
   .use(drafts())
   .use(filemetadata([
-    {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.adoc'}},
+    {pattern: slides_pattern, metadata: {'layout': 'slides/slides.adoc'}},
 	]))
   .use(layouts({
     engine: 'handlebars',
 		pattern: slides_pattern
   }))
   .use(filemetadata([
-    {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}},
     {pattern: asst_pattern, metadata: {'asst': true, 'layout': 'asst/asst.hbt'}}
   ]))
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
   .use(footnotes())
   .use(permalinks())
+	.use(copy({
+		pattern: outline_compiled_pattern,
+		transform: function (file) {
+			return path.dirname(file) + "/slides.html";
+		}
+	}))
 	.use(asst())
+  .use(filemetadata([
+    {pattern: outline_compiled_pattern, metadata: {'outline': true, 'layout': 'slides/outline.hbt'}},
+    {pattern: slides_compiled_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}}
+  ]))
   .use(layouts({
     engine: 'handlebars'
   }))
-	.use(deck())
+	.use(slides())
+	.use(outline())
   .use(lessjavascript())
   .use(concat({
     files: 'css/site/*.css',
