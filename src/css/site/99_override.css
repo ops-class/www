@@ -110,3 +110,9 @@ ul#side li.active li {
 	display: block;
 	margin-left: 10px;
 }
+a.anchor {
+  display: block; 
+  position: relative; 
+  top: -70px; 
+  visibility: hidden;
+}
