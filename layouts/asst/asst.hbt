@@ -2,8 +2,9 @@
 
 <div id="content">
 	<div class="container">
-		<div class="row">
+		<div class="row spelling_exception">
 			<div class="col-md-8 col-md-offset-2">
+				<h1>{{#if number}}ASST{{number}}: {{/if}}{{title}}</h1>
 				{{{ contents }}}
 			</div>
 			<div class="col-md-2 scrollspy">
