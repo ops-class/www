@@ -622,7 +622,48 @@ before looking at this directory.
 This is where the actual file system implementations go. The subdirectory
 `sfs` contains the implementation of the simple file system.
 
+=== Source Exploration Exercises
+
+Use your new-found knowledge of the OS/161 source code to answer the
+questions that follow. You may also find standard UNIX utilities like `find`
+and `grep` useful when searching through your OS/161 source code.
+
+. What function initializes the kernel during boot, and what subsystems are
+currently initialized?
+. What VM system does your kernel use by default? What is wrong with it?
+. OS/161 ships with two working synchronization primitives. What are they?
+. How do you create a thread in OS/161? Give some examples of code that
+currently creates multiple threads.
+. OS/161 has a system for printing debugging messages to the console. How
+does it work? How could it be useful?
+. What do `copyin` and `copyout` do? Why is special about these functions
+compared to other approaches to copying memory in C, like `memmove`?
+. What is a zombie thread?
+. What is the difference between a thread sleeping and a thread yielding?
+. Explain the difference between machine dependent and machine independent
+code. Where would you put both in the OS/161 source tree?
+. What functions are used to enable and restore interrupts? Would this be
+sufficient to ensure mutual exclusion on an OS/161 kernel?
+
+== Your OS/161 Toolchain
+
+[.lead]
+Successfully developing an OS/161 kernel requires more than just building and
+running a kernel. You also need to edit source code, share code with others,
+and debug and test your kernel.
+
+To complete ASST0, we'll provide an overview and some exercises using the
+rest of the OS/161 toolchain: in particular,  Git and GDB. But let's start
+with discussing how to edit OS/161 source code.
+
 === Editing OS/161
+
+While we don't specifically support any particular editing or code browsing
+software, we suggest that you use an editor that is designed for working with
+source code. Command line tools like `vim` work well and, when combined with
+`ctags` and `tmux`, produce a very powerful command-line development
+environment. Graphical editors like Eclipse or Visual Studio are also fine
+but more of a hassle to set up. Decide what works best for you.
 
 When you read and begin to modify source code, you will also want to absorb
 it's stylistic conventions. Like any other hacker, David Holland has his
@@ -633,18 +674,147 @@ skill to learn as you begin to contribute to other shared code bases. At
 minimum, you and your partner should agree on style so that you don't drive
 each other crazy or spend hours reformatting each others' code.
 
-While we don't specifically support any particular editing or code browsing
-software, we suggest that you use an editor that is designed for working with
-source code. Command line tools like `vim` work well and, when combined with
-`ctags` and `tmux`, produce a very powerful command-line development
-environment. Graphical editors like Eclipse or Visual Studio are also fine
-but more of a hassle to set up. Decide what works best for you.
+=== Collaborating with Git
 
-Let's test some C code:
+As described previously, we are not going to go into the use of Git in
+detail. *But we will point out that using Git is not optional for completing
+the `ops-class.org` assignments.* We distribute our base sources using Git
+and will use Git to push updates to you. Our testing tool, `test161`, submits
+assignments for testing using Git.
 
+One additional requirement is that you have a _private_ Git repository so
+that you do not inadvertently share your solutions with others. The `test161`
+submission system will refuse to grade your assignments if it detects that
+your Git repository is public. Getting your hands on a private Git repository
+is not hard. If you are a student,
+[.spelling_exception]#https://www.github.com[GitHub]# will allow you to set
+up a limited number of private repositories for instructional use.
+https://www.gitlab.com[`GitLab.com`] provides private Git repositories for
+free, as do other sites such as
+[.spelling_exception]#https://www.bitbucket.org[BitBucket]#. And your course
+staff may also set up private Git repositories for you to use.
+
+If you are completing the `ops-class.org` assignments alone, you may wonder
+whether you need Git. The short answer is *yes*. Every programmer, including
+you, should get in the habit of setting up version control every time you
+start a project. It's the first thing that you should do. Always. Every time.
+No exceptions. Why? There are a lot of reasons.
+http://lmgtfy.com/?q=why+should+i+use+version+control#[Google them].
+
+==== Git exercises
+
+If you are just getting started with Git, here are some exercises specific to
+OS/161 that you may want to try:
+
+* Modify your kernel so that it prints out your email address at the right
+spot during boot. Use Git to show what files have changed. Commit your
+changes, and confirm that your work tree is now clean. Use Git to show the
+history of your repository, and to generate a line-by-line breakdown of who
+is responsible for each of the current lines in the file that prints the
+menu.
+* Modify your kernel so that it prints a bad word during boot. Use Git to
+show what files have changed. Decide that this is bad idea and use Git to
+back out your change.
+* Modify your kernel so that it builds but does not boot. (Try adding a null
+pointer exception somewhere during the boot sequence or in the menu.) Check
+in your changes and build a kernel. Run your kernel and realize your mistake.
+Use Git to revert your previous commit containing the mistake. Confirm that
+your kernel now builds and boots properly.
+* Set up a private remote repository so that you and your partner can share
+changes. Pick a file to edit jointly, something long enough so that you both
+can add changes. Add a comment to the top of the file. Have your partner add
+a comment to the bottom of the file. Use Git to merge your changes through
+the remote repository.
+* Pick another file to edit jointly, but this time create a conflict by both
+adding different comments to the same line of the file. Using Git, confirm
+that the edits create a merge conflict. Use Git to handle the conflict and
+complete the merge. Try doing this twice and see if you can force each
+partner to handle the merge conflict.
+
+=== Debugging Using GDB
+
+GDB--or the GNU debugger--is another extremely well-documented tool which we
+will let you learn on your own. Unlike Git, GDB is not required to complete
+the `ops-class.org` assignments. But that's like saying that shoes aren't
+required to climb Mt. Everest. You can make it without GDB, through good old
+`printf` debugging and pure deductive reasoning. But it will be very, very
+painful. You will be much happier if you learn to use GDB.
+
+The only complication to using GDB to debug your OS/161 kernel is that the
+machine simulator `sys161` gets in the way. As a result, the way that you
+hook up the debugger to your running kernel is a bit different than you might
+be used to if you have used GDB previously. For example, if you try this in
+your root directory:
+[source,bash]
 ----
-main(int argc, char ** argv) {
-  int i = 0;
-  return 0;
-}
+os161-gdb sys161 kernel
 ----
+you will end up debugging `sys161`, not your kernel, which is not what you
+want. And if you run
+[source,bash]
+----
+os161-gdb kernel
+----
+nothing will happen at all because you haven't started the `sys161` simulator
+required to run your kernel.
+
+Instead, you need to start the simulator and the debugger separately.
+However, it is critical that they run in the same directory. A terminal
+multiplexer like `tmux` comes in handy here. Here's what to do:
+
+. In one terminal, change to your root directory and start your kernel. There
+is a special option to `sys161` that will cause it to wait for a connection
+from the debugger before booting. Use that to make sure that you can
+establish the connection before boot.
+. In a second terminal, change to your root directory and start the debugger
+by running `os161-gdb kernel`.
+
+Unfortunately, you are not quite done. You may have noticed that the kernel
+is still waiting for a debugger connection. To establish that connection,
+type the following at the GDB prompt:
+[source,bash]
+----
+target remote unix:.sockets/gdb
+----
+
+At this point GDB should confirm that it is connected to the `sys161`
+simulator and you can proceed. Note that the kernel is stopped at this point
+as if you have set up a breakpoint, so you need to instruct it to continue.
+
+Happily, new versions of `sys161` will wait explicitly at shutdown for a
+debugger connection if something goes wrong. Try booting your kernel and
+running the `panic` command to observe this behavior. This gives you a chance
+to connect a debugger and poke around in cases where your kernel panics and
+you weren't expecting it. *That said, we suggest that you always run your
+kernel with the debugger attached from boot.*
+
+If you get tired of typing these commands, there are ways to set up a GDB
+alias for the `target` command and have it be run when GDB starts. For the
+even more adventurous, you can set up a `tmux` script that will automatically
+create two windows, boot your kernel in one and start the debugger in the
+other. Programming FTW!
+
+Finally, note that because GDB is debugging your kernel through the `sys161`
+system simulator, not all GDB features are supported. Watchpoints, for
+example, are known not to work. In addition, when stepping through code you
+should keep in mind that your kernel is multithreaded and that other threads
+may have run in-between each step.
+
+==== GDB exercises
+
+If you are just getting started with GDB, here are some exercises specific to
+OS/161 that you may want to try:
+
+* Set a breakpoint on the `panic` function. Initiate a panic from the kernel
+menu and confirm that GDB hits the break point. Inspect the call stack and
+step up and down a few times before allowing the kernel to continue and
+`sys161` to exit.
+* Create a panic by modifying your OS/161 source code. Use GDB to find the
+source of the panic. If you are working with a partner, have your partner
+hide a panic in the source code and use GDB to find it. Then hide one for
+them.
+* Step through kernel boot, stepping in to and over a few of the boot helper
+functions that initialize various subsystems.
+* Put a breakpoint on the kernel exception handler and step through it when
+it fires. Use it to determine what generates exceptions when your kernel is
+sitting idly at the menu.
