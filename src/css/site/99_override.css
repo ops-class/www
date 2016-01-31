@@ -97,9 +97,16 @@ a.logo-fixed > img {
 ul#side li a:hover {
 	background: inherit;
 }
-ul#side li.active a {
+ul#side li.active > a {
   color: #23527c;
 }
-ul#side li.active a:after {
+ul#side li.active > a:after {
 	content: "_";
+}
+ul#side li li {
+	display: none;
+}
+ul#side li.active li {
+	display: block;
+	margin-left: 10px;
 }

@@ -8,9 +8,17 @@
 			</div>
 			<div class="col-md-2 scrollspy">
 				<ul id="side" class="nav hidden-xs hidden-sm"
-								 data-spy="affix" style="padding-top:20px; padding-right:10px;">
+									data-spy="affix" style="padding-top:20px; padding-right:10px;">
 					{{#each sections}}
-					<li class="h5"><a href="#{{ this.id }}">{{ this.text }}</a></li>
+					<li class="h5"><a href="#{{ this.id }}">{{ this.text }}</a>
+					{{#if children}}
+					<ul class="nav">
+						{{#each children}}
+						<li class="h6"><a href="#{{ this.id }}">{{ this.text }}</a></li>
+						{{/each}}
+					</ul>
+					{{/if}}
+					</li>
 					{{/each}}
 				</ul>
 			</div>
