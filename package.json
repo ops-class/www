@@ -25,7 +25,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "asciidoctor.js": "^1.5.3",
+    "asciidoctor.js": "1.5.3",
     "async": "^1.5.0",
     "cheerio": "^0.19.0",
     "domino": "^1.0.22",
