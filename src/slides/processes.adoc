@@ -209,7 +209,7 @@ different input and output rates.
 * Facilitates the canonical chaining together of small UNIX utilities to
 do more sophisticated processing.
 
-== Meme
+== !
 
 [.background]
 image:http://www6.pcmag.com/media/images/429142-a-remembrance-and-defense-of-ted-stevens-series-of-tubes.jpg?thumb=y&width=740&height=426[]
@@ -234,7 +234,7 @@ send a signal to any process.
 ** `SIGKILL` is a notable exception; used for non-graceful termination.
 ** `SIGTERM` is used for graceful shutdown and sent by Control-C.
 
-== Meme
+== !
 
 [.background]
 image:http://media.ossblog.it/s/sud/sudo.jpg[]

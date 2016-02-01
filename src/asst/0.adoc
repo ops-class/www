@@ -63,7 +63,10 @@ interact with other OS/161 hackers in person and in the online forum.
 Another objective of this course is to help you learn to use common
 development tools, particularly Git. However, like most programming tools the
 best way to get started with and continue to learn Git is through the
-extensive online documentation and multiple good online tutorials.
+extensive online documentation and multiple good online tutorials
+(https://www.atlassian.com/git/tutorials/[1],
+https://try.github.io/levels/1/challenges/1[2],
+https://www.google.com/search?ie=UTF-8&q=git%20tutorial[etc.]).
 
 As a result, we have removed Git guides from the `ops-class.org`
 documentation. Not only is any documentation we could provide much less
@@ -135,7 +138,9 @@ through your options carefully before making a decision.
 
 If you have a computer running Ubuntu Linux, we have packaged the OS/161
 toolchain for the last two Ubuntu [.spelling_exception]#LTS# releases (12.04
-Precise and 14.04 Trusty) in a Launchpad [.spelling_exception]#PPA#. Installation is simple:
+Precise and 14.04 Trusty) in a
+https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain/[Launchpad
+[.spelling_exception]#PPA#]. Installation is simple:
 
 [source,bash]
 ----
@@ -145,24 +150,26 @@ sudo apt-get install os161-toolchain
 ----
 
 If you don't have a computer running Linux, and you have a spare computer
-around, you may want to give Ubuntu a try. Maintaining your own Linux machine
-is a great way to learn more about system administration and, to some degree,
-about operating systems as well.
+around, you may want to give http://www.ubuntu.com[Ubuntu] a try. Maintaining
+your own Linux machine is a great way to learn more about system
+administration and, to some degree, about operating systems as well.
 
 === Ubuntu Guest Using Vagrant
 
 If you'd prefer to develop on your own machine but don't run Ubuntu Linux, we
-have a Vagrant configuration allowing you to easily fire up a VirtualBox
+have a Vagrant configuration allowing you to easily fire up a
+https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain/[VirtualBox]
 guest virtual machine on your Windows or Mac host footnote:[We'll talk a lot
 more about virtualization in class, but here's one example of how useful it
 can be.].
 
 The first step is to install https://www.vagrantup.com/[Vagrant], which
-happily comes with installers for most common operating systems. Next you
-need to get our `Vagrantfile` which describes how to provision and configure
-your virtual machine. You'll need Git installed to complete this next step.
-Pick or create an empty directory to use for your OS/161 sources. Then clone
-our Vagrant repository into that directory.
+happily comes with installers for most common operating systems. Next you need
+to https://github.com/ops-class/vagrant[get our `Vagrantfile` ]which describes
+how to provision and configure your virtual machine. You'll need
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git installed]
+to complete this next step.  Pick or create an empty directory to use for your
+OS/161 sources. Then clone our Vagrant repository into that directory.
 
 Once that's done, you should be able to run `vagrant up` from the directory
 containing our `Vagrantfile`. Note that `vagrant up` will take a few minutes
@@ -255,7 +262,7 @@ command located at the base of your source tree. You need to do this (very
 short) step only when you completely remove your source tree for some reason.
 The only configuration step is to set up where various binaries--including
 system executable and your kernel--will be created when you run `make` in
-later steps. Run `configure -help` to find out more including available
+later steps. Run `configure --help` to find out more including available
 command line options.
 
 Note that by default OS/161 installs things to the root directory
@@ -564,6 +571,15 @@ across all operating systems.
 
 * `kern/conf/config`: is the script that takes a configuration file, 
 like `GENERIC`, and creates the corresponding build directory.
+
+==== `kern/test/`
+
+This directory contains kernel tests that evaluate multiple parts of your
+system. Some of these will work right away (`km1`, `km2`, `sy1`), others will
+not (`sy2`, `sy3`), and others you will have to write (`sy5`). You are more
+than welcome--encouraged even--to add your own kernel tests. However, please
+note that during automated tests we will replace the contents of this
+directory to ensure that your kernel runs the right tests.
 
 ==== `kern/dev/`
 

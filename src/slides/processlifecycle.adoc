@@ -9,6 +9,11 @@ song:
   name: "Champagne Supernova"
   author: "Oasis"
   youtube: tI-5uv4wryI
+spelling_exceptions:
+  - pmap
+  - lsof
+  - bashrc
+  - proc
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -43,7 +48,7 @@ video::{music}[youtube,width=0,height=0]
 [.slider]
 * My goal is to help everyone "make an A."
 * If you are confused about anything, or have any doubts, email
-staff@ops-class.org and we will reply promptly.
+`staff@ops-class.org` and we will reply promptly.
 
 [.nooutline]
 == Last Time
@@ -159,7 +164,7 @@ image::figures/lsof.svg[width="100%"]
 * `/home/challen/.bashrc` was not actually open when I ran this command.
 * `bash` didn't have any interesting files open and I was embarrassed.
 
-== Meme
+== !
 [.background]
 image:http://www.db18.com/d/sad/sad_025.jpg[]
 
@@ -187,7 +192,7 @@ configuration parameters.
 
 image::figures/process-bash.svg[width="100%"]
 
-== Aside: the /proc/ filesystem
+== Aside: the /proc/ file system
 
 [.slider]
 * How do `top`, `ps`, `pmap`, `lsof`, and other process examination utilities
@@ -288,7 +293,7 @@ image::figures/process-updated.svg[width="50%",role='expand vbottom']
 
 [.slider]
 * The *file descriptor* that processes receive from `open()` and pass to
-other filesystem system calls is just an int, an index into the process
+other file system system calls is just an int, an index into the process
 file table.
 * That int refers to a *file handle* object maintained by the kernel.
 * That file handle object contains a reference a separate *file object*
@@ -300,7 +305,7 @@ also maintained by the kernel.
 ** file object -> blocks on disk.
 * *Why?*
 
-== Meme
+== !
 
 [.background]
 image:http://geeklypress.com/wp-content/uploads/2013/08/confused-cat.jpg[]
@@ -443,7 +448,7 @@ while (1) {
 }
 ----
 
-== Meme
+== !
 
 [.background]
 image:http://static.comicvine.com/uploads/original/6/67602/2255673-agent_smith.jpg[]
