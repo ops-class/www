@@ -16,7 +16,7 @@ spelling_exceptions:
   - proc
 ---
 [.nooutline.spelling_exception]
-== Technical Women
+== Welcome
 
 [.h3.center]
 icon:music[] link:http://courtneybarnett.com.au/[{song}]
@@ -41,6 +41,10 @@ video::{music}[youtube,width=0,height=0]
 [.slider]
 * *Today is the add/drop deadline!*
 * Recitations start this week and office hours continue.
+* A preliminary website is up! It has a link to the calendar, information
+about how to contact the course staff, and (most importantly): ASST0.
+* We will create your class accounts later today which will allow you to use
+the Discourse site and our private GitLab instance.
 
 [.nooutline]
 == A Note on Grading
@@ -49,6 +53,16 @@ video::{music}[youtube,width=0,height=0]
 * My goal is to help everyone "make an A."
 * If you are confused about anything, or have any doubts, email
 `staff@ops-class.org` and we will reply promptly.
+
+[.nooutline]
+== A Note on Assignment Grading
+
+[.slider]
+* This year we have removed many of the free points from the assignments.
+* The goal is not to demoralize anyone. The goal is to ensure that you are
+working on the parts of the assignments that are important.
+* However, we *strongly* advise you to complete the recommended questions and
+exercises.
 
 [.nooutline]
 == Last Time
