@@ -347,7 +347,8 @@ provides an excellent overview.].
 Unlike OS/161, we _do not_ expect you to modify `sys161`. However, you do
 need to _configure_ the simulated machine that `sys161` provides by choosing
 the number of simulated CPU cores, the amount of simulated memory, and the
-number of simulated disk drives. Here is a `sys161.conf` file that you can
+number of simulated disk drives. link:/asst/sys161.conf[Here is a
+`sys161.conf` file] that you can
 use to get started. But you should read and understand the structure of this
 configuration file so that you can modify it as needed in later assignments.
 
