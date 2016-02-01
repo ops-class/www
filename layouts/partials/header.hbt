@@ -63,6 +63,7 @@ _gaq.push(['_trackPageview']);
 					<div id="navbar" class="navbar-collapse collapse">
 						<div class="row">
 							<div class="col-sm-6">
+								<!--
 								<ul class="nav navbar-nav left">
 									<li><a id="menu-lectures"
 											title="Lecture slides, notes, and videos."
@@ -74,6 +75,7 @@ _gaq.push(['_trackPageview']);
 									<li><a title="Links to information about specific courses using ops-class.org."
 											href="/courses/">courses</a></li>
 								</ul>
+								-->
 							</div>
 							<div class="col-sm-6">
 								<ul class="nav navbar-nav right">

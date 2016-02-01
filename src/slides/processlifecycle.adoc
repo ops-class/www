@@ -1,0 +1,465 @@
+---
+title: "Processes and File Handles"
+date: 2015-02-01
+author: Geoffrey Challen
+description: >
+  Continuation of a discussion of the process abstraction and introduction to
+  file handles and file descriptors.
+song:
+  name: "Champagne Supernova"
+  author: "Oasis"
+  youtube: tI-5uv4wryI
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+[.h3.center]
+icon:music[] link:http://courtneybarnett.com.au/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+. Finish long-winded, dull example from last time.
+. Review.
+. File handles.
+. Process life cycle:
+** *Birth:* `fork()`
+** *Change:* `exec()`
+** *Death:* `exit()`
+** *The Afterlife:* `wait()`
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* *Today is the add/drop deadline!*
+* Recitations start this week and office hours continue.
+
+[.nooutline]
+== A Note on Grading
+
+[.slider]
+* My goal is to help everyone "make an A."
+* If you are confused about anything, or have any doubts, email
+staff@ops-class.org and we will reply promptly.
+
+[.nooutline]
+== Last Time
+
+[.slider]
+.We discussed the *process* abstraction.
+* Unfortunately at this point we are discussing an abstraction
+(processes) built on other abstractions (threads, address spaces, files)
+that we haven't discussed yet!
+* There is a certain circularity to operating system design but we had
+to break through at some point.
+* Bear with me--we will get there and we will also keep returning to the
+examples we've already introduced.
+* Questions about material presented Friday?
+
+== Process Example: Firefox
+
+[.small]
+--
+.*Firefox has multiple threads. What are they doing?*
+* Waiting for and processing interface events: mouse clicks, keyboard
+input, etc.
+* Redrawing the screen as necessary in response to user input, web page
+loading, etc.
+* Loading web pages--usually multiple parts _in parallel_ to speed
+things up.
+
+.*Firefox is using memory. For what?*
+* Firefox.exe: the executable code of Firefox itself.
+* Shared libraries for web page parsing, security, etc.
+* Stacks storing local variables for running threads.
+* A heap storing dynamically-allocated memory.
+
+.*Firefox has files open. Why?*
+* Configuration files.
+* Fonts.
+--
+
+== $ top # more process information
+
+image::figures/top.svg[width="100%"]
+
+== Process Example: bash
+
+[.slider]
+* Let's do this for real using standard Linux system utilities.
+
+== Finding bash
+
+image::figures/finding-bash.svg[width="100%"]
+
+[.slider]
+* `ps aux` gives me all process, then `grep` for the one I'm after.
+* ...or, do it all in one shot using `pgrep`.
+* ...or, if I know it's running in my current session a bare `ps` will do.
+
+== bash
+
+image::figures/process-bash-3.svg[width="100%"]
+
+== [.spelling_exception]#$ ps -Lf # thread information#
+
+image::figures/threads-bash.svg[width="100%"]
+
+[.small.slider]
+.What are:
+* `UID`: user the process is running as.
+* `PID`: process ID.
+* `PPID`: parent process ID.
+* `PRI`: scheduling priority.
+* `SZ`: size of the core image of the process (kB).
+* `WCHAN`: if the process is not running, description of what it is
+waiting on.
+* `RSS`: total amount of resident memory is use by the process (kB).
+* `TIME`: measure of the amount of time that the process has spent
+running.
+
+== [.spelling_exception]#$ ps -Lf # thread information#
+
+image::figures/threads-bash.svg[width="100%"]
+
+[.slider]
+* If `bash` had multiple threads running this view would show them, so
+`bash` does not have multiple threads.
+
+== bash
+
+image::figures/process-bash-2.svg[width="100%"]
+
+== $ ps # process information
+
+[.slider]
+* I wish we could see a process with multiple threads...
+
+== [.spelling_exception]#$ ps -Lf # thread information#
+
+image::figures/ps-threads.svg[width="90%", role="expand"]
+
+== $ pmap # memory mappings
+
+image::figures/pmap.svg[width="100%"]
+
+== bash
+
+image::figures/process-bash-1.svg[width="100%"]
+
+== $ lsof # open files
+
+image::figures/lsof.svg[width="100%"]
+
+[.slider]
+.True confessions: I cheated here.
+* `/home/challen/.bashrc` was not actually open when I ran this command.
+* `bash` didn't have any interesting files open and I was embarrassed.
+
+== Meme
+[.background]
+image:http://www.db18.com/d/sad/sad_025.jpg[]
+
+[.meme-top]
+bashrc not open
+
+[.meme-bottom,.small]
+Professor resorts to lying
+
+== $ lsof # open files
+
+image::figures/lsof.svg[width="100%"]
+
+.True confessions: I cheated here.
+* `/home/challen/.bashrc` was not actually open when I ran this command.
+* `bash` didn't have any interesting files open and I was embarrassed.
+
+[.slider]
+--
+Let's imagine we caught bash during startup when it is reading its
+configuration parameters.
+--
+
+== bash
+
+image::figures/process-bash.svg[width="100%"]
+
+== Aside: the /proc/ filesystem
+
+[.slider]
+* How do `top`, `ps`, `pmap`, `lsof`, and other process examination utilities
+gather information?
+* Linux reuses the *file* abstraction for this purpose.
+
+image::figures/procfilesystem.svg[width="100%",role='slide']
+
+== OK... Let's Review
+
+== OS Abstraction Cheat Sheet
+
+[.slider]
+* *Threads* save processor state.
+* *Address spaces* map the addresses used by processes (virtual
+addresses) to real memory addresses (physical addresses).
+* *Files* map offsets into a file to blocks on disk.
+* *File-like objects* look like files to a process but are not actually
+stored on disk and may not completely obey file semantics.
+** You can't seek on a network socket or open certain network-mounted
+files.
+* *Processes* organize these other operating system abstractions.
+
+[.nooutline]
+== Review: Abstractions
+
+[.slider]
+.Abstractions *simplify application design* by:
+* *hiding undesirable properties*,
+* *adding new capabilities*, and
+* *organizing information*.
+
+[.nooutline]
+== Review: Processes
+
+Processes [.slide]*organize information* about other abstractions and represent
+a single thing that [.slide]*the computer is "doing."*
+
+[.slider]
+.Processes contain:
+* one or more *threads*,
+* an *address space*, and
+* zero or more open *file handles*.
+
+[.nooutline]
+== Review: Processes
+
+[.slider]
+* Processes organize information about other abstractions and represent
+a single thing that the computer is "doing."
+* Processes contain:
+** one or more *threads*,
+** an *address space*, and
+** zero or more open *file handles*.
+
+[.nooutline]
+== [.small]#Review: Inter-Process Communication (IPC)#
+
+[.slider]
+.IPC mechanisms include:
+* files,
+* return codes,
+* pipes,
+* shared memory,
+* and signals.
+
+[.nooutline]
+== Review: Protection
+
+One major operating system goal is to protect processes from [.slide]*each
+other*.
+
+[.nooutline]
+== So Now: Questions About Processes?
+
+== Updated Process Model
+
+[.slider]
+* For today's material being precise about how processes use files
+becomes important.
+
+[.slide.replace]
+--
+* So let's update our model. Here's what we had last time:
+
+image::figures/process.svg[width="50%",role='vbottom expand']
+--
+
+[.slide.replace]
+--
+* So let's update our model. Here's what we had last time:
+* And here's today's change:
+
+image::figures/process-updated.svg[width="50%",role='expand vbottom']
+--
+
+== File Handles
+
+[.slider]
+* The *file descriptor* that processes receive from `open()` and pass to
+other filesystem system calls is just an int, an index into the process
+file table.
+* That int refers to a *file handle* object maintained by the kernel.
+* That file handle object contains a reference a separate *file object*
+also maintained by the kernel.
+* Which then is mapped by the file system to blocks on disk.
+* So *three* levels of indirection:
+** file descriptor -> file handle.
+** file handle -> file object.
+** file object -> blocks on disk.
+* *Why?*
+
+== Meme
+
+[.background]
+image:http://geeklypress.com/wp-content/uploads/2013/08/confused-cat.jpg[]
+
+[.meme-top]
+Are you just trying
+[.meme-bottom]
+to confuse me?
+
+== Sharing File State
+
+[.slider]
+.The additional level of indirection allows certain pieces of state to be shared separately.
+* *File descriptors* are private to each process.
+* *File handles* are private to each process but shared after process
+creation.
+** *File handles* store the current file *offset*, or the position in
+the file that the next read will come from or write will go to. File
+handles can be *deliberately* shared between two processes.
+* *File objects* hold other file state and can be shared *transparently*
+between many processes.
+
+== Operating System Design Principles
+
+[.slider]
+* Separate [.slide]*policy* from [.slide]*mechanism*.
+* Facilitate control or sharing by adding a [.slide]*level of indirection*.
+
+== Process Creation
+
+Where do processes come from?
+
+== `fork()` # create a new process
+
+[.small.slider]
+.`fork()` is the UNIX system call that creates a new process.
+* `fork()` creates a new process that is a *copy* of the calling process.
+* After `fork()` we refer to the caller as the *parent* and the
+newly-created process as the *child*. This relationship enables certain
+capabilities.
+
+image::figures/process-updated.svg[width="60%",role='vbottom expand']
+
+== `fork()` Semantics
+
+[.slider]
+* Generally `fork()` tries to make an *exact* copy of the calling process.
+** Recent version of UNIX have relaxed this requirement and there are
+now many flavors of `fork()` that copy different amounts of state and are
+suitable for different purposes.
+** For the purposes of this class, ignore them.
+* Threads are a notable exception!
+
+== `fork()` Against Threads
+
+[.slider]
+* Single-threaded `fork()` has reliable semantics because the *only
+thread* the processes had is the one that called `fork()`.
+** So nothing else is happening while we complete the system call.
+* Multi-threaded `fork()` creates a host of problems that many systems
+choose to ignore.
+** Linux will only copy state for the thread that called `fork()`.
+
+== Multi-Threaded `fork()`
+
+[.slider]
+.There are two major problems with multi-threaded `fork()`
+. Another thread could be blocked in the middle of doing something
+(uniprocessor systems), or
+. another thread could be *actually* doing something (multiprocessor
+systems).
+
+[.slide]
+--
+This ends up being a big mess. Let's just copy the calling thread.
+--
+
+== `fork()`
+
+[.slider]
+. `fork()` copies one thread--the caller.
+. `fork()` copies the address space.
+. `fork()` copies the process file table.
+
+[.slide.replace]
+--
+image::figures/fork-4.svg[image,width=100%,role='vbottom']
+--
+
+[.slide.replace]
+--
+image::figures/fork-3.svg[image,width=100%,role='vbottom']
+--
+
+[.slide.replace]
+--
+image::figures/fork-2.svg[image,width=100%,role='vbottom']
+--
+
+[.slide.replace]
+--
+image::figures/fork-1.svg[image,width=100%,role='vbottom']
+--
+
+[.slide.replace]
+--
+image::figures/fork.svg[image,width=100%,role='vbottom']
+--
+
+== After `fork()`
+
+[source,c]
+----
+returnCode = fork();
+if (returnCode == 0) {
+  # I am the child.
+} else {
+  # I am the parent.
+}
+----
+
+[.small.slider]
+* The child thread returns executing at the exact same point that its
+parent called `fork()`.
+** With one exception: `fork()` returns *twice*, the PID to the parent and
+0 to the child.
+* All contents of memory in the parent and child are identical.
+* Both child and parent have the same files open at the same position.
+** *But, since they are sharing file handles changes to the file
+offset made by the parent/child will be reflected in the child/parent!*
+
+== Calm Like A ``fork()``bomb
+
+What does this code do?
+
+[source,c]
+----
+while (1) {
+  fork();
+}
+----
+
+== Meme
+
+[.background]
+image:http://static.comicvine.com/uploads/original/6/67602/2255673-agent_smith.jpg[]
+
+[.meme-top]
+while 1
+
+[.meme-bottom]
+fork()
+
+[.nooutline]
+== Next Time
+
+.*We continue* the process lifecycle:
+* *change* (`exec()`),
+* *death* (`exit()`), and
+* *heaven* (`wait()`).
+* Heaven?
+* Write the code for our simple shell.
