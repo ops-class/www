@@ -44,7 +44,7 @@ video::{music}[youtube,width=0,height=0]
 * A preliminary website is up! It has a link to the calendar, information
 about how to contact the course staff, and (most importantly): ASST0.
 * We will create your class accounts later today which will allow you to use
-the Discourse site and our private GitLab instance.
+the Discourse site and our private [.spelling_exception]#GitLab# instance.
 
 [.nooutline]
 == A Note on Grading
@@ -58,7 +58,8 @@ the Discourse site and our private GitLab instance.
 == A Note on Assignment Grading
 
 [.slider]
-* This year we have removed many of the free points from the assignments.
+* This year we have removed many of the free points from the
+assignments--particularly the code reading questions.
 * The goal is not to demoralize anyone. The goal is to ensure that you are
 working on the parts of the assignments that are important.
 * However, we *strongly* advise you to complete the recommended questions and

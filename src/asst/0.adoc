@@ -1,8 +1,8 @@
 ---
 title: "Introduction to OS/161"
 spelling_exceptions:
-	- vfs
-	- PPA
+  - vfs
+  - PPA
 ---
 :sectnums:
 
@@ -149,6 +149,12 @@ sudo add-apt-repository ppa:geoffrey-challen/os161-toolchain
 sudo apt-get update
 sudo apt-get install os161-toolchain
 ----
+
+If you'd like to use a different version of Ubuntu you'll need to modify the
+APT configuration generated above to use whichever LTS version most
+immediately precedes yours.
+https://help.ubuntu.com/community/Repositories/CommandLine[This help page]
+should get you started.
 
 If you don't have a computer running Linux, and you have a spare computer
 around, you may want to give http://www.ubuntu.com[Ubuntu] a try. Maintaining
