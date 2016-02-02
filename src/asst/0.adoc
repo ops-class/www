@@ -2,6 +2,7 @@
 title: "Introduction to OS/161"
 spelling_exceptions:
 	- vfs
+	- PPA
 ---
 :sectnums:
 
@@ -140,7 +141,7 @@ If you have a computer running Ubuntu Linux, we have packaged the OS/161
 toolchain for the last two Ubuntu [.spelling_exception]#LTS# releases (12.04
 Precise and 14.04 Trusty) in a
 https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain/[Launchpad
-[.spelling_exception]#PPA#]. Installation is simple:
+PPA]. Installation is simple:
 
 [source,bash]
 ----
