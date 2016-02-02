@@ -114,6 +114,13 @@ explicit permission footnote:[Which you are extremely unlikely to get.].
   
 == Choosing and Initializing Your Development Environment
 
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<iframe src="https://www.youtube.com/embed/taI5t05YKto" allowfullscreen></iframe>
+</div>
+++++
+
 [.lead]
 Developing for OS/161 requires a specialized set of tools, including the
 `sys161` simulator along with a GCC cross-compiler allowing you to create
