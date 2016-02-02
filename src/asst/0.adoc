@@ -292,8 +292,8 @@ careful.*
 
 The kernel sources for OS/161 are in the `kern` subdirectory, which has its
 own configuration script. Change into `kern/conf` and look around. You should
-notice a configuration script, a base configuration file (`kern.conf`), and
-four configurations that include `kern.conf`.
+notice a configuration script, a base configuration file (`conf.kern`), and
+four configurations that include `conf.kern`.
 
 You should take a look at `kern.conf` and one of the configurations to get a
 sense of the format. But for now, the only thing we're concerned about is
