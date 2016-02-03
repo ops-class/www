@@ -237,6 +237,13 @@ cross-compilation toolchain and System/161.
 
 == Configuring, Building, and Running a Kernel
 
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<iframe src="https://www.youtube.com/embed/IxX4uwET3_U" allowfullscreen></iframe>
+</div>
+++++
+
 [.lead]
 Now that you have your development environment ready, on to the fun stuff:
 building and booting your first OS/161 kernel.
@@ -451,6 +458,13 @@ let it slow you down unnecessarily. Focus your development loop on your
 kernel.
 
 == Exploring OS/161
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<iframe src="https://www.youtube.com/embed/Q87oBTajZFk" allowfullscreen></iframe>
+</div>
+++++
 
 [.lead]
 One of the core challenges of the `ops-class.org` assignments is working with
@@ -707,6 +721,13 @@ each other crazy or spend hours reformatting each others' code.
 
 === Collaborating with Git
 
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<iframe src="https://www.youtube.com/embed/p0BQHgl3m0k" allowfullscreen></iframe>
+</div>
+++++
+
 As described previously, we are not going to go into the use of Git in
 detail. *But we will point out that using Git is not optional for completing
 the `ops-class.org` assignments.* We distribute our base sources using Git
@@ -768,6 +789,13 @@ complete the merge. Try doing this twice and see if you can force each
 partner to handle the merge conflict.
 
 === Debugging Using GDB
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<iframe src="https://www.youtube.com/embed/BcbqC74DEy0" allowfullscreen></iframe>
+</div>
+++++
 
 GDB--or the GNU debugger--is another extremely well-documented tool which we
 will let you learn on your own. Unlike Git, GDB is not required to complete
