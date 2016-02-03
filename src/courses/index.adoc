@@ -288,14 +288,13 @@ that we are able to establish and your understanding of the material.
 == Programming Assignments
 
 The course includes four programming assignments of increasing difficulty.
-The assignments themselves are hosted on the \thewebsite{} course website.
-You also use the website to submit your answers and view your grades. The
-programming portions of the assignment are graded automatically and you may
-submit them as often as you like, using the autograder output to improve your
-submission. Questions that are graded by the course staff may be submitted
-twice, since they must be graded each time. Each question also has a rubric
-which indicates exactly how each portion of the question was evaluated and
-points assigned.
+The assignments themselves are hosted on this website.  You also use the
+website to submit your answers and view your grades. The programming portions
+of the assignment are graded automatically and you may submit them as often as
+you like, using the autograder output to improve your submission. Questions
+that are graded by the course staff may be submitted twice, since they must be
+graded each time. Each question also has a rubric which indicates exactly how
+each portion of the question was evaluated and points assigned.
 
 All programming assignments are done in pairs. *Both students in each pair
 receive the same grade for each programming assignment.* Each programming
@@ -304,3 +303,33 @@ you have followed each time you submit answers.
 
 A description of each assignment along with due dates are listed below. This
 year we expect these to be firm and *no extensions will be given.*
+
+=== link:/asst/0/[`ASST0`: Introduction to OS/161]
+
+Introduces you to the programming environment you will be working in this
+semester, including the OS/161 operating system, the `sys161` simulator, the
+GNU debugger (GDB), and the Git revision control system.  Consists of code
+reading questions, a few simple scripting tasks, and a very simple
+implementation task.
+
+=== `ASST1`: Synchronization
+
+Your first real taste of kernel programming. After completing a set of code
+reading questions, you implement locks, condition variables and reader-writer
+locks. Next, you use them to solve a few simple toy synchronization problems.
+
+=== `ASST2`: System Calls and Process Support
+
+The first big and complex assignment. Start by submitting a design that
+indicates you understand all of the moving pieces and what to do. Next,
+implement the system call interface. When you are finished, your kernel
+should be able to run user programs.
+
+=== `ASST3`: Virtual Memory
+
+The mountain top. A large amount of code to implement and many internal
+interfaces to design. As always, start with a careful design. Then implement
+virtual memory, including address translation, TLB management, page
+replacement and swapping. When you are finished, your kernel should be able to
+run forever without running out of memory, and you will have completed the
+course.
