@@ -10,7 +10,7 @@ song:
   author: "Courtney Barnett"
   youtube: o-nr1nNC3ds
 ---
-== Technical Women
+== Welcome
 
 [.h3.center]
 icon:music[] http://socialhub.courtneybarnett.com.au/[{song}]
@@ -28,9 +28,17 @@ video::{music}[youtube,width=0,height=0]
 == $ cat announce.txt
 
 [.slider]
-* Do ASST1!
+* Do ASST0!
 * With your partner!
 * Side by side, as necessary.
+
+<<<
+
+[.slider]
+* Is Discourse working?
+* Are the screencasts helpful?
+* Should we start our own http://area51.stackexchange.com/[Stack Exchange]
+community?
 
 [.nooutline]
 == Questions About `fork()`?
@@ -262,6 +270,25 @@ servicing devices and application requests.
 synchronization problem.
 * Also, if the operating system gets synchronization wrong *bad things
 happen*.
+
+== Concurrency v. Parallelism
+
+The https://golang.org/[Go developers] have a great description of this
+distinction. http://blog.golang.org/concurrency-is-not-parallelism[According
+to them]:
+
+[.small]
+--
+[quote]
+...when people hear the word concurrency they often think of parallelism, a
+related but quite distinct concept. In programming, concurrency is the
+composition of independently executing processes, while parallelism is the
+simultaneous execution of (possibly related) computations. Concurrency is
+about dealing with lots of things at once. Parallelism is about doing lots of
+things at once.
+--
+
+https://vimeo.com/49718712[Watch the video] to find out more.
 
 == Unless Shown Otherwise...
 
