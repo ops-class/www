@@ -25,6 +25,7 @@
 	"Guru Prasad": true,
   "HDD": true,
 	"/https?/": true,
+	"/i\\.e\\./": true,
 	"/intra/i": true,
 	"IPC": true,
   "ISA": true,

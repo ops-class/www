@@ -384,3 +384,7 @@ img {
 
 #coldcall-window img {
   max-width: 100%; }
+
+.slide > h2:first-child > code {
+	font-size: 0.8em;
+}

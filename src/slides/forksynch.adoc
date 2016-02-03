@@ -1,0 +1,473 @@
+---
+title: "fork() and Synchronization"
+date: 2015-02-03
+author: Geoffrey Challen
+description: >
+  Completion of a discussion of fork including the use of pipes, and the
+  beginning of a unit on synchronization.
+song:
+  name: "Pedestrian at Best"
+  author: "Courtney Barnett"
+  youtube: o-nr1nNC3ds
+---
+== Technical Women
+
+[.h3.center]
+icon:music[] http://socialhub.courtneybarnett.com.au/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+. Process life cycle:
+** *Birth:* `fork()`
+. Introduction to synchronization
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* Do ASST1!
+* With your partner!
+* Side by side, as necessary.
+
+[.nooutline]
+== Questions About `fork()`?
+
+[.nooutline]
+== Review: Updated Process Model
+
+image::figures/process-updated.svg[width="60%",role='vbottom expand']
+
+[.nooutline]
+== Review: Levels of Indirection
+
+[.slider]
+* *Three* levels of indirection:
+** file descriptor -> file handle.
+** file handle -> file object.
+** file object -> blocks on disk.
+
+[.nooutline]
+== Sharing File State
+
+[.slider]
+.The additional level of indirection allows certain pieces of state to be shared separately.
+* *File descriptors* are private to each process.
+* *File handles* are private to each process but shared after process
+creation.
+** *File handles* store the current file *offset*, or the position in
+the file that the next read will come from or write will go to. File
+handles can be *deliberately* shared between two processes.
+* *File objects* hold other file state and can be shared *transparently*
+between many processes.
+
+[.nooutline]
+== Review: `fork()`
+
+[.slider]
+. `fork()` copies one thread--the caller.
+. `fork()` copies the address space.
+. `fork()` copies the process file table.
+
+[.slide.replace]
+--
+image::figures/fork-4.svg[image,width="100%",role='vbottom']
+--
+
+[.slide.replace]
+--
+image::figures/fork-3.svg[image,width="100%",role='vbottom']
+--
+
+[.slide.replace]
+--
+image::figures/fork-2.svg[image,width="100%",role='vbottom']
+--
+
+[.slide.replace]
+--
+image::figures/fork-1.svg[image,width="100%",role='vbottom']
+--
+
+[.slide.replace]
+--
+image::figures/fork.svg[image,width="100%",role='vbottom']
+--
+
+[.nooutline]
+== After `fork()`
+
+[source,c]
+----
+returnCode = fork();
+if (returnCode == 0) {
+  # I am the child.
+} else {
+  # I am the parent.
+}
+----
+
+[.nooutline]
+== Questions About ``fork()``?
+
+== Pipes
+
+[.slider]
+.Chains of communicating processes can be created by exploiting the `pipe()` system call.
+* `pipe()` creates an anonymous pipe object and returns a two file
+descriptors: one for the read-only end, and the other for the write-only
+end.
+* Anything written to the write-only end of the pipe is immediately
+available at the read-only end of the pipe.
+* Pipe contents are buffered in memory.
+* *Why is this useful?*
+
+== IPC Using `fork()` and `pipe()`
+
+. Before calling `fork()` the parent creates a pipe object by calling
+pipe().
+. Next, it calls `fork()`.
+. After `fork()` the parent closes its copy of the read-only end and the
+child closes its copy of the write-only end.
+. Now the parent can pass information to the child.
+
+== IPC Using `fork()` and `pipe()`
+
+[.slide.replace]
+--
+image::figures/pipes-example.svg[image,width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/pipes-example-1.svg[image,width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/pipes-example-2.svg[image,width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/pipes-example-3.svg[image,width="100%",role='vcenter']
+--
+
+== IPC Using `fork()` and `pipe()`
+
+[.smaller.spelling_exception,source,c]
+----
+# pipeEnds[0] gets the read end; pipeEnds[1] gets the write end.
+int pipeEnds[2];
+
+pipe(pipeEnds);
+
+int returnCode = fork();
+
+if (returnCode == 0) {
+
+  # Don't need a loopback.
+  close(pipeEnds[1]);
+
+  # Read some data from the pipe.
+  char data[14];
+  read(pipeEnds[0], data, 16);
+} else {
+  
+  # Don't need a loopback.
+  close(pipeEnds[0]);
+  
+  # Write some data to the pipe.
+  write(pipeEnds[1], "Hello, sweet child!\n", 14);
+}
+----
+
+== Issues with `fork()`
+
+[.slider]
+.Copying all that state is expensive!
+* Especially when the next thing that a process frequently does is
+start load a new binary which destroys most of the state `fork()` has
+carefully copied!
+
+[.slider]
+.Several solutions to this problem:
+* *Optimize existing semantics*: through copy-on-write, a clever
+memory-management optimization we will discuss in several weeks.
+* *Change the semantics*: `vfork()`, which will fail if the child does anything other than
+immediately load a new executable.
+** Does not copy the address space!
+
+== Issues with `fork()`
+
+.What if I don't want to copy all of my process state?
+[.slider]
+* `fork()` is now replaced by `clone()`, a more flexible primitive that
+enables more control:
+** over sharing, including sharing memory, and signal handlers,
+** and over child execution, which begins at a function pointer passed
+to the system call instead of resuming at the point where `fork()` was
+called.
+* Try `man clone` in your CSE421 VM.
+
+== The Tree of Life
+
+[.slider]
+* `fork()` establishes a parent-child relationship between two process at
+the point when each one is created.
+* The `pstree` utility allows you to visualize these relationships.
+
+image::figures/pstree.svg[width="80%", role='slide expand']
+
+== Questions?
+
+== Fast Forward: Synchronization
+
+[.slider]
+.What you need to know
+* The OS creates the _illusion of concurrency_ by quickly switching the
+processor(s) between multiple threads
+** We will back up and discuss how this happens after discussion
+synchronization
+* *Threads* are used to abstract and multiplex the CPU
+
+== Pandora's Concurrency Box
+
+[.slider]
+.The illusion of concurrency is both *powerful* and *useful*:
+** It helps us think about how to structure our applications.
+** It hides latencies caused by slow hardware devices.
+
+[.slider]
+.Unfortunately, concurrency also creates *problems*:
+* *Coordination*: how do we enable efficient communication between the
+multiple threads involved in performing a single task?
+* *Correctness*: how do we ensure that shared state remains consistent
+when being accessed by multiple threads concurrently? How do we enforce
+time-based semantics?
+* We will focus on *correctness* today but return to *coordination*
+later.
+
+== Patient 0
+
+[.slider]
+.The *operating system* itself is one of the most difficult concurrent programs to write. Why?
+* It is multiplexing access to hardware resources and therefor sharing
+a great deal of state between multiple processes!
+* It frequently uses many threads to hide hardware delays while
+servicing devices and application requests.
+* *Lots of shared state* plus *lots of threads* equals a difficult
+synchronization problem.
+* Also, if the operating system gets synchronization wrong *bad things
+happen*.
+
+== Unless Shown Otherwise...
+
+Concurrency forces us to relax any assumptions that we may want to make about how any particular thread executes.
+
+[.slider]
+.Unless explicitly synchronized, threads may:
+. Be run in *any order*,
+. Be stopped and restarted at *any time*,
+. Remain stopped for *arbitrary lengths of time*.
+
+[.slider]
+* Generally these are *good things*—the operating system is making
+choices about how to allocate resources.
+* When accessing shared data these are *challenges* that force us to
+program more carefully.
+
+== The Bank Example
+
+Consider the following code snippet.
+
+[source,c,linenums,role='smaller']
+----
+void giveGWATheMoolah(account_t account, int largeAmount) {
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+[.slider]
+.Assume I have *$1,000* and that *two* of you are trying to make deposits concurrently:
+* One of you is depositing *$1,000* (this person gets a B).
+* One of you is depositing *$2,000* (A- material).
+
+== Things Go Well
+
+[cols="2,2,^1",options='header']
+|===
+
+| A- Student
+| B Student
+| Balance
+
+| {nbsp}
+| {nbsp}
+| $1000 
+
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $2000;
+put_balance(account, gwaHas);
+----
+| {nbsp}
+| [.slide]#$3000#
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $1000;
+put_balance(account, gwaHas);
+----
+| [.slide]*$4000*
+
+|===
+
+== Things Go Less Well
+
+[cols="2,2,^1",options='header']
+|===
+
+| A- Student
+| B Student
+| Balance
+
+| {nbsp}
+| {nbsp}
+| $1000 
+
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $2000;
+----
+| {nbsp}
+| {nbsp}
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $1000;
+----
+| {nbsp}
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+put_balance(account, gwaHas);
+----
+| [.slide]#$2000#
+
+a|
+[source,c,role='smallest slide']
+----
+put_balance(account, gwaHas);
+----
+| {nbsp}
+| [.slide]*$3000*
+
+
+|===
+
+== Things Go Very Badly
+
+[cols="2,2,^1",options='header']
+|===
+
+| A- Student
+| B Student
+| Balance
+
+| {nbsp}
+| {nbsp}
+| $1000 
+
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $2000;
+----
+| {nbsp}
+| {nbsp}
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $1000;
+----
+| {nbsp}
+
+a|
+[source,c,role='smallest slide']
+----
+put_balance(account, gwaHas);
+----
+| {nbsp}
+| [.slide]#$3000#
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+put_balance(account, gwaHas);
+----
+| [.slide]*$2000*
+
+|===
+
+== Race Conditions
+
+A *race condition* is "when the output of a process is unexpectedly
+dependent on timing or other events."
+
+[.slider]
+.Note that the definition of a race depends on what we *expected* to happen:
+* We expected me to have *$4,000* after both deposits. (Otherwise we
+are not observing the Law of the Conversation of Money, probably
+important to banks except during bailouts.)
+
+== Concurrency v. Atomicity
+
+[.slider]
+.*Concurrency:* the illusion that multiple things are happening at once.
+* Requires stopping or starting any thread at any time.
+
+[.slider]
+.*Atomicity:* the illusion that a set of separate actions occurred *all at once*.
+* Requires not stopping certain threads at certain times or not
+starting certain threads at certain times, i.e. providing some limited
+control to threads over their scheduling.
+
+== Aside: Speedy-First or Safety-First
+
+[.slider]
+* Most operating system design has *started with speed* and worked
+towards *safety*.
+* New research into provably-correct operating systems and languages
+attempts to reverse that: *start with safety* and work towards *speed*.
+
+[.nooutline]
+== Next Time
+
+[.slider]
+* How to synchronize: what to protect, how to protect it.
+* More more useful synchronization primitives: locks, semaphores.
+* Being _too_ synchronized, i.e. *deadlock*.
