@@ -116,3 +116,11 @@ a.anchor {
   top: -70px; 
   visibility: hidden;
 }
+thead {
+	font-size: 1.2em;
+	border-bottom: 1px solid grey;
+	margin-bottom: 4px;
+}
+.halign-center {
+	text-align: center;
+}

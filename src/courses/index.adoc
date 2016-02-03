@@ -94,3 +94,213 @@ An ungraded pre-term exam will be given in class on Wednesday 1/27/2016. The
 exam will be Monday 5/9/2016 from 3:30--6:30PM in Knox 104. All dates are on
 the
 https://calendar.google.com/calendar/embed?src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&ctz=America/New_York[calendar].
+
+=== Undergraduate Prerequisites
+
+http://www.cse.buffalo.edu/shared/course.php?e=CSE&n=250&t=DATA+STRUCTURES[CSE
+250: Data Structures].
+
+=== Other Important Dates
+
+(Also on the
+https://calendar.google.com/calendar/embed?src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&ctz=America/New_York[calendar].)
+
+* *Last Day to Drop Add*: 2/1/2016
+* *Last Day to Resign*: 4/15/2016
+* *Last Day of Class*: 5/9/2016
+
+== Extended Course Description
+
+Operating systems are the masterworks of the programming world: beautiful and
+sophisticated solutions to difficult design problems that have emerged from
+years of effort by thousands of skilled programmers. Just like budding
+artists study the works of the great masters for inspiration, we programmers
+study operating systems. While most of you will never contribute a single
+line of code to a production operating system, we hope that by the end of the
+course you will have learned something from their elegance and maturity.
+
+Understanding operating system design will make you a better software
+engineer, and struggling with operating system programming will make you a
+better programmer. This course gives you a chance to do both. We establish a
+_conceptual_ track through lectures and exams, where we discuss the concepts
+and design principles of modern operating systems and how hardware devices
+such as the CPU, memory, and disks are multiplexed and abstracted. Equally
+important, however, is the _programming_ track which proceeds through four
+assignments that give you the chance to implement core operating system
+functionality in a simplified development environment. After studying
+synchronization, you will implement synchronization primitives. After
+studying the system call interface, you will implement it. After studying
+virtual memory and address translation, you will design and implement a
+virtual memory subsystem.
+
+Designing and implementing operating system concepts is not easy, and neither
+is this course. But we are here to help and committed to providing you with
+the support you need to succeed. Our online grading tools provide helpful
+feedback and allow you to repeatedly test and submit your assignments until
+you earn the grade you desire. And our TAs are experienced and will be
+available for many hours each week to provide individual help. We expect that
+you will find this course difficult, but we hope you will also learn a large
+amount, have fun, and develop a passion for computer systems.
+
+== Learning Objectives
+
+=== Conceptual Objectives
+
+When you finish this course, you will be able to:
+
+[cols=2,options='header']
+|===
+
+| Outcome
+| Assessment
+
+
+| *Understand the abstractions* supported by modern operating systems.
+.3+| Class and recitation participation, midterm, final exam. 70%
+correctly identified marks outcome achieved.
+
+| *Describe how operating systems safely and efficiently multiplex
+hardware resources* through effective policies and mechanisms.
+
+| *Analyze the designs and features* of historical, current, and
+emerging operating systems.
+
+|===
+
+=== Programming Objectives
+
+When you finish this course, you will be able to:
+
+[cols=2,options='header']
+|===
+
+| Outcome
+| Assessment
+
+| *Design and implement* working systems software.
+.3+| Office hours attendance, homework and programming assignments. 70%
+correctly identified marks outcome achieved.
+
+| *Identify and correct bugs* in complex, multithreaded systems.
+
+| *Formulate and test* performance hypotheses.
+
+|===
+
+== ABET Outcomes
+
+The http://www.abet.org[Accreditation Board for Engineering and Technology
+(ABET)] helps guide curriculum by defining common outcomes that coursework
+should help students achieve by the time they graduate. This course should
+assist you in four of the nine University at Buffalo outcomes:
+
+. *(c)* An ability to design, implement and evaluate a computer-based system,
+process, component, or program to meet desired needs.
+. *(d)* An ability to function effectively on teams to accomplish a common
+goal.
+. *(f)* An ability to communicate effectively with a range of audiences.
+. *(i)* An ability to use current techniques, skills, and tools necessary for
+computing practice.
+. *(k)* An ability to apply design and development principles in the
+construction of software systems of varying complexity.
+
+The table below describes how each outcome above is incorporated into this
+course:
+
+[cols="^2,8",options='header']
+|===
+
+| ABET a--k
+| Description
+
+| *c*
+| All four assignments challenge your ability to _"design, implement, and
+evaluate"_ components of an operating system.
+
+| *d*
+| All four programming assigments are performed in pairs, helping you
+_"function effectively on teams to accomplish a common goal"_.
+
+| *f*
+| Preparing design documents is an integral part of the two large
+assignments, providing practice at effective technical communication, part of
+the ability to _"communicate effectively with a range of audiences"_.
+
+| *i*
+| This course requires students to develop in a virtual machine, use
+http://git-scm.com/[Git] for collaborative development, and use modern
+debugging and code editing tools, all preparing you to _"use current
+techniques, skills, and tools necessary for computing practice"_.
+
+| *k*
+| The course assignments increase in complexity as the semester goes on,
+allowing students to _"apply design and development principles in the
+construction of software systems of varying complexity"_.
+
+|===
+
+== Outline
+
+I reserve the right to alter this rough outline as needed to the keep the
+class current, and our completion of the material will depend on the pace
+that we are able to establish and your understanding of the material.
+
+. *Processes and the system call interface*
+. *Abstracting and multiplexing the CPU*
+.. Interrupts.
+.. Context switches.
+.. The thread abstraction.
+.. Synchronization.
+... Atomicity and concurrency.
+... Critical sections.
+... Synchronization primitives: locks, semaphores, and condition variables.
+... Solving synchronization problems.
+.. Thread scheduling.
+. *Abstracting and multiplexing memory*
+.. The address space abstraction.
+.. Virtual addresses.
+.. Efficient address translation.
+.. Segmentation and paging.
+.. Swapping.
+.. Page replacement policies.
+. *Abstracting and multiplexing disks*
+.. Basics of disk operation.
+.. The file abstraction.
+.. Filesystem basics.
+.. Filesystem structures.
+.. Filesystem operations.
+.. Filesystem caching.
+.. The Berkeley Fast File Systems (FFS).
+.. Log-structured filesystems.
+. *Operating system structure: micro, macro, exo and multikernels.*
+. *Performance improvement.*
+.. Measurement.
+.. Benchmarking.
+.. Analysis.
+.. Improvement and Amdahl's Law.
+. *Hardware virtualization.*
+.. Intro to virtualization.
+.. Types of virtualization.
+.. Full hardware virtualization.
+.. Binary translation and paravirtualization.
+. *Special topics (time permitting.*
+
+== Programming Assignments
+
+The course includes four programming assignments of increasing difficulty.
+The assignments themselves are hosted on the \thewebsite{} course website.
+You also use the website to submit your answers and view your grades. The
+programming portions of the assignment are graded automatically and you may
+submit them as often as you like, using the autograder output to improve your
+submission. Questions that are graded by the course staff may be submitted
+twice, since they must be graded each time. Each question also has a rubric
+which indicates exactly how each portion of the question was evaluated and
+points assigned.
+
+All programming assignments are done in pairs. *Both students in each pair
+receive the same grade for each programming assignment.* Each programming
+assignment also has specific collaboration guidelines that you must indicate
+you have followed each time you submit answers.
+
+A description of each assignment along with due dates are listed below. This
+year we expect these to be firm and *no extensions will be given.*
