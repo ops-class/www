@@ -33,6 +33,7 @@ var slides_pattern = 'slides/*.adoc';
 var outline_compiled_pattern = 'slides/**/index.html';
 var slides_compiled_pattern = 'slides/**/slides.html';
 var asst_pattern = 'asst/*.adoc';
+var course_pattern = 'courses/**/*.adoc';
 
 metalsmith(__dirname)
   .use(drafts())
@@ -44,7 +45,8 @@ metalsmith(__dirname)
 		pattern: slides_pattern
   }))
   .use(filemetadata([
-    {pattern: asst_pattern, metadata: {'asst': true, 'layout': 'asst/asst.hbt'}}
+    {pattern: asst_pattern, metadata: {'asst': true, 'layout': 'assts/asst.hbt'}},
+    {pattern: course_pattern, metadata: {'course': true, 'layout': 'courses/course.hbt'}}
   ]))
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))

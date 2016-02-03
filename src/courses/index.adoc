@@ -1,0 +1,96 @@
+---
+title: "CSE 421/521 Spring 2016"
+---
+:sectnums:
+
+== Description
+
+This course is an introduction to operating system design and implementation.
+We study operating systems because they are examples of mature and elegant
+solutions to a difficult design problem: how to safely and efficiently share
+system resources and provide abstractions useful to applications. For the
+processor, memory, and disks, we discuss how the operating system allocates
+each resource and explore the design and implementation of related
+abstractions. We also establish techniques for testing and improving system
+performance and introduce the idea of hardware virtualization. Programming
+assignments provide hands-on experience with implementing core operating
+system components in a realistic development environment.
+
+== Information
+
+=== Course Staff
+
+. *Instructor*: Geoffrey Challen. I go by "Geoff", "Geoffrey", or "GWA"--not
+"Dr", "Professor, or "Sir. Please use
+mailto:prof@ops-class.org[`prof@ops-class.org`] to aid my email filtering.
+However, you should rarely contact me directly.  Instead, 99% of the time use
+the https://discourse.ops-class.org[Discourse] or 1% of the time contact the
+entire staff at mailto:staff@ops-class.org[`staff@ops-class.org`].
+
+. *Teaching Assistants*: Jerry Ajay, Ali Ben Ali and Xu Zhen are your
+fantastic and hard-working teaching assistants this semester. They will be
+teaching recitation, holding office hours, and grading exams.  Please do not
+email them directly---instead, use the
+https://discourse.ops-class.org[Discourse] or email
+mailto:staff@ops-class.org[`staff@ops-class.org`] for a faster reply.
+
+. *Ninjas*: In addition to the official TAs, we have a number of volunteers
+from my research group https://blue.cse.buffalo.edu[blue] as well as returning
+421 Spring 2015 students. This year's ninjas are Yihong Chen, Dan Conway,
+Scott Haseley, Carl Nuessle, Gela Malek Pour, Guru Prasad, Isaac Reath,
+Benjamin Rueda, Jinghao Shi, Mark Simpson, and Yousuf Zubairi. Ninjas will
+hold office hours but do not do any grading.
+
+=== Times and Locations
+
+The
+https://calendar.google.com/calendar/embed?src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&ctz=America/New_York[online
+calendar] contains up-to-date information about all course meetings and
+activities. Please check it regularly--changes do happen.
+
+. *Lecture*: MWF 2:00--2:50PM, Knox 104.
+
+. *Recitations*: T 4:00--4:50PM, NSC 222; and F 8:00--8:50AM, Knox 04.
+Recitations will be taught by Ali and Jerry. Attendance is not mandatory, and
+you can attend either or both depending on what fits your schedule. *Graduate
+students may only attend recitations if there is space* footnote:[I suspect
+that there will regularly be space in the 8AM recitation...].
+
+. *Office Hours*: We have 20 total and 41 person-hours of office hours
+scheduled this semester. Please come and join us in Davis 301B! Office hours
+are a fun place to do the assignments and just hang out with each other and
+the course staff. Don't wait until you have a problem to come!
+
+=== Website
+
+The website is the source for all information about the class: the syllabus
+(which you are reading) lecture slides, assignments, previous exams, lecture
+videos, and other useful information.
+
+=== Videos
+
+We try to tape all
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[lectures]
+and recitation. A playlist of the music played before class is also
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_hjJpG9tqicpEgI6C3aaAE[available].
+
+=== Forum
+
+We are using a https://discourse.ops-class.org[Discourse forum] this semester
+for all class-related communications. Please update your profile on it and use
+it for all lecture- and assignment-related Q&A.
+
+=== Mailing List
+
+All enrolled students will be added to a mailing list which we will use for
+course communication. *You are responsible for email messages sent to this
+list.* If you are not enrolled and would like to be added to the list, you can
+sign up https://www.ops-class.org/mailman/listinfo/ub[here].
+
+=== Exams
+
+An ungraded pre-term exam will be given in class on Wednesday 1/27/2016. The
+50-minute midterm will be given in class Wednesday 3/23/2016. A 3-hour final
+exam will be Monday 5/9/2016 from 3:30--6:30PM in Knox 104. All dates are on
+the
+https://calendar.google.com/calendar/embed?src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&ctz=America/New_York[calendar].
