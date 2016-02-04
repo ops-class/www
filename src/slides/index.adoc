@@ -1,4 +1,4 @@
 ---
-template: "slides/index.hbt"
+layout: "slides/index.hbt"
 slides: false
 ---

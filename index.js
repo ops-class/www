@@ -1,6 +1,7 @@
 var metalsmith = require('metalsmith'),
     drafts = require('metalsmith-drafts'),
     filemetadata = require('metalsmith-filemetadata'),
+		branch = require('metalsmith-branch'),
     collections = require('metalsmith-collections'),
     asciidoc = require('./lib/asciidoc'),
     updated = require('metalsmith-updated'),
@@ -41,6 +42,10 @@ var deck_compiled_pattern = 'slides/**/deck.html';
 var asst_pattern = 'asst/*.adoc';
 var course_pattern = 'courses/**/*.adoc';
 
+var isSlides = function(filename, file, i) {
+	return file.slides == true;
+};
+
 metalsmith(__dirname)
   .use(drafts())
   .use(filemetadata([
@@ -49,10 +54,11 @@ metalsmith(__dirname)
 		 preserve: true
 	 	},
 	]))
-  .use(layouts({
-    engine: 'handlebars',
-		pattern: slides_pattern
-  }))
+	.use(branch(isSlides)
+		.use(layouts({
+			engine: 'handlebars'
+		}))
+	)
   .use(filemetadata([
     {pattern: asst_pattern, metadata: {'asst': true, 'doSections': true, 'layout': 'assts/asst.hbt'}},
     {pattern: course_pattern, metadata: {'course': true, 'doSections': true, 'layout': 'courses/course.hbt'}}
@@ -67,12 +73,14 @@ metalsmith(__dirname)
 	.use(slides())
   .use(footnotes())
   .use(permalinks())
-	.use(copy({
-		pattern: outline_compiled_pattern,
-		transform: function (file) {
-			return path.dirname(file) + "/deck.html";
-		}
-	}))
+	.use(branch(isSlides)
+		.use(copy({
+			pattern: "*.html",
+			transform: function (file) {
+				return path.dirname(file) + "/deck.html";
+			}
+		}))
+	)
 	.use(asst())
 	.use(hacks())
   .use(filemetadata([
