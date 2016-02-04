@@ -44,7 +44,10 @@ var course_pattern = 'courses/**/*.adoc';
 metalsmith(__dirname)
   .use(drafts())
   .use(filemetadata([
-    {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.adoc'}},
+    {pattern: slides_pattern,
+		 metadata: {'slides': true, 'layout': 'slides/slides.adoc'},
+		 preserve: true
+	 	},
 	]))
   .use(layouts({
     engine: 'handlebars',

@@ -1,0 +1,4 @@
+---
+template: "slides/index.hbt"
+slides: false
+---

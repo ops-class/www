@@ -1,0 +1,20 @@
+{{> header}}
+<div id="content">
+  <div class="container">
+    <div class="hidden-xs row text-right" style="margin-top:-5px; margin-bottom: 10px;">
+      <a href="/slides/feed.xml">
+        Subscribe<img src="/assets/img/icons/rss-14x14.png" alt="Subscribe to papers" style="margin-left: 0.5em; height: 1em" /></a>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-11">
+        {{#each slides}}
+        {{{date}}}
+        {{/slides}}
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{{> footer}}
