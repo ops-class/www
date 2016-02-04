@@ -13,6 +13,7 @@ var metalsmith = require('metalsmith'),
 		copy = require('metalsmith-copy'),
 		path = require('path'),
 		asst = require('./lib/asst.js'),
+		sections = require('./lib/sections.js'),
     lessjavascript = require('./lib/lessjavascript.js'),
     concat = require('metalsmith-concat'),
     highlight = require('./lib/highlight.js'),
@@ -45,8 +46,8 @@ metalsmith(__dirname)
 		pattern: slides_pattern
   }))
   .use(filemetadata([
-    {pattern: asst_pattern, metadata: {'asst': true, 'layout': 'assts/asst.hbt'}},
-    {pattern: course_pattern, metadata: {'course': true, 'layout': 'courses/course.hbt'}}
+    {pattern: asst_pattern, metadata: {'asst': true, 'doSections': true, 'layout': 'assts/asst.hbt'}},
+    {pattern: course_pattern, metadata: {'course': true, 'doSections': true, 'layout': 'courses/course.hbt'}}
   ]))
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
@@ -59,6 +60,7 @@ metalsmith(__dirname)
 		}
 	}))
 	.use(asst())
+	.use(sections())
   .use(filemetadata([
     {pattern: outline_compiled_pattern, metadata: {'outline': true, 'layout': 'slides/outline.hbt'}},
     {pattern: slides_compiled_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}}

@@ -2,12 +2,12 @@
 
 <div id="content">
 	<div class="container">
-		<div class="row spelling_exception">
+		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<h1>{{#if number}}ASST{{number}}: {{/if}}{{title}}</h1>
+				<h1>{{title}}</h1>
 				{{{ contents }}}
 			</div>
-			<div class="col-md-2 scrollspy">
+			<div class="col-md-2 scrollspy spelling_exception">
 				<ul id="side" class="nav hidden-xs hidden-sm"
 									data-spy="affix" style="padding-top:20px; padding-right:10px;">
 					{{#each sections}}

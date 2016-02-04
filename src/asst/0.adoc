@@ -3,6 +3,7 @@ title: "Introduction to OS/161"
 spelling_exceptions:
   - vfs
   - PPA
+  - LTS
 ---
 :sectnums:
 
