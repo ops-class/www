@@ -8,7 +8,7 @@ var metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
-		slides = require('./lib/slides.js'),
+		decks = require('./lib/decks.js'),
 		outline = require('./lib/outline.js'),
 		copy = require('metalsmith-copy'),
 		path = require('path'),
@@ -34,9 +34,9 @@ handlebars.registerPartial('header', fs.readFileSync('layouts/partials/header.hb
 handlebars.registerPartial('footer', fs.readFileSync('layouts/partials/footer.hbt').toString());
 handlebars.registerHelper('format_date', common.format_date);
 
-var slides_pattern = 'slides/*.adoc';
+var slides_pattern = 'slides/**/*.adoc';
 var outline_compiled_pattern = 'slides/**/index.html';
-var slides_compiled_pattern = 'slides/**/slides.html';
+var deck_compiled_pattern = 'slides/**/deck.html';
 var asst_pattern = 'asst/*.adoc';
 var course_pattern = 'courses/**/*.adoc';
 
@@ -53,6 +53,11 @@ metalsmith(__dirname)
     {pattern: asst_pattern, metadata: {'asst': true, 'doSections': true, 'layout': 'assts/asst.hbt'}},
     {pattern: course_pattern, metadata: {'course': true, 'doSections': true, 'layout': 'courses/course.hbt'}}
   ]))
+	.use(collections({
+		slides: {
+			pattern: slides_pattern,
+		}
+	}))
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
   .use(footnotes())
@@ -60,21 +65,25 @@ metalsmith(__dirname)
 	.use(copy({
 		pattern: outline_compiled_pattern,
 		transform: function (file) {
-			return path.dirname(file) + "/slides.html";
+			return path.dirname(file) + "/deck.html";
 		}
 	}))
 	.use(asst())
 	.use(hacks())
-	.use(sections())
   .use(filemetadata([
-    {pattern: outline_compiled_pattern, metadata: {'outline': true, 'layout': 'slides/outline.hbt'}},
-    {pattern: slides_compiled_pattern, metadata: {'slides': true, 'layout': 'slides/slides.hbt'}}
+    {pattern: outline_compiled_pattern, metadata: {'outline': true,
+																									 'doSections': true,
+																									 'layout': 'slides/outline.hbt',
+																									 'extra_css': ["/css/slides/outline.css"]
+																									}},
+    {pattern: deck_compiled_pattern, metadata: {'deck': true, 'layout': 'slides/deck.hbt'}}
   ]))
+	.use(decks())
+	.use(outline())
+	.use(sections())
   .use(layouts({
     engine: 'handlebars'
   }))
-	.use(slides())
-	.use(outline())
   .use(lessjavascript())
   .use(concat({
     files: 'css/site/*.css',

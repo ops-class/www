@@ -7,6 +7,9 @@
 
 		<title>ops-class.org&mdash;Learn Operating Systems Online</title>
 		<link rel="stylesheet" type="text/css" href="/css/site.css">
+		{{#each extra_css}}
+		<link rel="stylesheet" type="text/css" href="{{this}}">
+		{{/each}}
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
