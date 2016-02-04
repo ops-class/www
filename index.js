@@ -83,14 +83,16 @@ metalsmith(__dirname)
 	)
 	.use(asst())
 	.use(hacks())
-  .use(filemetadata([
-    {pattern: outline_compiled_pattern, metadata: {'outline': true,
-																									 'doSections': true,
-																									 'layout': 'slides/outline.hbt',
-																									 'extra_css': ["/css/slides/outline.css"]
-																									}},
-    {pattern: deck_compiled_pattern, metadata: {'deck': true, 'layout': 'slides/deck.hbt'}}
-  ]))
+	.use(branch(isSlides)
+		.use(filemetadata([
+			{pattern: outline_compiled_pattern, metadata: {'outline': true,
+																										 'doSections': true,
+																										 'layout': 'slides/outline.hbt',
+																										 'extra_css': ["/css/slides/outline.css"]
+																										}},
+			{pattern: deck_compiled_pattern, metadata: {'deck': true, 'layout': 'slides/deck.hbt'}}
+		]))
+	)
 	.use(decks())
 	.use(outline())
 	.use(sections())
