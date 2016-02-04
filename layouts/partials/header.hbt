@@ -69,10 +69,11 @@ _gaq.push(['_trackPageview']);
 											title="Lecture slides, notes, and videos."
 											href="/lectures/">lectures</a>
 									</li>
-									<li><a id="menu-courses"
-											title="Exams to test your knowledge of OS concepts."
-											href="/exams/">exams</a></li>
 									-->
+									<li>
+									<a id="menu-exams" title="Exams to test your knowledge of OS concepts."
+										href="/exams/">exams</a>
+									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" id="menu-courses"
 											title="Courses that have used ops-class.org"
@@ -80,6 +81,19 @@ _gaq.push(['_trackPageview']);
 											aria-haspopup="true" aria-expanded="false">courses</a>
 										<ul class="dropdown-menu">
 											<li><a href="/courses/buffalo/CSE421_Spring2016">UB CSE 421/521 Spring 2016</a></li>
+											<li role="separator" class="divider"></li>
+											<li>
+											<a href="/courses/buffalo/CSE421_Spring2015.pdf">UB CSE 421/521 Spring 2015</a>
+											</li>
+											<li>
+											<a href="/courses/buffalo/CSE421_Spring2014.pdf">UB CSE 421/521 Spring 2014</a>
+											</li>
+											<li>
+											<a href="/courses/buffalo/CSE421_Spring2013.pdf">UB CSE 421/521 Spring 2013</a>
+											</li>
+											<li>
+											<a href="/courses/buffalo/CSE421_Spring2012.pdf">UB CSE 421/521 Spring 2012</a>
+											</li>
 										</ul>
 									</li>
 								</ul>

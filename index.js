@@ -13,6 +13,7 @@ var metalsmith = require('metalsmith'),
 		copy = require('metalsmith-copy'),
 		path = require('path'),
 		asst = require('./lib/asst.js'),
+		hacks = require('./lib/hacks.js'),
 		sections = require('./lib/sections.js'),
     lessjavascript = require('./lib/lessjavascript.js'),
     concat = require('metalsmith-concat'),
@@ -60,6 +61,7 @@ metalsmith(__dirname)
 		}
 	}))
 	.use(asst())
+	.use(hacks())
 	.use(sections())
   .use(filemetadata([
     {pattern: outline_compiled_pattern, metadata: {'outline': true, 'layout': 'slides/outline.hbt'}},
@@ -95,7 +97,7 @@ metalsmith(__dirname)
                     checkedPart: "div#content",
                     failErrors: false,
                     verbose: true}))
-  .use(formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false }))
+  //.use(formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false }))
   .use(linkcheck({ verbose: true , failWithoutNetwork: false }))
   .clean(true)
   .build(function throwErr (err) { 

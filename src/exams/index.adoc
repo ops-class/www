@@ -1,0 +1,60 @@
+---
+layout: thin.hbt
+---
+== Old Exams
+
+Below are some examples of previous exams. Exam statistics are included as
+part of each solution set.
+
+[cols="4*^",role="exams"]
+|===
+
+.2+| [.h3]#2015#
+| Final
+| link:2015/final/exam.pdf[Exam]
+| link:2015/final/solution.pdf[Solutions]
+
+| Midterm
+| link:2015/midterm/exam.pdf[Exam]
+| link:2015/midterm/solution.pdf[Solutions]
+
+.2+| [.h3]#2014#
+| Final
+| link:2014/final/exam.pdf[Exam]
+| link:2014/final/solution.pdf[Solutions]
+
+| Midterm
+| link:2014/midterm/exam.pdf[Exam]
+| link:2014/midterm/solution.pdf[Solutions]
+
+.3+| [.h3]#2013#
+| Final
+| link:2013/final/exam.pdf[Exam]
+| link:2013/final/solution.pdf[Solutions]
+
+| Primary Midterm
+| link:2013/midterm/primary/exam.pdf[Exam]
+| link:2013/midterm/primary/solution.pdf[Solutions]
+
+| Alternate Midterm
+| link:2013/midterm/alternate/exam.pdf[Exam]
+| link:2013/midterm/alternate/solution.pdf[Solutions]
+
+.4+| [.h3]#2012#
+| Final
+| link:2012/final/exam.pdf[Exam]
+| link:2012/final/solution.pdf[Solutions]
+
+| Primary Midterm
+| link:2012/midterm/primary/exam.pdf[Exam]
+| link:2012/midterm/primary/solution.pdf[Solutions]
+
+| Alternate Midterm
+| link:2012/midterm/alternate/exam.pdf[Exam]
+| link:2012/midterm/alternate/solution.pdf[Solutions]
+
+| Practice Midterm
+| link:2012/midterm/practice/exam.pdf[Exam]
+| &nbsp;
+
+|===

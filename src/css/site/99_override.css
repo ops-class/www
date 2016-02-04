@@ -127,3 +127,15 @@ thead {
 td {
 	padding: 0px 10px;
 }
+table {
+	width: 100%;
+}
+table.exams td {
+	vertical-align: middle;
+}
+table.exams tr > td[rowspan] {
+	border-bottom: 1px solid grey;
+}
+table.exams p {
+	margin: 5px 5px;
+}
