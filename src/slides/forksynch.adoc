@@ -1,6 +1,6 @@
 ---
 title: "fork() and Synchronization"
-date: 2015-02-03
+date: 2016-02-03
 author: Geoffrey Challen
 description: >
   Completion of a discussion of fork including the use of pipes, and the

@@ -4,6 +4,7 @@ var metalsmith = require('metalsmith'),
     collections = require('metalsmith-collections'),
     asciidoc = require('./lib/asciidoc'),
     updated = require('metalsmith-updated'),
+		slides = require('./lib/slides.js'),
     footnotes = require('./lib/footnotes.js'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
@@ -43,7 +44,7 @@ var course_pattern = 'courses/**/*.adoc';
 metalsmith(__dirname)
   .use(drafts())
   .use(filemetadata([
-    {pattern: slides_pattern, metadata: {'layout': 'slides/slides.adoc'}},
+    {pattern: slides_pattern, metadata: {'slides': true, 'layout': 'slides/slides.adoc'}},
 	]))
   .use(layouts({
     engine: 'handlebars',
@@ -60,6 +61,7 @@ metalsmith(__dirname)
 	}))
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
+	.use(slides())
   .use(footnotes())
   .use(permalinks())
 	.use(copy({
