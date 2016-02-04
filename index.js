@@ -18,6 +18,7 @@ var metalsmith = require('metalsmith'),
     lessjavascript = require('./lib/lessjavascript.js'),
     concat = require('metalsmith-concat'),
     highlight = require('./lib/highlight.js'),
+		msif = require('metalsmith-if'),
     beautify = require('metalsmith-beautify'),
     spellcheck = require('metalsmith-spellcheck'),
     formatcheck = require('metalsmith-formatcheck'),
@@ -26,6 +27,8 @@ var metalsmith = require('metalsmith'),
 var handlebars = require('handlebars'),
     fs = require('fs'),
     common = require('./lib/common.js');
+
+var argv = require('minimist')(process.argv.slice(2));
   
 handlebars.registerPartial('header', fs.readFileSync('layouts/partials/header.hbt').toString());
 handlebars.registerPartial('footer', fs.readFileSync('layouts/partials/footer.hbt').toString());
@@ -90,15 +93,18 @@ metalsmith(__dirname)
     output: 'js/slides/deck.js'
   }))
   .use(highlight())
-	.use(beautify())
-  .use(spellcheck({ dicFile: 'dicts/en_US.dic',
-                    affFile: 'dicts/en_US.aff',
-                    exceptionFile: 'dicts/spelling_exceptions.json',
-                    checkedPart: "div#content",
-                    failErrors: false,
-                    verbose: true}))
-  //.use(formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false }))
-  .use(linkcheck({ verbose: true , failWithoutNetwork: false }))
+	.use(msif((argv['deploy'] == true), beautify({'indent_size': 2})))
+	.use(msif((argv['check'] == true),
+  	spellcheck({ dicFile: 'dicts/en_US.dic',
+                 affFile: 'dicts/en_US.aff',
+                 exceptionFile: 'dicts/spelling_exceptions.json',
+                 checkedPart: "div#content",
+                 failErrors: false,
+                 verbose: true})))
+	.use(msif((argv['check'] == true),
+  	formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false })))
+	.use(msif((argv['check'] == true),
+  	linkcheck({ verbose: true , failWithoutNetwork: false })))
   .clean(true)
   .build(function throwErr (err) { 
     if (err) {

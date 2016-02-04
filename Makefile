@@ -1,8 +1,14 @@
 all: build | silent
 
 build:
-	@node index.js
+	node index.js $(DEPLOY) $(CHECK)
 	@while [ -n "$(find build -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
+
+deploy: DEPLOY = --deploy
+deploy: check build
+
+check: CHECK = --check
+check: build
 
 install:
 	@npm install

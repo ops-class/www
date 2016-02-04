@@ -133,8 +133,11 @@ table {
 table.exams td {
 	vertical-align: middle;
 }
-table.exams tr > td[rowspan] {
-	border-bottom: 1px solid grey;
+table.exams tr.has-rowspan:first-child {
+	border-top: none;
+}
+table.exams tr.has-rowspan {
+	border-top: 1px solid grey;
 }
 table.exams p {
 	margin: 5px 5px;
