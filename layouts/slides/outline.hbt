@@ -7,7 +7,29 @@
 				<h1>{{title}}</h1>
 				{{{ contents }}}
 			</div>
-			<div class="col-md-2 scrollspy">
+			<div class="col-md-2">
+				<div id="slide-nav" class="h5">
+					{{#if next}}
+					<span>
+						{{else}}
+						<span style="visibility:hidden;">
+							{{/if}}
+							<a href="/{{{ next.path }}}" title="Previous: {{{ next.title}}}"
+																		style="margin-right:10px;">
+								<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Prev
+							</a>
+						</span>
+						<a href="deck.html" title="Open slide deck" target="_blank"
+																									style="margin-right:10px;">
+							<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+						</a>
+						{{#if previous}}
+						<a href="/{{{ previous.path }}}" title="Next: {{{ previous.title }}}">
+							Next<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+						</a>
+						{{/if}}
+				</div>
+				<div class="scrollspy">
 				<ul id="side" class="nav hidden-xs hidden-sm"
 									data-spy="affix" style="padding-top:20px; padding-right:10px;">
 					{{#each sections}}
@@ -22,6 +44,7 @@
 					</li>
 					{{/each}}
 				</ul>
+				</div>
 			</div>
 		</div>
 	</div>

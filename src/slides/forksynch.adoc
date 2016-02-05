@@ -10,6 +10,7 @@ song:
   author: "Courtney Barnett"
   youtube: o-nr1nNC3ds
 ---
+[.nooutline]
 == Welcome
 
 [.h3.center]

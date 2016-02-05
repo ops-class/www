@@ -63,11 +63,15 @@ metalsmith(__dirname)
     {pattern: asst_pattern, metadata: {'asst': true, 'doSections': true, 'layout': 'assts/asst.hbt'}},
     {pattern: course_pattern, metadata: {'course': true, 'doSections': true, 'layout': 'courses/course.hbt'}}
   ]))
-	.use(collections({
-		slides: {
-			pattern: slides_pattern,
-		}
-	}))
+	.use(branch(isSlides)
+		.use(collections({
+			slides: {
+				pattern: slides_pattern,
+				sortBy: 'date',
+				reverse: true
+			}
+		}))
+	)
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
 	.use(slides())
@@ -75,7 +79,7 @@ metalsmith(__dirname)
   .use(permalinks())
 	.use(branch(isSlides)
 		.use(copy({
-			pattern: "*.html",
+			pattern: 'slides/**/*.html',
 			transform: function (file) {
 				return path.dirname(file) + "/deck.html";
 			}
