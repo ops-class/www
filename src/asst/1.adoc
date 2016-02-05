@@ -57,7 +57,9 @@ explicit permission footnote:[Which you are extremely unlikely to get.].
   
 == Writing Readable and Maintainable Code
 
+[.lead]
 Whenever you program you should aim to write well-documented, readable code.
+
 If you are working alone, you will appreciate this yourself. If you are
 working with others, they will appreciate it. If you are publishing code to
 the broader community, others will both appreciate and be impressed by it.
@@ -77,6 +79,8 @@ available operating system. When you read someone else's code, note what you
 like and what you don't like. Pay close attention to the lines of comments
 which most clearly and efficiently explain what is going on. When you write
 code yourself, keep these observations in mind.
+
+=== Comments Are Not a Panacea
 
 Note that commenting, while potentially useful, does not make up for poor
 coding conventions. In many cases, well-structured code with good choices of
@@ -139,17 +143,28 @@ void reverse_list() {
 
 |===
 
+=== Just a Few Tips
+
 Here are some general tips for writing better code:
 
 . *Group related items together*, whether they are variable declarations, 
 lines of code, or functions.
-. *Use descriptive names* for variables and procedures. Be consistent
-  with this throughout the program.
-. Comments should describe _the programmer's intent_, not the
-actual mechanics of the code. A comment which says "Find a free disk
-block" is much more informative than one that says "Find first non-zero
-element of array." The first adds information to what is present in code itself, the
-second does not.
+
+. *Use descriptive names* for variables and procedures. Be consistent with
+this throughout the program.
+
+. Comments should describe _the programmer's intent_, not the actual
+mechanics of the code. A comment which says "Find a free disk block" is much
+more informative than one that says "Find first non-zero element of array."
+The first adds information to what is present in code itself, the second does
+not.
+
+. *Avoid repetition.* Cut and pasting code is generally an *extremely bad
+idea.* Refactor things instead.
+
+. *Keep functions short.* Short functions are more likely to be reusable as
+well as comprehensible. Good function names describe exactly what the
+function does and make it easy for others to use your interface.
 
 You and your partner will probably find it useful to agree on a coding style.
 For instance, you might want to agree on how variables and functions will be
@@ -157,3 +172,367 @@ named (`my_function`, `myFunction`, `MyFunction`, `mYfUnCtIoN`, or
 `ymayUnctionFay`) since your code will have to interoperate and be jointly
 readable. Note that OS/161 uses the `my_function` convention, so you may want
 to too.
+
+== Setup
+
+[.lead]
+We have provided a framework allowing you to develop and test your
+solutions for the ASST1 synchronization problems described below.
+
+This framework consists of:
+
+. `kern/synchprobs/{stoplight.c,whalemating.c}`: these files are where you
+will implement your solutions to the synchronization problems.
+
+. `kern/tests/synchprobs.c`: this file contains driver code
+we will use to test your solutions. You can and should change this file
+to stress test your code, but there should be no dependencies between
+your synchronization problem solutions and the problem drivers. *We
+will replace the contents of this file (and the rest of the `kern/test`
+directory) during testing.*
+
+To include these files in your kernel you will need enable the `synchprobs`
+OS/161 kernel configuration option when you configure your kernel to start
+ASST1. Once you do this you should notice two new menu options under the
+tests menu.
+
+Finally, to successfully run the ASST1 tests you will need to configure your
+kernel to use a large amount of memory. We suggest the maximum of 16M. This
+is because your kernel currently leaks memory allocations that are larger
+than a page, and that includes all 4K thread stacks. So you will find that
+even if you correctly allocate and deallocate memory in your synchronization
+primitives and problems, your kernel will only run a certain number of tests
+before it runs out of memory and `panic`s. This is normal. *However, you should
+make sure that your kernel does not leak smaller amounts of memory.* Your
+kernel includes tools to help you measure this.
+  
+== Concurrency in OS/161
+
+[.lead]
+The goal of synchronization is to eliminate any undesirable timing
+effects--or _race conditions_&mdash;on the output of your programs while
+preserving as much concurrency as possible.
+
+For the synchronization problems we provide, threads _may_ run in different
+orders depending on the order of events, but by using the synchronization
+primitives you will build, you should be able to guarantee that they meet the
+constraints inherent to each problem (while not deadlocking).
+
+=== Built-In Tests
+
+When you boot OS/161 you should see options to run various thread tests. The
+thread test code uses the semaphore synchronization primitive. You should
+trace the execution of one of these thread tests in GDB to see how the
+scheduler acts, how threads are created, and what exactly happens in a
+context switch. You should be able to step through a call to `thread_switch`
+and see exactly where the current thread changes.
+
+Thread test 1--or `tt1` at the kernel menu or on the command line--prints the
+numbers 0 through 7 each time each thread loops. Thread test 2 (`tt2`) prints
+only when each thread starts and exits. The latter is intended to show that
+the scheduler doesn't cause starvation--the threads should all start
+together, spin for awhile, and then end together. It's a good idea to
+familiarize yourself with the other thread tests as well.
+
+=== Debugging Concurrent Programs
+
+One of the frustrations of debugging concurrent programs is that timing
+effects will cause them them to do something different each time. The end
+result should not be different--that would be a race condition. But the
+ordering of threads and how they are scheduled may change. Our test drivers
+in the `kern/test` directory will frequently have threads spin or yield
+unpredictably when starting tests to create more _randomness_. However, for
+the purposes of testing you may want to create more _determinism_.
+
+The random number generator used by OS/161 is seeded by the random device
+provided by System/161. This means that you can reproduce a specific
+execution sequence by using a fixed seed for the random device. You can pass
+an explicit seed into random device by editing the `random` line in your
+`sys161.conf` file. This may be help you create more reproducible behavior,
+at least when you are running the exact same series of tests.
+
+=== Code Reading Questions
+
+While these code reading questions are ungraded, it is _strongly_ recommended
+that you complete them with you partner.
+
+==== Thread questions
+
+. What happens to a thread when it calls `thread_exit`? What about when it
+sleeps?
+. What function--or functions--handle(s) a context switch?
+. What does it mean for a thread to be in each of the possible thread states?
+. What does it mean to turn interrupts off? How is this accomplished? Why is
+it important to turn off interrupts in the thread subsystem code?
+. What happens when a thread wakes up another thread? How does a sleeping
+thread get to run again?
+
+==== Scheduling questions
+
+[start=6]
+. What function, or function, choose the next thread to run?
+. How is the next thread to run chosen?
+. What role does the hardware timer play in scheduling? What hardware
+independent function is called on a timer interrupt?
+
+==== Synchronization questions
+
+[start=9]
+. Describe how `wchan_sleep` and `wchan_wakeone` are used to implement
+semaphores.
+. Why does the lock API in OS/161 provide `lock_do_i_hold`, but not
+`lock_get_holder`?
+
+== Implementing Synchronization Primitives
+
+[.lead]
+It's finally time to write some OS/161 code. The moment you've been waiting
+for!
+
+It is possible to implement the primitives below on top of other
+primitives--but it is not necessarily a good idea. You should definitely read
+and understanding the existing semaphore implementation since that can be
+used as a model for several of the other primitives we ask you to implement
+below.
+
+=== Implement Locks
+
+Implement locks for OS/161. The interface for the lock structure is defined
+in `kern/include/synch.h`. Stub code is provided in `kern/threads/synch.c`.
+*When you are done you should repeatedly pass the provided `sy2` lock test.*
+
+Note that you will not be able to run any of these tests an unlimited number
+of times. Due to limitations in the current virtual memory system used by
+your kernel, appropriately called `dumbvm`, your kernel is leaking a lot of
+memory. However, your synchronization primitives themselves _should not leak
+memory_, and you can inspect the kernel heap stats to ensure that they do
+not. (We will.)
+
+You may wonder why, if the kernel is leaking memory, the kernel heap stats
+don't change between runs of `sy1`, for example, indicating that the
+semaphore implementation allocates and frees memory properly. The reason is
+that the kernel `malloc` implementation we have provided is _not_ broken, and
+it will correctly allocate, free and reallocate small items inside of the
+memory made available to it by the kernel. What does leak are larger
+allocations like, for example, the 4K thread kernel stacks, and it is these
+large items that eventually cause the kernel to run out of memory and
+`panic`. Look at `kern/arch/mips/vm/dumbvm.c` for more details about what's
+broken and why.
+
+=== Implement Condition Variables
+
+Implement condition variables with Mesa--or non-blocking--semantics for
+OS/161. The interface for the condition variable structure is also defined in
+`synch.h` and stub code is provided in `synch.c`.
+
+We have not discussed the differences between condition variable
+semantics. Two different varieties exist: Hoare, or blocking, and Mesa,
+or non-blocking. The difference is in how `cv_signal` is
+handled:
+
+. In *Hoare* semantics, the thread that calls `cv_signal` will block until
+the signaled thread (if any) runs and releases the lock.
+
+. In *Mesa* semantics the thread that calls `cv_signal` will awaken one
+thread waiting on the condition variable but will not block.
+
+Please implement Mesa semantics. *When you are done you should repeatedly
+pass the provided `sy3` condition variable test.*
+
+=== Implement Reader-Writer Locks
+
+Implement reader-writer locks for OS/161. A reader-writer lock is a lock that
+threads can acquire in one of two ways: read mode or write mode. Read mode
+does not conflict with read mode, but read mode conflicts with write mode and
+write mode conflicts with write mode. The result is that many threads can
+acquire the lock in read mode, _or_ one thread can acquire the lock in write
+mode.
+
+Your solution must also ensure that no thread waits to acquire the lock
+indefinitely, called _starvation_. Your implementation must solve many
+readers, one writer problem and ensure that no writers are starved even in
+the presence of many readers. Build something you will be comfortable using
+later. Implement your interface in `synch.h` and your code in `synch.c`,
+conforming to the interface that we have provided.
+
+Unlike locks and condition variables, where we have provided you with a test
+suite, we are leaving it to you to develop a test that exercises your
+reader-writer locks. You will want to edit `kern/startup/menu.c` to allow
+yourself to run your test as `sy5` from the kernel menu or command line. We
+have our own reader-writer test that we will use to test and grade your
+implementation.
+
+Does this depart from our normal practice of providing you with the tools
+necessary to evaluate your assignment? Yes. And for a very good reason:
+writing tests is a _critical development practice_. You will write a lot of
+OS/161 code this semester, and particularly for ASST2 and ASST3 our tests are
+designed to tell if everything is working at a very high level. They are
+_comprehensive_ tests, not _unit_ tests, which target a particular piece of
+functionality. Writing good unit tests is extremely important to building
+large pieces of software--some even claim that you should write the unit test
+_first_ and then the implementation that passes it. So we are using this
+opportunity to force you to write a unit test in the hopes that you will
+continue this practice later.
+
+== Solving Synchronization Problems
+
+[.lead]
+The following problems will give you the opportunity to solve some
+fairly straightforward synchronization problems.
+	
+We have provided you with basic driver code in `kern/tests/synchprobs.c` that
+starts a predefined number of threads which call functions in
+`kern/synchprobs/{whalemating.c,stoplight.c}`. You are responsible for
+implementing those functions which determine what those threads do. You
+can--and should--make changes to the driver code in `synchprobs.c`, but note
+that this file will be replaced by the drivers we cook up for testing. Also
+note that that code is _not_ the same as what we have provided you.
+
+When you configure your kernel for ASST1, the driver code and extra menu
+options for executing your solutions are automatically compiled in. Type `?`
+at the menu to get a list of commands. Remember to specify a seed to use in
+the random number generator by editing your `sys161.conf` file. It is much
+easier to debug initial problems when the sequence of execution and context
+switches is reproducible.
+
+There are two synchronization problems posed for you. You can solve these
+problems using any mixture of semaphores, locks, condition variables, and
+reader-writer locks. However, one way may be more straightforward than
+another and so you should put some thought into choosing the correct
+primitives.
+
+=== The Classic CS161 Whale Mating Problem
+
+You have been hired by the New England Aquarium's research division to help
+find a way to increase the whale population. Because there are not enough of
+them, the whales are having synchronization problems in finding a mate. The
+trick is that in order to have children, three whales are needed; one male,
+one female, and one to play matchmaker--literally, to push the other two
+whales together.
+
+Your job is to write the three procedures `male()`, `female()`, and
+`matchmaker()`. Each whale is represented by a separate thread. A male whale
+calls `male()`, which waits until there is a waiting female and matchmaker;
+similarly, a female whale must wait until a male whale and matchmaker are
+present. Once all three are present, the magic happens and then all three
+return.
+
+Each whale thread should call the appropriate `_start()` function when it
+begins mating or matchmaking and the appropriate `_end()` function when
+mating or matchmaking completes. These functions are part of the problem
+driver in `synchprobs.c` and you are welcome to change them, but again we
+will install and use our own versions for testing. We have provided stub code
+for the whalemating problem that you should use in `whalemating.c`.
+
+The test driver in `synchprobs.c` forks thirty threads, and has ten of them
+invoke `male()`, ten of them invoke `female()`, and ten of them invoke
+`matchmaker()`. Stub routines, which do nothing but call the appropriate
+`_start()` and `_end()` functions, are provided for these three functions.
+Your job will be to re-implement these functions so that they solve the
+synchronization problem described above.
+
+When you are finished, you should be able to examine the output from running
+`sp1` and convince yourself that your solution satisfies the constraints
+outlined above.
+
+=== The Buffalo Intersection Problem
+
+If you drive in Buffalo you know two things very well:
+
+* Four-way stops are common.
+* Knowledge of how to correctly proceed through a four-way stop is rare.
+
+In general, four-way stops are so tricky that they've even been known to
+flummox the otherwise
+http://www.nytimes.com/2015/09/02/technology/personaltech/google-says-its-not-the-driverless-cars-fault-its-other-drivers.html[unflummoxable
+Google self-driving car], which both knows and is programmed to follow the
+rules.
+
+Given that robot cars are the future anyway, we can rethink the entire idea
+of a four-way stop. Let's model the intersection as shown below. We consider
+the intersection as composed of four _quadrants_, numbered 0&ndash;3. Cars
+approach the intersection from one of four _directions_, also numbered
+0&ndash;3. Note that we have numbered the quadrants so that a car approaching
+from direction X enters the intersection in quadrant X.
+
+++++
+<div style="width:480px;height:480px;margin-left:auto;margin-right:auto;">
+	<div style="width:159px;height:159px;float:left;border-right:1px solid black;border-bottom:1px solid black;"></div>
+	<div style="width:160px;height:160px;float:left;text-align:left;font-size:40px;font-weight:bolder;">
+		<div style="width:78px; height:160px;float:left;text-align:center;border-right:2px dashed black">
+			<div style="padding-top:40px;">0<br />&darr;</div>
+		</div>
+	</div>
+	<div style="width:159px;height:159px;float:left;border-left:1px solid black;border-bottom:1px solid black;"></div>
+	<div style="width:160px;height:160px;float:left; font-size:40px; font-weight:bolder">
+		<div style="width:160px; height:80px;"></div>
+		<div style="width:160px; height:78px;border-top:2px dashed black">
+			<div style="padding-top:20px; padding-left:40px;">3 &rarr;</div>
+		</div>
+	</div>
+	<div style="width:160px;height:160px;float:left;">
+		<div style="width:78px;height:80px;border-right:2px dashed black;float:left;">
+			<div style="text-align:center;line-height:80px;font-size:40px;font-weight:bolder">
+				0
+			</div>
+		</div>
+		<div style="width:80px;height:78px;border-bottom:2px dashed black;float:left;">
+			<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">
+				1
+			</div>
+		</div>
+		<div style="width:80px;height:78px;border-top:2px dashed black;float:left;">
+			<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">
+				3
+			</div>
+		</div>
+		<div style="width:78px;height:80px;border-left:2px dashed black;float:left;">
+			<div style="text-align:center;line-height:80px;font-size:40px;font-weight:bolder">
+				2
+			</div>
+		</div>
+	</div>
+	<div style="width:160px;height:160px;float:left; font-size:40px; font-weight:bolder">
+		<div style="width:160px; height:78px;border-bottom:2px dashed black">
+			<div style="padding-top:20px; padding-left:40px;">&larr; 1</div>
+		</div>
+		<div style="width:160px; height:80px;"></div>
+	</div>
+	<div style="width:159px;height:159px;float:left;border-right:1px solid black;border-top:1px solid black;"></div>
+	<div style="width:160px;height:160px;float:left;text-align:left;font-size:40px;font-weight:bolder;">
+		<div style="width:80px; height:160px;float:left;"></div>
+		<div style="width:78px; height:160px;float:left;text-align:center; border-left:2px dashed black;">
+			<div style="padding-top:40px;">&uarr;<br />2</div>
+		</div>
+	</div>
+	<div style="width:159px;height:159px;float:left;border-top:1px solid black;border-left:1px solid black;"></div>
+</div>
+++++
+
+Given our model of the intersection, your job is to use synchronization
+primitives to implement a solution meeting the following requirements:
+
+. No two cars may be in the same quadrant of the intersection at the same
+time. This constitutes a crash.
+
+. Once a car enters any intersection quadrant it must always be in some
+quadrant until it calls `leaveIntersection`.
+
+. Cars do not move diagonally between intersection quadrants.
+
+. Your solution should improve traffic flow compared to a conventional
+four-way stop while not starving traffic from any direction.
+
+Before you begin coding, consider the following questions:
+
+{% question "intersection locking" %}
+
+{% question "deadlocking intersection" %}
+
+We have provided driver code for the stoplight problem in `stoplight.c`. The
+driver forks off a number of cars which approach the intersection from a
+randomly chosen direction and then randomly call one of three routines:
+`gostraight`, `turnleft` and `turnright`. Each car should identify itself as
+it passed through any intersection quadrant by calling the `inQuadrant`
+function provided in `synchprobs.c`, and should identify itself when it
+leaves the intersection by calling `leaveIntersection`.

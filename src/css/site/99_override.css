@@ -110,6 +110,9 @@ ul#side li.active li {
 	display: block;
 	margin-left: 10px;
 }
+ul#side li .h6 {
+	margin-bottom: 0px;
+}
 a.anchor {
   display: block; 
   position: relative; 

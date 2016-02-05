@@ -6,9 +6,9 @@ description: >
   Completion of a discussion of critical sections, and an overview of locks
   and condition variables.
 song:
-  name: "Gimme Sympathy"
-  author: "Metric"
-  youtube: jq3-wZs64n4
+  name: "Touch the Sky"
+  author: "Brave"
+  youtube: gA9nZrhFo4U
 spelling_exceptions:
   - TAS
   - giveGWATheMoolah
@@ -19,11 +19,15 @@ spelling_exceptions:
 
 image::women/033.jpg[width="100%"]
 
-[.h3.center]
-icon:music[] link:http://ilovemetric.com/[{song}]
+[.h4.center]
+icon:music[] http://ilovemetric.com["Gimme Sympathy" by Metric]
 
+[.h4.center]
+icon:music[] {song}
+
+video::jq3-wZs64n4[youtube,width=0,height=0]
 video::{music}[youtube,width=0,height=0]
-
+  
 [.nooutline]
 == Today
 
