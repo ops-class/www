@@ -456,56 +456,50 @@ approach the intersection from one of four _directions_, also numbered
 from direction X enters the intersection in quadrant X.
 
 ++++
-<div style="width:480px;height:480px;margin-left:auto;margin-right:auto;">
-	<div style="width:159px;height:159px;float:left;border-right:1px solid black;border-bottom:1px solid black;"></div>
-	<div style="width:160px;height:160px;float:left;text-align:left;font-size:40px;font-weight:bolder;">
-		<div style="width:78px; height:160px;float:left;text-align:center;border-right:2px dashed black">
-			<div style="padding-top:40px;">0<br />&darr;</div>
-		</div>
+<div style="width:480px;height:480px;margin-left:auto;margin-right:auto;margin-top:10px;margin-bottom:10px;">
+
+	<div style="float:left;width:159px;height:159px;border-right:1px solid black;border-bottom:1px solid black;"></div>
+	<div style="float:left;width:78px;height:160px;text-align:center;font-size:40px;font-weight:bolder;border-right:2px dashed black;padding-top:40px;">
+		0<br />&darr;
 	</div>
+	<div style="float:left;width:80px;height:160px;"></div>
 	<div style="width:159px;height:159px;float:left;border-left:1px solid black;border-bottom:1px solid black;"></div>
-	<div style="width:160px;height:160px;float:left; font-size:40px; font-weight:bolder">
-		<div style="width:160px; height:80px;"></div>
-		<div style="width:160px; height:78px;border-top:2px dashed black">
-			<div style="padding-top:20px; padding-left:40px;">3 &rarr;</div>
-		</div>
+
+	<div style="clear:both;"></div>
+
+	<div style="float:left;width:159px;height:78px;border-bottom:2px dashed black;"></div>
+	<div style="float:left;width:78px;height:78px;border-right:2px dashed black;border-bottom:2px dashed black">
+		<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">0</div>
 	</div>
-	<div style="width:160px;height:160px;float:left;">
-		<div style="width:78px;height:80px;border-right:2px dashed black;float:left;">
-			<div style="text-align:center;line-height:80px;font-size:40px;font-weight:bolder">
-				0
-			</div>
-		</div>
-		<div style="width:80px;height:78px;border-bottom:2px dashed black;float:left;">
-			<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">
-				1
-			</div>
-		</div>
-		<div style="width:80px;height:78px;border-top:2px dashed black;float:left;">
-			<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">
-				3
-			</div>
-		</div>
-		<div style="width:78px;height:80px;border-left:2px dashed black;float:left;">
-			<div style="text-align:center;line-height:80px;font-size:40px;font-weight:bolder">
-				2
-			</div>
-		</div>
+	<div style="float:left;width:80px;height:78px;border-bottom:2px dashed black">
+		<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">1</div>
 	</div>
-	<div style="width:160px;height:160px;float:left; font-size:40px; font-weight:bolder">
-		<div style="width:160px; height:78px;border-bottom:2px dashed black">
-			<div style="padding-top:20px; padding-left:40px;">&larr; 1</div>
-		</div>
-		<div style="width:160px; height:80px;"></div>
+	<div style="width:160px;height:78px;border-bottom:2px dashed black;float:left;">
+		<div style="font-size:40px;line-height:78px;font-weight:bolder;">&larr; 1</div>
 	</div>
-	<div style="width:159px;height:159px;float:left;border-right:1px solid black;border-top:1px solid black;"></div>
-	<div style="width:160px;height:160px;float:left;text-align:left;font-size:40px;font-weight:bolder;">
-		<div style="width:80px; height:160px;float:left;"></div>
-		<div style="width:78px; height:160px;float:left;text-align:center; border-left:2px dashed black;">
-			<div style="padding-top:40px;">&uarr;<br />2</div>
-		</div>
+
+	<div style="clear:both;"></div>
+	
+	<div style="width:159px;height:80px;float:left;">
+		<div style="text-align:right;font-size:40px;line-height:78px;font-weight:bolder;">3 &rarr;</div>
 	</div>
-	<div style="width:159px;height:159px;float:left;border-top:1px solid black;border-left:1px solid black;"></div>
+	<div style="float:left;width:78px;height:80px;border-right:2px dashed black">
+		<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">3</div>
+	</div>
+	<div style="float:left;width:80px;height:80px;">
+		<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">2</div>
+	</div>
+	<div style="float:left;width:160px;height:80px"></div>
+
+	<div style="clear:both;"></div>
+	
+	<div style="float:left;width:159px;height:159px;border-right:1px solid black;border-top:1px solid black;"></div>
+	<div style="float:left;width:78px;height:160px;border-right:2px dashed black;padding-top:40px;"></div>
+	<div style="float:left;width:80px;height:160px;text-align:center;font-size:40px;font-weight:bolder;">&uarr;<br />2</div>
+	<div style="width:159px;height:159px;float:left;border-left:1px solid black;border-top:1px solid black;"></div>
+	
+	<div style="clear:both;"></div>
+
 </div>
 ++++
 
