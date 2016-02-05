@@ -9,6 +9,10 @@ song:
   name: "Gimme Sympathy"
   author: "Metric"
   youtube: jq3-wZs64n4
+spelling_exceptions:
+  - TAS
+  - giveGWATheMoolah
+  - gwaHas
 ---
 [.nooutline]
 == Technical Women
@@ -323,7 +327,7 @@ bool compareAndSwap(int * target, int compare, int newvalue) {
 [.slider]
 * *Load-link and store-conditional*: Load-link returns the value of a memory
 address, while the following store-conditional succeeds *only if* the value
-has not changed since the load-linke
+has not changed since the load-link.
 
 [source,c,linenums,role='smaller slide']
 ----
@@ -353,7 +357,7 @@ atomic hardware instructions.
 [.slider]
 * As the number of cores on typical machines has continued to grow, some
 memory-based synchronization mechanisms have not scaled well.
-* Building more scalable synchronization pritimitives for cache-coherent
+* Building more scalable synchronization primitives for cache-coherent
 shared-memory machines is an *open research problem*.
 ** (The architecture of these machines itself is an open research
 problem.)
@@ -649,7 +653,7 @@ image::figures/synch/spinlocks.svg[width="70%"]
 me up when *`key`* happens."
 * `thread_wake(key)`: "Hey kernel, please wake up all (or one of) the
 threads who were waiting for *`key`*."
-* Similar functionality can be implemented in userspace.
+* Similar functionality can be implemented in user space.
 
 == Thread Communication
 
