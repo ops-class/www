@@ -3,7 +3,7 @@
 <div id="content">
 	<div class="container">
 		<div class="row hidden-md hidden-lg">
-			<div class="col-xs-12 text-center" style="margin-top:20px;">
+			<div class="col-xs-12 text-center spelling_exception" style="margin-top:20px;">
 				{{#if next}}
 				<span>
 					{{else}}

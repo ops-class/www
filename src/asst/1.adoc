@@ -1,5 +1,9 @@
 ---
 title: "Synchronization"
+spelling_exceptions:
+  - Buffalonians
+  - Hoare
+  - unflummoxable
 ---
 :sectnums:
 
@@ -197,7 +201,7 @@ ASST1. Once you do this you should notice two new menu options under the
 tests menu.
 
 Finally, to successfully run the ASST1 tests you will need to configure your
-kernel to use a large amount of memory. We suggest the maximum of 16M. This
+kernel to use a large amount of memory. We suggest the maximum of 16 MB. This
 is because your kernel currently leaks memory allocations that are larger
 than a page, and that includes all 4K thread stacks. So you will find that
 even if you correctly allocate and deallocate memory in your synchronization
@@ -422,7 +426,7 @@ begins mating or matchmaking and the appropriate `_end()` function when
 mating or matchmaking completes. These functions are part of the problem
 driver in `synchprobs.c` and you are welcome to change them, but again we
 will install and use our own versions for testing. We have provided stub code
-for the whalemating problem that you should use in `whalemating.c`.
+for the whale mating problem that you should use in `whalemating.c`.
 
 The test driver in `synchprobs.c` forks thirty threads, and has ten of them
 invoke `male()`, ten of them invoke `female()`, and ten of them invoke
@@ -517,11 +521,19 @@ quadrant until it calls `leaveIntersection`.
 . Your solution should improve traffic flow compared to a conventional
 four-way stop while not starving traffic from any direction.
 
+==== Stoplight code reading questions 
+
 Before you begin coding, consider the following questions:
 
-{% question "intersection locking" %}
+. Assume that Buffalonians are not Buffalonians and obey the law: whoever
+arrives at the intersection first proceeds first. Using the language of
+synchronization primitives describe the way this intersection is controlled.
+In what ways is this method suboptimal?
 
-{% question "deadlocking intersection" %}
+. Now, assume that the Buffalonians are Buffalonians and do not follow the
+convention described above. In what one instance can this four-­‐‑way-­‐‑stop
+intersection produce a deadlock? It is helpful to think of this in terms of
+the model we are using instead of trying to visualize an actual intersection.
 
 We have provided driver code for the stoplight problem in `stoplight.c`. The
 driver forks off a number of cars which approach the intersection from a
@@ -530,3 +542,23 @@ randomly chosen direction and then randomly call one of three routines:
 it passed through any intersection quadrant by calling the `inQuadrant`
 function provided in `synchprobs.c`, and should identify itself when it
 leaves the intersection by calling `leaveIntersection`.
+
+== Grading
+
+We will test five things about your ASST1 submission:
+
+. *Do your locks work?* We will use `sy2` to test this.
+
+. *Do your CVs work?* We will use `sy3` and `sy4` to test this.
+
+. *Do your reader-writer locks work?* We will use `sy5` from our testing
+suite to test this.
+
+. *Does your whale mating solution work?* We will use `sp1` from our testing
+suite to test this.
+
+. *Does your stoplight solution work?* We will use `sp2` from our testing
+suite to test this.
+
+Note that for our testing tools to work you must preserve these menu command
+mappings, so that `sy{2,3,4,5}` and `sp{1,2}` work as expected.
