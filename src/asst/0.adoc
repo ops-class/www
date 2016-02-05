@@ -236,6 +236,16 @@ sources. Linux and other UNIX variants are likely to work. Superheroes have
 gotten things to work on OSX. Please use the most recent version of the
 cross-compilation toolchain and System/161.
 
+=== Other Virtualization Options
+
+Virtualization is hot these days and so you have a lot of options, including
+the https://aws.amazon.com/[Amazon EC2] https://aws.amazon.com/free/[free
+tier] to create an Ubuntu VM in the cloud and
+https://www.virtualbox.org/[VirtualBox] or http://www.vmware.com/[VMware] to
+create an Ubuntu VM locally, preferably one of the LTS versions (12.04,
+14.04) supported by our PPA. Once you've done that you can use the
+instructions above for installing the software on native Ubuntu.
+
 == Configuring, Building, and Running a Kernel
 
 ++++
