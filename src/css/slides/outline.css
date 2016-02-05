@@ -36,16 +36,10 @@ div#slide-nav {
 	color: black;
 }
 
-div#slides {
-	margin-top: 60px;
-}
 @media (min-width: 768px) {
   .fixed-sm {
     position: fixed;
   }
-	div#slides {
-		margin-top: 60px;
-	}
 }
 
 @media (min-width: 992px) {
@@ -60,9 +54,6 @@ div#slides {
     padding-left: 10px;
     padding-right: 10px;
   }
-	div#slides {
-		margin-top: 0px;
-	}
 }
 
 @media (min-width: 1200px) {
@@ -77,9 +68,6 @@ div#slides {
     padding-left: 10px;
     padding-right: 10px;
   }
-	div#slides {
-		margin-top: 0px;
-	}
 }
 div#video {
 	padding-top:20px;
