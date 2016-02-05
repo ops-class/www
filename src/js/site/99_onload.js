@@ -13,4 +13,12 @@ $(function() {
       }
     });
   });
+	function loadYouTube() {
+		var iframe = document.createElement("iframe");
+		iframe.setAttribute("src", "//www.youtube.com/embed/" + this.dataset.id + "?autoplay=1&border=0");
+		iframe.setAttribute("allowfullscreen", "1");
+		$(this).children("img").first().replaceWith(iframe);
+		$(this).children(".play-button").remove();
+	}
+	$("div.youtube-container").click(loadYouTube);
 });

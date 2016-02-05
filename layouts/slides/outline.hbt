@@ -7,7 +7,7 @@
 				{{#if video }}
 				<div id="video" class="text-center fixed-col-md-2 fixed-col-lg-2">
 					<div class="embed-responsive embed-responsive-16by9">
-						<iframe src="https://www.youtube.com/embed/{{ video }}" allowfullscreen></iframe>
+						<div class="youtube-container" data-id="{{ video }}"></div>
 					</div>
 				</div>
 				{{/if}}

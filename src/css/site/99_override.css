@@ -142,3 +142,13 @@ table.exams tr.has-rowspan {
 table.exams p {
 	margin: 5px 5px;
 }
+div.play-button {
+	height: 72px;
+	width: 72px;
+	left: 50%;
+	top: 50%;
+	margin-left: -36px;
+	margin-top: -36px;
+	position: absolute;
+	background: url("http://i.imgur.com/TxzC70f.png") no-repeat;
+}

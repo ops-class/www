@@ -118,7 +118,7 @@ explicit permission footnote:[Which you are extremely unlikely to get.].
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/taI5t05YKto" allowfullscreen></iframe>
+<div class="youtube-container" data-id="taI5t05YKto"></div>
 </div>
 ++++
 
@@ -241,7 +241,7 @@ cross-compilation toolchain and System/161.
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/IxX4uwET3_U" allowfullscreen></iframe>
+<div class="youtube-container" data-id="IxX4uwET3_U"></div>
 </div>
 ++++
 
@@ -463,7 +463,7 @@ kernel.
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/Q87oBTajZFk" allowfullscreen></iframe>
+<div class="youtube-container" data-id="Q87oBTajZFk"></div>
 </div>
 ++++
 
@@ -725,7 +725,7 @@ each other crazy or spend hours reformatting each others' code.
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/p0BQHgl3m0k" allowfullscreen></iframe>
+<div class="youtube-container" data-id="p0BQHgl3m0k"></div>
 </div>
 ++++
 
@@ -794,7 +794,7 @@ partner to handle the merge conflict.
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/BcbqC74DEy0" allowfullscreen></iframe>
+<div class="youtube-container" data-id="BcbqC74DEy0"></div>
 </div>
 ++++
 

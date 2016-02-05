@@ -86,7 +86,6 @@ metalsmith(__dirname)
 		}))
 	)
 	.use(asst())
-	.use(hacks())
 	.use(branch(isSlides)
 		.use(filemetadata([
 			{pattern: outline_compiled_pattern, metadata: {'outline': true,
@@ -121,6 +120,7 @@ metalsmith(__dirname)
     output: 'js/slides/deck.js'
   }))
   .use(highlight())
+	.use(hacks())
 	.use(msif((argv['deploy'] == true), beautify({'indent_size': 2})))
 	.use(msif((argv['check'] == true),
   	spellcheck({ dicFile: 'dicts/en_US.dic',
