@@ -13,9 +13,9 @@ spelling_exceptions:
 In ASST1 you will implement synchronization primitives for
 OS/161 and use them to solve several synchronization problems.
 
-Once you have ASST1 you should have a fairly solid grasp of the pitfalls of
-concurrent programming and--more importantly--how to avoid those pitfalls in
-the code you write during the rest of the semester.
+Once you complete ASST1 you should have a fairly solid grasp of the pitfalls
+of concurrent programming and--more importantly--how to avoid those pitfalls
+in the code you write during the rest of the semester.
   
 To complete this assignment you will need to be familiar with the OS/161
 thread code. The thread system provides interrupts, control functions,
@@ -35,7 +35,7 @@ and applying the correct synchronization primitive.
 
 === Collaboration Guidelines
 
-ASST1 is your first chance to right real kernel code. Here are the guidelines
+ASST1 is your first chance to write real kernel code. Here are the guidelines
 for how to work together and work with your partner (if you have one):
 
 TIP: Pair programming to complete the ASST1 implementation tasks is *strongly
