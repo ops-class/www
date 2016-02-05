@@ -5,6 +5,7 @@ author: Geoffrey Challen
 description: >
   Completion of a discussion of fork including the use of pipes, and the
   beginning of a unit on synchronization.
+video: JONU7QCcCuY
 song:
   name: "Pedestrian at Best"
   author: "Courtney Barnett"

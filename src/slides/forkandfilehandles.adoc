@@ -14,6 +14,7 @@ spelling_exceptions:
   - lsof
   - bashrc
   - proc
+video: 3ZctdAiEZAE
 ---
 [.nooutline.spelling_exception]
 == Welcome

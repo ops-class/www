@@ -2,12 +2,26 @@
 
 <div id="content">
 	<div class="container">
-		<div class="row spelling_exception">
-			<div class="col-md-8 col-md-offset-2">
+		<div class="row">
+			<div class="col-xs-12 col-md-2">
+				{{#if video }}
+				<div id="video" class="text-center fixed-col-md-2 fixed-col-lg-2">
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseVideo" aria-expanded="false" aria-controls="collapseVideo">
+						Show Video
+					</button>
+					<div id="collapseVideo" class="collapse">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe src="http://www.youtube.com/embed/{{ video }}" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+				{{/if}}
+			</div>
+			<div id="slides" class="col-md-8">
 				<h1>{{title}}</h1>
 				{{{ contents }}}
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-2 spelling_exception">
 				<div id="slide-nav" class="h5">
 					{{#if next}}
 					<span>
