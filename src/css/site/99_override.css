@@ -150,5 +150,35 @@ div.play-button {
 	margin-left: -36px;
 	margin-top: -36px;
 	position: absolute;
-	background: url("http://i.imgur.com/TxzC70f.png") no-repeat;
+	background: url("//img/icons/play.png") no-repeat;
+}
+img.youtube-thumb {
+	width: 100%;
+}
+.showonclick {
+	position: relative;
+}
+.showonclick:after {
+	content: " ";
+	z-index: 10;
+	display: block;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.95);
+}
+.showonclick.visible:after {
+	content: none;
+}
+div.showonclick-button {
+	height: 72px;
+	width: 72px;
+	left: 50%;
+	top: 50%;
+	margin-left: -36px;
+	margin-top: -36px;
+	position: absolute;
+	z-index: 100;
 }

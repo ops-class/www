@@ -1,0 +1,159 @@
+---
+title: "Synchronization"
+---
+:sectnums:
+
+== Introduction
+
+[.lead]
+In ASST1 you will implement synchronization primitives for
+OS/161 and use them to solve several synchronization problems.
+
+Once you have ASST1 you should have a fairly solid grasp of the pitfalls of
+concurrent programming and--more importantly--how to avoid those pitfalls in
+the code you write during the rest of the semester.
+  
+To complete this assignment you will need to be familiar with the OS/161
+thread code. The thread system provides interrupts, control functions,
+spinlocks, and semaphores. You will implement locks, condition variables, and
+reader/writer locks.
+
+=== Objectives
+
+After completing ASST1 you should:
+
+. Understand the OS/161 thread subsystem and existing synchronization
+primitives: spinlocks and semaphores.
+. Have implemented working locks, condition variables, and reader-writer
+locks that you can use it later assignments.
+. Be able to properly address different synchronization problems by choosing
+and applying the correct synchronization primitive.
+
+=== Collaboration Guidelines
+
+ASST1 is your first chance to right real kernel code. Here are the guidelines
+for how to work together and work with your partner (if you have one):
+
+TIP: Pair programming to complete the ASST1 implementation tasks is *strongly
+encouraged*.
+
+TIP: Answering the ASST1 code reading questions side-by-side with your
+partner is *strongly encouraged*.
+  
+TIP: Helping other students with Git, GDB, editing, and with other parts of
+the OS/161 toolchain is encouraged.
+  
+TIP: Discussing the code reading questions and browsing the source tree with
+other students is encouraged.
+    
+WARNING: Dividing the code reading questions and development tasks between
+partners is discouraged.
+  
+CAUTION: Copying any answers from anyone who is not your partner or anywhere
+else and submitting them as your own is cheating.
+  
+CAUTION: You may not refer to or incorporate any external sources without
+explicit permission footnote:[Which you are extremely unlikely to get.].
+  
+== Writing Readable and Maintainable Code
+
+Whenever you program you should aim to write well-documented, readable code.
+If you are working alone, you will appreciate this yourself. If you are
+working with others, they will appreciate it. If you are publishing code to
+the broader community, others will both appreciate and be impressed by it.
+
+These assignments provide you with a chance to continue developing good code
+writing habits. If you are working with a partner, good style will help them
+understand your code and you understand theirs. It will also help the course
+staff understand your code when you need help. And you are starting with a
+very well-formatted and commented code base which provides an excellent
+example of what to do.
+	
+There is no single right way to organize and document your code. It is not
+our intent to dictate a particular coding style for this class. The best way
+to learn about writing readable code is to read other people's code. Read the
+OS/161 code, read your partner's code, read the source code of some freely
+available operating system. When you read someone else's code, note what you
+like and what you don't like. Pay close attention to the lines of comments
+which most clearly and efficiently explain what is going on. When you write
+code yourself, keep these observations in mind.
+
+Note that commenting, while potentially useful, does not make up for poor
+coding conventions. In many cases, well-structured code with good choices of
+variables and function names needs comments only in cases where something
+unusual must be pointed out.
+
+For example, try to determine what the following (intentionally obfuscated)
+code on the left does. The click on the right side for the much better
+solution. Note that with appropriately named variables no commentary is
+needed for this very familiar piece of code.
+
+[cols="2"]
+|===
+
+a|
+[source,c]
+----
+struct a { 
+	char *b;
+	struct foo *c;
+};
+static struct a *d = NULL;
+
+void e() {
+	struct a *f = d;
+	struct a *g;
+	d = NULL;
+
+	while (f != NULL) {
+		g = f->c;
+		f->c = d;
+		d = f;
+		f = g;
+	}
+}
+----
+
+a|
+[source,c,role='showonclick']
+----
+struct item { 
+	char *data;
+	struct foo *next;
+};
+static struct item *list = NULL;
+
+void reverse_list() {
+	struct item *current = list;
+	struct item *next;
+	list = NULL;
+
+	while (current != NULL) {
+		next = current->next;
+		current->next = list;
+		list = current;
+		current = next;
+	}
+}
+----
+
+|===
+
+Here are some general tips for writing better code:
+
+. *Group related items together*, whether they are variable declarations, 
+lines of code, or functions.
+. *Use descriptive names* for variables and procedures. Be consistent
+  with this throughout the program.
+. Comments should describe _the programmer's intent_, not the
+actual mechanics of the code. A comment which says "Find a free disk
+block" is much more informative than one that says "Find first non-zero
+element of array." The first adds information to what is present in code itself, the
+second does not.
+
+You and your partner will probably find it useful to agree on a coding style.
+For instance, you might want to agree on how variables and functions will be
+named (`my_function`, `myFunction`, `MyFunction`, `mYfUnCtIoN`, or
+`ymayUnctionFay`) since your code will have to interoperate and be jointly
+readable. Note that OS/161 uses the `my_function` convention, so you may want
+to too.

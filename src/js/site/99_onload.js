@@ -21,4 +21,10 @@ $(function() {
 		$(this).children(".play-button").remove();
 	}
 	$("div.youtube-container").click(loadYouTube);
+	
+	function displayOnClick() {
+		$(this).addClass("visible");
+		$(this).children(".showonclick-button").remove();
+	}
+	$(".showonclick").click(displayOnClick);
 });
