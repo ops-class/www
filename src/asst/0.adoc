@@ -4,6 +4,8 @@ spelling_exceptions:
   - vfs
   - PPA
   - LTS
+  - EC2
+  - VMware
 ---
 :sectnums:
 
