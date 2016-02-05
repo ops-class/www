@@ -14,6 +14,7 @@
 {{/if}}
 
 <link href="/css/slides/deck.css" rel="stylesheet" />
+<script src="/js/slides/jquery-2.2.0.js"></script>
 <script src="/js/slides/deck.js"></script>
 </head>
 
