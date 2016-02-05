@@ -67,12 +67,10 @@ _gaq.push(['_trackPageview']);
 						<div class="row">
 							<div class="col-sm-6">
 								<ul class="nav navbar-nav left">
-									<!--
-									<li><a id="menu-lectures"
+									<li><a id="menu-slides"
 											title="Lecture slides, notes, and videos."
-											href="/lectures/">lectures</a>
+											href="/slides/">lectures</a>
 									</li>
-									-->
 									<li>
 									<a id="menu-exams" title="Exams to test your knowledge of OS concepts."
 										href="/exams/">exams</a>
