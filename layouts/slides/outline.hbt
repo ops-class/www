@@ -2,6 +2,27 @@
 
 <div id="content">
 	<div class="container">
+		<div class="row hidden-md hidden-lg">
+			<div class="col-xs-12 text-center" style="margin-top:20px;">
+				{{#if next}}
+				<span>
+					{{else}}
+					<span style="visibility:hidden;">
+						{{/if}}
+						<a href="/{{{ next.path }}}" title="Previous: {{{ next.title}}}"
+																	 style="margin-right:10px;">
+							<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Prev
+						</a>
+					</span>
+					<a href="deck.html" title="Open slide deck" target="_blank"
+																								 style="margin-right:10px;"><span class="glyphicon glyphicon-film" aria-hidden="true"></span></a>
+					{{#if previous}}
+					<a href="/{{{ previous.path }}}" title="Next: {{{ previous.title }}}">
+						Next<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+					</a>
+					{{/if}}
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-xs-12 col-md-2">
 				{{#if video }}
@@ -17,7 +38,7 @@
 				{{{ contents }}}
 			</div>
 			<div class="col-md-2 spelling_exception">
-				<div id="slide-nav" class="h5">
+				<div id="slide-nav" class="h5 hidden-xs hidden-sm">
 					{{#if next}}
 					<span>
 						{{else}}
