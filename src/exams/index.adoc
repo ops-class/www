@@ -9,7 +9,7 @@ part of each solution set.
 [cols="4*^",role="exams"]
 |===
 
-.2+| [.h3]#2015#
+.2+| [.h4]#2015#
 | Final
 | link:2015_final_exam.pdf[Exam]
 | link:2015_final_solution.pdf[Solutions]
@@ -18,7 +18,7 @@ part of each solution set.
 | link:2015_midterm_exam.pdf[Exam]
 | link:2015_midterm_solution.pdf[Solutions]
 
-.2+| [.h3]#2014#
+.2+| [.h4]#2014#
 | Final
 | link:2014_final_exam.pdf[Exam]
 | link:2014_final_solution.pdf[Solutions]
@@ -27,7 +27,7 @@ part of each solution set.
 | link:2014_midterm_exam.pdf[Exam]
 | link:2014_midterm_solution.pdf[Solutions]
 
-.3+| [.h3]#2013#
+.3+| [.h4]#2013#
 | Final
 | link:2013_final_exam.pdf[Exam]
 | link:2013_final_solution.pdf[Solutions]
@@ -40,7 +40,7 @@ part of each solution set.
 | link:2013_midterm_alternate_exam.pdf[Exam]
 | link:2013_midterm_alternate_solution.pdf[Solutions]
 
-.4+| [.h3]#2012#
+.4+| [.h4]#2012#
 | Final
 | link:2012_final_exam.pdf[Exam]
 | link:2012_final_solution.pdf[Solutions]
