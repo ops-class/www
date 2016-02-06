@@ -32,10 +32,10 @@ program, we suggest that you start using a calendaring program.
 
 ++++
 <div class="hidden-xs hidden-sm embed-responsive embed-responsive-4by3">
-	<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York" style="border-width:0; width:100%"></iframe>
+  <div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
 </div>
 <div class="hidden-md hidden-lg embed-responsive embed-responsive-4by3">
-	<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=AGENDA&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York" style="border-width:0; width:100%"></iframe>
+  <div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=AGENDA&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
 </div>
 ++++
 
@@ -396,11 +396,15 @@ implementation task.
 
 === `ASST1`: Synchronization
 
+*Deadline*: Friday 2/19/2016 @ 5PM.
+
 Your first real taste of kernel programming. After completing a set of code
 reading questions, you implement locks, condition variables and reader-writer
 locks. Next, you use them to solve a few simple toy synchronization problems.
 
 === `ASST2`: System Calls and Process Support
+
+*Deadline*: Friday 3/11/2016 @ 5PM.
 
 The first big and complex assignment. Start by submitting a design that
 indicates you understand all of the moving pieces and what to do. Next,
@@ -415,6 +419,12 @@ virtual memory, including address translation, TLB management, page
 replacement and swapping. When you are finished, your kernel should be able to
 run forever without running out of memory, and you will have completed the
 course.
+
+This year we are splitting the ASST3 deadlines into three parts:
+
+. *ASST3.1*: working core map. *Deadline*: Friday 4/8/2016 @ 5PM.
+. *ASST3.2*: user paging. *Deadline*: Friday 4/22/2016 @ 5PM.
+. *ASST3.3*: swapping. *Deadline*: Friday 5/6/2016 @ 5PM.
 
 === Textbook
 

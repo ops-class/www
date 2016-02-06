@@ -27,4 +27,8 @@ $(function() {
 		$(this).children(".showonclick-button").remove();
 	}
 	$(".showonclick").click(displayOnClick);
+
+	$(".lazy-iframe").each(function () {
+		$(this).replaceWith('<iframe src="' + $(this).data("src") + '"></iframe>');
+	});
 });
