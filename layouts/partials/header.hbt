@@ -35,6 +35,8 @@
 	
 		<script src="/js/common/jquery-2.2.0.js" defer></script>
 		<script src="/js/site.js" defer></script>
+		<script src="/js/inview.js" defer></script>
+		<script src="/js/onload.js" defer></script>
 	</head>
 
 	<body data-spy="scroll" data-target="#scrollspy">
