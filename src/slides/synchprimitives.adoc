@@ -397,9 +397,10 @@ void giveGWATheMoolah(account_t account, int largeAmount) {
 }
 ----
 
-[.slider]
-*Does this work?* [.slide]#No! How do I tell if another thread has already set
-`payGWA`?#
+[.slide]
+--
+*Does this work?* [.slide]#No! How do I tell if another thread has already set `payGWA`?#
+--
 
 == The Bank Example: Test and Set
 
@@ -577,174 +578,10 @@ Spinlocks are *commonly used* to build more useful synchronization
 primitives.
 --
 
-== More Bank Example
-
-[source,c,linenums,role='slide replace smaller']
-----
-void giveGWATheMoolah(account_t account, int largeAmount) {
-  int gwaHas = get_balance(account);
-  gwaHas = gwaHas + largeAmount;
-  put_balance(account, gwaHas);
-  notifyGWAThatHeIsRich(gwaHas);
-  return;
-}
-----
-
-[source,c,linenums,role='slide replace smaller end']
-----
-lock gwaWalletLock; // Need to initialize somewhere
-
-void giveGWATheMoolah(account_t account, int largeAmount) {
-+ lock_acquire(&gwaWalletLock);
-  int gwaHas = get_balance(account);
-  gwaHas = gwaHas + largeAmount;
-  put_balance(account, gwaHas);
-+ lock_release(&gwaWalletLock);
-  notifyGWAThatHeIsRich(gwaHas);
-  return;
-}
-----
-
-[.slider]
-.What happens if we call `lock_acquire()` while another thread is in the critical section?
-* *The thread acquiring the lock must wait until the thread holding the
-lock calls `lock_release()`*.
-
-== How To Wait
-
-
-[.slider]
-.*How* do we wait?
-* *Active* (or busy) waiting: repeat some action until the lock is
-released.
-* *Passive* waiting: tell the kernel what we are waiting for, go to
-sleep, and rely on `lock_release` to awaken us.
-
-== Spinning v. Sleeping
-
-[.slider]
-.There are cases where spinning is the right thing to do. *When?*
-* Only on multicore systems. Why?
-[.slider]
-** On single core systems *nothing can change* unless we allow another thread
-to run!
-* If the critical section is *short*.
-[.slider]
-** Balance the length of the *critical section* against the overhead of a *context switch*.
-
-== When to Spin
-
-If the critical section is *short*:
-
-[.slide]
---
-image::figures/synch/sleeplocks.svg[width="70%"]
---
-
-== When to Sleep
-
-If the critical section is *long*:
-
-[.slide]
---
-image::figures/synch/spinlocks.svg[width="70%"]
---
-
-== How to Sleep
-
-[.slider]
-.The kernel provide functionality allowing kernel threads to sleep and wake on a *key*:
-* `thread_sleep(key)`: "Hey kernel, I'm going to sleep, but please wake
-me up when *`key`* happens."
-* `thread_wake(key)`: "Hey kernel, please wake up all (or one of) the
-threads who were waiting for *`key`*."
-* Similar functionality can be implemented in user space.
-
-== Thread Communication
-
-[.slider]
-* Locks are designed to protect *critical sections*.
-* `lock_release()` can be considered a *signal* from the thread inside the
-critical section to other threads indicating that they can proceed.
-** In order to receive this signal a thread *must be sleeping*.
-* What about other kinds of signals that I might want to deliver?
-** The buffer has data in it.
-** Your child has exited.
-
-== Condition Variables
-
-[.slider]
-* A *condition variable* is a signaling mechanism allowing threads to:
-** `cv_wait` until a *condition* is true, and
-** `cv_notify` other threads when the condition becomes true.
-* The *condition* is usually represented as some change to shared state.
-** The buffer has data in it: *`bufsize > 0`*.
-** `cv_wait`: notify me when the buffer has data in it.
-** `cv_signal`: I just put data in the buffer, so notify the threads that
-are waiting for the buffer to have data.
-
-== Condition Variables
-
-[.slider]
-* *Condition variable* can convey *more information* than locks about
-some change to the state of the world.
-* As an example, a buffer can be *full*, *empty*, or *neither*.
-** If the buffer is *full*, we can let threads withdraw but not add
-items.
-** If the buffer is *empty*, we can let threads add but not withdraw
-items.
-** If the buffer is neither full nor empty, we can let threads add and
-withdraw items.
-* We have *three* different buffer states (full, empty, or neither) and
-*two* different threads (producer, consumer).
-
-== Condition Variables
-
-[.slider]
-.Why are condition variables a synchronization mechanism?
-* Want to ensure that the condition *does not change* between checking it and
-and deciding to wait!
-
-[cols="2*",options='header',role='slide']
-|===
-
-| Thread A
-| Thread B
-
-a|
-[source,python,role='smallest slide']
-----
-if (buffer_is_empty):
-----
-| {nbsp}
-
-| {nbsp}
-a|
-[source,python,role='smallest slide']
-----
-put(buffer)
-notify(buffer)
-----
-
-a|
-[source,python,role='smallest slide']
-----
-sleep...
-----
-| {nbsp}
-
-a|
-[source,python,role='smallest slide']
-----
-...forever
-----
-| {nbsp}
-
-|===
-
 [.nooutline]
 == Next Time
 
 [.slider]
+* When to sleep and when not to sleep
 * Problems with Synchronization Primitives
 * Solving Sample Synchronization Problems
