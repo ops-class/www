@@ -27,8 +27,15 @@ $(function() {
 		$(this).children(".showonclick-button").remove();
 	}
 	$(".showonclick").click(displayOnClick);
-
-	$(".lazy-iframe").each(function () {
-		$(this).replaceWith('<iframe src="' + $(this).data("src") + '"></iframe>');
+	
+	$('.lazy-iframe').each(function() {
+		var waypoint = new Waypoint.Inview({
+			element: $(this)[0],
+			enter: function(direction) {
+				var elem = $("#" + this.element.id);
+				$(elem).replaceWith('<iframe src="' + $(elem).data("src") + '"></iframe>');
+				this.destroy();
+			}
+		});
 	});
 });

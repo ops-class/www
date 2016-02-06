@@ -57,7 +57,7 @@
 						</a>
 						{{/if}}
 				</div>
-				<div class="scrollspy">
+				<div id="scrollspy">
 				<ul id="side" class="nav hidden-xs hidden-sm"
 									data-spy="affix" style="padding-top:20px; padding-right:10px;">
 					{{#each sections}}
