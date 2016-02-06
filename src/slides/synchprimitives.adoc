@@ -13,6 +13,7 @@ spelling_exceptions:
   - TAS
   - giveGWATheMoolah
   - gwaHas
+video: QyWPDVqqIt8
 ---
 [.nooutline]
 == Technical Women
