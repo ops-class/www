@@ -1,6 +1,7 @@
 ---
 title: "Introduction to OS/161"
 spelling_exceptions:
+  - GitHub
   - vfs
   - PPA
   - LTS
@@ -221,6 +222,22 @@ compile and run your OS/161 kernel.
 If you are having trouble, make sure that all Vagrant commands (`vagrant up`,
 `vagrant ssh`, etc.) are run from the same directory as the `Vagrantfile` you
 created previously. That's just how Vagrant works.
+
+==== Notes for Windows users
+
+The README on our https://github.com/ops-class/vagrant[OS/161 Vagrant
+repository GitHub repository] describes some potential pitfalls for Windows
+users with the Vagrant installation and initial VM creation. However, another
+problem is known to exist where Windows hosts will not allow the guest to
+create symbolic links in shared folders. Because OS/161 generates symbolic
+links during `bmake depend` step, this problem will cause that step to fail.
+
+There are several workarounds. The first is to make sure that you run all of
+your `vagrant` commands as a Windows administrator, which will provide the
+guest with the required permissions to create symbolic links. Note that this
+includes both `vagrant up` and `vagrant ssh`. The second workaround is to not
+share your OS/161 source folder with the host, but of course this will
+prevent you from directly editing your sources from the host.
 
 === Preexisting External Installation
 
