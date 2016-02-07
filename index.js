@@ -149,7 +149,7 @@ metalsmith(__dirname)
 	.use(msif((argv['deploy'] == true), clean_css({ files: 'css/**/*.css' })))
 	.use(msif((argv['deploy'] == true), uglify()))
 	.use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
-	.use(msif((argv['deploy'] == true), beautify({'indent_size': 2})))
+	.use(msif((argv['deploy'] == true), beautify({'indent_size': 2, 'css': false, 'js': false})))
 	.use(msif((argv['check'] == true),
   	spellcheck({ dicFile: 'dicts/en_US.dic',
                  affFile: 'dicts/en_US.aff',
