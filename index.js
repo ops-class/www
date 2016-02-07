@@ -22,6 +22,9 @@ var metalsmith = require('metalsmith'),
     concat = require('metalsmith-concat'),
     highlight = require('./lib/highlight.js'),
 		msif = require('metalsmith-if'),
+		clean_css = require('metalsmith-clean-css'),
+		uglify = require('metalsmith-uglify'),
+		rename = require('metalsmith-rename'),
     beautify = require('metalsmith-beautify'),
     spellcheck = require('metalsmith-spellcheck'),
     formatcheck = require('metalsmith-formatcheck'),
@@ -143,6 +146,9 @@ metalsmith(__dirname)
   }))
   .use(highlight())
 	.use(hacks())
+	.use(msif((argv['deploy'] == true), clean_css({ files: 'css/**/*.css' })))
+	.use(msif((argv['deploy'] == true), uglify()))
+	.use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
 	.use(msif((argv['deploy'] == true), beautify({'indent_size': 2})))
 	.use(msif((argv['check'] == true),
   	spellcheck({ dicFile: 'dicts/en_US.dic',
