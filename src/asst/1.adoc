@@ -411,14 +411,16 @@ reader-writer locks. However, one way may be more straightforward than
 another and so you should put some thought into choosing the correct
 primitives.
 
-=== The Classic CS161 Whale Mating Problem
+=== The Classic http://www.eecs.harvard.edu/~cs161/[CS161] Whale Mating Problem
 
 You have been hired by the New England Aquarium's research division to help
 find a way to increase the whale population. Because there are not enough of
 them, the whales are having synchronization problems in finding a mate. The
 trick is that in order to have children, three whales are needed; one male,
 one female, and one to play matchmaker--literally, to push the other two
-whales together.
+whales together footnote:[
+https://en.wikipedia.org/wiki/Panda_pornography[Pandas actually have this
+problem...]].
 
 Your job is to write the three procedures `male()`, `female()`, and
 `matchmaker()`. Each whale is represented by a separate thread. A male whale
@@ -427,9 +429,10 @@ similarly, a female whale must wait until a male whale and matchmaker are
 present. Once all three are present, the magic happens and then all three
 return.
 
-Each whale thread should call the appropriate `_start()` function when it
-begins mating or matchmaking and the appropriate `_end()` function when
-mating or matchmaking completes. These functions are part of the problem
+Each whale thread should call the appropriate
+`{male,female,matchmaker}_start()` function when it begins mating or
+matchmaking and the appropriate `{male,female,matchmaker}_end()` function
+when mating or matchmaking completes. These functions are part of the problem
 driver in `synchprobs.c` and you are welcome to change them, but again we
 will install and use our own versions for testing. We have provided stub code
 for the whale mating problem that you should use in `whalemating.c`.
@@ -466,51 +469,8 @@ approach the intersection from one of four _directions_, also numbered
 from direction X enters the intersection in quadrant X.
 
 ++++
-<div style="width:480px;height:480px;margin-left:auto;margin-right:auto;margin-top:10px;margin-bottom:10px;">
-
-	<div style="float:left;width:159px;height:159px;border-right:1px solid black;border-bottom:1px solid black;"></div>
-	<div style="float:left;width:78px;height:160px;text-align:center;font-size:40px;font-weight:bolder;border-right:2px dashed black;padding-top:40px;">
-		0<br />&darr;
-	</div>
-	<div style="float:left;width:80px;height:160px;"></div>
-	<div style="width:159px;height:159px;float:left;border-left:1px solid black;border-bottom:1px solid black;"></div>
-
-	<div style="clear:both;"></div>
-
-	<div style="float:left;width:159px;height:78px;border-bottom:2px dashed black;"></div>
-	<div style="float:left;width:78px;height:78px;border-right:2px dashed black;border-bottom:2px dashed black">
-		<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">0</div>
-	</div>
-	<div style="float:left;width:80px;height:78px;border-bottom:2px dashed black">
-		<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">1</div>
-	</div>
-	<div style="width:160px;height:78px;border-bottom:2px dashed black;float:left;">
-		<div style="font-size:40px;line-height:78px;font-weight:bolder;">&larr; 1</div>
-	</div>
-
-	<div style="clear:both;"></div>
-	
-	<div style="width:159px;height:80px;float:left;">
-		<div style="text-align:right;font-size:40px;line-height:78px;font-weight:bolder;">3 &rarr;</div>
-	</div>
-	<div style="float:left;width:78px;height:80px;border-right:2px dashed black">
-		<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">3</div>
-	</div>
-	<div style="float:left;width:80px;height:80px;">
-		<div style="text-align:center;line-height:78px;font-size:40px;font-weight:bolder">2</div>
-	</div>
-	<div style="float:left;width:160px;height:80px"></div>
-
-	<div style="clear:both;"></div>
-	
-	<div style="float:left;width:159px;height:159px;border-right:1px solid black;border-top:1px solid black;"></div>
-	<div style="float:left;width:78px;height:160px;border-right:2px dashed black;padding-top:40px;"></div>
-	<div style="float:left;width:80px;height:160px;text-align:center;font-size:40px;font-weight:bolder;">&uarr;<br />2</div>
-	<div style="width:159px;height:159px;float:left;border-left:1px solid black;border-top:1px solid black;"></div>
-	
-	<div style="clear:both;"></div>
-
-</div>
+<img src="/img/asst/stoplight.jpg"
+		 style="width:50%; min-width:300px; padding: 10px 0 10px;" class="img-responsive center-block" alt="Stoplight diagram"></img>
 ++++
 
 Given our model of the intersection, your job is to use synchronization
@@ -526,6 +486,8 @@ quadrant until it calls `leaveIntersection`.
 
 . Your solution should improve traffic flow compared to a conventional
 four-way stop while not starving traffic from any direction.
+
+. Also don't hit the dog!
 
 ==== Stoplight code reading questions 
 

@@ -1,104 +1,104 @@
 body {
-  padding-top: 60px;
-  position: relative;
-  color: #333;
-  font-size: 18px;
+	padding-top: 60px;
+	position: relative;
+	color: #333;
+	font-size: 18px;
 }
 .lead {
 	font-size: 1.2em;
 }
 code, kbd, pre, samp {
-  font-family: Consolas, "Courier New", monospace;
+	font-family: Consolas, "Courier New", monospace;
 }
 code {
 	padding: inherit;
 	color: inherit;
-  background-color: inherit;
+	background-color: inherit;
 }
 a.logo-fixed {
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 74px;
-  height: 60px;
-  z-index: 2000;
-  margin-bottom: -60px;
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 74px;
+	height: 60px;
+	z-index: 2000;
+	margin-bottom: -60px;
 }
 a.logo-fixed > img {
-  height: 60px;
-  z-index: 2000;
+	height: 60px;
+	z-index: 2000;
 }
 
 .navbar {
-  font-size: 16px;
-  font-family: Consolas, monospace;
+	font-size: 16px;
+	font-family: Consolas, monospace;
 }
 .navbar-default {
-  background-color: white;
+	background-color: white;
 }
 .navbar {
-  min-height: 61px;
-  margin-bottom: 10px;
+	min-height: 61px;
+	margin-bottom: 10px;
 }
 .navbar-toggle {
-  margin-top: 17px;
+	margin-top: 17px;
 }
 
 .alert td.icon {
-  padding-right: 20px;
+	padding-right: 20px;
 }
 
 .alert.alert-danger {
-  font-weight: bolder;
+	font-weight: bolder;
 }
 
 .popover-content {
-  color: black;
+	color: black;
 }
 
 .nav > li > a.active {
-  color: black;
+	color: black;
 }
 
 @media (min-width: 768px) {
-  .navbar .navbar-nav {
-    line-height: 20px;
-    padding-top: 40px;
-    display: inline-block;
-  }
-  .navbar .navbar-nav.left {
-    padding-right: 32px;
-    float: right;
-  }
-  .navbar .navbar-nav.left li {
-    padding-right: 10px;
-  }
-  .navbar .navbar-nav.right {
-    padding-left: 32px;
-    float: left;
-  }
-  .navbar .navbar-nav.right li {
-    padding-left: 10px;
-  }
-  .nav > li > a {
-    padding: 0px 0px;
-  }
-  .nav > li > a:after {
-	  content: "\0000a0";
-  }
-  .nav > li > a:hover:after {
-    content: "_";
-  }
-  .nav > li > a.active:after {
-    content: "_";
-  }
+	.navbar .navbar-nav {
+		line-height: 20px;
+		padding-top: 40px;
+		display: inline-block;
+	}
+	.navbar .navbar-nav.left {
+		padding-right: 32px;
+		float: right;
+	}
+	.navbar .navbar-nav.left li {
+		padding-right: 10px;
+	}
+	.navbar .navbar-nav.right {
+		padding-left: 32px;
+		float: left;
+	}
+	.navbar .navbar-nav.right li {
+		padding-left: 10px;
+	}
+	.nav > li > a {
+		padding: 0px 0px;
+	}
+	.nav > li > a:after {
+		content: "\0000a0";
+	}
+	.nav > li > a:hover:after {
+		content: "_";
+	}
+	.nav > li > a.active:after {
+		content: "_";
+	}
 }
 ul#side li a:hover {
 	background: inherit;
 }
 ul#side li.active > a {
-  color: #23527c;
+	color: #23527c;
 }
 ul#side li.active > a:after {
 	content: "_";
@@ -114,10 +114,10 @@ ul#side li .h6 {
 	margin-bottom: 0px;
 }
 a.anchor {
-  display: block; 
-  position: relative; 
-  top: -70px; 
-  visibility: hidden;
+	display: block; 
+	position: relative; 
+	top: -70px; 
+	visibility: hidden;
 }
 thead {
 	font-size: 1.2em;
@@ -184,4 +184,26 @@ div.showonclick-button {
 	margin-top: -36px;
 	position: absolute;
 	z-index: 100;
+}
+.row-xs-flex-center {
+	display:flex;
+	align-items:center;
+}
+@media (min-width:768px) {
+	.row-sm-flex-center {
+		display:flex;
+		align-items:center;
+	}
+}
+@media (min-width: 992px) {
+	.row-md-flex-center {
+		display:flex;
+		align-items:center;
+	}
+}
+@media (min-width: 1200px) {
+	.row-lg-flex-center {
+		display:flex;
+		align-items:center;
+	}
 }

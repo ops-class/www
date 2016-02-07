@@ -6,55 +6,82 @@ layout: thin.hbt
 Below are some examples of previous exams. Exam statistics are included as
 part of each solution set.
 
-[cols="4*^",role="exams"]
-|===
-
-.2+| [.h4]#2015#
-| Final
-| link:2015_final_exam.pdf[Exam]
-| link:2015_final_solution.pdf[Solutions]
-
-| Midterm
-| link:2015_midterm_exam.pdf[Exam]
-| link:2015_midterm_solution.pdf[Solutions]
-
-.2+| [.h4]#2014#
-| Final
-| link:2014_final_exam.pdf[Exam]
-| link:2014_final_solution.pdf[Solutions]
-
-| Midterm
-| link:2014_midterm_exam.pdf[Exam]
-| link:2014_midterm_solution.pdf[Solutions]
-
-.3+| [.h4]#2013#
-| Final
-| link:2013_final_exam.pdf[Exam]
-| link:2013_final_solution.pdf[Solutions]
-
-| Primary Midterm
-| link:2013_midterm_primary_exam.pdf[Exam]
-| link:2013_midterm_primary_solution.pdf[Solutions]
-
-| Alternate Midterm
-| link:2013_midterm_alternate_exam.pdf[Exam]
-| link:2013_midterm_alternate_solution.pdf[Solutions]
-
-.4+| [.h4]#2012#
-| Final
-| link:2012_final_exam.pdf[Exam]
-| link:2012_final_solution.pdf[Solutions]
-
-| Primary Midterm
-| link:2012_midterm_primary_exam.pdf[Exam]
-| link:2012_midterm_primary_solution.pdf[Solutions]
-
-| Alternate Midterm
-| link:2012_midterm_alternate_exam.pdf[Exam]
-| link:2012_midterm_alternate_solution.pdf[Solutions]
-
-| Practice Midterm
-| link:2012_midterm_practice_exam.pdf[Exam]
-| &nbsp;
-
-|===
+++++
+<div class="row text-center row-md-flex-center"
+	style="border-bottom:1px solid grey; padding-bottom:10px; margin-bottom:10px;">
+	<div class="col-xs-12 col-md-3"><span class="h4">2015</span></div>
+	<div class="col-xs-12 col-md-9">
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Final</div>
+			<div class="col-xs-4"><a href="2015_final_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2015_final_solution.pdf">Solution</a></div>
+		</div>
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Midterm</div>
+			<div class="col-xs-4"><a href="2015_midterm_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2015_midterm_solution.pdf">Solution</a></div>
+		</div>
+	</div>
+</div>
+<div class="row text-center row-md-flex-center"
+	style="border-bottom:1px solid grey; padding-bottom:10px; margin-bottom:10px;">
+	<div class="col-xs-12 col-md-3"><span class="h4">2014</span></div>
+	<div class="col-xs-12 col-md-9">
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Final</div>
+			<div class="col-xs-4"><a href="2014_final_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2014_final_solution.pdf">Solution</a></div>
+		</div>
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Midterm</div>
+			<div class="col-xs-4"><a href="2014_midterm_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2014_midterm_solution.pdf">Solution</a></div>
+		</div>
+	</div>
+</div>
+<div class="row text-center row-md-flex-center"
+	style="border-bottom:1px solid grey; padding-bottom:10px; margin-bottom:10px;">
+	<div class="col-xs-12 col-md-3"><span class="h4">2013</span></div>
+	<div class="col-xs-12 col-md-9">
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Final</div>
+			<div class="col-xs-4"><a href="2013_final_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2013_final_solution.pdf">Solution</a></div>
+		</div>
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Primary Midterm</div>
+			<div class="col-xs-4"><a href="2013_midterm_primary_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2013_midterm_primary_solution.pdf">Solution</a></div>
+		</div>
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Alternate Midterm</div>
+			<div class="col-xs-4"><a href="2013_midterm_alternate_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2013_midterm_alternate_solution.pdf">Solution</a></div>
+		</div>
+	</div>
+</div>
+<div class="row text-center row-md-flex-center">
+	<div class="col-xs-12 col-md-3"><span class="h4">2012</span></div>
+	<div class="col-xs-12 col-md-9">
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Final</div>
+			<div class="col-xs-4"><a href="2012_final_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2012_final_solution.pdf">Solution</a></div>
+		</div>
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Primary Midterm</div>
+			<div class="col-xs-4"><a href="2012_midterm_primary_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2012_midterm_primary_solution.pdf">Solution</a></div>
+		</div>
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Alternate Midterm</div>
+			<div class="col-xs-4"><a href="2012_midterm_alternate_exam.pdf">Exam</a></div>
+			<div class="col-xs-4"><a href="2012_midterm_alternate_solution.pdf">Solution</a></div>
+		</div>
+		<div class="row row-xs-flex-center">
+			<div class="col-xs-4">Practice Midterm</div>
+			<div class="col-xs-4"><a href="2012_midterm_practice_exam.pdf">Exam</a></div>
+		</div>
+	</div>
+</div>
+++++
