@@ -96,10 +96,10 @@ code on the left does. The click on the right side for the much better
 solution. Note that with appropriately named variables no commentary is
 needed for this very familiar piece of code.
 
-[cols="2"]
-|===
+++++
+<div class="col-md-6">
+++++
 
-a|
 [source,c]
 ----
 struct a { 
@@ -122,7 +122,11 @@ void e() {
 }
 ----
 
-a|
+++++
+</div>
+<div class="col-md-6">
+++++
+
 [source,c,role='showonclick']
 ----
 struct item { 
@@ -145,7 +149,9 @@ void reverse_list() {
 }
 ----
 
-|===
+++++
+</div>
+++++
 
 === Just a Few Tips
 
@@ -361,7 +367,7 @@ conforming to the interface that we have provided.
 
 Unlike locks and condition variables, where we have provided you with a test
 suite, we are leaving it to you to develop a test that exercises your
-reader-writer locks. You will want to edit `kern/startup/menu.c` to allow
+reader-writer locks. You will want to edit `kern/main/menu.c` to allow
 yourself to run your test as `sy5` from the kernel menu or command line. We
 have our own reader-writer test that we will use to test and grade your
 implementation.
