@@ -3,6 +3,7 @@ var metalsmith = require('metalsmith'),
     filemetadata = require('metalsmith-filemetadata'),
 		branch = require('metalsmith-branch'),
     collections = require('metalsmith-collections'),
+		github = require('./lib/github.js'),
     asciidoc = require('./lib/asciidoc'),
     updated = require('metalsmith-updated'),
 		slides = require('./lib/slides.js'),
@@ -50,8 +51,12 @@ metalsmith(__dirname)
   .use(drafts())
   .use(filemetadata([
     {pattern: slides_pattern,
-		 metadata: {'slides': true, 'layout': 'slides/slides.adoc'},
-		 preserve: true
+			metadata: {
+				'slides': true,
+				'doGithub': true,
+				'layout': 'slides/slides.adoc'
+			},
+		 	preserve: true
 	 	},
 	]))
 	.use(branch(isSlides)
@@ -60,8 +65,24 @@ metalsmith(__dirname)
 		}))
 	)
   .use(filemetadata([
-    {pattern: asst_pattern, metadata: {'asst': true, 'doSections': true, 'layout': 'assts/asst.hbt'}},
-    {pattern: course_pattern, metadata: {'course': true, 'doSections': true, 'layout': 'courses/course.hbt'}}
+    {pattern: asst_pattern,
+			metadata: {
+				'asst': true,
+				'doSections': true,
+				'doGithub': true,
+				'layout': 'assts/asst.hbt'
+			},
+			preserve: true
+		},
+    {pattern: course_pattern,
+			metadata: {
+				'course': true,
+				'doSections': true,
+				'doGithub': true,
+				'layout': 'courses/course.hbt'
+			},
+			preserve: true
+		}
   ]))
 	.use(branch(isSlides)
 		.use(collections({
@@ -72,6 +93,7 @@ metalsmith(__dirname)
 			}
 		}))
 	)
+	.use(github())
   .use(asciidoc())
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
 	.use(slides())

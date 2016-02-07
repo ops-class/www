@@ -7,6 +7,12 @@
       Created {{ format_date created "normal" false }} <br />
       Updated {{ format_date updated "normal" false }}
     </div>
+		{{#if github}}
+		<div class="small col-xs-12 col-md-4 text-center">
+			<a href="{{ github.commits }}">File History</a> <br />
+			<a href="{{ github.blob}}">View on Github</a>
+		</div>
+		{{/if}}
   </div>
 </div>
 
