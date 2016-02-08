@@ -395,7 +395,7 @@ GNU debugger (GDB), and the Git revision control system.  Consists of code
 reading questions, a few simple scripting tasks, and a very simple
 implementation task.
 
-=== `ASST1`: Synchronization
+=== link:/asst/1/[`ASST1`: Synchronization]
 
 *Deadline*: Friday 2/19/2016 @ 5PM.
 
@@ -457,6 +457,22 @@ the missing 5%.
 ** 5% ASST1
 ** 15% ASST2
 ** 30% ASST3
+
+==== Extra credit
+
+This year we will provide up to 5% extra credit to students that help us
+improve our course materials. All the assignments and lecture slides, as well
+as other resources including our Vagrant virtual machine configuration and the
+`test161` OS/161 testing tool, are online at our
+https://github.com/ops-class[`ops-class.org` GitHub repository]. The amount of
+extra credit that will be provided will be commensurate with your contribution
+and completely at the discretion of the course staff.
+
+To take advantage of this offer you must also present your updates to the
+course staff in a way that makes them straightforward to incorporate. Do not
+email us, or post in the forum. Clone our repository, fix the problem, and send
+us a pull request. If you are curious about how much credit a particular change
+will earn you, post it as an issue on GitHub first and we'll discuss.
 
 === Incomplete Grades
 
