@@ -33,10 +33,7 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	
-		<script src="/js/common/jquery-2.2.0.js" defer></script>
-		<script src="/js/site.js" defer></script>
-		<script src="/js/inview.js" defer></script>
-		<script src="/js/onload.js" defer></script>
+		<script src="/js/site.js" async></script>
 	</head>
 
 	<body data-spy="scroll" data-target="#scrollspy">

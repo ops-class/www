@@ -14,9 +14,7 @@
 		{{/if}}
 
 		<link href="/css/slides/deck.css" rel="stylesheet" />
-		<script src="/js/common/jquery-2.2.0.js" defer></script>
-		<script src="/js/slides/deck.js" defer></script>
-		<script src="/js/slides/slides.js" defer></script>
+		<script src="/js/slides/deck.js" async></script>
 	</head>
 
 	<body>
