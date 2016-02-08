@@ -151,6 +151,7 @@ void reverse_list() {
 
 ++++
 </div>
+<div style="clear:both;"></div>
 ++++
 
 === Just a Few Tips

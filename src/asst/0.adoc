@@ -1,7 +1,6 @@
 ---
 title: "Introduction to OS/161"
 spelling_exceptions:
-  - GitHub
   - vfs
   - PPA
   - LTS
@@ -563,7 +562,7 @@ If you have previously configured and built in this directory there are also
 some additional files and directories that have been created, such as
 `defs.mk` and `build/`.
 
-=== [.spelling_exception]#Userland#
+=== User Land
 
 In the `userland/` source subdirectory, you will find:
 
@@ -769,7 +768,7 @@ that you do not inadvertently share your solutions with others. The `test161`
 submission system will refuse to grade your assignments if it detects that
 your Git repository is public. Getting your hands on a private Git repository
 is not hard. If you are a student,
-[.spelling_exception]#https://www.github.com[GitHub]# will allow you to set
+https://www.github.com[GitHub] will allow you to set
 up a limited number of private repositories for instructional use.
 https://www.gitlab.com[`GitLab.com`] provides private Git repositories for
 free, as do other sites such as
