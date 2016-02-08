@@ -191,7 +191,7 @@ solutions for the ASST1 synchronization problems described below.
 
 This framework consists of:
 
-. `kern/synchprobs/{stoplight.c,whalemating.c}`: these files are where you
+. `kern/synchprobs/*`: these files are where you
 will implement your solutions to the synchronization problems.
 
 . `kern/tests/synchprobs.c`: this file contains driver code
@@ -392,7 +392,7 @@ fairly straightforward synchronization problems.
 	
 We have provided you with basic driver code in `kern/tests/synchprobs.c` that
 starts a predefined number of threads which call functions in
-`kern/synchprobs/{whalemating.c,stoplight.c}`. You are responsible for
+`{whalemating.c,stoplight.c}`. You are responsible for
 implementing those functions which determine what those threads do. You
 can--and should--make changes to the driver code in `synchprobs.c`, but note
 that this file will be replaced by the drivers we cook up for testing. Also
