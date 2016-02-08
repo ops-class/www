@@ -1,4 +1,50 @@
 = https://www.ops-class.org[`ops-class.org`] Website Sources
 
 https://www.ops-class.org[`ops-class.org`] is a website intended to let
-students learn operating system concepts online at their own pace.
+students learn operating system concepts online at their own pace. It
+includes lecture slides and assignments that use the OS/161 instructional
+operating system.
+
+== Install
+
+You'll need https://nodejs.org/[`node`] and https://www.npmjs.com/[`npm`],
+the node package manager. I suggest installing
+https://github.com/creationix/nvm[`nvm`], the node version manager. Once you
+have those `npm install` in this directory will install
+http://www.metalsmith.io/[Metalsmith] and the build pipeline dependencies.
+
+== Build Process
+
+* `make` will do a quick build of the site without link, format, or spell
+checking, and without minifying JavaScript or CSS files.
+* `make check` will build and run the link, format, and spell checker.
+* `make deploy` will run the link, format, and spell checker, minify all
+JavaScript and CSS files for deployment, and beautify the HTML.
+
+== TODOs and Possible Improvements
+
+=== Integrate Google PageSpeed
+
+It would be great if all of the page's
+https://developers.google.com/speed/pagespeed/[Google PageSpeed] scores
+were checked during the `make check` build. An https://www.npmjs.com/[`npm`]
+package already exists providing the PageSpeed API but it would need to be
+packaged for Metalsmith and integrated sensibly into the build process. (One
+idea is to print the N pages with the lowest speed or accessibility scores.)
+
+This could be contributed back to the https://metalsmith.io[Metalsmith]
+community when finished.
+
+=== Internalize External Images
+
+One of the problems https://developers.google.com/speed/pagespeed/[PageSpeed]
+has identified with the current https://www.ops-class.org[`ops-class.org`]
+website is that images linked off the site are not cached properly. An
+approach to fixing this is to identify all external images, download them,
+and rewrite the links to use the "internalized" versions. This would allow us
+to set sensible caching policies and utilize the PageSpeed module's support
+for automatic image compression and sizing. It would also fix broken images
+caused by link rot.
+
+This could also be contributed back to the https://metalsmith.io[Metalsmith]
+community when finished.
