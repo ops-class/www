@@ -36,7 +36,7 @@ and applying the correct synchronization primitive.
 === Collaboration Guidelines
 
 ASST1 is your first chance to write real kernel code. Here are the guidelines
-for how to work together and work with your partner (if you have one):
+for how to work with other students and work with your partner (if you have one):
 
 TIP: Pair programming to complete the ASST1 implementation tasks is *strongly
 encouraged*.
@@ -514,6 +514,7 @@ leaves the intersection by calling `leaveIntersection`.
 
 == Grading
 
+[.lead]
 We will test five things about your ASST1 submission:
 
 . *Do your locks work?* We will use `sy2` to test this.

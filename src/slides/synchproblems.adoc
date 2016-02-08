@@ -39,14 +39,38 @@ video::{music}[youtube,width=0,height=0]
 
 [.slider]
 * You need a partner. Now.
-* A quick discussion of the new nit protocol.
+
+<<<
+
+A quick discussion of the new nit protocol.
+
 [.slider]
-** *If you find a bug in the website or any of our tools, or make a useful
+* *If you find a bug in the website or any of our tools, or make a useful
 contribution, you will receive some small amount of extra credit.* (Up to 5%
 points.)
-** However, you have to identify and fix the problem correctly. Don't email
+* However, you have to identify and fix the problem correctly. Don't email
 us. Don't post in the forum. Fix the problem or add additional information
 and then send us a pull request on GitHub.
+* Please don't let this devote time away from the actual course assignments!
+This is mainly designed to ensure that you notify us about problems and help
+them get fixed. If you confront a serious error that you can't understand,
+please just contact us.
+
+<<<
+
+This year's assignment deadlines are posted:
+
+[.slider]
+* 2 weeks for ASST0 and ASST1.
+* 3 weeks for ASST2.
+* 1 week for Spring Break, and 1 week for the midterm.
+* 2 weeks each for ASST3 parts 1, 2, and 3.
+
+[.slide]
+--
+Do you think that the assignments are easy? [.slide]*Then start them and
+finish them early!* [.slide]#Then you can say I told you so.#
+--
 
 == Locks
 

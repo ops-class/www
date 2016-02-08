@@ -1,0 +1,247 @@
+---
+title: "System Calls"
+draft: true
+---
+:sectnums:
+
+== Introduction
+
+[.lead]
+In this assignment you will add process and system call support to
+	your OS/161 kernel.
+	
+Currently no support exists for running user processes--the tests you have
+run up to this point have run in the kernel as kernel threads. By the time
+you finish ASST2 you will have the ability to launch a simple shell and enter
+a somewhat-familiar UNIX environment. Indeed, future tests will be run as
+user processes, not from the kernel menu.
+  
+In contrast to link:/asst/1/[ASST1], ASST2 requires a great deal more thought
+and planning. We are not giving you many examples. We have not designed your
+data structures for you. You will need to determine what needs to be
+implemented, where to put the code required, how the data structures are
+designed and implemented, and how everything fits together. We just care that
+your system calls fulfill the interface specification.
+  
+As a final piece of advice, ASST2 and ASST3 begin to produce code bases that
+are large, complex, and potentially _very_ difficult to debug. *You do not
+want to introduce bugs into your kernel* because they will be very hard to
+remove. Our advice--slow down, design, think, design again, discuss with your
+partner, and slow down again. Then write some code.
+
+=== Objectives
+
+After completing ASST2 you should:
+    
+. Be able to write code that meets a specified interface definition.
+. Understand how to represent processes in an operating system.
+. Have designed and implemented data structures to manage processes in an
+operating system.
+. Understand how to implement system calls.
+
+=== Collaboration Guidelines
+
+ASST2 is the first large `ops-class.org` assignment. Here are the guidelines
+for how to work with other students and with your partner (if you have one):
+
+TIP: Pair programming to complete the ASST2 implementation tasks is *strongly
+encouraged*.
+
+TIP: Writing a design document with your partner is *strongly encouraged.*
+  
+TIP: Having one partner work on the file system system calls while the other
+partner works on process support is a good division of labor. The partner
+working on the file system system calls may finish first, at which point they
+can help and continue testing.
+
+TIP: Answering the ASST2 code reading questions side-by-side with your
+partner is *strongly encouraged*.
+  
+TIP: Discussing the code reading questions and browsing the source tree with
+other students is encouraged.
+    
+WARNING: Dividing the code reading questions and development tasks between
+partners is discouraged.
+
+CAUTION: Any arrangement that results in one partner writing the entire
+design document is cheating.
+
+CAUTION: Any arrangement that results in one partner writing all or almost
+all of the code is cheating.
+  
+CAUTION: Copying any answers from anyone who is not your partner or anywhere
+else and submitting them as your own is cheating.
+  
+CAUTION: You may not refer to or incorporate any external sources without
+explicit permission footnote:[Which you are extremely unlikely to get.].
+  
+== Assignment Organization
+
+[.lead]
+Your current OS/161 system has minimal support for running
+executables--nothing that could be considered a true process. ASST2 starts
+the transformation of OS/161 into a true multi-tasking operating system.
+
+After the next assignment, it will be capable of running multiple processes
+at once from actual compiled programs stored in your account. These programs
+will be loaded into OS/161 and executed in user mode by System/161. This will
+occur under the control of your kernel and the command shell in `bin/sh`.
+
+The first step is to read and understand the parts of the system that we have
+written for you. Our code can run one user-level C program at a time as long
+as it doesn't want to do anything but shut the system down. We have provided
+sample user programs that do this (`sbin/{reboot,halt,poweroff`), as well as
+others that make use of features you will be adding in this and future
+assignments.
+
+=== System Call Interface
+
+First, however, you must implement the interface between user-mode
+programs--or user land--and the kernel. As usual, we provide part of the code
+you will need. Your job is to identify, design and build the missing pieces.
+
+So far, all the code you have written for OS/161 has only been run within,
+and only been used by, the operating system kernel. In a real operating
+system, the kernel's main function is to provide support for user-level
+programs. Most such support is accessed via system calls. We give you one
+system call, `reboot`, which is implemented in the function `sys_reboot()` in
+`main.c`. In GDB, if you put a breakpoint on `sys_reboot` and run the
+`reboot` program, you can print a backtrace in GDB to see how it got there.
+  
+=== Process Support
+
+You will also be implementing the subsystem that keeps track of the ultiple
+processes you will have in the future. You must decide what data structures
+you will need to hold the data pertinent to a process. OS/161 contains some
+code that should get you started here in `kern/proc/proc.h`.
+
+It may be helpful to look at kernel include files of your favorite operating
+system for suggestions, specifically the `proc` structure. That said, these
+structures are likely to include _much more_ process (or task) state than you
+need to correctly complete this assignment.
+
+=== User Programs
+
+Our System/161 simulator can run normal programs compiled from C. The
+programs are compiled with a cross-compiler, `os161-gcc`. This compiler runs
+on the host machine and produces MIPS executables and is the same compiler
+used to compile the OS/161 kernel. To create new user programs, you will need
+to edit the `Makefile` in `bin`, `sbin`, or `testbin` (depending on where you
+put your programs) and then create a directory similar to those that already
+exist. Use an existing program and its `Makefile` as a template. *You are
+strongly encouraged to run the tests that already exist and write your own as
+needed.*
+  
+== Design
+
+[.lead]
+Beginning with ASST2 your _design documents_ become an important part of
+approaching each assignment.
+
+A design document should clearly reflect the development of your solution,
+not merely explain what you programmed. If you try to code first and design
+later, or even if you design hastily and rush into coding, you will most
+certainly end up confused and frustrated. *Don't do it!* Work with your
+partner to plan everything you will do. Don't even think about coding until
+you can precisely explain to each other what problems you need to solve and
+how the pieces relate to each other.
+
+Note that it can often be hard to write (or talk) about new software
+design--you are facing problems that you have not seen before, and therefore
+even finding terminology to describe your ideas can be difficult. There is no
+magic solution to this problem, but it gets easier with practice. The
+important thing is to go ahead and try. Always try to describe your ideas and
+designs to your partner. In order to reach an understanding, you may have to
+invent terminology and notation--this is fine, just be sure to document it in
+your design. If you do this, by the time you have completed your design, you
+will find that you have the ability to efficiently discuss problems that you
+have never seen before.
+
+Your design document can be as long as you like. It should include both
+English definitions and explanations of core functions and interfaces as well
+as pseudocode and function definitions where appropriate. We suggest that you
+use a markup language to format your design nicely. Both
+https://daringfireball.net/projects/markdown/[Markdown] and
+http://asciidoctor.org/[AsciiDoc] are supported by many Git hosting sites.
+
+The contents of your design document should include (but not be limited to):
+
+. A description of each new piece of functionality you need to add for ASST2.
+
+. A list and brief description of any new data structures you will have to
+add to the system.
+
+. Indications of what, if any, existing code you may model your solution off
+of.
+
+. A description of how accesses to shared state will be synchronized, if
+necessary.
+
+. A breakdown of who will do what between the partners, and a timeline
+indicating when assignment tasks will be finished and when testing will take
+place.
+
+=== Design Considerations
+
+Here are some additional questions and thoughts to aid in writing your design
+document. They are not, by any means, meant to be a comprehensive list of all
+the issues you will want to consider. You do not need to explicit answer or
+discuss these questions in your executive summary, but you should at least
+think about them.
+
+Your system must allow user programs to receive arguments from the command
+line. For example, you should be able to run the following program:
+
+[source,c]
+----
+char  *filename = "/bin/cp";
+char  *args[4];
+pid_t  pid;
+
+args[0] = "cp";
+args[1] = "file1";
+args[2] = "file2";
+args[3] = NULL;
+
+pid = fork();
+
+if (pid == 0) {
+	execv(filename, argv);
+}
+----
+
+The code snippet above loads the executable file `/bin/cp`, install it as a
+new process, and executes it. The new process will then find `file1` on the
+disk and copy it to `file2`.
+
+Passing arguments from one user program, through the kernel, into another
+user program, is a bit of a chore. What form does this take in C? This is
+rather tricky, and there are many ways to be led astray. You will probably
+find that very detailed pictures and several walk-throughs will be most
+helpful. This piece of code, in particular, is _impossible_ to write
+correctly without being carefully designed beforehand footnote:[Go on... try
+to prove us wrong!].
+
+Some other questions to consider:
+
+. What primitive operations exist to support the transfer of data to and from
+	kernel space?  Do you want to implement more on top of these?
+
+. When implementing `exec`, how will you determine:
+.. the stack pointer initial value
+.. the initial register contents
+.. the return value
+.. whether you can execute the program at all?
+
+. You will need to _bullet-proof_ the OS/161 kernel from user program errors.
+There should be nothing a user program can do--and we will try _almost
+everything_&mdash;to crash the operating system, with the exception of
+explicitly asking the system to halt.
+
+. What new data structures will you need to manage multiple processes?
+
+. What relationships do these new structures have with the rest of the system?
+
+. How will you manage file accesses? When the shell invokes the `cat`
+command, and the `cat` command starts to read `file1`, what will happen if
+another program also tries to read `file1`? What would you like to happen?
