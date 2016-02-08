@@ -6,6 +6,9 @@ build:
 
 deploy: DEPLOY = --deploy
 deploy: check build
+	@while [ -n "$(find deploy -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
+	@rsync -rlpgoDc --delete deploy/ build
+	@rm -rf deploy
 
 check: CHECK = --check
 check: build
@@ -20,7 +23,7 @@ run:
 	./node_modules/http-server/bin/http-server build
 
 clean:
-	@rm -rf build 
+	@rm -rf build deploy
 
 statics:
 	@wget http://google-analytics.com/ga.js -O assets/js/ga.js 2>/dev/null
