@@ -195,6 +195,12 @@ div.showonclick-button {
 		align-items:center;
 	}
 }
+@media (max-width: 767px) {
+	.navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
 @media (min-width: 992px) {
 	.row-md-flex-center {
 		display:flex;
@@ -206,4 +212,9 @@ div.showonclick-button {
 		display:flex;
 		align-items:center;
 	}
+}
+.navbar-toggle {
+	float: left;
+	margin-left: 15px;
+	margin-right: inherit;
 }

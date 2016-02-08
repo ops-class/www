@@ -388,3 +388,6 @@ img {
 .slide > h2:first-child > code {
 	font-size: 0.8em;
 }
+td {
+	padding: 5px;
+}
