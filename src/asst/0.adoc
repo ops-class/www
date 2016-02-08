@@ -710,7 +710,7 @@ currently initialized?
 currently creates multiple threads.
 . OS/161 has a system for printing debugging messages to the console. How
 does it work? How could it be useful?
-. What do `copyin` and `copyout` do? Why is special about these functions
+. What do `copyin` and `copyout` do? What is special about these functions
 compared to other approaches to copying memory in C, like `memmove`?
 . What is a zombie thread?
 . What is the difference between a thread sleeping and a thread yielding?
