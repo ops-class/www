@@ -453,7 +453,7 @@ The file `userland/include/unistd.h` contains the user-level interface definitio
 of the system calls that you will be writing for OS/161.  This interface is
 different from that of the kernel functions that you will define to implement
 these calls. You need to design this interface and put it in
-`kern/include/syscall.h`. As you discovered in ASST0, the integer codes for
+`kern/include/syscall.h`. As you discovered in link:/asst/0/[ASST0], the integer codes for
 the calls are defined in `kern/include/kern/syscall.h`.
 
 You need to think about a variety of issues associated with implementing
