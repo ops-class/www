@@ -115,7 +115,7 @@ system call, `reboot`, which is implemented in the function `sys_reboot()` in
 You will also be implementing the subsystem that keeps track of the multiple
 processes you will have in the future. You must decide what data structures
 you will need to hold the data pertinent to a process. OS/161 contains some
-code that should get you started here in `kern/proc/proc.h`.
+code that should get you started here in `kern/include/proc.h`.
 
 It may be helpful to look at kernel include files of your favorite operating
 system for suggestions, specifically the `proc` structure. That said, these
@@ -272,7 +272,7 @@ that to answer some of the questions, you will have to look in other files.
 ==== `kern/syscall/loadelf.c`
 
 This file contains the functions responsible for loading an ELF footnote:[ELF
-is the name of the executable format produced by `cs161-gcc`.] executable
+is the name of the executable format produced by `os161-gcc`.] executable
 from the file system and into virtual memory space. Of course, at this point
 this virtual memory space does not provide what is normally meant by virtual
 memory--although there is translation between virtual and physical addresses,
@@ -375,7 +375,7 @@ the order of the `argc` and `argv *` arguments to `main`, for example.
 However, it is useful to understand how this code works and how it implements
 the other side of the system call interface.
 
-==== `user/lib/crt0/mips/`
+==== `userland/lib/crt0/mips/`
 
 This is the user program startup code. There's only one file in here,
 `mips-crt0.S`, which contains the MIPS assembly code that receives control
@@ -384,23 +384,23 @@ first when a user-level program is started. It calls the user program's
 to, so be sure to check what values it expects to appear in what registers
 and so forth.
 
-==== `user/lib/libc/`
+==== `userland/lib/libc/`
 
 This is the user-level C library. There's obviously a lot of code here. We
 don't expect you to read it all, although it may be instructive in the long
 run to do so. For present purposes you need only look at the code that
 implements the user-level side of system calls, which we detail below.
 
-==== `user/lib/libc/unix/errno.c`
+==== `userland/lib/libc/unix/errno.c`
 
 This is where the global variable `errno` is defined.
 
-==== `user/lib/libc/arch/mips/syscalls-mips.S`
+==== `userland/lib/libc/arch/mips/syscalls-mips.S`
 
 This file contains the machine-dependent code necessary for implementing
 the user-level side of MIPS system calls.
 
-==== `build/user/lib/libc/syscalls.S`
+==== `build/userland/lib/libc/syscalls.S`
 
 This file is created from `syscalls-mips.S` at compile time and is the actual
 file assembled into the C library.  The actual names of the system calls are
@@ -449,7 +449,7 @@ The grading scripts rely on the return of appropriate error codes and so
 adherence to the guidelines is as important as the correctness of your
 implementation.
 
-The file `user/include/unistd.h` contains the user-level interface definition
+The file `userland/include/unistd.h` contains the user-level interface definition
 of the system calls that you will be writing for OS/161.  This interface is
 different from that of the kernel functions that you will define to implement
 these calls. You need to design this interface and put it in
@@ -568,3 +568,27 @@ about Unix error codes. On Linux systems `man errno` will do the trick.
 Note that if you add an error code to `kern/include/kern/errno.h`, you need
 to add a corresponding error message to the file
 `kern/include/kern/errmsg.h`.
+
+=== `kern/proc/proc.c`
+
+This file contains functions that allow process management. Functions
+`proc_create` and `proc_destroy` are essentially the entry points into process
+creation and destruction. Keep in mind that you will have to add code to these
+functions to manage any additional fields that you add to the process
+structure.
+
+Since a process can contain multiple threads, the functions `proc_addthread`
+and `proc_remthread` are provided to enable tracking. Since we are not going to
+implement multi-threading, you will not need to modify these functions, but
+going through the code and understanding how the link between a process and its
+threads is established would be beneficial.
+
+The functions `proc_getas` and `proc_setas` are essentially the getter and
+setter for the address space that a process has been assigned. You will find an
+example of how to use `proc_setas` by looking into the `runprogram` function.
+As a final note, address space management is one of the core objectives of ASST3.
+
+Finally, In OS/161, there is also a process created for the kernel which tracks
+all the kernel threads that are created.  This process is created by calling
+`proc_bootstrap`. Try to track down when and where this happens.
+
