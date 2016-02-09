@@ -272,7 +272,7 @@ that to answer some of the questions, you will have to look in other files.
 ==== `kern/syscall/loadelf.c`
 
 This file contains the functions responsible for loading an ELF footnote:[ELF
-is the name of the executable format produced by `cs161-gcc`.] executable
+is the name of the executable format produced by `os161-gcc`.] executable
 from the file system and into virtual memory space. Of course, at this point
 this virtual memory space does not provide what is normally meant by virtual
 memory--although there is translation between virtual and physical addresses,
