@@ -568,3 +568,27 @@ about Unix error codes. On Linux systems `man errno` will do the trick.
 Note that if you add an error code to `kern/include/kern/errno.h`, you need
 to add a corresponding error message to the file
 `kern/include/kern/errmsg.h`.
+
+=== `kern/proc/proc.c`
+
+This file contains functions that allow process management. Functions
+`proc_create` and `proc_destroy` are essentially the entry points into process
+creation and destruction. Keep in mind that you will have to add code to these
+functions to manage any additional fields that you add to the process
+structure.
+
+Since a process can contain multiple threads, the functions `proc_addthread`
+and `proc_remthread` are provided to enable tracking. Since we are not going to
+implement multi-threading, you will not need to modify these functions, but
+going through the code and understanding how the link between a process and its
+threads is established would be beneficial.
+
+The functions `proc_getas` and `proc_setas` are essentially the getter and
+setter for the address space that a process has been assigned. You will find an
+example of how to use `proc_setas` by looking into the `runprogram` function.
+As a final note, address space management is one of the core objectives of ASST3.
+
+Finally, In OS/161, there is also a process created for the kernel which tracks
+all the kernel threads that are created.  This process is created by calling
+`proc_bootstrap`. Try to track down when and where this happens.
+
