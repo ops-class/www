@@ -34,17 +34,3 @@ idea is to print the N pages with the lowest speed or accessibility scores.)
 
 This could be contributed back to the https://metalsmith.io[Metalsmith]
 community when finished.
-
-=== Internalize External Images
-
-One of the problems https://developers.google.com/speed/pagespeed/[PageSpeed]
-has identified with the current https://www.ops-class.org[`ops-class.org`]
-website is that images linked off the site are not cached properly. An
-approach to fixing this is to identify all external images, download them,
-and rewrite the links to use the "internalized" versions. This would allow us
-to set sensible caching policies and utilize the PageSpeed module's support
-for automatic image compression and sizing. It would also fix broken images
-caused by link rot.
-
-This could also be contributed back to the https://metalsmith.io[Metalsmith]
-community when finished.
