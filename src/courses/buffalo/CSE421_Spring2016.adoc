@@ -45,7 +45,7 @@ program, we suggest that you start using a calendaring program.
 === Course Staff
 
 . *Instructor*: Geoffrey Challen. I go by "Geoff", "Geoffrey", or
-"GWA"&mdash;not "Dr", "Professor, or "Sir. Please use
+"GWA"&mdash;not "Dr", "Professor, or "Sir". Please use
 mailto:prof@ops-class.org[`prof@ops-class.org`] to aid my email filtering.
 However, you should rarely contact me directly.  Instead, 99% of the time use
 the https://discourse.ops-class.org[Discourse] or 1% of the time contact the
