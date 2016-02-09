@@ -1,0 +1,542 @@
+---
+title: "exec, wait and exit"
+date: 2016-02-10
+author: Geoffrey Challen
+description: >
+  Completion of the process interface including a discussion of exec,
+  wait, and exit.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/035.jpg[width="100%"]
+
+[.nooutline]
+== Today
+
+* `exec()`
+* ``wait()``/``exit()``
+
+[.nooutline]
+== $ cat announce.txt
+
+== Producer-Consumer
+
+.*Problem description*:
+* Producer and consumer share a fixed-size buffer.
+* Producer can add items to the buffer *if it is not full*.
+* Consumer can withdraw items from the buffer *if it is not empty*.
+
+[.slider]
+.What do we want to ensure?
+* Producer *must wait* if the buffer is full.
+* Consumer *must wait* if the buffer is empty.
+* Producers should not be sleeping if there is room in the buffer.
+* Consumers should not be sleeping if there are items in the buffer.
+
+== Producer-Consumer
+
+[cols="2*"]
+|===
+
+a|
+[source,c,linenum,role='smaller']
+----
+int count = 0;
+void produce(item) {
+  while (count == FULL) {
+    // do something
+  }
+  put(buffer, item);
+  count++;
+}
+
+item consume() {
+  while (count == 0) {
+    // do something
+  }
+  item = get(buffer, item);
+  count--;
+  return item;
+}
+----
+
+a|
+[.slider]
+.What synchronization primitive is a good fit for this problem?
+* *Condition variables*: I have a variable (`count`) and conditions that
+require waiting (full, empty).
+
+|===
+
+== Producer-Consumer
+
+[cols="2*"]
+|===
+
+a|
+[source,c,linenum,role='smaller']
+----
+int count = 0;
+struct * cv countCV;
+struct * lock countLock;
+void produce(item) {
+  lock_acquire(countLock);
+  while (count == FULL) {
+    cv_wait(countCV, countLock);
+  }
+  put(buffer, item);
+  count++;
+  lock_release(countLock);
+}
+
+item consume() {
+  lock_acquire(countLock);
+  while (count == 0) {
+    cv_wait(countCV, countLock);
+  }
+  item = get(buffer, item);
+  count--;
+  lock_release(countLock);
+  return item;
+}
+----
+
+a|
+[.slider]
+--
+Looks good, right?
+--
+
+[.slider]
+.Any time you call `cv_wait` *you must* call `cv_signal` or `cv_broadcast`!
+* *But where?* Where does the condition change?
+
+|===
+
+== Producer-Consumer
+
+
+[cols="2*"]
+|===
+
+a|
+[source,c,linenum,role='smaller']
+----
+int count = 0;
+struct * cv countCV;
+struct * lock countLock;
+void produce(item) {
+  lock_acquire(countLock);
+  while (count == FULL) {
+    cv_wait(countCV, countLock);
+  }
+  put(buffer, item);
+  count++;
+  cv_broadcast(countCV, countLock);
+  lock_release(countLock);
+}
+
+item consume() {
+  lock_acquire(countLock);
+  while (count == 0) {
+    cv_wait(countCV, countLock);
+  }
+  item = get(buffer, item);
+  count--;
+  cv_broadcast(countCV, countLock);
+  lock_release(countLock);
+  return item;
+}
+----
+
+a|
+[.slider]
+--
+This works. But does it work well?
+--
+
+|===
+
+== Producer-Consumer
+
+[cols="2*"]
+|===
+
+a|
+[source,c,linenum,role='smallest']
+----
+int count = 0;
+struct * cv countCV;
+struct * lock countLock;
+void produce(item) {
+  lock_acquire(countLock);
+  while (count == FULL) {
+    cv_wait(countCV, countLock);
+  }
+  put(buffer, item);
+  count++;
+  if (count == 1) {
+    cv_broadcast(countCV, countLock);
+  }
+  lock_release(countLock);
+}
+
+item consume() {
+  lock_acquire(countLock);
+  while (count == 0) {
+    cv_wait(countCV, countLock);
+  }
+  item = get(buffer, item);
+  count--;
+  if (count == FULL - 1) {
+    cv_broadcast(countCV, countLock);
+  }
+  lock_release(countLock);
+  return item;
+}
+----
+
+a|
+
+[.slider]
+--
+Approaching full victory. But why not use `cv_signal`?
+--
+
+|===
+
+== Using the Right Tool
+
+[.slider]
+* Most problems can be solved with a *variety* of synchronization
+primitives.
+* However, there is usually *one primitive* that is more appropriate
+than the others.
+* You will have a chance to practice picking synchronization primitives
+for ASST1, and throughout the class.
+
+== Approaching Synchronization Problems
+
+[.slider]
+. Identify the constraints.
+. Identify shared state.
+. Choose a primitive.
+. Pair waking and sleeping.
+. Look out for multiple resource allocations: can lead to deadlock.
+. Walk through simple examples and corner cases *before* beginning to code.
+
+[.nooutline]
+== Questions about Synchronization?
+
+[.slide]
+--
+Now back to the process-related system calls!
+--
+
+[.nooutline]
+== Review: After `fork()`
+
+[source,c]
+----
+returnCode = fork();
+if (returnCode == 0) {
+  # I am the child.
+} else {
+  # I am the parent.
+}
+----
+
+[.small.slider]
+* The child thread returns executing at the exact same point that its
+parent called `fork()`.
+** With one exception: `fork()` returns *twice*, the PID to the parent and
+0 to the child.
+* All contents of memory in the parent and child are identical.
+* Both child and parent have the same files open at the same position.
+** *But, since they are sharing file handles changes to the file
+offset made by the parent/child will be reflected in the child/parent!*
+
+[.nooutline]
+== Review: Issues with `fork()`
+
+[.slider]
+.Copying all that state is expensive!
+* Especially when the next thing that a process frequently does is
+start load a new binary which destroys most of the state `fork()` has
+carefully copied!
+
+[.slider]
+.Several solutions to this problem:
+* *Optimize existing semantics*: through copy-on-write, a clever
+memory-management optimization we will discuss in several weeks.
+* *Change the semantics*: `vfork()`, which will fail if the child does anything other than
+immediately load a new executable.
+** Does not copy the address space!
+
+[.nooutline]
+== Review: The Tree of Life
+
+[.slider]
+* `fork()` establishes a parent-child relationship between two process at
+the point when each one is created.
+* The `pstree` utility allows you to visualize these relationships.
+
+image::figures/pstree.svg[width="80%", role='slide expand']
+
+[.nooutline]
+== Last Time
+
+[.slider]
+* `fork()`.
+* Questions about material presented Wednesday?
+
+== $ wait %1 # Process lifecycle
+
+[.slider]
+* *Change:* `exec()`
+* *Death:* `exit()`
+* *The Afterlife:* `wait()`
+
+== Groundhog Day
+
+Is `fork()` enough?
+
+[.slide.replace]
+--
+image::figures/initfork-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/initfork-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/initfork-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/initfork-4.svg[width="100%"]
+--
+
+== Change: `exec()`
+
+[.slider]
+* The `exec()` family of system calls replaces the calling process with a
+new process loaded from a file.
+* The executable file must contain a complete *blueprint* indicating how
+the address space should look when `exec()` completes.
+** What should the contents of memory be?
+** Where should the first thread start executing?
+* Linux and other UNIX-like systems use *ELF* (Executable and Linkable
+Format) as the standard describing the information in the executable
+file is structured.
+
+== [.spelling_exception]#$ readelf # display ELF information#
+
+image::figures/readelf.svg[width="100%"]
+
+== [.spelling_exception]#$ /lib/ld-linux.so.2#
+
+image::figures/ldlinux.svg[width="100%"]
+
+== `exec()` Argument Passing
+
+[.slider]
+* The process calling `exec()` passes arguments to the process that will
+replace it *through the kernel.*
+** The kernel retrieves the arguments from the process after the call to
+`exec()` is made.
+** It then pushes them in to the memory of the process where the
+replacement process can find them when it starts executing.
+** This is where main gets `argc` and `argv`!
+* `exec()` also has an interesting return, almost the dual of `fork()`:
+`exec()` *never* returns!
+
+== $ `exec()`
+
+[.slide.replace]
+--
+image::figures/exec-1.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-2.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-3.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-4.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-5.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-6.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-7.svg[width="100%",role='vcenter']
+--
+
+== `exec()` File Handle Semantics
+
+[.slider]
+* By convention exec does *not* modify the file table of the calling
+process! Why not?
+* Remember *pipes*?
+** Don't undo all the hard work that `fork()` put in to duplicating the
+file table!
+
+image::figures/pipes-example-3.svg[width="100%"]
+
+== Our Simple Shell
+
+Disclaimer: this is C-like pseudo-code. It will not compile or run!
+(But it's not far off.)
+
+[source,c]
+----
+while (1) {
+  input = readLine();
+  returnCode = fork();
+  if (returnCode == 0) {
+    exec(input);
+  }
+}
+----
+
+== `exec()` Challenges
+
+[.slider]
+* The most challenging part of `exec()` is making sure that, on failure,
+`exec()` can return to the calling process!
+** Can't make destructive changes to the parent's address space until we
+are _sure_ that things will success.
+** Of course, the process is just an abstraction anyway and that
+provides a lot of flexibility: can prepare a separate address space and
+just swap it in when we're done.
+
+== `exit()` # End of Life Issues
+
+[.slider]
+* What's missing here? *Death!*
+* Processes choose the moment of their own end by calling `exit()`.
+* As we discussed earlier a processes passes an *exit code* to the
+`exit()` function.
+* What happens to this exit code?
+
+== `wait()` # The Afterlife
+
+[.slider]
+* When a process calls `exit()` the kernel holds the *exit code*, which
+can be retrieved by the exiting child's *parent*.
+* The parent retrieves this exit code by calling `wait()`, the last of the
+primary process-related system calls.
+** And the one that stubbornly refuses to fit into my lifecycle
+metaphor.
+
+== ``wait()``/``exit()``
+
+[.slider]
+* We often consider `wait()` and `exit()` together, since they combine to
+remove any trace of a process from the system.
+* Until a process _both_ calls `exit()` and has its exit code collected
+via `wait()` traces of it remain on the system:
+** Its return code is retained by the kernel.
+** Its process ID (or PID) is also retained. Why?
+* Processes that have ``exit()``ed but not had their exit code collected are
+called *zombies*. (Ooh, scary!)
+
+== ``wait()``/``exit()``
+
+[.slider]
+* ``wait()``/``exit()`` also present an interesting synchronization problem you
+will solve for ASST2.
+** Calls to ``wait()`` (by the parent) and ``exit()`` (by the child) may
+interleave in the kernel.
+** You must guarantee that the parent can retrieve the exit code
+successfully.
+
+== ``wait()``/``exit()`` Issues
+
+[.slider]
+* What happens if a process's parent exits before it does?
+** The "orphaned" process is assigned the `init` process as a parent,
+which will collect its exit code when it exits. Referred to as
+[.spelling_exception]#reparenting#.
+* How do we prevent zombies from taking over the machine?
+** A processes parent receives the SIGCHLD signal when a child calls
+`exit()`, alerting it to the chance to retrieve the child's exit status.
+** On some systems a process can choose to have its children
+automatically reaped by ignoring this signal.
+** On bash the relevant command is the appropriately-named disown. This
+allows children to continue running as daemons even after bash exits.
+
+== What If I Don't Want to `wait()`?
+
+[.slider]
+* Parent may want to peek at the exit status of its child, just to check
+on it. (Are you dead yet? Are you dead yet?)
+* Systems support a non-blocking `wait()` for this purpose:
+** *Blocking `wait()`* will block until the child exits, unless it has
+already exited in which case it returns immediately.
+** *Non-Blocking `wait()`* will not block. Instead, its return status
+indicates if the child has exited and, if so, what the exit code was.
+
+== Our Simple Shell
+
+[.slider]
+* Disclaimer: this is C-like pseudo-code. It will not compile or run!
+(But it's not far off.)
+
+[source,c]
+----
+while (1) {
+  input = readLine();
+  returnCode = fork();
+  if (returnCode == 0) {
+    exec(input);
+  } else {
+    wait(returnCode);
+  }
+}
+----
+
+[.slider]
+.Where's `exit()`?
+
+== Aside: `errno`
+
+[.slider]
+* There is potential confusion between kernel system calls and wrappers
+implemented by `libc`:
+** `_exit()` (system call) v. `exit()` (C library function call).
+* The C library wraps system calls and changes their return codes.
+* The C library is what sets `errno`, not the kernel.
+
+[.nooutline]
+== Next Time
+
+[.slider]
+* At this point we will head from outside looking in—or at the top of
+the world looking down—and get deep inside the trenches to examine the
+*thread* abstraction.
+* Tentatively:
+** One week on interrupts, kernel privileges, context switching and
+threading.
+** One week on scheduling.

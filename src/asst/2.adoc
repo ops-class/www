@@ -1,6 +1,8 @@
 ---
 title: "System Calls"
-draft: true
+spelling_exceptions:
+  - MarkDown
+  - EOF
 ---
 :sectnums:
 
@@ -78,9 +80,9 @@ explicit permission footnote:[Which you are extremely unlikely to get.].
 == Assignment Organization
 
 [.lead]
-Your current OS/161 system has minimal support for running
-executables--nothing that could be considered a true process. ASST2 starts
-the transformation of OS/161 into a true multi-tasking operating system.
+Your current OS/161 system has minimal support for running user
+binaries--nothing that could be considered a true process. ASST2 starts the
+transformation of OS/161 into a true multi-tasking operating system.
 
 After the next assignment, it will be capable of running multiple processes
 at once from actual compiled programs stored in your account. These programs
@@ -110,7 +112,7 @@ system call, `reboot`, which is implemented in the function `sys_reboot()` in
   
 === Process Support
 
-You will also be implementing the subsystem that keeps track of the ultiple
+You will also be implementing the subsystem that keeps track of the multiple
 processes you will have in the future. You must decide what data structures
 you will need to hold the data pertinent to a process. OS/161 contains some
 code that should get you started here in `kern/proc/proc.h`.
@@ -124,9 +126,9 @@ need to correctly complete this assignment.
 
 Our System/161 simulator can run normal programs compiled from C. The
 programs are compiled with a cross-compiler, `os161-gcc`. This compiler runs
-on the host machine and produces MIPS executables and is the same compiler
-used to compile the OS/161 kernel. To create new user programs, you will need
-to edit the `Makefile` in `bin`, `sbin`, or `testbin` (depending on where you
+on the host machine and produces MIPS binaries and is the same compiler used
+to compile the OS/161 kernel. To create new user programs, you will need to
+edit the `Makefile` in `bin`, `sbin`, or `testbin` (depending on where you
 put your programs) and then create a directory similar to those that already
 exist. Use an existing program and its `Makefile` as a template. *You are
 strongly encouraged to run the tests that already exist and write your own as
@@ -217,7 +219,7 @@ disk and copy it to `file2`.
 Passing arguments from one user program, through the kernel, into another
 user program, is a bit of a chore. What form does this take in C? This is
 rather tricky, and there are many ways to be led astray. You will probably
-find that very detailed pictures and several walk-throughs will be most
+find that very detailed pictures and several walkthroughs will be most
 helpful. This piece of code, in particular, is _impossible_ to write
 correctly without being carefully designed beforehand footnote:[Go on... try
 to prove us wrong!].
@@ -245,3 +247,324 @@ explicitly asking the system to halt.
 . How will you manage file accesses? When the shell invokes the `cat`
 command, and the `cat` command starts to read `file1`, what will happen if
 another program also tries to read `file1`? What would you like to happen?
+  
+== Code Reading
+
+[.lead]
+To help you get started designing, we have provided the following questions
+as a guide for reading through the code.
+	
+We recommend that you and your partner look over and answer the code reading
+questions _together_. You may want to start by reviewing the questions
+separately, but then meet to talk over your answers and look at the code
+together. Once you have done this, you should be ready to discuss strategy
+for designing your code for this assignment. *A big part of ASST2 is figuring
+out what to do, not just how to do it.*
+
+=== Existing Process Support
+
+The key files that are responsible for the loading and running of user-level
+programs are `loadelf.c`, `runprogram.c`, and `uio.c`, although you may want
+to add more of your own during this assignment. Understanding these files is
+the key to getting started with the implementation of multiprogramming. Note
+that to answer some of the questions, you will have to look in other files.
+
+==== `kern/syscall/loadelf.c`
+
+This file contains the functions responsible for loading an ELF footnote:[ELF
+is the name of the executable format produced by `cs161-gcc`.] executable
+from the file system and into virtual memory space. Of course, at this point
+this virtual memory space does not provide what is normally meant by virtual
+memory--although there is translation between virtual and physical addresses,
+there is no mechanism for providing more memory than exists physically. You
+will fix this during ASST3. For now, don't worry about it.
+
+==== `kern/syscall/runprogram.c`
+
+This file contains only one function, `runprogram`, which is responsible for
+running a program from the kernel menu. It is a good base for writing the
+`execv` system call, but only a base--when writing your design doc, you
+should determine what more is required for `execv` that `runprogram()` does
+not concern itself with. Additionally, once you have designed your process
+system, `runprogram` should be altered to start processes properly within
+this framework. For example, a program started by `runprogram` should have
+the standard file descriptors available while it's running.
+
+==== `kern/lib/uio.c`
+
+This file contains functions for moving data between kernel and user space.
+Knowing when and how to cross this boundary is critical to properly
+implementing user programs, so this is a good file to read very carefully.
+You should also examine the code in `kern/vm/copyinout.c`.
+
+==== Questions to consider
+
+. What are the ELF magic numbers?
+
+. What is the difference between `UIO_USERISPACE` and `UIO_USERSPACE`? When should one use
+`UIO_SYSSPACE` instead?
+
+. Why can the `struct uio` that is used to read in a segment be allocated on
+the stack in `load_segment`? Or, put another way, where does the memory read
+actually go?
+
+. In `runprogram` why is it important to call `vfs_close` before going to user mode?
+
+. What function forces the processor to switch into user mode? Is this function machine dependent?
+
+. In what files are `copyin`, `copyout`, and `memmove` defined? Why are
+`copyin` and `copyout` necessary? (As opposed to just using `memmove`.)
+
+. What is the purpose of `userptr_t`?
+
+=== `kern/arch/mips`: Traps and System Calls
+
+Exceptions are the key to operating systems. They are the mechanism that
+enables the operating system to regain control of execution and therefore do
+its job. You can think of exceptions as the interface between the processor
+and the operating system. When the OS boots, it installs an _exception
+handler_, usually carefully crafted assembly code, at a specific address in
+memory. When the processor raises an exception, it invokes this, which sets
+up a _trap frame<S and calls into the operating system.  Since _exception_ is
+such an overloaded term in computer science, operating system lingo for an
+exception is a *trap*&mdash;when the OS traps execution. Interrupts are
+exceptions, and more significantly for this assignment, so are system calls.
+Specifically, `kern/arch/mips/syscall/syscall.c` handles traps that happen to
+be system calls. Understanding this code is key to being a real operating
+systems junkie, so we highly recommend reading through it carefully.
+
+==== `locore/trap.c`
+
+`mips_trap` is the key function for returning control to the operating
+system. This is the C function that gets called by the assembly exception
+handler. `enter_new_process` is the key function for returning control to
+user programs. `kill_curthread` is the function for handling broken user
+programs. When the processor is in user mode and hits something it can't
+handle--a bad instruction or our favorite divide-by-zero--it raises an
+exception. There's no way to recover from this, so the OS needs to kill off
+the process. Part of this assignment is writing a useful version of this
+function.
+
+==== `syscall/syscall.c`
+
+`syscall` is the function that delegates the actual work of a system call to
+the kernel function that implements it. Notice that `reboot` is the only case
+currently handled. You will also find a function, `enter_forked_process`,
+which is a stub where you will place your code to implement the `fork` system
+call. It should get called from `sys_fork`.
+
+==== Questions to consider
+
+. What is the numerical value of the exception code for a MIPS system call?
+
+. How many bytes is an instruction in MIPS? Try to answer this by reading
+`syscall` carefully, not by looking somewhere else.
+
+. Why do you probably want to change the implementation of `kill_curthread`?
+
+. What would be required to implement a system call that took more than 4 arguments?
+
+=== Support Code for User Programs
+
+As important as the kernel implementation of system calls is the user space
+code that allows C programs to use them. This code can be found under the
+`userland/` directory at the top of your OS/161 source tree. Note that you
+can complete this assignment without modifying user-level code, and you
+*should not break any interface conventions already present*&mdash;don't swap
+the order of the `argc` and `argv *` arguments to `main`, for example.
+However, it is useful to understand how this code works and how it implements
+the other side of the system call interface.
+
+==== `user/lib/crt0/mips/`
+
+This is the user program startup code. There's only one file in here,
+`mips-crt0.S`, which contains the MIPS assembly code that receives control
+first when a user-level program is started. It calls the user program's
+`main`. This is the code that your `execv` implementation will be interfacing
+to, so be sure to check what values it expects to appear in what registers
+and so forth.
+
+==== `user/lib/libc/`
+
+This is the user-level C library. There's obviously a lot of code here. We
+don't expect you to read it all, although it may be instructive in the long
+run to do so. For present purposes you need only look at the code that
+implements the user-level side of system calls, which we detail below.
+
+==== `user/lib/libc/unix/errno.c`
+
+This is where the global variable `errno` is defined.
+
+==== `user/lib/libc/arch/mips/syscalls-mips.S`
+
+This file contains the machine-dependent code necessary for implementing
+the user-level side of MIPS system calls.
+
+==== `build/user/lib/libc/syscalls.S`
+
+This file is created from `syscalls-mips.S` at compile time and is the actual
+file assembled into the C library.  The actual names of the system calls are
+placed in this file using a script called `syscalls/gensyscalls.sh` that
+reads them from the kernel's header files. This avoids having to make a
+second list of the system calls. In a real system, typically each system call
+stub is placed in its own source file, to allow selectively linking them in.
+OS/161 puts them all together to simplify the build.
+
+==== Questions to consider
+
+. What is the purpose of the `SYSCALL` macro?
+
+. What is the MIPS instruction that actually triggers a system call? (Answer
+this by reading the source in this directory, not looking somewhere else.)
+
+. Now that OS/161 supports 64 bit values, `lseek` takes and returns a 64 bit
+offset value. Thus, `lseek` takes a 32 bit file handle (`arg0`), a 64 bit
+offset (`arg1`), a 32 bit whence (`arg3`), and needs to return a 64 bit
+offset. In `void syscall(struct trapframe *tf)` where will you find each of
+the three arguments (in which registers) and how will you return the 64 bit
+offset?
+
+== Implementation
+
+[.lead]
+Implement system calls and exception handling.
+
+The full range of system calls that we think you might want over the course
+of the semester is listed in `kern/include/kern/syscall.h`. For this
+assignment you should implement:
+
+* File system support: `open`, `read`, `write`, `lseek`, `close`, `dup2`,
+`chdir`, and `__getcwd`.
+* Process support: `getpid`, `fork`, `execv`, `waitpid`, and `_exit`.
+
+It's crucial that your system calls handle all error conditions gracefully
+without crashing your kernel. *You should consult the OS/161 man pages*
+included in the distribution under `man/syscall` and understand fully the
+system calls that you must implement. You must return the error codes as
+described in the man pages.
+
+Additionally, your system calls must return the correct value (in case of
+success) or error code (in case of failure) as specified in the man pages.
+The grading scripts rely on the return of appropriate error codes and so
+adherence to the guidelines is as important as the correctness of your
+implementation.
+
+The file `user/include/unistd.h` contains the user-level interface definition
+of the system calls that you will be writing for OS/161.  This interface is
+different from that of the kernel functions that you will define to implement
+these calls. You need to design this interface and put it in
+`kern/include/syscall.h`. As you discovered in ASST0, the integer codes for
+the calls are defined in `kern/include/kern/syscall.h`.
+
+You need to think about a variety of issues associated with implementing
+system calls. Perhaps the most obvious one: can two different user-level
+processes (or user-level threads, if you choose to implement them) find
+themselves running a system call at the same time? Be sure to argue for or
+against this, and explain your final decision in your design document.
+
+=== File System Support
+
+For any given process, the first file descriptors (0, 1, and 2) are
+considered to be standard input (`stdin`), standard output (`stdout`), and
+standard error (`stderr`). These file descriptors should start out attached
+to the console device (`"con:"`), but your implementation must allow programs
+to use `dup2` to change them to point elsewhere.
+
+Although these system calls may seem to be tied to the file system, in fact,
+they are really about manipulation of file descriptors, or process-specific
+file system state. A large part of this assignment is designing and
+implementing a system to track this state. Some of this information--such as
+the current working directory--is specific only to the process, but other
+information--such as file offset--is specific to the process and file
+descriptor. *Don't rush this design.* Think carefully about the state you
+need to maintain, how to organize it, and when and how it has to change.
+
+Note that there is a system call `__getcwd` and then a library routine
+`getcwd`. Once you've written the system call, the library routine should
+function correctly.
+
+=== Process Support
+
+Process support for ASST2 divides into the easy (`getpid`) and the
+not-so-easy: `fork`, `execv`, `waitpid` and `_exit`. These system calls are
+probably the most difficult part of the assignment, but also the most
+rewarding. They enable multiprogramming and make OS/161 a usable system.
+
+==== `getpid`
+
+A PID, or process ID, is a unique number that identifies a process. The
+implementation of `getpid` is not terribly challenging, but process ID
+allocation and reclamation are the important concepts that you must
+implement. It is not OK for your system to crash because over the lifetime of
+its execution you've used up all the PIDs. Design your PID system, implement
+all the tasks associated with PID maintenance, and only then implement
+`getpid`.
+
+==== `fork`
+
+`fork` is the mechanism for creating new processes.  It should make a copy of
+the invoking process and make sure that the parent and child processes each
+observe the correct return value (that is, 0 for the child and the newly
+created PID for the parent). You will want to think carefully through the
+design of `fork` and consider it together with `execv` to make sure that each
+system call is performing the correct functionality. `fork` is also likely to
+be a chance for you to use one of the synchronization primitives you have
+implemented previously.
+
+==== `execv`
+
+`execv`, although merely a system call, is really the heart of this
+assignment. It is responsible for taking newly created processes and make
+them execute something different than what the parent is executing. It must
+replace the existing address space with a brand new one for the new
+executable--created by calling `as_create` in the current `dumbvm`
+system--and then run it. While this is similar to starting a process straight
+out of the kernel, as `runprogram` does, it's not quite that simple. Remember
+that this call is coming out of user space, into the kernel, and then
+returning back to user space. You must manage the memory that travels across
+these boundaries _very_ carefully. Also, notice that `runprogram` doesn't
+take an argument vector, but this must of course be handled correctly by
+`execv`.
+
+==== `waitpid`
+
+Although it may seem simple at first, `waitpid` requires a fair bit of
+design. Read the specification carefully to understand the semantics, and
+consider these semantics from the ground up in your design. You may also wish
+to consult the UNIX man page, though keep in mind that you are not required
+to implement all the things UNIX `waitpid` supports, nor is the UNIX
+parent/child model of waiting the only valid or viable possibility.
+
+==== `_exit`
+
+The implementation of `_exit` is intimately connected to the implementation
+of `waitpid`: They are essentially two halves of the same mechanism. Most of
+the time, the code for `_exit` will be simple and the code for `waitpid`
+relatively complicated, but it's perfectly viable to design it the other way
+around as well. If you find both are becoming extremely complicated, it may
+be a sign that you should rethink your design. `waitpid/_exit` is _another_
+chance to use your synchronization primitives.
+
+==== `kill_curthread`
+
+Feel free to write `kill_curthread` in as simple a manner as possible. Just
+keep in mind that essentially nothing about the current thread's user space
+state can be trusted if it has suffered a fatal exception. It must be taken
+off the processor in as judicious a manner as possible, but without returning
+execution to the user level.
+
+=== Error Handling
+
+The man pages in the OS/161 distribution contain a description of the error
+return values that you must return. If there are conditions that can happen
+that are not listed in the man page, return the most appropriate error code
+from `kern/include/kern/errno.h`.  If none seem particularly appropriate,
+consider adding a new one. If you're adding an error code for a condition for
+which Unix has a standard error code symbol, use the same symbol if possible.
+If not, feel free to make up your own, but note that error codes should
+always begin with E, should not be EOF, etc. Consult Unix man pages to learn
+about Unix error codes. On Linux systems `man errno` will do the trick.
+
+Note that if you add an error code to `kern/include/kern/errno.h`, you need
+to add a corresponding error message to the file
+`kern/include/kern/errmsg.h`.
