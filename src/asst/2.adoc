@@ -115,7 +115,7 @@ system call, `reboot`, which is implemented in the function `sys_reboot()` in
 You will also be implementing the subsystem that keeps track of the multiple
 processes you will have in the future. You must decide what data structures
 you will need to hold the data pertinent to a process. OS/161 contains some
-code that should get you started here in `kern/proc/proc.h`.
+code that should get you started here in `kern/include/proc.h`.
 
 It may be helpful to look at kernel include files of your favorite operating
 system for suggestions, specifically the `proc` structure. That said, these
@@ -375,7 +375,7 @@ the order of the `argc` and `argv *` arguments to `main`, for example.
 However, it is useful to understand how this code works and how it implements
 the other side of the system call interface.
 
-==== `user/lib/crt0/mips/`
+==== `userland/lib/crt0/mips/`
 
 This is the user program startup code. There's only one file in here,
 `mips-crt0.S`, which contains the MIPS assembly code that receives control
@@ -384,23 +384,23 @@ first when a user-level program is started. It calls the user program's
 to, so be sure to check what values it expects to appear in what registers
 and so forth.
 
-==== `user/lib/libc/`
+==== `userland/lib/libc/`
 
 This is the user-level C library. There's obviously a lot of code here. We
 don't expect you to read it all, although it may be instructive in the long
 run to do so. For present purposes you need only look at the code that
 implements the user-level side of system calls, which we detail below.
 
-==== `user/lib/libc/unix/errno.c`
+==== `userland/lib/libc/unix/errno.c`
 
 This is where the global variable `errno` is defined.
 
-==== `user/lib/libc/arch/mips/syscalls-mips.S`
+==== `userland/lib/libc/arch/mips/syscalls-mips.S`
 
 This file contains the machine-dependent code necessary for implementing
 the user-level side of MIPS system calls.
 
-==== `build/user/lib/libc/syscalls.S`
+==== `build/userland/lib/libc/syscalls.S`
 
 This file is created from `syscalls-mips.S` at compile time and is the actual
 file assembled into the C library.  The actual names of the system calls are
@@ -449,7 +449,7 @@ The grading scripts rely on the return of appropriate error codes and so
 adherence to the guidelines is as important as the correctness of your
 implementation.
 
-The file `user/include/unistd.h` contains the user-level interface definition
+The file `userland/include/unistd.h` contains the user-level interface definition
 of the system calls that you will be writing for OS/161.  This interface is
 different from that of the kernel functions that you will define to implement
 these calls. You need to design this interface and put it in
