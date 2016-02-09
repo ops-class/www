@@ -51,13 +51,8 @@ var isSlides = function(filename, file, i) {
 	return file.slides == true;
 };
 
-var destination = './build';
-if (argv['deploy'] == true) {
-  destination = './deploy';
-}
-
 metalsmith(__dirname)
-  .destination(destination)
+  .destination('.build')
   .use(drafts())
   .use(filemetadata([
     {pattern: slides_pattern,

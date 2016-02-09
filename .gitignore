@@ -2,6 +2,6 @@
 *.swo
 /node_modules/
 /build/
-/deploy/
+/.build/
 .~lock*
 /old/

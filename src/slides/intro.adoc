@@ -43,7 +43,10 @@ people about them.
 
 <<<
 
-[.big.vcenter]*So be careful: this class can be transformative!*
+[.big.vcenter]
+--
+*So be careful: this class can be transformative!*
+--
 
 == !
 
