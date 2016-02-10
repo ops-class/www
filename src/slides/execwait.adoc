@@ -5,20 +5,32 @@ author: Geoffrey Challen
 description: >
   Completion of the process interface including a discussion of exec,
   wait, and exit.
+song:
+  name: "Queen of Peace"
+  author: "Florence and the Machine"
+  youtube: 8crbgYBrgNU
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/035.jpg[width="100%"]
 
+[.h3.center]
+icon:music[] http://florenceandthemachine.net/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
 [.nooutline]
 == Today
 
+* Producer-consumer buffer problem.
 * `exec()`
 * ``wait()``/``exit()``
 
 [.nooutline]
 == $ cat announce.txt
+
+* Do ASST1!
 
 == Producer-Consumer
 
@@ -237,7 +249,7 @@ Now back to the process-related system calls!
 [.nooutline]
 == Review: After `fork()`
 
-[source,c]
+[source,c,role='small']
 ----
 returnCode = fork();
 if (returnCode == 0) {
@@ -285,11 +297,9 @@ the point when each one is created.
 image::figures/pstree.svg[width="80%", role='slide expand']
 
 [.nooutline]
-== Last Time
+== Let's Go On...
 
-[.slider]
-* `fork()`.
-* Questions about material presented Wednesday?
+* Questions about `fork()`?
 
 == $ wait %1 # Process lifecycle
 
