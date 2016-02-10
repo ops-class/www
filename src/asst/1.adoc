@@ -195,7 +195,7 @@ This framework consists of:
 . `kern/synchprobs/*`: these files are where you
 will implement your solutions to the synchronization problems.
 
-. `kern/tests/synchprobs.c`: this file contains driver code
+. `kern/test/synchprobs.c`: this file contains driver code
 we will use to test your solutions. You can and should change this file
 to stress test your code, but there should be no dependencies between
 your synchronization problem solutions and the problem drivers. *We
