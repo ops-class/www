@@ -13,7 +13,7 @@ song:
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/035.jpg[width="100%"]
+image::women/035.jpg[width="100%", title="Hessa Sulta Al Jaber", link="https://en.wikipedia.org/wiki/Hessa_Al_Jaber"]
 
 [.h3.center]
 icon:music[] http://florenceandthemachine.net/[{song}]
@@ -460,84 +460,6 @@ primary process-related system calls.
 ** And the one that stubbornly refuses to fit into my lifecycle
 metaphor.
 
-== ``wait()``/``exit()``
-
-[.slider]
-* We often consider `wait()` and `exit()` together, since they combine to
-remove any trace of a process from the system.
-* Until a process _both_ calls `exit()` and has its exit code collected
-via `wait()` traces of it remain on the system:
-** Its return code is retained by the kernel.
-** Its process ID (or PID) is also retained. Why?
-* Processes that have ``exit()``ed but not had their exit code collected are
-called *zombies*. (Ooh, scary!)
-
-== ``wait()``/``exit()``
-
-[.slider]
-* ``wait()``/``exit()`` also present an interesting synchronization problem you
-will solve for ASST2.
-** Calls to ``wait()`` (by the parent) and ``exit()`` (by the child) may
-interleave in the kernel.
-** You must guarantee that the parent can retrieve the exit code
-successfully.
-
-== ``wait()``/``exit()`` Issues
-
-[.slider]
-* What happens if a process's parent exits before it does?
-** The "orphaned" process is assigned the `init` process as a parent,
-which will collect its exit code when it exits. Referred to as
-[.spelling_exception]#reparenting#.
-* How do we prevent zombies from taking over the machine?
-** A processes parent receives the SIGCHLD signal when a child calls
-`exit()`, alerting it to the chance to retrieve the child's exit status.
-** On some systems a process can choose to have its children
-automatically reaped by ignoring this signal.
-** On bash the relevant command is the appropriately-named disown. This
-allows children to continue running as daemons even after bash exits.
-
-== What If I Don't Want to `wait()`?
-
-[.slider]
-* Parent may want to peek at the exit status of its child, just to check
-on it. (Are you dead yet? Are you dead yet?)
-* Systems support a non-blocking `wait()` for this purpose:
-** *Blocking `wait()`* will block until the child exits, unless it has
-already exited in which case it returns immediately.
-** *Non-Blocking `wait()`* will not block. Instead, its return status
-indicates if the child has exited and, if so, what the exit code was.
-
-== Our Simple Shell
-
-[.slider]
-* Disclaimer: this is C-like pseudo-code. It will not compile or run!
-(But it's not far off.)
-
-[source,c]
-----
-while (1) {
-  input = readLine();
-  returnCode = fork();
-  if (returnCode == 0) {
-    exec(input);
-  } else {
-    wait(returnCode);
-  }
-}
-----
-
-[.slider]
-.Where's `exit()`?
-
-== Aside: `errno`
-
-[.slider]
-* There is potential confusion between kernel system calls and wrappers
-implemented by `libc`:
-** `_exit()` (system call) v. `exit()` (C library function call).
-* The C library wraps system calls and changes their return codes.
-* The C library is what sets `errno`, not the kernel.
 
 [.nooutline]
 == Next Time
