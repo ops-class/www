@@ -164,7 +164,7 @@ lines of code, or functions.
 . *Use descriptive names* for variables and procedures. Be consistent with
 this throughout the program.
 
-. Comments should describe _the programmer's intent_, not the actual
+. *Comments should describe _the programmer's intent_*, not the actual
 mechanics of the code. A comment which says "Find a free disk block" is much
 more informative than one that says "Find first non-zero element of array."
 The first adds information to what is present in code itself, the second does
@@ -177,6 +177,11 @@ idea.* Refactor things instead.
 well as comprehensible. Good function names describe exactly what the
 function does and make it easy for others to use your interface.
 
+. *Use assertions.* Assertions are a great way to help proactively debug your
+code. When assertions fail it can indicate either that some part of your code
+is not working properly, or that your assumptions about what would be true at
+that point are incorrect. Both are great things to find out.
+
 You and your partner will probably find it useful to agree on a coding style.
 For instance, you might want to agree on how variables and functions will be
 named (`my_function`, `myFunction`, `MyFunction`, `mYfUnCtIoN`, or
@@ -185,6 +190,13 @@ readable. Note that OS/161 uses the `my_function` convention, so you may want
 to too.
 
 == Setup
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="EBYjVlAOc54"></div>
+</div>
+++++
 
 [.lead]
 We have provided a framework allowing you to develop and test your
@@ -219,6 +231,13 @@ kernel includes tools to help you measure this.
   
 == Concurrency in OS/161
 
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="e1VTtzjIaqs"></div>
+</div>
+++++
+
 [.lead]
 The goal of synchronization is to eliminate any undesirable timing
 effects--or _race conditions_&mdash;on the output of your programs while
@@ -230,6 +249,13 @@ primitives you will build, you should be able to guarantee that they meet the
 constraints inherent to each problem (while not deadlocking).
 
 === Built-In Tests
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="nRaxyy_4mo4"></div>
+</div>
+++++
 
 When you boot OS/161 you should see options to run various thread tests. The
 thread test code uses the semaphore synchronization primitive. You should
@@ -281,14 +307,14 @@ thread get to run again?
 ==== Scheduling questions
 
 [start=6]
-. What function, or function, choose the next thread to run?
+. What function (or functions) choose the next thread to run?
 . How is the next thread to run chosen?
-. What role does the hardware timer play in scheduling? What hardware
-independent function is called on a timer interrupt?
+. What role does the hardware timer play in scheduling?
+. What hardware independent function is called on a timer interrupt?
 
 ==== Synchronization questions
 
-[start=9]
+[start=10]
 . Describe how `wchan_sleep` and `wchan_wakeone` are used to implement
 semaphores.
 . Why does the lock API in OS/161 provide `lock_do_i_hold`, but not
@@ -386,6 +412,13 @@ opportunity to force you to write a unit test in the hopes that you will
 continue this practice later.
 
 == Solving Synchronization Problems
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="nmApAqIlxKQ"></div>
+</div>
+++++
 
 [.lead]
 The following problems will give you the opportunity to solve some
