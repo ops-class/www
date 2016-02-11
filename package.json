@@ -36,7 +36,7 @@
     "http-server": "^0.8.5",
     "md5": "^2.0.0",
     "metalsmith": "^2.1.0",
-    "metalsmith-beautify": "0.0.7",
+    "metalsmith-beautify": "gchallen/metalsmith-beautify",
     "metalsmith-branch": "0.0.4",
     "metalsmith-clean-css": "^2.0.0",
     "metalsmith-collections": "^0.7.0",
