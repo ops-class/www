@@ -20,5 +20,3 @@ checking, and without minifying JavaScript or CSS files.
 * `make check` will build and run the link, format, and spell checker.
 * `make deploy` will run the link, format, and spell checker, minify all
 JavaScript and CSS files for deployment, and beautify the HTML.
-
-= Test
