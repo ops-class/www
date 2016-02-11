@@ -17,19 +17,19 @@ fi
 
 exlock_now || exit 0
 
-NVM_DIR="/home/git/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export HOME="/home/git/"
-
 WORKING_DIR=$HOME/www/www.ops-class.org/
+
 if ! [ -z "$3" ]; then
   git diff --binary $2 $3 > $WORKING_DIR/patch
   unset GIT_DIR
   cd $WORKING_DIR
   git fetch origin > /dev/null
   git reset --hard $2 > /dev/null
-  git apply patch > /dev/null >> /dev/null
-  rm patch
+  if [ -f patch ]; then
+    git apply patch > /dev/null >> /dev/null
+    rm -f patch
+  fi
 else
   cd $WORKING_DIR
   git fetch origin > /dev/null
@@ -37,6 +37,10 @@ else
 fi
 
 echo "Building www.ops-class.org..."
+
+NVM_DIR="/home/git/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 npm install
 if node index.js . --check --deploy; then
   rsync -crlpgoDi .build/* /mnt/ramdisk/www.ops-class.org/www/ | while read unused filename; do
