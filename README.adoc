@@ -20,17 +20,3 @@ checking, and without minifying JavaScript or CSS files.
 * `make check` will build and run the link, format, and spell checker.
 * `make deploy` will run the link, format, and spell checker, minify all
 JavaScript and CSS files for deployment, and beautify the HTML.
-
-== TODOs and Possible Improvements
-
-=== Integrate Google PageSpeed
-
-It would be great if all of the page's
-https://developers.google.com/speed/pagespeed/[Google PageSpeed] scores
-were checked during the `make check` build. An https://www.npmjs.com/[`npm`]
-package already exists providing the PageSpeed API but it would need to be
-packaged for Metalsmith and integrated sensibly into the build process. (One
-idea is to print the N pages with the lowest speed or accessibility scores.)
-
-This could be contributed back to the https://metalsmith.io[Metalsmith]
-community when finished.
