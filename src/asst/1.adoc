@@ -336,7 +336,7 @@ below.
 
 Implement locks for OS/161. The interface for the lock structure is defined
 in `kern/include/synch.h`. Stub code is provided in `kern/threads/synch.c`.
-*When you are done you should repeatedly pass the provided `sy2` lock test.*
+*When you are done you should repeatedly pass the provided `lt{1,2,3}` lock tests.*
 
 Note that you will not be able to run any of these tests an unlimited number
 of times. Due to limitations in the current virtual memory system used by
@@ -374,7 +374,7 @@ the signaled thread (if any) runs and releases the lock.
 thread waiting on the condition variable but will not block.
 
 Please implement Mesa semantics. *When you are done you should repeatedly
-pass the provided `sy3` condition variable test.*
+pass the provided `cvt{1,2,3,4}` condition variable tests.*
 
 === Implement Reader-Writer Locks
 
@@ -395,7 +395,7 @@ conforming to the interface that we have provided.
 Unlike locks and condition variables, where we have provided you with a test
 suite, we are leaving it to you to develop a test that exercises your
 reader-writer locks. You will want to edit `kern/main/menu.c` to allow
-yourself to run your test as `sy5` from the kernel menu or command line. We
+yourself to run your test as `rwt1` from the kernel menu or command line. We
 have our own reader-writer test that we will use to test and grade your
 implementation.
 
