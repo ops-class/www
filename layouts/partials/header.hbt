@@ -95,6 +95,7 @@
 										<ul class="dropdown-menu">
 											<li><a href="/asst/0/">ASST0</a></li>
 											<li><a href="/asst/1/">ASST1</a></li>
+											<li><a href="/asst/2/">ASST2</a></li>
 										</ul>
 									</li>
 									<li><a id="menu-discuss"
