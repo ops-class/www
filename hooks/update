@@ -42,7 +42,7 @@ NVM_DIR="/home/git/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 npm install
-if node index.js . --check --deploy; then
+if node index.js --check --deploy; then
   rsync -crlpgoDi --delete .build/* /mnt/ramdisk/www.ops-class.org/www/ | while read unused filename; do
     curl --request PURGE 'http://127.0.0.1/$filename' > /dev/null 2> /dev/null
     echo "Updated $filename"
