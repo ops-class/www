@@ -43,7 +43,7 @@ NVM_DIR="/home/git/.nvm"
 
 npm install
 if node index.js . --check --deploy; then
-  rsync -crlpgoDi .build/* /mnt/ramdisk/www.ops-class.org/www/ | while read unused filename; do
+  rsync -crlpgoDi --delete .build/* /mnt/ramdisk/www.ops-class.org/www/ | while read unused filename; do
     curl --request PURGE 'http://127.0.0.1/$filename' > /dev/null 2> /dev/null
     echo "Updated $filename"
   done
