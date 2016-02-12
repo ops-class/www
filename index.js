@@ -103,7 +103,7 @@ metalsmith(__dirname)
   .use(updated({ignoreKeys: ["draft", "working"], filePatterns: ["**/*.html"]}))
 	.use(slides())
   .use(footnotes())
-  .use(permalinks())
+  .use(permalinks({ relative: false }))
 	.use(branch(isSlides)
 		.use(copy({
 			pattern: 'slides/**/*.html',
