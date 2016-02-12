@@ -550,18 +550,19 @@ leaves the intersection by calling `leaveIntersection`.
 [.lead]
 We will test five things about your ASST1 submission:
 
-. *Do your locks work?* We will use `sy2` to test this.
+. *Do your locks work?* We will use `lt{1,2,3}` to test this. Most of the
+points will be for `lt1`, since the other tests are fairly simple.
 
-. *Do your CVs work?* We will use `sy3` and `sy4` to test this.
+. *Do your CVs work?* We will use `cvt{1,2,3,4}` to test this. Most of the
+points will be for `cvt{1,2}`, since the other tests are again fairly simple.
 
-. *Do your reader-writer locks work?* We will use `sy5` from our testing
-suite to test this.
+. *Do your reader-writer locks work?* We will use `rwt1` from _our_ test
+suite to test this. You should implement your own test for your reader-writer
+locks.
 
-. *Does your whale mating solution work?* We will use `sp1` from our testing
-suite to test this.
+. *Does your whale mating solution work?* We will use `sp1` to test this.
 
-. *Does your stoplight solution work?* We will use `sp2` from our testing
-suite to test this.
+. *Does your stoplight solution work?* We will use `sp2` to test this.
 
 Note that for our testing tools to work you must preserve these menu command
-mappings, so that `sy{2,3,4,5}` and `sp{1,2}` work as expected.
+mappings so that the tests above work as expected.

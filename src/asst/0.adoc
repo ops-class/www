@@ -295,7 +295,7 @@ directory wherever you want.
 
 Let's say you've chosen a directory called `src`, which should either not
 exist or (in the case of the Vagrant VM) be empty. Clone
-https://gitlab.ops-class.org/staff/os161[our `ops-class.org` Git repository]
+https://github.com/ops-class/os161[our `ops-class.org` Git repository.]
 into that directory. *Note that a simple `git clone` will not do the right
 thing.* Take a look at the man page for `git clone` or peruse the help output
 to make sure you get it right.
