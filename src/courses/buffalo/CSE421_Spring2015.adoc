@@ -2,7 +2,28 @@
 title: "CSE 421/521 Spring 2015"
 ---
 
+== Videos
+
+=== Lectures
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp8U4xVODdQtgJ945HeMwosQ&amp;showinfo=1"></div>
+</div>
+++++
+
+=== Recitations
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp9DnLcZFyX2f_JnUsmeS7vL&amp;showinfo=1"></div>
+</div>
+++++
+
+== Syllabus
+
 ++++
 <div class="embed-responsive embed-responsive-4by3">
 <embed src="/courses/buffalo/CSE421_Spring2015.pdf" type='application/pdf'>
 </div>
+++++
