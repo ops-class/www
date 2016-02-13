@@ -14,7 +14,7 @@
 		{{/if}}
 
 		<link href="/css/slides/deck.css" rel="stylesheet" />
-		<script src="/js/slides/deck.js" async></script>
+		<script src="/js/common/jquery-2.2.0.js"></script>
 	</head>
 
 	<body>
@@ -33,5 +33,6 @@
 				</div>
 			</div>
 		</div>
+		<script src="/js/slides/deck.js"></script>
 	</body>
 </html>
