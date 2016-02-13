@@ -24,7 +24,7 @@ title: "CSE 421/521 Spring 2015"
 
 ++++
 <div class="embed-responsive embed-responsive-4by3">
-	<object data"/courses/buffalo/CSE421_Spring2015.pdf" type='application/pdf'>
+	<object data="/courses/buffalo/CSE421_Spring2015.pdf" type='application/pdf'>
 		<a href="/courses/buffalo/CSE421_Spring2015.pdf">Syllabus</a>
 	</object>
 </div>
