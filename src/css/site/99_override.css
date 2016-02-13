@@ -149,9 +149,9 @@ div.play-button {
 	height: 46px;
 	width: 70px;
 	left: 50%;
-	top: 53%;
+	top: 50%;
 	margin-left: -35px;
-	margin-top: -35px;
+	margin-top: -23px;
 	position: absolute;
 	background-color: black;
 	border-radius: 12px;
