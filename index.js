@@ -142,10 +142,11 @@ metalsmith(__dirname)
     files: 'css/slides/deck/*.css',
     output: 'css/slides/deck.css'
   }))
+	/*
   .use(concat({
     files: 'js/slides/deck/*.js',
     output: 'js/slides/deck.js'
-  }))
+  }))*/
   .use(highlight())
 	.use(hacks())
 	.use(msif((argv['deploy'] == true), clean_css({ files: 'css/**/*.css' })))

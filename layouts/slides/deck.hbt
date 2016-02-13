@@ -33,6 +33,19 @@
 				</div>
 			</div>
 		</div>
-		<script src="/js/slides/deck.js"></script>
+		<script src="/js/slides/deck/01_modernizr-3.3.1-custom.js"></script>
+		<script src="/js/slides/deck/03_deck.core.js"></script>
+		<script src="/js/slides/deck/04_deck.fit.js"></script>
+		<script src="/js/slides/deck/05_deck.clone.js"></script>
+		<script src="/js/slides/deck/06_deck.goto.js"></script>
+		<script src="/js/slides/deck/07_deck.progress.js"></script>
+		<script src="/js/slides/deck/08_deck.navigation.js"></script>
+		<script src="/js/slides/deck/09_deck.menu.js"></script>
+		<script src="/js/slides/deck/10_deck.step.js"></script>
+		<script src="/js/slides/deck/11_deck.events.js"></script>
+		<script src="/js/slides/deck/12_deck.anim.js"></script>
+		<script src="/js/slides/deck/13_deck.timekeeper.js"></script>
+		<script src="/js/slides/deck/14_deck.split.js"></script>
+		<script src="/js/slides/deck/99_onload.js"></script>
 	</body>
 </html>
