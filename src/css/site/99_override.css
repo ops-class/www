@@ -146,14 +146,25 @@ table.exams p {
 	margin: 5px 5px;
 }
 div.play-button {
-	height: 72px;
-	width: 72px;
+	height: 46px;
+	width: 70px;
 	left: 50%;
-	top: 50%;
-	margin-left: -36px;
-	margin-top: -36px;
+	top: 53%;
+	margin-left: -35px;
+	margin-top: -35px;
 	position: absolute;
-	background: url("/img/icons/play.png") no-repeat;
+	background-color: black;
+	border-radius: 12px;
+	opacity: 0.6;
+	text-align: center;
+}
+div.play-button.hover {
+	background-color: #b31217;
+}
+div.play-button span {
+	color: white;
+	font-size: 22px;
+	line-height: 42px;
 }
 img.youtube-thumb {
 	width: 100%;
