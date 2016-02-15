@@ -582,4 +582,4 @@ writers.
 maximum concurrency when using your reader-writer lock.
 
 . *`rwt{3,4,5}`*: These are correctness tests similar to `lt{2,3}` and
-`cvt{3,4}`. The panic on success.
+`cvt{3,4}`. They panic on success.
