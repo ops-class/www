@@ -6,6 +6,10 @@ description: >
   Discussion of ways that applications can get the kernel's attention, as
   well as the beginnings of a motivation of context switches and
   multiprocessing.
+spelling_exceptions:
+  - IRQ
+  - ISR
+  - maskable
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -34,7 +38,7 @@ divisions*.
 
 [.slider]
 .True or false: implementing common operating system abstractions requires special privileges?
-* *False.* Exokernels provide a design point indicating that
+* *False.* [.spelling_exception]#Exokernels# provide a design point indicating that
 implementing most of operating system abstractions in unprivileged
 libraries is possible.
 
@@ -119,7 +123,7 @@ these protected resources?*
 * "Hey, over here, I need to read some data from disk!"
 * "I could really use some more memory. Please?"
 
-== syscall
+== `syscall`
 
 [.slider]
 * CPUs provide a *special instruction* (`syscall` on the MIPS) that
@@ -142,11 +146,11 @@ To access the kernel system call interface an application:
 kernel can find them, typically in registers or on its stack,
 . loads a number identifying the system call it wants the kernel to
 perform into a pre-determined register, and
-. executes the syscall instruction.
+. executes the `syscall` instruction.
 
 [.slider]
 --
-libc provides the wrappers around the syscall instruction that
+`libc` provides the wrappers around the `syscall` instruction that
 programmers are familiar with.
 
 *You can find this code in your OS/161 source tree. Look around!*
@@ -217,7 +221,7 @@ out-of-order execution.
 
 == Human Perceptual Limitations
 
-Can you express these delays to a 1GHz processor?
+Can you express these delays to a 1 GHz processor?
 
 [.slider]
 * 15 ms "rule of thumb": [.slide]#*15,000,000* clock cycles!#
