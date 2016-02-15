@@ -139,11 +139,6 @@ a {
     -webkit-tap-highlight-color: #fff; }
 
 /* End HTML5 Boilerplate adaptations */
-.vcenter {
-  font-weight: bold;
-  text-align: center;
-  padding-top: 1em;
-  max-height: 100%; }
   .csstransforms .vcenter {
     padding: 0 48px;
     position: absolute;
@@ -387,4 +382,14 @@ img {
 
 .slide > h2:first-child > code {
 	font-size: 0.8em;
+}
+td {
+	padding: 5px;
+}
+.vcenter {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	text-align: center;
 }

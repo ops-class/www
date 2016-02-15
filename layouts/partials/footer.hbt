@@ -7,14 +7,26 @@
       Created {{ format_date created "normal" false }} <br />
       Updated {{ format_date updated "normal" false }}
     </div>
+		{{#if github}}
+		<div class="small col-xs-12 col-md-4 text-center">
+			<a href="{{ github.commits }}">File History</a> <br />
+			<a href="{{ github.blob}}">View on Github</a>
+		</div>
+		{{/if}}
   </div>
 </div>
 
 <script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71773451-1']);
+_gaq.push(['_trackPageview']);
+
 var cb = function() {
-  var s = document.createElement("script");
-  s.src = "/js/site.js";
-  document.body.appendChild(s);
+	['/js/common/ga.js'].forEach(function (src) {
+  	var s = document.createElement("script");
+  	s.src = src;
+		document.body.appendChild(s);
+	});
 };
 var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
 if (raf) {

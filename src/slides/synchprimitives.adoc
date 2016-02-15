@@ -1,0 +1,587 @@
+---
+title: "Synchronization Primitives"
+date: 2016-02-05
+author: Geoffrey Challen
+description: >
+  Completion of a discussion of critical sections, and an overview of locks
+  and condition variables.
+song:
+  name: "Touch the Sky"
+  author: "Brave"
+  youtube: gA9nZrhFo4U
+spelling_exceptions:
+  - TAS
+  - giveGWATheMoolah
+  - gwaHas
+video: QyWPDVqqIt8
+---
+[.nooutline]
+== Technical Women
+
+image::women/033.jpg[width="100%"]
+
+[.h4.center]
+icon:music[] http://ilovemetric.com["Gimme Sympathy" by Metric]
+
+[.h4.center]
+icon:music[] {song}
+
+video::jq3-wZs64n4[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
+  
+[.nooutline]
+== Today
+
+.Synchronization Primitives
+** Critical sections
+** Spinlocks
+** Locks
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* Most of the website is up.
+
+[.nooutline]
+== Review: Unless Shown Otherwise...
+
+Concurrency forces us to relax any assumptions that we may want to make about how any particular thread executes.
+
+[.slider]
+.Unless explicitly synchronized, threads may:
+. Be run in *any order*,
+. Be stopped and restarted at *any time*,
+. Remain stopped for *arbitrary lengths of time*.
+
+[.slider]
+* Generally these are *good things*—the operating system is making
+choices about how to allocate resources.
+* When accessing shared data these are *challenges* that force us to
+program more carefully.
+
+[.nooutline]
+== The Bank Example
+
+Consider the following code snippet.
+
+[source,c,linenums,role='smaller']
+----
+void giveGWATheMoolah(account_t account, int largeAmount) {
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+[.slider]
+.Assume I have *$1,000* and that *two* of you are trying to make deposits concurrently:
+* One of you is depositing *$1,000* (this person gets a B).
+* One of you is depositing *$2,000* (A- material).
+
+[.nooutline]
+== Things Go Well
+
+[cols="2,2,^1",options='header']
+|===
+
+| A- Student
+| B Student
+| Balance
+
+| {nbsp}
+| {nbsp}
+| $1000 
+
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $2000;
+put_balance(account, gwaHas);
+----
+| {nbsp}
+| [.slide]#$3000#
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $1000;
+put_balance(account, gwaHas);
+----
+| [.slide]*$4000*
+
+|===
+
+[.nooutline]
+== Things Go Less Well
+
+[cols="2,2,^1",options='header']
+|===
+
+| A- Student
+| B Student
+| Balance
+
+| {nbsp}
+| {nbsp}
+| $1000 
+
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $2000;
+----
+| {nbsp}
+| {nbsp}
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $1000;
+----
+| {nbsp}
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+put_balance(account, gwaHas);
+----
+| [.slide]#$2000#
+
+a|
+[source,c,role='smallest slide']
+----
+put_balance(account, gwaHas);
+----
+| {nbsp}
+| [.slide]*$3000*
+
+
+|===
+
+[.nooutline]
+== Things Go Very Badly
+
+[cols="2,2,^1",options='header']
+|===
+
+| A- Student
+| B Student
+| Balance
+
+| {nbsp}
+| {nbsp}
+| $1000 
+
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $2000;
+----
+| {nbsp}
+| {nbsp}
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+int gwaHas = get_balance(account);
+gwaHas = gwaHas + $1000;
+----
+| {nbsp}
+
+a|
+[source,c,role='smallest slide']
+----
+put_balance(account, gwaHas);
+----
+| {nbsp}
+| [.slide]#$3000#
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+put_balance(account, gwaHas);
+----
+| [.slide]*$2000*
+
+|===
+
+== Race Conditions
+
+A *race condition* is "when the output of a process is unexpectedly
+dependent on timing or other events."
+
+[.slider]
+.Note that the definition of a race depends on what we *expected* to happen:
+* We expected me to have *$4,000* after both deposits. (Otherwise we
+are not observing the Law of the Conversation of Money, probably
+important to banks except during bailouts.)
+
+== Concurrency v. Atomicity
+
+[.slider]
+.*Concurrency:* the illusion that multiple things are happening at once.
+* Requires stopping or starting any thread at any time.
+
+[.slider]
+.*Atomicity:* the illusion that a set of separate actions occurred *all at once*.
+* Requires not stopping certain threads at certain times or not
+starting certain threads at certain times, i.e. providing some limited
+control to threads over their scheduling.
+
+== Critical Sections
+
+[.slider]
+.A *critical section* contains a series of instructions that only one thread can be executing at any given time.
+* This set (or sets) of instructions will look atomic with respect to
+*other threads executing code within the critical section*.
+
+== Critical Sections
+
+[source,c,linenums,role='smaller']
+----
+void giveGWATheMoolah(account_t account, int largeAmount) {
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+.In order to implement the previous example correctly:
+. What is local state private to each thread? [.slide]*gwaHas*
+. What is the shared state that is being accessed by giveGWATheMoolah?
+[.slide]*account*
+. What lines are in the critical section? [.slide]*2-4*
+
+== Critical Section Requirements
+
+[.slider]
+* *Mutual Exclusion:* this is the most basic property. Only one thread
+should be executing in the critical section at one time.
+* *Progress:* all threads should eventually be able to proceed through
+the critical section.
+* *Performance:* we want to keep critical sections as small as possible
+without sacrificing correctness.
+
+== Implementing Critical Sections
+
+[.slider]
+* Two possible approaches. *Don't stop*, or *don't enter*.
+* *On uniprocessors* a single thread can prevent other threads from
+executing in a critical section by simply not being descheduled.
+** In the kernel we can do this by *masking* interrupts. No timer, no
+scheduler, no stopping.
+** *In the multicore era this is only of historical interest.* (This
+design pattern is usually broken.)
+* More generally we need a way to force other threads—potentially
+running on other cores—*not to enter* the critical section while one
+thread is inside. *How do we do this?*
+
+== Atomic Instructions
+
+Software synchronization primitives utilize *special hardware
+instructions* guaranteed to be atomic across all cores:
+
+[.slider]
+* *Test-and-set*: write a memory location and return its old value.
+
+[source,c,linenums,role='smaller slide']
+----
+int testAndSet(int * target, int value) {
+  oldvalue = *target;
+  *target = value;
+  return oldvalue;
+}
+----
+
+<<<<
+
+[.slider]
+* *Compare-and-swap*: compare the contents of a memory location to a
+given value. If they are the same, set the variable to a new given
+value.
+
+[source,c,linenums,role='smaller slide']
+----
+bool compareAndSwap(int * target, int compare, int newvalue) {
+  if (*target == compare) {
+    *target = newvalue;
+    return 1;
+  } else {
+    return 0;
+  }
+}
+----
+
+<<<<
+
+[.slider]
+* *Load-link and store-conditional*: Load-link returns the value of a memory
+address, while the following store-conditional succeeds *only if* the value
+has not changed since the load-link.
+
+[source,c,linenums,role='smaller slide']
+----
+y = 1;
+__asm volatile(
+    ".set push;"    /* save assembler mode */
+    ".set mips32;"  /* allow MIPS32 instructions */
+    ".set volatile; /* avoid unwanted optimization */
+    "ll %0, 0(%2);" /*   x = *sd */
+    "sc %1, 0(%2);" /*   *sd = y; y = success? */
+    ".set pop"      /* restore assembler mode */
+    : "=r" (x), "+r" (y) : "r" (sd));
+if (y == 0) {
+  return 1;
+}
+----
+
+== Atomic Instructions
+
+[.slider]
+* Many processors provide either *test and set* or *compare and swap*.
+* On others equivalents can be implemented in software using other
+atomic hardware instructions.
+
+== Aside: Shared-Memory Multiprocessing
+
+[.slider]
+* As the number of cores on typical machines has continued to grow, some
+memory-based synchronization mechanisms have not scaled well.
+* Building more scalable synchronization primitives for cache-coherent
+shared-memory machines is an *open research problem*.
+** (The architecture of these machines itself is an open research
+problem.)
+
+== The Bank Example: Test and Set
+
+Let's modify our earlier example to use a test and set:
+
+[source,c,linenums,role='slide replace smaller']
+----
+void giveGWATheMoolah(account_t account, int largeAmount) {
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+[source,c,linenums,role='slide replace smaller end']
+----
++int payGWA = 0; // Shared variable for our test and set.
+
+void giveGWATheMoolah(account_t account, int largeAmount) {
++ testAndSet(&payGWA, 1); # Set the test and set.
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
++ testAndSet(&payGWA, 0); # Clear the test and set.
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+[.slide]
+--
+*Does this work?* [.slide]#No! How do I tell if another thread has already set `payGWA`?#
+--
+
+== The Bank Example: Test and Set
+
+Let's try again:
+
+[source,c,linenums,role='slide replace smaller']
+----
+void giveGWATheMoolah(account_t account, int largeAmount) {
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+[source,c,linenums,role='slide replace smaller end']
+----
++int payGWA = 0; // Shared variable for our test and set.
+
+void giveGWATheMoolah(account_t account, int largeAmount) {
++ if (testAndSet(&payGWA, 1) == 1) {
++   // But then what?
++ }
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
++ testAndSet(&payGWA, 0); # Clear the test and set.
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+[.slider]
+* But what should I do if the `payGWA` is set?
+
+== The Bank Example: Test and Set
+
+[source,c,linenums,role='slide replace smaller']
+----
+void giveGWATheMoolah(account_t account, int largeAmount) {
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+[source,c,linenums,role='slide replace smaller end']
+----
++int payGWA = 0; // Shared variable for our test and set.
+
+void giveGWATheMoolah(account_t account, int largeAmount) {
++ while (testAndSet(&payGWA, 1) == 1) {
++   ; // Test it again!
++ }
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
++ testAndSet(&payGWA, 0); # Clear the test and set.
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+== Busy Waiting
+
+[cols="2,2,^1",options='header']
+|===
+
+| A- Student
+| B Student
+| Balance
+
+| {nbsp}
+| {nbsp}
+| $1000 
+
+a|
+[source,c,role='smallest slide']
+----
+while (testAndSet(&payGWA, 1));
+int gwaHas = get_balance(account); 
+----
+| {nbsp} | {nbsp}
+
+| {nbsp}
+a|
+[source,c,role='smallest slide']
+----
+while (testAndSet(&payGWA, 1));
+----
+[source,c,role='smallest slide']
+----
+while (testAndSet(&payGWA, 1));
+----
+[source,c,role='smallest slide']
+----
+while (testAndSet(&payGWA, 1));
+----
+[source,c,role='smallest slide']
+----
+while (testAndSet(&payGWA, 1));
+while (testAndSet(&payGWA, 1));
+while (testAndSet(&payGWA, 1));
+while (testAndSet(&payGWA, 1));
+while (testAndSet(&payGWA, 1));
+----
+| {nbsp} 
+
+|===
+
+== !
+
+[.background]
+image:https://imgflip.com/readImage?iid=1790995[]
+
+[.meme-top]
+When two threads race
+[.meme-bottom]
+Everybody loses...
+
+== The Bank Example: Test and Set
+
+[source,c,linenums,role='smaller']
+----
+int payGWA = 0; // Shared variable for our test and set.
+
+void giveGWATheMoolah(account_t account, int largeAmount) {
+  while (testAndSet(&payGWA, 1) == 1) {
+   ; // Test it again!
+  }
+  int gwaHas = get_balance(account);
+  gwaHas = gwaHas + largeAmount;
+  put_balance(account, gwaHas);
+  testAndSet(&payGWA, 0); # Clear the test and set.
+  notifyGWAThatHeIsRich(gwaHas);
+  return;
+}
+----
+
+[.small.slider]
+.What are the *problems* with this approach?
+* *Busy waiting*: threads wait for the critical section by "pounding on
+the door", executing the TAS repeatedly.
+* Bad on a multicore system. Worse on a single core system! *Busy
+waiting prevents the thread in the critical section from making
+progress!*
+
+== Locks
+
+[.slider]
+.*Locks* are a synchronization primitive used to implement critical sections.
+* Threads *acquire* a lock when entering a critical section.
+* Threads *release* a lock when leaving a critical section.
+
+== Spinlocks
+
+[.slider]
+.What we have implemented today is known as a *spinlock*:
+* *lock* for the fact that it guards a critical section (we will have
+more to say about locks next time), and
+* *spin* describing the process of acquiring it.
+
+[.slide]
+--
+Spinlocks are *rarely used* on their own to solve synchronization
+problems.
+--
+
+[.slide]
+--
+Spinlocks are *commonly used* to build more useful synchronization
+primitives.
+--
+
+[.nooutline]
+== Next Time
+
+[.slider]
+* When to sleep and when not to sleep
+* Problems with Synchronization Primitives
+* Solving Sample Synchronization Problems

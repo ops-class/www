@@ -1,8 +1,16 @@
 all: build | silent
 
 build:
-	@node index.js
-	@while [ -n "$(find build -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
+	@node index.js $(DEPLOY) $(CHECK)
+	@while [ -n "$(find .build -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
+	@rsync -rlpgoDc --delete .build/ build
+	@rm -rf .build
+
+deploy: DEPLOY = --deploy
+deploy: check build
+
+check: CHECK = --check
+check: build
 
 install:
 	@npm install
@@ -14,7 +22,7 @@ run:
 	./node_modules/http-server/bin/http-server build
 
 clean:
-	@rm -rf build 
+	@rm -rf build deploy
 
 statics:
 	@wget http://google-analytics.com/ga.js -O assets/js/ga.js 2>/dev/null

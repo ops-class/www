@@ -1,0 +1,26 @@
+= https://www.ops-class.org[`ops-class.org`] Website Sources
+
+https://www.ops-class.org[`ops-class.org`] is a website intended to let
+students learn operating system concepts online at their own pace. It
+includes lecture slides and assignments that use the OS/161 instructional
+operating system.
+
+== Install
+
+You'll need https://nodejs.org/[`node`] and https://www.npmjs.com/[`npm`],
+the node package manager. I suggest installing
+https://github.com/creationix/nvm[`nvm`], the node version manager. Once you
+have those `npm install` in this directory will install
+http://www.metalsmith.io/[Metalsmith] and the build pipeline dependencies.
+
+== Build Process
+
+* `make` will do a quick build of the site without link, format, or spell
+checking, and without minifying JavaScript or CSS files.
+* `make check` will build and run the link, format, and spell checker.
+* `make deploy` will run the link, format, and spell checker, minify all
+JavaScript and CSS files for deployment, and beautify the HTML.
+
+== TODO
+
+* Document new ASST1 `rwt{2,3,4,5}`.

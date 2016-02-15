@@ -1,0 +1,21 @@
+---
+title: "CSE 421/521 Spring 2013"
+---
+
+== Lecture Videos
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp-qxcxaYtTf5zQXdcfzrW_r&amp;showinfo=1"></div>
+</div>
+++++
+
+== Syllabus
+
+++++
+<div class="embed-responsive embed-responsive-4by3">
+	<object data="/courses/buffalo/CSE421_Spring2013.pdf" type='application/pdf'>
+		<a href="/courses/buffalo/CSE421_Spring2013.pdf">Syllabus</a>
+	</object>
+</div>
+++++

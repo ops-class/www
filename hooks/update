@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+LOCKFILE="/home/git/www/www.ops-class.org/deploy.lock"
+LOCKFD=99
+
+_lock()             { flock -$1 $LOCKFD; }
+_no_more_locking()  { _lock u; _lock xn && rm -f $LOCKFILE; }
+_prepare_locking()  { eval "exec $LOCKFD>\"$LOCKFILE\""; trap _no_more_locking EXIT; }
+
+_prepare_locking
+
+exlock_now()        { _lock xn; }
+
+if ! [ -z "$1" ] && ! [ "refs/heads/master" == "$1" ]; then
+  exit 0
+fi
+
+exlock_now || exit 0
+
+export HOME="/home/git/"
+WORKING_DIR=$HOME/www/www.ops-class.org/
+
+if ! [ -z "$3" ]; then
+  git diff --binary $2 $3 > $WORKING_DIR/patch
+  unset GIT_DIR
+  cd $WORKING_DIR
+  git fetch origin > /dev/null
+  git reset --hard $2 > /dev/null
+  if [ -f patch ]; then
+    git apply patch > /dev/null >> /dev/null
+    rm -f patch
+  fi
+else
+  cd $WORKING_DIR
+  git fetch origin > /dev/null
+  git reset --hard origin/master > /dev/null
+fi
+
+echo "Building www.ops-class.org..."
+
+NVM_DIR="/home/git/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+npm install
+if node index.js --check --deploy; then
+  rsync -crlpgoDi --delete .build/* /mnt/ramdisk/www.ops-class.org/www/ | while read unused filename; do
+    curl --request PURGE 'http://127.0.0.1/$filename' > /dev/null 2> /dev/null
+    echo "Updated $filename"
+  done
+  echo "Success. Thanks for updating the website."
+else
+  echo "Failed. Please try again."
+  exit 1
+fi

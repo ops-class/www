@@ -2,23 +2,24 @@
 
 <div id="content">
 	<div class="container">
-		<div class="row spelling_exception">
+		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
+				<a class="anchor" id="top"></a>
 				<h1>{{#if number}}ASST{{number}}: {{/if}}{{title}}</h1>
 				{{{ contents }}}
 			</div>
-			<div class="col-md-2 scrollspy">
+			<div id="scrollspy" class="col-md-2 spelling_exception">
 				<ul id="side" class="nav hidden-xs hidden-sm"
 									data-spy="affix" style="padding-top:20px; padding-right:10px;">
 					{{#each sections}}
 					<li class="h5"><a href="#{{ this.id }}">{{ this.text }}</a>
-					{{#if children}}
-					<ul class="nav">
-						{{#each children}}
-						<li class="h6"><a href="#{{ this.id }}">{{ this.text }}</a></li>
-						{{/each}}
-					</ul>
-					{{/if}}
+						{{#if children}}
+						<ul class="nav">
+							{{#each children}}
+							<li class="h6"><a href="#{{ this.id }}">{{ this.text }}</a></li>
+							{{/each}}
+						</ul>
+						{{/if}}
 					</li>
 					{{/each}}
 				</ul>

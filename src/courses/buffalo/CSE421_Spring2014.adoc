@@ -1,0 +1,31 @@
+---
+title: "CSE 421/521 Spring 2014"
+---
+
+== Videos
+
+=== Lectures
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp_Dugcm7mBsEahZS5Xr-zWe&amp;showinfo=1"></div>
+</div>
+++++
+
+=== Recitation
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp9POq3yWUBM3XLsW2il8U32&amp;showinfo=1"></div>
+</div>
+++++
+
+== Syllabus
+
+++++
+<div class="embed-responsive embed-responsive-4by3">
+	<object data="/courses/buffalo/CSE421_Spring2014.pdf" type='application/pdf'>
+		<a href="/courses/buffalo/CSE421_Spring2014.pdf">Syllabus</a>
+	</object>
+</div>
+++++

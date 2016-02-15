@@ -1,0 +1,21 @@
+---
+layout: index.hbt
+---
+++++
+<div class="row">
+	<div class="col-md-6 col-md-offset-3" style="margin-bottom:-20px;">
+++++
+
+== Page Not Found
+
+[source,bash]
+----
+panic: Fatal exception 404 (page not found) in website mode
+panic: EPC 0x80017420, exception vaddr 0x0
+panic: I can't handle this... I think I'll just die now...
+----
+
+++++
+</div>
+</div>
+++++

@@ -1,15 +1,17 @@
 ---
 title: "fork() and Synchronization"
-date: 2015-02-03
+date: 2016-02-03
 author: Geoffrey Challen
 description: >
   Completion of a discussion of fork including the use of pipes, and the
   beginning of a unit on synchronization.
+video: JONU7QCcCuY
 song:
   name: "Pedestrian at Best"
   author: "Courtney Barnett"
   youtube: o-nr1nNC3ds
 ---
+[.nooutline]
 == Welcome
 
 [.h3.center]
@@ -470,26 +472,6 @@ dependent on timing or other events."
 * We expected me to have *$4,000* after both deposits. (Otherwise we
 are not observing the Law of the Conversation of Money, probably
 important to banks except during bailouts.)
-
-== Concurrency v. Atomicity
-
-[.slider]
-.*Concurrency:* the illusion that multiple things are happening at once.
-* Requires stopping or starting any thread at any time.
-
-[.slider]
-.*Atomicity:* the illusion that a set of separate actions occurred *all at once*.
-* Requires not stopping certain threads at certain times or not
-starting certain threads at certain times, i.e. providing some limited
-control to threads over their scheduling.
-
-== Aside: Speedy-First or Safety-First
-
-[.slider]
-* Most operating system design has *started with speed* and worked
-towards *safety*.
-* New research into provably-correct operating systems and languages
-attempts to reverse that: *start with safety* and work towards *speed*.
 
 [.nooutline]
 == Next Time

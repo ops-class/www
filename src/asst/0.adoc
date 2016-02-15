@@ -3,6 +3,9 @@ title: "Introduction to OS/161"
 spelling_exceptions:
   - vfs
   - PPA
+  - LTS
+  - EC2
+  - VMware
 ---
 :sectnums:
 
@@ -117,7 +120,7 @@ explicit permission footnote:[Which you are extremely unlikely to get.].
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/taI5t05YKto" allowfullscreen></iframe>
+<div class="youtube-container" data-id="taI5t05YKto"></div>
 </div>
 ++++
 
@@ -219,6 +222,22 @@ If you are having trouble, make sure that all Vagrant commands (`vagrant up`,
 `vagrant ssh`, etc.) are run from the same directory as the `Vagrantfile` you
 created previously. That's just how Vagrant works.
 
+==== Notes for Windows users
+
+The README on our https://github.com/ops-class/vagrant[OS/161 Vagrant
+repository GitHub repository] describes some potential pitfalls for Windows
+users with the Vagrant installation and initial VM creation. However, another
+problem is known to exist where Windows hosts will not allow the guest to
+create symbolic links in shared folders. Because OS/161 generates symbolic
+links during `bmake depend` step, this problem will cause that step to fail.
+
+There are several workarounds. The first is to make sure that you run all of
+your `vagrant` commands as a Windows administrator, which will provide the
+guest with the required permissions to create symbolic links. Note that this
+includes both `vagrant up` and `vagrant ssh`. The second workaround is to not
+share your OS/161 source folder with the host, but of course this will
+prevent you from directly editing your sources from the host.
+
 === Preexisting External Installation
 
 You may have access to a shared machine with the OS/161 toolchain installed,
@@ -235,12 +254,22 @@ sources. Linux and other UNIX variants are likely to work. Superheroes have
 gotten things to work on OSX. Please use the most recent version of the
 cross-compilation toolchain and System/161.
 
+=== Other Virtualization Options
+
+Virtualization is hot these days and so you have a lot of options, including
+the https://aws.amazon.com/[Amazon EC2] https://aws.amazon.com/free/[free
+tier] to create an Ubuntu VM in the cloud and
+https://www.virtualbox.org/[VirtualBox] or http://www.vmware.com/[VMware] to
+create an Ubuntu VM locally, preferably one of the LTS versions (12.04,
+14.04) supported by our PPA. Once you've done that you can use the
+instructions above for installing the software on native Ubuntu.
+
 == Configuring, Building, and Running a Kernel
 
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/IxX4uwET3_U" allowfullscreen></iframe>
+<div class="youtube-container" data-id="IxX4uwET3_U"></div>
 </div>
 ++++
 
@@ -266,7 +295,7 @@ directory wherever you want.
 
 Let's say you've chosen a directory called `src`, which should either not
 exist or (in the case of the Vagrant VM) be empty. Clone
-https://gitlab.ops-class.org/staff/os161[our `ops-class.org` Git repository]
+https://github.com/ops-class/os161[our `ops-class.org` Git repository.]
 into that directory. *Note that a simple `git clone` will not do the right
 thing.* Take a look at the man page for `git clone` or peruse the help output
 to make sure you get it right.
@@ -368,7 +397,7 @@ provides an excellent overview.].
 Unlike OS/161, we _do not_ expect you to modify `sys161`. However, you do
 need to _configure_ the simulated machine that `sys161` provides by choosing
 the number of simulated CPU cores, the amount of simulated memory, and the
-number of simulated disk drives. link:/asst/sys161.conf[Here is a
+number of simulated disk drives. link:/files/sys161.conf[Here is a
 `sys161.conf` file] that you can
 use to get started. But you should read and understand the structure of this
 configuration file so that you can modify it as needed in later assignments.
@@ -462,7 +491,7 @@ kernel.
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/Q87oBTajZFk" allowfullscreen></iframe>
+<div class="youtube-container" data-id="Q87oBTajZFk"></div>
 </div>
 ++++
 
@@ -533,7 +562,7 @@ If you have previously configured and built in this directory there are also
 some additional files and directories that have been created, such as
 `defs.mk` and `build/`.
 
-=== [.spelling_exception]#Userland#
+=== User Land
 
 In the `userland/` source subdirectory, you will find:
 
@@ -681,7 +710,7 @@ currently initialized?
 currently creates multiple threads.
 . OS/161 has a system for printing debugging messages to the console. How
 does it work? How could it be useful?
-. What do `copyin` and `copyout` do? Why is special about these functions
+. What do `copyin` and `copyout` do? What is special about these functions
 compared to other approaches to copying memory in C, like `memmove`?
 . What is a zombie thread?
 . What is the difference between a thread sleeping and a thread yielding?
@@ -724,7 +753,7 @@ each other crazy or spend hours reformatting each others' code.
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/p0BQHgl3m0k" allowfullscreen></iframe>
+<div class="youtube-container" data-id="p0BQHgl3m0k"></div>
 </div>
 ++++
 
@@ -739,7 +768,7 @@ that you do not inadvertently share your solutions with others. The `test161`
 submission system will refuse to grade your assignments if it detects that
 your Git repository is public. Getting your hands on a private Git repository
 is not hard. If you are a student,
-[.spelling_exception]#https://www.github.com[GitHub]# will allow you to set
+https://www.github.com[GitHub] will allow you to set
 up a limited number of private repositories for instructional use.
 https://www.gitlab.com[`GitLab.com`] provides private Git repositories for
 free, as do other sites such as
@@ -793,7 +822,7 @@ partner to handle the merge conflict.
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
-<iframe src="https://www.youtube.com/embed/BcbqC74DEy0" allowfullscreen></iframe>
+<div class="youtube-container" data-id="BcbqC74DEy0"></div>
 </div>
 ++++
 

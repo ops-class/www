@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		{{#if title}}
+		<title>{{ title }}</title>
+		{{/if}}
+
+		{{#if author }}
+		<meta content="{{ author }}" name="author">
+		{{/if}}
+
+		<link href="/css/slides/deck.css" rel="stylesheet" />
+		<script src="/js/common/jquery-2.2.0.js"></script>
+	</head>
+
+	<body>
+		<div id="content">
+			<div class="deck-container">
+				{{{ contents }}}
+
+				<div data-progress-size=": spe.bottom(3, 20) ; left: slide.left+'px' ; height: (3*designRatio)+'px'" data-progress="width: pFull * slide.width" style="background: #191995; position: absolute; z-index:-1"></div>
+				<div class="deck-status deck-progress-10"></div>
+				<div class="deck-status-wrapper" data-progress-size=": spe.bottom(12, 16);left:(slide.left+10)+'px';height:(24*designRatio)+'px'" style="padding-top:2px; position: absolute; z-index:-1; display:none;">
+					(<span class="deck-status-current"></span> / <span class="deck-status-total"></span>)
+				</div>
+				<div> 
+					<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
+					<a class="deck-next-link" href="#" title="Next">&#8594;</a>
+				</div>
+			</div>
+		</div>
+		<script src="/js/slides/deck/01_modernizr-3.3.1-custom.js"></script>
+		<script src="/js/slides/deck/03_deck.core.js"></script>
+		<script src="/js/slides/deck/04_deck.fit.js"></script>
+		<script src="/js/slides/deck/05_deck.clone.js"></script>
+		<script src="/js/slides/deck/06_deck.goto.js"></script>
+		<script src="/js/slides/deck/07_deck.progress.js"></script>
+		<script src="/js/slides/deck/08_deck.navigation.js"></script>
+		<script src="/js/slides/deck/09_deck.menu.js"></script>
+		<script src="/js/slides/deck/10_deck.step.js"></script>
+		<script src="/js/slides/deck/11_deck.events.js"></script>
+		<script src="/js/slides/deck/12_deck.anim.js"></script>
+		<script src="/js/slides/deck/13_deck.timekeeper.js"></script>
+		<script src="/js/slides/deck/14_deck.split.js"></script>
+		<script src="/js/slides/deck/99_onload.js"></script>
+	</body>
+</html>

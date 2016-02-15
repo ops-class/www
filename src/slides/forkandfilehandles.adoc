@@ -1,6 +1,6 @@
 ---
 title: "Processes and File Handles"
-date: 2015-02-01
+date: 2016-02-01
 author: Geoffrey Challen
 description: >
   Continuation of a discussion of the process abstraction and introduction to
@@ -14,6 +14,7 @@ spelling_exceptions:
   - lsof
   - bashrc
   - proc
+video: 3ZctdAiEZAE
 ---
 [.nooutline.spelling_exception]
 == Welcome
