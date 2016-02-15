@@ -17,7 +17,7 @@ spelling_exceptions:
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/036.jpg[width="100%",title="Shafrira Goldwasser", link="https://en.wikipedia.org/wiki/Shafi_Goldwasser"]
+image::women/036.jpg[width="100%",title="Shafrira Goldwasser", link="//en.wikipedia.org/wiki/Shafi_Goldwasser"]
 
 [.h3.center]
 icon:music[] http://www.thecure.com[{song}]
@@ -302,50 +302,9 @@ The instructions that the processor executes when an interrupt fires
 are called the *interrupt service routine* (ISR).
 --
 
-== Masking Interrupts
-
-[.slider]
-* Hardware interrupts can be either *asynchronous* or *synchronous*.
-* Asynchronous interrupts can be *ignored* or masked.
-** The processor provides an interrupt mask allowing the operating
-system to choose which interrupts will trigger the ISR.
-** If an interrupt is masked, it will not trigger the ISR.
-** If an interrupt is still asserted when it is unmasked, it will
-trigger the ISR at that point.
-* Some interrupts are *synchronous* or not maskable: these typically
-indicate very serious conditions which must be handled immediately.
-** Example: processor reset.
-
-== Why Mask Interrupts?
-
-[.slider]
-* Choosing to ignore interrupts allows the system to *prioritize*
-certain interrupts over others.
-** "_The DVD write buffer is empty_" is more important than "_There is a
-network packet waiting to be processed._"
-* In some cases handling certain interrupts generates other interrupts
-which would prevent the system from handling the original interrupt!
-
-== Protecting Interrupt Handlers
-
-[.slider]
-* What would happen if applications were allowed to modify the interrupt
-service routines?
-** Applications could take control of devices by preventing the kernel
-from communicating with them. *Disaster!*
-* Interrupt handlers allow the operating system to *control access* to
-hardware devices and *protect them* from direct control by untrusted
-applications.
-* The memory that contains interrupt handlers is protected from access
-by user applications.
-* One of the *first things* that the kernel does on boot is install its
-interrupt handlers!
 
 [.nooutline]
 == Next Time
 
 [.slider]
-* Multiplexing the CPU: how and why.
-* Context switching and thread context.
-
-
+* Software interrupts and exceptions.

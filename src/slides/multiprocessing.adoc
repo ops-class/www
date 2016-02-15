@@ -1,0 +1,236 @@
+---
+title: "Software Interrupts and Exceptions"
+date: 2016-02-14
+author: Geoffrey Challen
+description: >
+  Discussion of ways that applications can get the kernel's attention, as
+  well as the beginnings of a motivation of context switches and
+  multiprocessing.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/037.jpg[title="Barbara Liskov",width="100%",link="//en.wikipedia.org/wiki/Barbara_Liskov"]
+
+[.nooutline]
+== Today
+
+* Finish hardware interrupts.
+* Software interrupts and exceptions.
+
+[.nooutline]
+== $ cat announce.txt
+
+[.nooutline]
+== [.smaller]#Questions: Privileges, Interrupts, Exceptions?#
+
+[.nooutline]
+== Review: Operating System Privilege
+
+[.slider]
+.Why does the operating system need special privileges?
+* *To divide resources* between multiple application and *enforce these
+divisions*.
+
+[.slider]
+.True or false: implementing common operating system abstractions requires special privileges?
+* *False.* Exokernels provide a design point indicating that
+implementing most of operating system abstractions in unprivileged
+libraries is possible.
+
+[.nooutline]
+== Operating Modes
+
+[.slider]
+.How does the processor provide the operating system with special privileges?
+* Through *privileged* or *kernel* mode which allows the kernel to use
+special instructions.
+
+[.nooutline]
+== Review: Interrupt Handling
+
+[.slider]
+.When an interrupt happens the CPU:
+. Enters privileged mode,
+. records state necessary to allow the operating system to process the
+interrupt
+. jumps to a fixed memory location and begins executing instructions.
+
+[.nooutline]
+== Review: Hardware Interrupts
+
+Hardware interrupts occur when [.slide]*a device needs attention*.
+
+[.slider]
+.What are examples of hardware interrupts?
+. A disk read completed.
+. A network card received a packet.
+. A timer fired.
+
+[.nooutline]
+== [.smaller]#Questions: Privileges, Interrupts, Exceptions?#
+
+== Masking Interrupts
+
+[.slider]
+* Hardware interrupts can be either *asynchronous* or *synchronous*.
+* Asynchronous interrupts can be *ignored* or masked.
+** The processor provides an interrupt mask allowing the operating
+system to choose which interrupts will trigger the ISR.
+** If an interrupt is masked, it will not trigger the ISR.
+** If an interrupt is still asserted when it is unmasked, it will
+trigger the ISR at that point.
+* Some interrupts are *synchronous* or not maskable: these typically
+indicate very serious conditions which must be handled immediately.
+** Example: processor reset.
+
+== Why Mask Interrupts?
+
+[.slider]
+* Choosing to ignore interrupts allows the system to *prioritize*
+certain interrupts over others.
+** "_The DVD write buffer is empty_" is more important than "_There is a
+network packet waiting to be processed._"
+* In some cases handling certain interrupts generates other interrupts
+which would prevent the system from handling the original interrupt!
+
+== Protecting Interrupt Handlers
+
+[.slider]
+* What would happen if applications were allowed to modify the interrupt
+service routines?
+** Applications could take control of devices by preventing the kernel
+from communicating with them. *Disaster!*
+* Interrupt handlers allow the operating system to *control access* to
+hardware devices and *protect them* from direct control by untrusted
+applications.
+* The memory that contains interrupt handlers is protected from access
+by user applications.
+* One of the *first things* that the kernel does on boot is install its
+interrupt handlers!
+
+== Software Interrupts
+
+Given that the operating system prevents unprivileged code from
+directly accessing system resources, *how do applications gain access to
+these protected resources?*
+
+[.slider]
+* "Hey, over here, I need to read some data from disk!"
+* "I could really use some more memory. Please?"
+
+== syscall
+
+[.slider]
+* CPUs provide a *special instruction* (`syscall` on the MIPS) that
+generates a software (or synthetic) interrupt.
+* Software interrupts provide a mechanism for user code to indicate that
+it needs help from the kernel.
+* Rest of the interrupt handling path is unchanged. The CPU:
+[.slider]
+. *enters privileged mode*,
+. *records state* necessary to process the interrupt,
+. *jumps to a pre-determined memory location* and begins executing
+instructions.
+
+== Making System Calls
+
+To access the kernel system call interface an application:
+
+[.slider]
+. arranges arguments to the system call in an agreed-on place where the
+kernel can find them, typically in registers or on its stack,
+. loads a number identifying the system call it wants the kernel to
+perform into a pre-determined register, and
+. executes the syscall instruction.
+
+[.slider]
+--
+libc provides the wrappers around the syscall instruction that
+programmers are familiar with.
+
+*You can find this code in your OS/161 source tree. Look around!*
+--
+
+== Software Exceptions
+
+An *software exception* indicates that code running on the CPU has
+created a situation that the processor needs help to address.
+
+[.slider]
+.Can you think of examples of software exceptions?
+* Divide by zero--probably kills the process.
+* Attempt to use a privileged instruction--also probably kills the
+process.
+* Attempt to use a virtual address that the CPU does not know how to
+translate--a common exception handled transparently as part of virtual
+memory management.
+
+== [.small]#Software Exceptions v. Software Interrupts#
+
+[.slider]
+.*Interrupts* are *voluntary*.
+* Think of the CPU as saying to the kernel: "The `/bin/true` process
+would like your assistance."
+
+[.slider]
+.*Exceptions* are *non-voluntary*.
+* Think of the CPU as saying to the kernel: "I need some help with this
+`/bin/false` process. It just tried to divide by zero and I think it needs
+to be terminated."
+
+== [.small]#Now: Why Are We Doing All This Stuff?#
+
+* CPU multiplexing: a historical perspective.
+* Preemption and context switching.
+
+== CPU Limitations: Number
+
+[.slider]
+.(Historically) There is only one! Why?
+* Potentially the most *expensive* and *complex* component of the
+system!
+
+[.slider]
+.(Recently) You may have many. Why?
+* Multiple cores have emerged as a solution to *thermal- and
+energy-management issues* caused by transistor density.
+* But generally, even if you have more than one, there are *fewer* cores
+than *tasks* to be run.
+
+== CPU Limitations: Number
+
+image::figures/threads/multicore.svg[width="50%", role="expand"]
+
+== CPU Limitations
+
+[.slider]
+.How does the CPU compare to other parts of the system—memory, disks, etc.?
+* It is *way faster!*
+
+[.slider]
+* Faster than *memory*—usually addressed on the processor through
+out-of-order execution.
+* *Way faster* than *disk*—addressed by the operating system.
+* *Way faster* than *you!*—partially addressed by the operating system.
+(Nothing the operating system can _really_ do about your limitations.)
+
+== Human Perceptual Limitations
+
+Can you express these delays to a 1GHz processor?
+
+[.slider]
+* 15 ms "rule of thumb": [.slide]#*15,000,000* clock cycles!#
+* 40 ms based on 25 frames-per-second for "smooth" video: [.slide]#*40,000,000*
+clock cycles!#
+* 100 ms was the rule for old telephone systems, the delay point after
+which human conversation patterns start to break down: [.slide]#*100,000,000*
+clock cycles!#
+
+[.nooutline]
+== Questions?
+
+[.nooutline]
+== Next Time
+
+* Preemption and context switching.
