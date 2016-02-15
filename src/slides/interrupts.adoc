@@ -140,8 +140,8 @@ that the operating system is trying to address? _There is only one (or
 at least, no that many) processor(s)!_
 * What are the *mechanisms* necessary to allow the processor to be
 shared? _Interrupts and context switching._
-* What are the *consequences* for programmers of processor
-multiplexing? _Concurrency and synchronization._
+* [line-through]#What are the *consequences* for programmers of processor
+multiplexing? _Concurrency and synchronization._#
 * How do we design good *policies* ensuring that processor sharing
 meets the needs of the user? _Processor scheduling._
 
