@@ -43,7 +43,7 @@ implementing most of operating system abstractions in unprivileged
 libraries is possible.
 
 [.nooutline]
-== Operating Modes
+== Review: Operating Modes
 
 [.slider]
 .How does the processor provide the operating system with special privileges?
