@@ -129,7 +129,6 @@ metalsmith(__dirname)
   .use(layouts({
     engine: 'handlebars'
   }))
-  .use(lessjavascript())
   .use(concat({
     files: 'css/site/*.css',
     output: 'css/site.css'
@@ -142,11 +141,7 @@ metalsmith(__dirname)
     files: 'css/slides/deck/*.css',
     output: 'css/slides/deck.css'
   }))
-	/*
-  .use(concat({
-    files: 'js/slides/deck/*.js',
-    output: 'js/slides/deck.js'
-  }))*/
+  .use(lessjavascript())
   .use(highlight())
 	.use(hacks())
 	.use(msif((argv['deploy'] == true), clean_css({ files: 'css/**/*.css' })))

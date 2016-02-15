@@ -36,6 +36,18 @@ video::{music}[youtube,width=0,height=0]
 ** software interrupts,
 ** and software exceptions.
 
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* link://www.ops-class.org/asst/1/[ASST1] is due Friday @ 5PM.
+* Our link://github.com/ops-class/test161[new OS/161 testing tool] should be
+released soon.
+* We will have video lectures next Monday and Wednesday since I will be away.
+** I will add the appropriate lectures to the course
+link://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[YouTube playlist].
+** You can come here and watch during class time or on you own time.
+
 == ``wait()``/``exit()``
 
 [.slider]
@@ -118,7 +130,7 @@ implemented by `libc`:
 [.nooutline]
 == Questions About Processes?
 
-== Multiplexing and Abstracting the CPU
+== [.small]#Multiplexing and Abstracting the CPU#
 
 For the next several weeks we'll be looking at how the operating
 system manages the processor:
