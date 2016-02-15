@@ -566,3 +566,20 @@ locks.
 
 Note that for our testing tools to work you must preserve these menu command
 mappings so that the tests above work as expected.
+
+=== Reader-Writer Lock Tests
+
+Here is a brief description of each of the five tests we will use to evaluate
+your reader-writer lock implementation:
+
+. *`rwt1`*: An end-to-end test that determines whether your reader-writer
+locks provide proper mutual exclusion for writers and shared access for
+readers. You will fail this test if you reader-writer locks do not provide
+enough read concurrency (as if they were normal locks) or starve readers or
+writers.
+
+. *`rwt2`*: This test determines whether a group of readers can achieve
+maximum concurrency when using your reader-writer lock.
+
+. *`rwt{3,4,5}`*: These are correctness tests similar to `lt{2,3}` and
+`cvt{3,4}`. The panic on success.
