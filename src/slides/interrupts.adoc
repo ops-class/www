@@ -13,6 +13,7 @@ spelling_exceptions:
   - IRQ
   - ISR
   - maskable
+video: 7AptzJBUONk
 ---
 [.nooutline.spelling_exception]
 == Technical Women
