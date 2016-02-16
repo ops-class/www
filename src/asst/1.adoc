@@ -556,7 +556,7 @@ points will be for `lt1`, since the other tests are fairly simple.
 . *Do your CVs work?* We will use `cvt{1,2,3,4}` to test this. Most of the
 points will be for `cvt{1,2}`, since the other tests are again fairly simple.
 
-. *Do your reader-writer locks work?* We will use `rwt1` from _our_ test
+. *Do your reader-writer locks work?* We will use `rwt{1,2,3,4,5}` from _our_ test
 suite to test this. You should implement your own test for your reader-writer
 locks.
 
