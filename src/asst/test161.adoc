@@ -131,10 +131,9 @@ We'll add more values to the `.test161.conf` file later when we set up
 
 *Note that the `test161.conf` file is in http://yaml.org/[YAML] syntax and
 that YAML doesn't like tabs.* You may want to disable tab expansion when
-editing your `.test161.conf` file if your normal coding editor performs it
-footnote:[For Vim the command is `:set noet`.].
+editing your `.test161.conf` file if your normal editor performs it.
 
-== Running `test161`
+== Running `test161` Targets
 
 [.lead]
 `test161` is a very flexible tool and can rapidly run one or many tests and
@@ -161,6 +160,18 @@ $ test161 run asst1
 0.286483	Device probe...
 0.286483	lamebus0 (system main bus)
 ...
+2.965587	Operation took 0.018019320 seconds
+2.991262	OS/161 kernel [? for menu]: 
+2.849897	OS/161 kernel [? for menu]: 
+2.844126	OS/161 kernel [? for menu]: 
+3.026152	cvt3: Should panic...
+3.036162	cvt3: FAIL
+3.046057	OS/161 kernel [? for menu]: 
+3.036162	Operation took 0.053904920 seconds
+3.076270	OS/161 kernel [? for menu]: 
+2.914384	lt1: FAIL
+2.914384	Operation took 0.087485440 seconds
+2.934525	OS/161 kernel [? for menu]: 
 Test                             Result       Score
 ------------------------------   ----------   ----------
 boot.t                           correct      0/0
@@ -192,4 +203,138 @@ also giving our base sources the score they deserve on link:/asst/1[ASST1]:
 
 === `sys161` Output
 
+To speed execution, `test161` runs multiple tests in parallel. As a result,
+test output is interleaved at parts of the testing suite where multiple tests
+are being run. At the beginning of the ASST1 test suite only the boot test is
+being performed because all other tests depend on it, so the output is not
+interleaved. However, at the end several tests are being run in parallel and
+so the output is interleaved.
+
+This can be difficult to interpret, so `test161 run` provides a `-s` option.
+This does not effect parallel testing, which `test161` will still perform
+when the dependency graph allows it. However, it does make the output
+sequential and easier to read.
+
 === Test Status
+
+Following the test output `test161` prints a summary detailing what tests
+were performed and, if appropriate, how they were scored. Scoring is optional
+and only performed when using certain targets.
+
+In the example above, the output shows that `boot.t` ran correctly but earned
+no points. That is because the kernel booted but this was not worth any
+points for ASST1. However, if the kernel had not booted the rest of the tests
+would have been skipped. In this case, `boot.t` was run because it was
+specified as a _dependency_ by other tests that were included as part of the
+ASST1 target. `test161` can automatically run test dependencies when
+appropriate.
+
+For the next 10 tests above `test161` reports that they did not complete
+correctly. Again, this is unsurprising given that the base OS/161 sources do
+not include working locks, condition variables, or reader-writer locks. As
+you complete portions of each assignment you will notice that your score will
+increase.
+
+For the final 4 tests `test161` reports them as being skipped. This was
+because their dependencies were not met. For example, the condition-variable
+tests `cvt{1,2}` depend on working locks, and these locks did not work.
+Similarly, both the stoplight and whale mating synchronization test drivers
+rely on working locks.
+
+=== Running Single `test161` Tests
+
+In our example above `test161` was used to run a _target_, which configures a
+set of tests to be run and maps test results to point values. If you are
+curious, look at the `asst1.tt` file located in the `test161` subdirectory of
+your OS/161 source tree. (Or wherever you configured your `test161dir` in
+`.test161.conf`.)
+
+But `test161` can also be a part of your development process by running
+single tests and reporting their output (without scores). Here is an example,
+again with the base OS/161 sources:
+
+[source,role='noautohighlight']
+----
+$ test161 run sync/sem1.t
+0.000000	sys161: System/161 release 2.0.6, compiled Feb 16 2016 01:44:26
+0.000000	
+0.000000	OS/161 base system version 2.0.1
+0.018289	Copyright (c) 2000, 2001-2005, 2008-2011, 2013, 2014
+0.018289	   President and Fellows of Harvard College.  All rights reserved.
+0.228843	
+0.228843	Put-your-group-name-here's system version 0 (ASST1 #2)
+....
+3.917044	sys161:   cpu7: 739019 kern, 0 user, 39921249 idle; 354 ll, 346/8
+sc, 895 sync
+3.917044	sys161: 8673 irqs 0 exns 0r/0w disk 7r/5548w console 0r/0w/1m emufs
+0r/0w net
+3.917044	sys161: Elapsed real time: 1.608594 seconds (86.582 mhz)
+3.917044	sys161: Elapsed virtual time: 3.919384560 seconds (25 mhz)
+
+Test                             Result    
+------------------------------   ----------
+sync/sem1.t                      correct   
+
+Total Correct  : 1/1
+----
+
+In this case we ran the semaphore test `sem1`, which does work in the base
+sources, and `test161` produced output reflecting that. You can also tell
+`test161` to run both a test and its dependencies by providing the `-d` flag
+to `test161 run`. The output of `test161 run -d sync/sem1.t` will show that
+both `sem1` and it's dependency (`boot.t`) were run.
+
+=== Running Groups of Tests
+
+The name passed to `test161 run` identifies a test relative to the `tests`
+subdirectory of the the `test161dir` configured in `.test161.conf`. In this
+case, `/home/trinity/src/test161/tests/sync/sem1.t` contains:
+
+[source,yaml]
+----
+---
+name: "Semaphore Test"
+tags:
+  - sync
+  - semaphore
+depends:
+  - boot
+---
+sem1
+----
+You'll notice that the `sem1` test also belongs to two groups: `sync` and
+`semaphore`. Groups provide another useful way to run `test161`:
+
+[source,role='noautohighlight']
+----
+$ test161 run sync
+...
+Test                             Result    
+------------------------------   ----------
+sync/rwt3.t                      incorrect 
+sync/lt2.t                       incorrect 
+sync/rwt4.t                      incorrect 
+sync/rwt5.t                      incorrect 
+sync/cvt3.t                      incorrect 
+sync/lt3.t                       incorrect 
+sync/cvt4.t                      incorrect 
+sync/rwt2.t                      incorrect 
+sync/lt1.t                       incorrect 
+sync/rwt1.t                      incorrect 
+sync/cvt1.t                      incorrect 
+sync/sem1.t                      correct   
+sync/cvt2.t                      incorrect
+
+Total Correct  : 1/13
+Total Incorrect: 12/13
+----
+
+Here we've asked `test161` to run all of the tests that are in the `sync`
+group. Note that, unlike the `asst1` target, in this case dependencies were
+not requested and so `cvt{1,2}` were run even though the lock tests failed.
+To respect test dependencies provide `test161` with the `-d` flag.
+
+== Submitting Using `test161`
+
+We will provide more information about using `test161` to submit your
+`ops-class.org` assignments once the submission server is ready.
