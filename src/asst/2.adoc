@@ -11,20 +11,20 @@ spelling_exceptions:
 [.lead]
 In this assignment you will add process and system call support to
 	your OS/161 kernel.
-	
+
 Currently no support exists for running user processes--the tests you have
 run up to this point have run in the kernel as kernel threads. By the time
 you finish ASST2 you will have the ability to launch a simple shell and enter
 a somewhat-familiar UNIX environment. Indeed, future tests will be run as
 user processes, not from the kernel menu.
-  
+
 In contrast to link:/asst/1/[ASST1], ASST2 requires a great deal more thought
 and planning. We are not giving you many examples. We have not designed your
 data structures for you. You will need to determine what needs to be
 implemented, where to put the code required, how the data structures are
 designed and implemented, and how everything fits together. We just care that
 your system calls fulfill the interface specification.
-  
+
 As a final piece of advice, ASST2 and ASST3 begin to produce code bases that
 are large, complex, and potentially _very_ difficult to debug. *You do not
 want to introduce bugs into your kernel* because they will be very hard to
@@ -34,7 +34,7 @@ partner, and slow down again. Then write some code.
 === Objectives
 
 After completing ASST2 you should:
-    
+
 . Be able to write code that meets a specified interface definition.
 . Understand how to represent processes in an operating system.
 . Have designed and implemented data structures to manage processes in an
@@ -50,7 +50,7 @@ TIP: Pair programming to complete the ASST2 implementation tasks is *strongly
 encouraged*.
 
 TIP: Writing a design document with your partner is *strongly encouraged.*
-  
+
 TIP: Having one partner work on the file system system calls while the other
 partner works on process support is a good division of labor. The partner
 working on the file system system calls may finish first, at which point they
@@ -58,10 +58,10 @@ can help and continue testing.
 
 TIP: Answering the ASST2 code reading questions side-by-side with your
 partner is *strongly encouraged*.
-  
+
 TIP: Discussing the code reading questions and browsing the source tree with
 other students is encouraged.
-    
+
 WARNING: Dividing the code reading questions and development tasks between
 partners is discouraged.
 
@@ -70,13 +70,13 @@ design document is cheating.
 
 CAUTION: Any arrangement that results in one partner writing all or almost
 all of the code is cheating.
-  
+
 CAUTION: Copying any answers from anyone who is not your partner or anywhere
 else and submitting them as your own is cheating.
-  
+
 CAUTION: You may not refer to or incorporate any external sources without
 explicit permission footnote:[Which you are extremely unlikely to get.].
-  
+
 == Assignment Organization
 
 [.lead]
@@ -109,7 +109,7 @@ programs. Most such support is accessed via system calls. We give you one
 system call, `reboot`, which is implemented in the function `sys_reboot()` in
 `main.c`. In GDB, if you put a breakpoint on `sys_reboot` and run the
 `reboot` program, you can print a backtrace in GDB to see how it got there.
-  
+
 === Process Support
 
 You will also be implementing the subsystem that keeps track of the multiple
@@ -133,7 +133,7 @@ put your programs) and then create a directory similar to those that already
 exist. Use an existing program and its `Makefile` as a template. *You are
 strongly encouraged to run the tests that already exist and write your own as
 needed.*
-  
+
 == Design
 
 [.lead]
@@ -247,13 +247,13 @@ explicitly asking the system to halt.
 . How will you manage file accesses? When the shell invokes the `cat`
 command, and the `cat` command starts to read `file1`, what will happen if
 another program also tries to read `file1`? What would you like to happen?
-  
+
 == Code Reading
 
 [.lead]
 To help you get started designing, we have provided the following questions
 as a guide for reading through the code.
-	
+
 We recommend that you and your partner look over and answer the code reading
 questions _together_. You may want to start by reviewing the questions
 separately, but then meet to talk over your answers and look at the code

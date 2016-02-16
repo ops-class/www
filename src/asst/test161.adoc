@@ -161,17 +161,17 @@ $ test161 run asst1
 0.286483	lamebus0 (system main bus)
 ...
 2.965587	Operation took 0.018019320 seconds
-2.991262	OS/161 kernel [? for menu]: 
-2.849897	OS/161 kernel [? for menu]: 
-2.844126	OS/161 kernel [? for menu]: 
+2.991262	OS/161 kernel [? for menu]:
+2.849897	OS/161 kernel [? for menu]:
+2.844126	OS/161 kernel [? for menu]:
 3.026152	cvt3: Should panic...
 3.036162	cvt3: FAIL
-3.046057	OS/161 kernel [? for menu]: 
+3.046057	OS/161 kernel [? for menu]:
 3.036162	Operation took 0.053904920 seconds
-3.076270	OS/161 kernel [? for menu]: 
+3.076270	OS/161 kernel [? for menu]:
 2.914384	lt1: FAIL
 2.914384	Operation took 0.087485440 seconds
-2.934525	OS/161 kernel [? for menu]: 
+2.934525	OS/161 kernel [? for menu]:
 Test                             Result       Score
 ------------------------------   ----------   ----------
 boot.t                           correct      0/0
@@ -257,11 +257,11 @@ again with the base OS/161 sources:
 ----
 $ test161 run sync/sem1.t
 0.000000	sys161: System/161 release 2.0.6, compiled Feb 16 2016 01:44:26
-0.000000	
+0.000000
 0.000000	OS/161 base system version 2.0.1
 0.018289	Copyright (c) 2000, 2001-2005, 2008-2011, 2013, 2014
 0.018289	   President and Fellows of Harvard College.  All rights reserved.
-0.228843	
+0.228843
 0.228843	Put-your-group-name-here's system version 0 (ASST1 #2)
 ....
 3.917044	sys161:   cpu7: 739019 kern, 0 user, 39921249 idle; 354 ll, 346/8
@@ -271,9 +271,9 @@ sc, 895 sync
 3.917044	sys161: Elapsed real time: 1.608594 seconds (86.582 mhz)
 3.917044	sys161: Elapsed virtual time: 3.919384560 seconds (25 mhz)
 
-Test                             Result    
+Test                             Result
 ------------------------------   ----------
-sync/sem1.t                      correct   
+sync/sem1.t                      correct
 
 Total Correct  : 1/1
 ----
@@ -309,20 +309,20 @@ You'll notice that the `sem1` test also belongs to two groups: `sync` and
 ----
 $ test161 run sync
 ...
-Test                             Result    
+Test                             Result
 ------------------------------   ----------
-sync/rwt3.t                      incorrect 
-sync/lt2.t                       incorrect 
-sync/rwt4.t                      incorrect 
-sync/rwt5.t                      incorrect 
-sync/cvt3.t                      incorrect 
-sync/lt3.t                       incorrect 
-sync/cvt4.t                      incorrect 
-sync/rwt2.t                      incorrect 
-sync/lt1.t                       incorrect 
-sync/rwt1.t                      incorrect 
-sync/cvt1.t                      incorrect 
-sync/sem1.t                      correct   
+sync/rwt3.t                      incorrect
+sync/lt2.t                       incorrect
+sync/rwt4.t                      incorrect
+sync/rwt5.t                      incorrect
+sync/cvt3.t                      incorrect
+sync/lt3.t                       incorrect
+sync/cvt4.t                      incorrect
+sync/rwt2.t                      incorrect
+sync/lt1.t                       incorrect
+sync/rwt1.t                      incorrect
+sync/cvt1.t                      incorrect
+sync/sem1.t                      correct
 sync/cvt2.t                      incorrect
 
 Total Correct  : 1/13
