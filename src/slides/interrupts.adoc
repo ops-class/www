@@ -1,7 +1,7 @@
 ---
 title: "Interrupt and Exception Handling"
 author: Geoffrey Challen
-date: 2016-02-14
+date: 2016-02-15
 description: >
   Introduction to the root of kernel privilege, interrupts and exception
   handling.
