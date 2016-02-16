@@ -208,7 +208,7 @@ args[3] = NULL;
 pid = fork();
 
 if (pid == 0) {
-	execv(filename, argv);
+	execv(filename, args);
 }
 ----
 
