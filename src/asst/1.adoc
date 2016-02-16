@@ -16,7 +16,7 @@ OS/161 and use them to solve several synchronization problems.
 Once you complete ASST1 you should have a fairly solid grasp of the pitfalls
 of concurrent programming and--more importantly--how to avoid those pitfalls
 in the code you write during the rest of the semester.
-  
+
 To complete this assignment you will need to be familiar with the OS/161
 thread code. The thread system provides interrupts, control functions,
 spinlocks, and semaphores. You will implement locks, condition variables, and
@@ -43,22 +43,22 @@ encouraged*.
 
 TIP: Answering the ASST1 code reading questions side-by-side with your
 partner is *strongly encouraged*.
-  
+
 TIP: Helping other students with Git, GDB, editing, and with other parts of
 the OS/161 toolchain is encouraged.
-  
+
 TIP: Discussing the code reading questions and browsing the source tree with
 other students is encouraged.
-    
+
 WARNING: Dividing the code reading questions and development tasks between
 partners is discouraged.
-  
+
 CAUTION: Copying any answers from anyone who is not your partner or anywhere
 else and submitting them as your own is cheating.
-  
+
 CAUTION: You may not refer to or incorporate any external sources without
 explicit permission footnote:[Which you are extremely unlikely to get.].
-  
+
 == Writing Readable and Maintainable Code
 
 [.lead]
@@ -74,7 +74,7 @@ understand your code and you understand theirs. It will also help the course
 staff understand your code when you need help. And you are starting with a
 very well-formatted and commented code base which provides an excellent
 example of what to do.
-	
+
 There is no single right way to organize and document your code. It is not
 our intent to dictate a particular coding style for this class. The best way
 to learn about writing readable code is to read other people's code. Read the
@@ -102,7 +102,7 @@ needed for this very familiar piece of code.
 
 [source,c]
 ----
-struct a { 
+struct a {
 	char *b;
 	struct foo *c;
 };
@@ -129,7 +129,7 @@ void e() {
 
 [source,c,role='showonclick']
 ----
-struct item { 
+struct item {
 	char *data;
 	struct foo *next;
 };
@@ -158,7 +158,7 @@ void reverse_list() {
 
 Here are some general tips for writing better code:
 
-. *Group related items together*, whether they are variable declarations, 
+. *Group related items together*, whether they are variable declarations,
 lines of code, or functions.
 
 . *Use descriptive names* for variables and procedures. Be consistent with
@@ -228,7 +228,7 @@ primitives and problems, your kernel will only run a certain number of tests
 before it runs out of memory and `panic`s. This is normal. *However, you should
 make sure that your kernel does not leak smaller amounts of memory.* Your
 kernel includes tools to help you measure this.
-  
+
 == Concurrency in OS/161
 
 ++++
@@ -423,7 +423,7 @@ continue this practice later.
 [.lead]
 The following problems will give you the opportunity to solve some
 fairly straightforward synchronization problems.
-	
+
 We have provided you with basic driver code in `kern/tests/synchprobs.c` that
 starts a predefined number of threads which call functions in
 `{whalemating.c,stoplight.c}`. You are responsible for
@@ -523,7 +523,7 @@ four-way stop while not starving traffic from any direction.
 
 . Also don't hit the dog!
 
-==== Stoplight code reading questions 
+==== Stoplight code reading questions
 
 Before you begin coding, consider the following questions:
 

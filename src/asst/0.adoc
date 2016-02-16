@@ -27,7 +27,7 @@ machine simulator called `sys161` footnote:[Also known as System/161].
 tracks your changes to OS/161 and enables effective collaboration.
 * https://www.gnu.org/software/gdb/[*GDB*]: the GNU debugger which allows you
 to control and inspect your running system.
-  
+
 === Objectives
 
 After completing ASST0 you should:
@@ -97,24 +97,24 @@ partner (if you have one):
 
 TIP: Working side-by-side with your partner on ASST0 is *strongly
 encouraged*.
-  
+
 TIP: Helping other students set up their `ops-class.org` environment is
 encouraged.
-    
+
 TIP: Helping each other with Git is encouraged.
-    
+
 TIP: Discussing the code reading questions and browsing the source code with
 other students is encouraged.
-    
+
 WARNING: Dividing the code reading questions and development tasks between
 partners is discouraged.
-  
+
 CAUTION: Copying any answers from anyone who is not your partner or anywhere
 else and submitting them as your own is cheating.
-  
+
 CAUTION: You may not refer to or incorporate any external sources without
 explicit permission footnote:[Which you are extremely unlikely to get.].
-  
+
 == Choosing and Initializing Your Development Environment
 
 ++++
@@ -244,7 +244,7 @@ You may have access to a shared machine with the OS/161 toolchain installed,
 allowing you to work remotely over SSH. While this is by far the easiest
 option, it does limit your ability to work offline and may affect your choice
 of source code editor.
- 
+
 === Do-It-Yourself Installation on Other Flavors of UNIX
 
 We don't support this option, but if you'd like to try instructions are
@@ -378,7 +378,7 @@ kernel. If you don't, review the steps above until your kernel builds
 successfully.
 
 === Configuring `sys161`
- 
+
 Now that you have a kernel, the next step is to run it. But how? Given that
 your kernel doesn't yet have any useful features, it would be impossible to
 use it to run an actual computer, or even in a fully-featured virtual machine
@@ -551,7 +551,7 @@ The source directory contains the following subdirectories:
 * `design/`: contains design documents describing several OS/161 components.
 * `kern/`: the kernel source code, and the subdirectory where you will spend
 most of your time.
-* `man/`: the OS/161 man pages appear here.  The man pages 
+* `man/`: the OS/161 man pages appear here.  The man pages
 document (or specify) every program, every function in the C library, and
 every system call. You will use the system call man pages for reference in
 the course of ASST2. The man pages are HTML and can be read with any browser.
@@ -569,14 +569,14 @@ In the `userland/` source subdirectory, you will find:
 * `bin/`: all the utilities that are typically found in
 `/bin/`&mdash;`cat`, `cp`, `ls`, etc. Programs in `/bin/` are considered
 fundamental utilities that the system needs to run.
-* `include/`: these are the include files that you would typically find 
+* `include/`: these are the include files that you would typically find
 in `/usr/include` (in our case, a subset of them).  These are user include
 files, not kernel include files.
-* `lib/`: library code lives here.  We have only two libraries: 
+* `lib/`: library code lives here.  We have only two libraries:
 `libc`, the C standard library, and `hostcompat`, which is for recompiling
 OS/161 programs for the host UNIX system.  There is also a `crt0` directory,
 which contains the startup code for user programs.
-* `sbin/`: this is the source code for the utilities typically found in 
+* `sbin/`: this is the source code for the utilities typically found in
 `/sbin` on a typical UNIX installation. In our case, there are some utilities
 that let you halt the machine, power it off, and reboot it, among other things.
 * `testbin/`: these are pieces of test code that we will use to
@@ -610,11 +610,11 @@ configuration script where to find the machine-specific, low-level functions it
 needs (throughout `kern/arch/mips/`).
 * `kern/arch/mips/include/`: this folder and its subdirectories
 include files for the machine-specific constants and functions.
-* `kern/arch/mips/`: The other directories contain source files for 
+* `kern/arch/mips/`: The other directories contain source files for
 the machine-dependent code that the kernel needs to run.  Most of this code
 is quite low-level.
 * `kern/arch/sys161/conf/conf.arch`: Similar to `mips/conf/conf.arch`.
-* `kern/arch/sys161/include:` These files are include files for the 
+* `kern/arch/sys161/include:` These files are include files for the
 System/161-specific hardware, constants, and functions.
 
 ==== `kern/compile/`
@@ -627,7 +627,7 @@ configuration to turn on `dumbvm`, a `DUMBVM` subdirectory will be created in
 build organization is typical of UNIX installations and is not universal
 across all operating systems.
 
-* `kern/conf/config`: is the script that takes a configuration file, 
+* `kern/conf/config`: is the script that takes a configuration file,
 like `GENERIC`, and creates the corresponding build directory.
 
 ==== `kern/test/`

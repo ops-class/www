@@ -102,8 +102,8 @@ variables properly as described above, you will we able to run `test161`:
 $ test161
 
     usage: test161  <command> <flags> <args>
-	 
-           test161 run [-dry-run | -r] [sequential | -s] [-dependencies | -d] 
+
+           test161 run [-dry-run | -r] [sequential | -s] [-dependencies | -d]
                        [-verbose | -v (whisper|quiet|loud*)] [-tag] <names>
 ...
 ----
@@ -150,34 +150,34 @@ GitHub repository]:
 ----
 $ test161 run asst1
 0.000000	sys161: System/161 release 2.0.6, compiled Feb 16 2016 01:44:26
-0.014289	
+0.014289
 0.014289	OS/161 base system version 2.0.1
 0.014289	Copyright (c) 2000, 2001-2005, 2008-2011, 2013, 2014
 0.014289	   President and Fellows of Harvard College.  All rights reserved.
-0.236243	
+0.236243
 0.236243	Put-your-group-name-here's system version 0 (ASST1 #2)
-0.266461	
+0.266461
 0.266461	756k physical memory available
 0.286483	Device probe...
 0.286483	lamebus0 (system main bus)
 ...
-Test                             Result       Score     
+Test                             Result       Score
 ------------------------------   ----------   ----------
-boot.t                           correct      0/0       
-sync/rwt5.t                      incorrect    0/1       
-sync/rwt4.t                      incorrect    0/1       
-sync/rwt3.t                      incorrect    0/1       
-sync/cvt4.t                      incorrect    0/1       
-sync/rwt1.t                      incorrect    0/5       
-sync/rwt2.t                      incorrect    0/2       
-sync/lt2.t                       incorrect    0/1       
-sync/lt3.t                       incorrect    0/1       
-sync/cvt3.t                      incorrect    0/1       
-sync/lt1.t                       incorrect    0/8       
-sync/cvt1.t                      skip         0/4       
-syncprobs/sp2.t                  skip         0/10      
-sync/cvt2.t                      skip         0/4       
-syncprobs/sp1.t                  skip         0/10      
+boot.t                           correct      0/0
+sync/rwt5.t                      incorrect    0/1
+sync/rwt4.t                      incorrect    0/1
+sync/rwt3.t                      incorrect    0/1
+sync/cvt4.t                      incorrect    0/1
+sync/rwt1.t                      incorrect    0/5
+sync/rwt2.t                      incorrect    0/2
+sync/lt2.t                       incorrect    0/1
+sync/lt3.t                       incorrect    0/1
+sync/cvt3.t                      incorrect    0/1
+sync/lt1.t                       incorrect    0/8
+sync/cvt1.t                      skip         0/4
+syncprobs/sp2.t                  skip         0/10
+sync/cvt2.t                      skip         0/4
+syncprobs/sp1.t                  skip         0/10
 
 Total Correct  : 1/15
 Total Incorrect: 10/15
