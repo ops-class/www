@@ -1,6 +1,6 @@
 ---
 title: "Software Interrupts and Exceptions"
-date: 2016-02-16
+date: 2016-02-17
 author: Geoffrey Challen
 description: >
   Discussion of ways that applications can get the kernel's attention, as
