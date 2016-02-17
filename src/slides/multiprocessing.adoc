@@ -12,6 +12,7 @@ song:
   name: "Destroy Everything You Touch"
   author: Ladytron
   youtube: JTTwlAT_AwU
+video: 8mE6ZO0q0Fs
 ---
 [.nooutline.spelling_exception]
 == Technical Women
