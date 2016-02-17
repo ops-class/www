@@ -45,8 +45,8 @@ Discourse.
 
 * ...And it's awesome. Thanks to Scott and Yihong!
 
-* `test161` submit should be done shortly. If needed, we'll push the ASST1
-due date. (But don't plan on it.)
+* `test161` submit should be done shortly. If needed, we'll push the
+link:/asst/1/[ASST1] due date. (But don't plan on it.)
 
 [.nooutline]
 == Bad News
@@ -62,7 +62,10 @@ parts that were revealed please contact the course staff.
 please beware. We are preparing an update to the test cases to catch these
 errors.)
 
-* Also note that the video for yesterday's recitation will not be posted.
+* Note also that you need working locks and CVs for link:/asst/2/[ASST2] and
+ASST3, so receiving credit will not solve that problem.
+
+* Note that the video for yesterday's recitation will not be posted.
 
 * Any questions?
 
