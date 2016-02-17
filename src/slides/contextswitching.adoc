@@ -4,11 +4,20 @@ date: 2016-02-19
 author: Geoffrey Challen
 description: >
   The how and why of context switching.
+song:
+  name: "Doing The Right Thing"
+  author: Daughter
+  youtube: RA-qTSLjXEU
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/038.jpg[title="Frances Allen",width="100%",link="https://en.wikipedia.org/wiki/Frances_E._Allen"]
+
+[.center]
+icon:music[] http://ohdaughter.com[{song}]
+
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -18,6 +27,9 @@ image::women/038.jpg[title="Frances Allen",width="100%",link="https://en.wikiped
 
 [.nooutline]
 == $ cat announce.txt
+
+* *link:/asst/1/[ASST1] is due today at 5PM.*
+* We have office hours all day long...
 
 [.nooutline]
 == Review: Interrupt Handling
