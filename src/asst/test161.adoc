@@ -16,7 +16,7 @@ https://blue.cse.buffalo.edu/people/ychen78/[Yihong Chen]. It will both allow
 you test your assignments locally and submit them our testing server for
 official evaluation.
 
-Below we through how to install, configure, and run `test161`. While the
+Below we run through how to install, configure, and run `test161`. While the
 specific testing target will change from assignment to assignment, we use
 link:/asst/1/[ASST1] below as an example. Note that this tutorial duplicates
 some information from the official `test161`

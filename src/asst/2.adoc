@@ -187,7 +187,7 @@ place.
 
 Here are some additional questions and thoughts to aid in writing your design
 document. They are not, by any means, meant to be a comprehensive list of all
-the issues you will want to consider. You do not need to explicit answer or
+the issues you will want to consider. You do not need to explicitly answer or
 discuss these questions in your executive summary, but you should at least
 think about them.
 
@@ -212,7 +212,7 @@ if (pid == 0) {
 }
 ----
 
-The code snippet above loads the executable file `/bin/cp`, install it as a
+The code snippet above loads the executable file `/bin/cp`, installs it as a
 new process, and executes it. The new process will then find `file1` on the
 disk and copy it to `file2`.
 
