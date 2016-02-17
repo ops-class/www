@@ -227,53 +227,6 @@ would like your assistance."
 `/bin/false` process. It just tried to divide by zero and I think it needs
 to be terminated."
 
-== [.small]#Now: Why Are We Doing All This Stuff?#
-
-* CPU multiplexing: a historical perspective.
-* Preemption and context switching.
-
-== CPU Limitations: Number
-
-[.slider]
-.(Historically) There is only one! Why?
-* Potentially the most *expensive* and *complex* component of the
-system!
-
-[.slider]
-.(Recently) You may have many. Why?
-* Multiple cores have emerged as a solution to *thermal- and
-energy-management issues* caused by transistor density.
-* But generally, even if you have more than one, there are *fewer* cores
-than *tasks* to be run.
-
-== CPU Limitations: Number
-
-image::figures/threads/multicore.svg[width="50%", role="expand"]
-
-== CPU Limitations
-
-[.slider]
-.How does the CPU compare to other parts of the system—memory, disks, etc.?
-* It is *way faster!*
-
-[.slider]
-* Faster than *memory*—usually addressed on the processor through
-out-of-order execution.
-* *Way faster* than *disk*—addressed by the operating system.
-* *Way faster* than *you!*—partially addressed by the operating system.
-(Nothing the operating system can _really_ do about your limitations.)
-
-== Human Perceptual Limitations
-
-Can you express these delays to a 1 GHz processor?
-
-[.slider]
-* 15 ms "rule of thumb": [.slide]#*15,000,000* clock cycles!#
-* 40 ms based on 25 frames-per-second for "smooth" video: [.slide]#*40,000,000*
-clock cycles!#
-* 100 ms was the rule for old telephone systems, the delay point after
-which human conversation patterns start to break down: [.slide]#*100,000,000*
-clock cycles!#
 
 [.nooutline]
 == Questions?
@@ -281,4 +234,5 @@ clock cycles!#
 [.nooutline]
 == Next Time
 
+* Multiplexing: a historical perspective.
 * Preemption and context switching.

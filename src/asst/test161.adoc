@@ -47,7 +47,7 @@ is https://github.com/moovweb/gvm[GVM, the Go Version Manager]. We encourage
 you to use this excellent tool. GVM is very easy to install on the Ubuntu
 systems that we have packaged the OS/161 toolchain for:
 
-[source,bash]
+[source,role='noautohighlight']
 ----
 sudo apt-get install -y curl bison # Install installation requirements
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -55,21 +55,21 @@ source $HOME/.gvm/scripts/gvm
 ----
 
 At this point you are ready to start using GVM. We are currently building and
-testing `test161` with Go version `go1.6beta2`. However, because the Go
+testing `test161` with Go version `go1.5.3`. However, because the Go
 compiler is now written in Go, installing versions of Go past 1.5 require
 installing Go version 1.4 first.
 
-[source,bash]
+[source,role='noautohighlight']
 ----
 gvm install go1.4
 gvm use 1.4
-gvm install go1.6beta2
-gvm use 1.6beta2 --default
+gvm install go1.5.3
+gvm use 1.5.3 --default
 ----
 
 Once you have installed Go 1.6 you can remove Go 1.4 if you like:
 
-[source,bash]
+[source,role='noautohighlight']
 ----
 gvm uninstall go1.4
 ----
@@ -89,7 +89,7 @@ include the directory where Go installs binaries you will not be able to run
 
 Once you have Go installed, upgrading or installing `test161` is simple:
 
-[source,bash]
+[source,role='noautohighlight']
 ----
 go get -u github.com/ops-class/test161/test161
 ----
@@ -97,7 +97,7 @@ go get -u github.com/ops-class/test161/test161
 If this completes successfully, and if have set your `GOPATH` and `PATH`
 variables properly as described above, you will we able to run `test161`:
 
-[source,bash]
+[source,role='noautohighlight']
 ----
 $ test161
 
@@ -120,7 +120,7 @@ to find your OS/161 root directory and where to find the `test161`
 target, test, and command files. Here's an example that works in the OS/161
 Vagrant VM that we provide:
 
-[source,bash]
+[source,role='noautohighlight']
 ----
 rootdir: /home/trinity/root/
 test161dir: /home/trinity/src/test161/
