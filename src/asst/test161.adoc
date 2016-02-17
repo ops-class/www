@@ -288,7 +288,7 @@ both `sem1` and it's dependency (`boot.t`) were run.
 
 The name passed to `test161 run` identifies a test relative to the `tests`
 subdirectory of the the `test161dir` configured in `.test161.conf`. In this
-case, `/home/trinity/src/test161/tests/sync/sem1.t` contains:
+case, [.small]`~/src/test161/tests/sync/sem1.t` contains:
 
 [source,yaml]
 ----

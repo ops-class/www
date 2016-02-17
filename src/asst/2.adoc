@@ -395,12 +395,12 @@ implements the user-level side of system calls, which we detail below.
 
 This is where the global variable `errno` is defined.
 
-==== `userland/lib/libc/arch/mips/syscalls-mips.S`
+==== [.small]`userland/lib/libc/arch/mips/syscalls-mips.S`
 
 This file contains the machine-dependent code necessary for implementing
 the user-level side of MIPS system calls.
 
-==== `build/userland/lib/libc/syscalls.S`
+==== [.small]`build/userland/lib/libc/syscalls.S`
 
 This file is created from `syscalls-mips.S` at compile time and is the actual
 file assembled into the C library.  The actual names of the system calls are
