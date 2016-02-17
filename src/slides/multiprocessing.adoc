@@ -3,9 +3,7 @@ title: "Software Interrupts and Exceptions"
 date: 2016-02-17
 author: Geoffrey Challen
 description: >
-  Discussion of ways that applications can get the kernel's attention, as
-  well as the beginnings of a motivation of context switches and
-  multiprocessing.
+  Discussion of ways that applications can get the kernel's attention.
 spelling_exceptions:
   - IRQ
   - ISR
