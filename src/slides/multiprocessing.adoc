@@ -10,11 +10,20 @@ spelling_exceptions:
   - IRQ
   - ISR
   - maskable
+song:
+  name: "Destroy Everything You Touch"
+  author: Ladytron
+  youtube: JTTwlAT_AwU
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/037.jpg[title="Barbara Liskov",width="100%",link="//en.wikipedia.org/wiki/Barbara_Liskov"]
+
+[.center]
+icon:music[] https://myspace.com/ladytron[{song}]
+
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
