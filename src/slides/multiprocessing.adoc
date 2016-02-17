@@ -34,6 +34,38 @@ video::{music}[youtube,width=0,height=0]
 [.nooutline]
 == $ cat announce.txt
 
+* I have good news and bad news...
+
+[.nooutline]
+== Good News: `test161`!
+
+[.slider]
+* `test161` has been released. Please follow the installation instructions on
+Discourse.
+
+* ...And it's awesome. Thanks to Scott and Yihong!
+
+* `test161` submit should be done shortly. If needed, we'll push the ASST1
+due date. (But don't plan on it.)
+
+[.nooutline]
+== Bad News
+
+[.slider]
+* It was brought to my attention that there was inappropriate material
+presented in yesterday's recitation.
+
+* As a result, if you would like partial credit on the assignment for the
+parts that were revealed please contact the course staff.
+
+* (Note that the "solutions" that were revealed were _not entirely correct_, so
+please beware. We are preparing an update to the test cases to catch these
+errors.)
+
+* Also note that the video for yesterday's recitation will not be posted.
+
+* Any questions?
+
 [.nooutline]
 == [.smaller]#Questions: Privileges, Interrupts, Exceptions?#
 
