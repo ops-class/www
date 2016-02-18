@@ -405,7 +405,7 @@ Your first real taste of kernel programming. After completing a set of code
 reading questions, you implement locks, condition variables and reader-writer
 locks. Next, you use them to solve a few simple toy synchronization problems.
 
-=== `ASST2`: System Calls and Process Support
+=== link:/asst/2/[`ASST2`: System Calls and Process Support]
 
 *Deadline*: Friday 3/11/2016 @ 5PM.
 
