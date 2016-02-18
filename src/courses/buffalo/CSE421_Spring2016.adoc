@@ -399,7 +399,7 @@ implementation task.
 
 === link:/asst/1/[`ASST1`: Synchronization]
 
-*Deadline*: Friday 2/19/2016 @ 5PM.
+*Deadline*: Monday 2/22/2016 @ 5PM.
 
 Your first real taste of kernel programming. After completing a set of code
 reading questions, you implement locks, condition variables and reader-writer
