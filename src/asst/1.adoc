@@ -583,3 +583,9 @@ maximum concurrency when using your reader-writer lock.
 
 . *`rwt{3,4,5}`*: These are correctness tests similar to `lt{2,3}` and
 `cvt{3,4}`. They panic on success.
+
+Note that, unlike the lock tests, our reader-writer lock tests do not require
+you to track ownership: that is, if a thread tries to release a reader-writer
+lock that it does not hold that does not have to immediately panic. That
+said, it is possible and a good idea to do this both for readers and writers:
+take a look at `kern/include/array.h` for some help. We just don't test it.
