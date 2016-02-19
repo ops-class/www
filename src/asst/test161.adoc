@@ -16,8 +16,8 @@ https://blue.cse.buffalo.edu/people/ychen78/[Yihong Chen]. It will both allow
 you test your assignments locally and submit them our testing server for
 official evaluation.
 
-Below we run through how to install, configure, and run `test161`. While the
-specific testing target will change from assignment to assignment, we use
+Below we run through how to install, configure, run, and use `test161`. While
+the specific testing target will change from assignment to assignment, we use
 link:/asst/1/[ASST1] below as an example. Note that this tutorial duplicates
 some information from the official `test161`
 https://github.com/ops-class/test161/blob/master/README.adoc[README] located
@@ -338,3 +338,207 @@ To respect test dependencies provide `test161` with the `-d` flag.
 
 We will provide more information about using `test161` to submit your
 `ops-class.org` assignments once the submission server is ready.
+
+== Writing `test161` Tests
+
+[.lead]
+`test161` is designed to allow you to test your kernel using both the tests
+we have provided and new tests that you may write for each assignment.
+
+Below we describe how to create and run your own `test161` scripts. But
+first, we describe the three key components of the `test161` configuration
+directory: tests, commands, and targets.
+
+=== Tests
+
+The main `test161` configuration object is a test, which are stored in files
+with a `.t` extension footnote:[In homage to the original `test161` tool that
+David wrote years ago that also used a `.t` extension.]. Here is an example
+from `test161/synch/sem1.t`:
+
+[source,role='noautohighlight']
+----
+---
+name: "Semaphore Test"
+description:
+  Tests core semaphore logic through cycling signaling.
+tags: [synch, semaphores]
+depends: [boot]
+sys161:
+  cpus: 32
+---
+sem1
+----
+
+==== Front matter
+
+The test consist of two parts. The header in between the first and second
+`---` is http://yaml.org[YAML] front matter that provides test metadata. Here
+it provides the name and a description of the test, includes the test in the
+`synch` and `semaphores` tags, indicates that the test depends on the `boot`
+test group, and configures `sys161` to run the test with 32 cores.
+
+We will eventually provide more detail about test configuration options on
+the https://github.com/ops-class/test161[GitHub page], but for now you can
+get a sense for the options by reading other test files and looking at the
+https://github.com/ops-class/test161#default-settings[`test161` defaults].
+About the only commonly useful option not used by `sem1.t` is a `ram` option
+for `sys161`.
+
+==== Test inputs
+
+After the front matter comes the test itself. `test161` tests can be
+considered series of inputs to the `sys161` simulator, plus a bit of
+https://github.com/ops-class/test161#testfile-syntactic-sugar[syntactic
+sugar]. For example, in this case note that we did not need to explicitly
+shut the kernel down: `sem1` expands automatically to `sem1; q`.
+
+This is particularly useful when running commands from the shell. `test161`
+provides a `$` prefix indicating that a command should be run from the shell,
+and knows how to start and exit the shell as appropriate. So this single
+command:
+
+[source,role='noautohighlight']
+----
+$ /bin/true
+----
+
+expands to:
+
+[source,role='noautohighlight']
+----
+s
+/bin/true
+exit
+q
+----
+
+==== Groups of tests
+
+`test161` allows you to group tests together using tags. For example, the
+`sem1.t` test above is part of both the `semaphores` group (by itself) and
+the `synch` group with a bunch of other tests, including `rwt{1-4}`,
+`cvt{1-5}`, etc. Tags can be used both as arguments to `test161 run`:
+
+[source,bash]
+----
+test161 run synch
+----
+
+and as dependencies to other tests. As shown above, the `sem1.t` test depends
+on the `boot` group which currently consists only of `test161/boot.t`. Here
+is another example from `cvt1.t`:
+
+[source,role='noautohighlight']
+----
+---
+name: "CV Test 1"
+description:
+  Tests core CV functionality through cyclic waiting.
+tags: [synch, cvs]
+depends: [boot, semaphores, locks]
+sys161:
+  cpus: 32
+---
+cvt1
+----
+
+Note that `cvt1.t` depends on `boot`, `locks` (since CVs require working
+locks), and `semaphores` (since the test uses semaphores to shut down
+cleanly).
+
+=== Identifying single tests
+
+Single tests can also be passed to `test161 run` or used as dependencies.
+Single tests are identified by the relative path to the test file from the
+`test161` configuration directory. For example, to run `boot.t` you would run
+`test161 run boot.t`, and to run the `sem1.t` located in
+`test161/synch/sem1.t` you would run `test161 run synch/sem1.t`.
+
+Dependencies use the same syntax, _regardless of where the file that is
+expressing the dependency is located_. For example, in `synch/cvt2.1.` we
+could use `depends: [boot.t]`, or `depends: [synch/lt1.t]`.
+
+=== Commands
+
+`test161` tests consist of a series of _commands_ that are actually executed
+by the running OS/161 kernel or shell. To process the output of a test,
+`test161` needs to know what it should expect each test to do and what
+constitutes success and failure. For example, some of our stability tests
+intentionally create a panic, and in other cases tests may intentionally
+hang: like `/testbin/forkbomb` for link:/asst/2/[ASST2].
+
+`test161` reads this information from all files with `.tc` extensions in the
+`commands` subdirectory. Files in that directory are again in
+http://yaml.org[YAML] syntax and can be processed in any order. Here is a
+snippet from `commands/
+
+[source,role='noautohighlight']
+----
+templates:
+  - name: sem1
+  - name: lt1
+	...
+  - name: lt2
+    panics: yes
+    output:
+      - text: "lt2: Should panic..."
+----
+
+Each commands file should define a single `templates` object consisting of an
+array of output templates. Each names a single command, such as `sem1`, and
+describes the output. By default, for tests that are only listed in a `.tc`
+file `test161` will expect that output `<command name>: SUCCESS` indicates
+success and the absence of this string indicates failure. Note that commands
+must be named in a command file for this default to apply. Some commands,
+like `q` and `exit`, do not succeed or fail--as long as they do not panic,
+which `test161` monitors separately. So they are omitted from the `.tc` file.
+
+// TODO: Beef up once we have ASST2 stuff.
+
+The commands file can also indicate more about the expected output. For
+example, the entry above for `lt2` indicates that it should panic on success
+and print `lt2: Should panic` before panicking.
+
+=== Targets
+
+Tests and commands allow `test161` to run test scripts to evaluate your
+OS/161 kernel. However, grading assignments requires one additional
+components: _targets_.
+
+Target files have a `.tt` extension and live in the `targets` subdirectory.
+Each target configures a set of tests to run and their point values as well
+as the kernel configuration and overlay used to build your kernel for that
+specific target. Here is an example again drawn from link:/asst/1/[ASST1]:
+
+[source,role='noautohighlight']
+----
+name: asst1
+version: 1
+points: 50
+type: asst
+kconfig: ASST1
+tests:
+  - id: synch/lt1.t
+    points: 8
+  - id: synch/lt2.t
+    points: 1
+  - id: synch/lt3.t
+    points: 1
+...
+----
+
+// TODO: Beef up performance targets once we have some.
+
+Format is again, http://yaml.org[YAML]. This target tells `test161` to use
+the `ASST1` kernel configuration file, that there should be 50 total points
+included in all of the tests, and that this is a assignment-type
+configuration. We will also eventually distribute performance targets
+allowing you to race your OS/161 kernel against other students.
+
+// TODO: Partial credit.
+
+After the configuration each target includes a lists of tests to run,
+identified using the single-test format described above. It also maps test
+success output to points, and includes flexible ways to give partial credit
+for tests and commands that support partial credit.

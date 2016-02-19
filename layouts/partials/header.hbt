@@ -100,10 +100,12 @@
 											<li><a href="/asst/test161/">test161</a></li>
 										</ul>
 									</li>
-									<li><a id="menu-discuss"
+									<li><a id="menu-discuss" class="noexternal"
 											title="Discourse-based course discussion forum."
-											target="_blank"
 											href="https://discourse.ops-class.org">discuss</a></li>
+									<li><a id="menu-test161" class="noexternal"
+											title="test161 online testing tool."
+											href="https://test161.ops-class.org">test</a></li>
 								</ul>
 							</div>
 						</div>

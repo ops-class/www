@@ -46,6 +46,7 @@
 	"lifecycle": true,
   "Linux": true,
 	"/Makefile?s/": true,
+	"metadata": true,
   "Metalsmith": true,
 	"/multi/i": true,
 	"/multikernels?/i": true,
