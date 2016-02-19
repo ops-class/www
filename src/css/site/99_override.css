@@ -8,7 +8,7 @@ body {
 	font-size: 1.2em;
 }
 code, kbd, pre, samp {
-	font-family: Consolas, "Courier New", monospace;
+	font-family: Consolas, monospace;
 }
 code {
 	padding: inherit;
@@ -201,7 +201,7 @@ div.showonclick-button {
 	align-items:center;
 }
 pre.highlight {
-	font-size: 10px;
+	font-size: 8px;
 }
 @media (min-width:768px) {
 	.row-sm-flex-center {
@@ -209,7 +209,7 @@ pre.highlight {
 		align-items:center;
 	}
 	pre.highlight {
-		font-size: 12px;
+		font-size: 10px;
 	}
 }
 @media (max-width: 767px) {
@@ -224,13 +224,16 @@ pre.highlight {
 		align-items:center;
 	}
 	pre.highlight {
-		font-size: 14px;
+		font-size: 12px;
 	}
 }
 @media (min-width: 1200px) {
 	.row-lg-flex-center {
 		display:flex;
 		align-items:center;
+	}
+	pre.highlight {
+		font-size: 14px;
 	}
 }
 .navbar-toggle {
