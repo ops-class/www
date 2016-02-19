@@ -5,18 +5,22 @@ author: Geoffrey Challen
 description: >
   The how and why of context switching.
 song:
-  name: "Doing The Right Thing"
-  author: Daughter
-  youtube: RA-qTSLjXEU
+  name: "Faithfully"
+  author: Journey
+  youtube: OMD8hBsA-RI
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/038.jpg[title="Frances Allen",width="100%",link="https://en.wikipedia.org/wiki/Frances_E._Allen"]
 
-[.center]
-icon:music[] http://ohdaughter.com[{song}]
+[.h4.center]
+icon:music[] http://bikinikill.com/["Rebel Girl" by Bikini Kill]
 
+[.h4.center]
+icon:music[] http://www.journeymusic.com[{song}]
+
+video::DzMGqVh8G20[youtube,width=0,height=0]
 video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
@@ -28,8 +32,19 @@ video::{music}[youtube,width=0,height=0]
 [.nooutline]
 == $ cat announce.txt
 
-* *link:/asst/1/[ASST1] is due today at 5PM.*
-* We have office hours all day long...
+[.slider]
+* link:/asst/1/[ASST1] is due *Monday 2/22 @ 5PM*.
+
+* We have office hours all afternoon and Monday afternoon.
+
+* `test161 submit` should be available soon. (We hit a minor snag regarding
+key management.)
+
+* We will have video lectures
+https://www.youtube.com/watch?v=vpypMh0ZLAM[Monday] and
+https://www.youtube.com/watch?v=fnwcLKcbZxI[Wednesday] next week. These
+lectures will also be posted to the
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[class YouTube playlist].
 
 [.nooutline]
 == Review: Interrupt Handling
@@ -316,6 +331,8 @@ user/kernel boundary) and perform a system call.
 
 [.nooutline]
 == Next Time
+
+https://www.youtube.com/watch?v=vpypMh0ZLAM[Video lecture!]
 
 * Thread states and state transitions.
 * Threading implementations: user v. kernel.
