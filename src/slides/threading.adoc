@@ -12,7 +12,7 @@ video: vpypMh0ZLAM
 
 * Threads.
 * Threading implementations: user v. kernel.
-* Thead states.
+* Thread states.
 
 [.nooutline]
 == Review: Thread Transitions
@@ -163,7 +163,7 @@ system resources.
 * Another approach is known as
 http://www.gnu-darwin.org/www001/src/ports/devel/ocaml-equeue/work/equeue-2.1.4/doc/users-guide/html/c494.html[event-driven
 programming].
-* Anyone who has done Javascript development or used frameworks like
+* Anyone who has done JavaScript development or used frameworks like
 http://nodejs.org/[node.js] has grown familiar with this programming model.
 
 [.slider]
@@ -187,7 +187,7 @@ unique part of the page.
 
 [.slider]
 .Scientific applications:
-** Divide-and-conquer "embarrassingly parallelizable" datasets.
+** Divide-and-conquer "embarrassingly parallelizable" data sets.
 
 == Why Not Processes?
 
@@ -202,7 +202,7 @@ from each other.
 [.small]
 --
 [.slider]
-.Threads can be implemented in userspace by unprivileged libraries.
+.Threads can be implemented in user space by unprivileged libraries.
 * This is the M:1 threading model, M user threads that look like 1
 thread to the operating system kernel.
 
@@ -226,7 +226,7 @@ image:figures/threads/threadmodel-M1.svg[width="40%", role='expand']
 image:figures/threads/threadmodel-11.svg[width="40%", role='expand']
 --
 
-== Implementing Threads in Userspace
+== Implementing Threads in User Space
 
 [.slider]
 .How is this possible?
@@ -238,7 +238,7 @@ required!
 * *Save and restore context?* [.slide]#This is just saving and restoring
 registers. The C library has an implementation called ``setjmp()``/``longjmp()``.#
 * *Preempt other threads?* [.slide]#Use periodic signals delivered by the
-operating system to activate a userspace thread scheduler.#
+operating system to activate a user space thread scheduler.#
 
 == Aside: ``setjmp()``/``longjmp()`` Wizardry
 
@@ -296,6 +296,7 @@ Value of i is now 9
 * Use these tricks to impress your (new) friends!
 * (Or get rid of old ones...)
 
+[.spelling_exception]
 == !
 
 [.background]
@@ -309,7 +310,7 @@ Forgot the setjmp
 
 == [.small]#Comparing Threading Implementations#
 
-*M:1 (userspace) threading*
+*M:1 (user space) threading*
 
 [.slider]
 .Pros:
@@ -341,7 +342,7 @@ the process.
 [.nooutline]
 == Next: Thread Scheduling
 
-* We have discussed the mechanisms (context switching) used the multilplex
+* We have discussed the mechanisms (context switching) used the multiplex
 the CPU...
 * and the abstraction (threads).
 * We will start talking about scheduling next week: the *policies* the ensure

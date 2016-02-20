@@ -6,6 +6,8 @@ description: >
   Completion of a discussion of thread states followed by a motivation of the
   what, when and how of thread scheduling.
 video: fnwcLKcbZxI
+spelling_exceptions:
+  - laggy
 ---
 [.nooutline]
 == Today
@@ -229,7 +231,7 @@ predictable:
 [.slider]
 * *Responsiveness* → unpredictable deadlines. "When the user moves the
 mouse I need to be ready to redraw the cursor."
-* *Continuity* → predictable deadlines. "Every 5ms I need to write more
+* *Continuity* → predictable deadlines. "Every 5 ms I need to write more
 data to the sound card buffer."
 
 [.slide]
@@ -281,7 +283,7 @@ systems. This is mainly because systems that don't meet deadlines are
 
 [.slider]
 .There are other classes of systems where the failure to meet deadlines can be *fatal*.
-* "I meant to get around to running the motion_stop task 1s ago, but I
+* "I meant to get around to running the motion_stop task 1 s ago, but I
 didn't quite make it. And...[.slied]#the robot rolled off of the cliff.#
 
 == Scheduling Principles: Questions?
