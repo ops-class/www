@@ -373,7 +373,7 @@ messages are disabled. This is because remote automated testing is not
 intended to produce diagnostic output. Iterative `test161` testing should be
 done locally. If you are missing tests required to evaluate your kernel, that
 is because writing them is part of the assignment. So do that, rather than
-bang on the `test161` backend.
+bang on the `test161` server.
 
 === Preparing for Submission
 
@@ -403,7 +403,7 @@ Git repository. GitHub allows you to set up
 https://developer.github.com/guides/managing-deploy-keys/[read-only deploy
 keys], as does http://doc.gitlab.com/ce/ssh/README.html[GitLab]. *You should
 not add this key to your Git user account or give it push access to your
-OS/161 or any other repository.* If you are hosting your Git respository
+OS/161 or any other repository.* If you are hosting your Git repository
 somewhere that does not support deployment keys, we would suggest finding an
 alternative that does.
 

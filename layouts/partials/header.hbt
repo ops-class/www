@@ -33,7 +33,7 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	
-		<script src="/js/site.js" async=""></script>
+		<script src="/js/site.js" async></script>
 	</head>
 
 	<body data-spy="scroll" data-target="#scrollspy">
