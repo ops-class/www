@@ -2,7 +2,7 @@
 title: "Threads and Thread Implementations"
 date: 2016-02-22
 author: Geoffrey Challen
-description: 
+description:
   Introduction to the thread abstraction and discussion of different
   threading implementations.
 video: vpypMh0ZLAM
