@@ -318,14 +318,6 @@ stack.
 * Exception return reloads the saved register state and then calls the
 MIPS instructions `rfe`, or return from exception.
 
-== Context Switch Overhead
-
-[.slider]
-* Context switches are *not free*, require executing many instructions
-and saving fair amount of state.
-* Context switching creates the *cost* to enter the kernel (or cross the
-user/kernel boundary) and perform a system call.
-
 [.nooutline]
 == Questions?
 

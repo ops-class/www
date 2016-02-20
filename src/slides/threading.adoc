@@ -1,0 +1,348 @@
+---
+title: "Threads and Thread Implementations"
+date: 2016-02-22
+author: Geoffrey Challen
+description: 
+  Introduction to the thread abstraction and discussion of different
+  threading implementations.
+video: vpypMh0ZLAM
+---
+[.nooutline]
+== Today
+
+* Threads.
+* Threading implementations: user v. kernel.
+* Thead states.
+
+[.nooutline]
+== Review: Thread Transitions
+
+A transition between two threads is called a [.slide]#*context switch*#.
+
+[.nooutline]
+== Review: CPU Limitations
+
+[.slider]
+.What are problems with the CPU that the operating system tries to correct?
+* There is only one, and
+* it is way faster than other parts of the system.
+
+[.nooutline]
+== Review: Batch Scheduling
+
+[.slider]
+.What is batch scheduling?
+* Running jobs sequentially until completion.
+
+[.slider]
+.What is the problem with batch scheduling?
+* Slow devices can idle the CPU.
+
+[.nooutline]
+== [.small]#Review: The Illusion of Concurrency#
+
+[.slider]
+.How does the operating system create the illusion of concurrency?
+* By *rapidly switching* the CPU between multiple running tasks.
+
+[.nooutline]
+== Review: Seize the Day
+
+[.slider]
+.How does the operating system ensure that it retains control over what threads are using the CPU?
+* By using a *periodic timer* to generate hardware interrupts.
+
+[.nooutline]
+== [.small]#Review: The Illusion of Concurrency#
+
+[.slider]
+* Timer interrupts mean that a running thread may be stopped *at any time.*
+* When the thread restarts we want it to _appear_ that nothing has happened.
+
+[.nooutline]
+== Review: Saving Thread State
+
+[.slider]
+.What does thread state consist of?
+* *Registers*
+* *Stack*
+
+[.nooutline]
+== Review: Context Switch Overhead
+
+[.slider]
+* Context switches are *not free*, require executing many instructions
+and saving fair amount of state.
+* Context switching creates the *cost* to enter the kernel.
+
+[.slider]
+.How does this affect the rate at which the hardware timer fires to allow the kernel to (potentially) switch between threads?
+* Can't go *too fast* otherwise overhead starts to dominate!
+
+[.nooutline]
+== Questions: CPU Limitations, Concurrency, Context Switching?
+
+== Threads
+
+[.slider]
+.So what is a thread?
+* Registers
+* Stack
+
+[.slider]
+.How are each of the following shared between threads or processes?
+* Registers
+* Stack
+* Memory
+* File descriptor table.
+
+== Threads
+
+[.slide.replace]
+--
+image::figures/threads/process-0.svg[width="70%", role='expand']
+--
+
+[.slide.replace]
+--
+image::figures/threads/process-1.svg[width="70%", role='expand']
+--
+
+[.slide.replace]
+--
+image::figures/threads/process-2.svg[width="70%", role='expand']
+--
+
+[.slide.replace]
+--
+image::figures/threads/process-3.svg[width="70%", role='expand']
+--
+
+[.slide.replace]
+--
+image::figures/threads/process-4.svg[width="70%", role='expand']
+--
+
+== Why Use Threads?
+
+[.slider]
+. Threads can be a good way of thinking about applications that do multiple things "simultaneously."
+. Threads may naturally encapsulate some data about a certain thing that the application is doing.
+. Threads may help applications hide or parallelize delays caused by slow devices.
+
+[.small]
+== Threads v. Processes Part II
+
+Good example from Wikipedia: multiple threads within a single process
+are like multiple cooks trying to prepare the same meal together.
+
+image::figures/threads/kitchen.svg[width="40%"]
+
+[.slider]
+* Each one is doing one thing.
+* They are probably doing different things.
+* They all share the same recipe but may be looking at different parts
+of it.
+* They have private state but can communicate easily.
+* They must coordinate!
+
+[canvas-image="http://toco.distractify.com/postimage/201409/31/3e9955e09b6dd1e8dfd358bc9aec4fab_650x.jpg"]
+== Meme
+[.meme-top]
+The OS corrupted
+
+[.meme-bottom]
+The cake
+
+== Aside: Threads v. Events
+
+[.slider]
+* While threads are a reasonable way of thinking about concurrent programming,
+they are not the only way--or even always the _best_ way--to make use of
+system resources.
+* Another approach is known as
+http://www.gnu-darwin.org/www001/src/ports/devel/ocaml-equeue/work/equeue-2.1.4/doc/users-guide/html/c494.html[event-driven
+programming].
+* Anyone who has done Javascript development or used frameworks like
+http://nodejs.org/[node.js] has grown familiar with this programming model.
+
+[.slider]
+.Events v. threads (over)simplified:
+* Threads *can block*, so we make use of the CPU by switching between
+threads!
+* Event handlers *cannot block*, so we can make use of the CPU by simply
+running events until completion.
+
+== [.small]#Naturally Multithreaded Applications#
+
+[.slider]
+.Web server:
+* Use a separate thread to handle each incoming request.
+
+[.slider]
+.Web browser:
+* Separate threads for each open tab.
+* When loading a page, separate threads to request and receive each
+unique part of the page.
+
+[.slider]
+.Scientific applications:
+** Divide-and-conquer "embarrassingly parallelizable" datasets.
+
+== Why Not Processes?
+
+[.slider]
+* IPC is more difficult because the kernel tries to protect processes
+from each other.
+** Inside a single process, anything goes!
+* State (what?) associated with processes doesn't scale well.
+
+== Implementing Threads
+
+[.small]
+--
+[.slider]
+.Threads can be implemented in userspace by unprivileged libraries.
+* This is the M:1 threading model, M user threads that look like 1
+thread to the operating system kernel.
+
+[.slider]
+.Threads can be implemented by the kernel directly.
+* This is the 1:1 threading model.
+--
+
+[.slide.replace]
+--
+image:figures/threads/threadmodel-base.svg[width="40%", role='expand']
+--
+
+[.slide.replace]
+--
+image:figures/threads/threadmodel-M1.svg[width="40%", role='expand']
+--
+
+[.slide.replace]
+--
+image:figures/threads/threadmodel-11.svg[width="40%", role='expand']
+--
+
+== Implementing Threads in Userspace
+
+[.slider]
+.How is this possible?
+* Doesn't involve multiplexing between processes so no kernel privilege
+required!
+
+[.slider]
+.How do I:
+* *Save and restore context?* [.slide]#This is just saving and restoring
+registers. The C library has an implementation called ``setjmp()``/``longjmp()``.#
+* *Preempt other threads?* [.slide]#Use periodic signals delivered by the
+operating system to activate a userspace thread scheduler.#
+
+== Aside: ``setjmp()``/``longjmp()`` Wizardry
+
+What will the following code do?
+
+[cols="2*"]
+|===
+
+a|
+[source,c,role='smallest']
+----
+int main(int argc, void * argv) {
+  int i, restored = 0;
+  jump_buf saved;
+  for (i = 0; i < 10; i++) {
+    printf("Value of i is now %d\n", i);
+    if (i == 5) {
+      printf("OK, saving state...\n");
+      if (setjmp(saved) == 0) {
+        printf("Saved CPU state.\n");
+        break;
+      } else {
+        printf("Restored CPU state.\n");
+        restored = 1;
+      }
+    }
+  }
+  if (!restored) {
+    longjmp(saved, 1);
+  }
+}
+----
+
+a|
+[source,bash,role='smallest slide']
+----
+Value of i is now 0
+Value of i is now 1
+Value of i is now 2
+Value of i is now 3
+Value of i is now 4
+Value of i is now 5
+OK, saving state...
+Saved CPU state.
+Restored CPU state.
+Value of i is now 6
+Value of i is now 7
+Value of i is now 8
+Value of i is now 9
+----
+
+|===
+
+[.smaller.slider]
+* Use these tricks to impress your (new) friends!
+* (Or get rid of old ones...)
+
+== !
+
+[.background]
+image:http://i2.kym-cdn.com/entries/icons/original/000/011/057/unimpressed.PNG
+
+[.meme-top]
+Nailed the longjmp
+
+[.meme-bottom.slide]
+Forgot the setjmp
+
+== [.small]#Comparing Threading Implementations#
+
+*M:1 (userspace) threading*
+
+[.slider]
+.Pros:
+* Threading operations are much faster because they do not have to
+cross the user/kernel boundary.
+* Thread state can be smaller.
+
+[.slider]
+.Cons:
+* Can't use multiple cores!
+* Operating system may not schedule the application correctly because
+it doesn't know about the fact that it contains more than one thread.
+* A single thread may block the entire process in the kernel when there
+are other threads that could run.
+
+== [.small]#Comparing Threading Implementations#
+
+*1:1 (kernel) threading*
+
+[.slider]
+.Pros:
+* Scheduling might improve because kernel can schedule all threads in
+the process.
+
+[.slider]
+.Cons:
+* Context switch overhead for all threading operations.
+
+[.nooutline]
+== Next: Thread Scheduling
+
+* We have discussed the mechanisms (context switching) used the multilplex
+the CPU...
+* and the abstraction (threads).
+* We will start talking about scheduling next week: the *policies* the ensure
+that the multiplexing makes the best use of the available system resources.
