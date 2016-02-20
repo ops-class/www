@@ -8,6 +8,7 @@ song:
   name: "Faithfully"
   author: Journey
   youtube: OMD8hBsA-RI
+video: obYdW9w0lPg
 ---
 [.nooutline.spelling_exception]
 == Technical Women

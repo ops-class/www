@@ -110,10 +110,19 @@ $ test161
 
 === Configuration
 
-`test161` requires a configuration file to operate. If you run `test161 run`
-it will get you started with some example values. You can create your
+`test161` requires a configuration file to operate. You can create your
 `.test161.conf` file either in your home directory--which is probably best
 for most users--or in your OS/161 root directory where you run `test161`.
+
+If you run `test161 run` without a configuration file an example will be
+displayed on screen. You can redirect this output to `.test161.conf` and edit
+it appropriately:
+
+[source,bash]
+----
+test161 run > ~/.test161.conf
+vim ~/.test161.conf
+----
 
 For local testing your configuration file only needs to tell `test161` where
 to find your OS/161 root directory and where to find the `test161`
