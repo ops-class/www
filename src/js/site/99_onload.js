@@ -1,5 +1,5 @@
-$(function() {
-	$('body').scrollspy({ target: '#scrollspy' })
+function processPage() {
+	$('body').scrollspy({ target: '#scrollspy' });
 
 	// Turn on popovers and toggle on interior clicks.
 	$('[data-toggle="popover"]').popover();
@@ -71,3 +71,4 @@ $(function() {
 			});
 	});
 });
+$(processPage);
