@@ -1,11 +1,4 @@
 $(function() {
-	// Generate Google Analytics events for PDFs.
-	$("#content a[href$='.pdf']")
-		.attr("target","_blank")
-		.click(function() {
-			ga('send', 'pageview', $(this).attr('href'));
-		});
-
 	// Turn on popovers and toggle on interior clicks.
 	$('[data-toggle="popover"]').popover();
 	$('body').on('click', function (e) {
@@ -16,7 +9,6 @@ $(function() {
 		});
 	});
 
-	
 	// Autoplay doesn't work on mobile devices, so convert youtube-containers
 	// to lazy-iframes.
 	if ($.browser.mobile) {
@@ -62,5 +54,18 @@ $(function() {
 				this.destroy();
 			}
 		});
+	});
+
+	// Load Google Analytics
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-71773451-1']);
+	_gaq.push(['_trackPageview']);
+
+	$.getScript("/js/common/ga.js", function () {
+		$("#content a[href$='.pdf']")
+			.attr("target","_blank")
+			.click(function() {
+				ga('send', 'pageview', $(this).attr('href'));
+			});
 	});
 });

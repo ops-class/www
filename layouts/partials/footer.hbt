@@ -16,25 +16,5 @@
   </div>
 </div>
 
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-71773451-1']);
-_gaq.push(['_trackPageview']);
-
-var cb = function() {
-	['/js/common/ga.js'].forEach(function (src) {
-  	var s = document.createElement("script");
-  	s.src = src;
-		document.body.appendChild(s);
-	});
-};
-var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
-if (raf) {
-  raf(cb);
-} else {
-  window.addEventListener('load', cb);
-}
-</script>
-
 </body>
 </html>
