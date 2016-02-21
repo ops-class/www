@@ -1,4 +1,6 @@
 $(function() {
+	$('body').scrollspy({ target: '#scrollspy' })
+
 	// Turn on popovers and toggle on interior clicks.
 	$('[data-toggle="popover"]').popover();
 	$('body').on('click', function (e) {
