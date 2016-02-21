@@ -1,4 +1,9 @@
 function processPage() {
+	if ($('div#content').length == 0 || $('div#content').hasClass('processed')) {
+		return;
+	}
+	$('div#content').addClass('processed');
+
 	$('body').scrollspy({ target: '#scrollspy' });
 
 	// Turn on popovers and toggle on interior clicks.
