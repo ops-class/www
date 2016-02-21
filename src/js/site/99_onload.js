@@ -70,5 +70,5 @@ function processPage() {
 				ga('send', 'pageview', $(this).attr('href'));
 			});
 	});
-});
+}
 $(processPage);
