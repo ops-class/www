@@ -448,6 +448,159 @@ regenerate a new public key or private token. This is particularly important
 if you end a partnership to ensure that your partner can no longer submit on
 your behalf.
 
+=== Submitting Your Assignment
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="5i1_C-w46HA"></div>
+</div>
+++++
+
+If you have followed the instructions above then you are ready to submit your
+assignment. But before you do, *please test locally using `test161 run`*. Our
+server is not intended to be part of your testing and development
+process--that's why we provided a local client and grading approximations.
+
+That said, _please submit early and often_ once you have code that you are
+somewhat happy with. It is better to submit a few hours beforehand and lock
+in partial credit than wait until the minutes before the deadline when you
+might not receive any points.
+
+Once you are happy with the score that you earned using `test161 run`, there
+are a few other things you need to do before submitting. First, make sure
+that all of your changes are checked in and that the tip of the branch that
+you are working on has the changes that you want to submit. Second, make sure
+that the changes are pushed to the remote repository you configured in your
+`.test161.conf` file.
+
+The best way to check for this is to run `git status`. This is bad output,
+and indicates that you need to commit your changes:
+[source,bash]
+----
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+...
+----
+
+This is also bad output and indicates that you need to push your changes to
+your remote:
+[source,bash]
+----
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+----
+
+This is what you want to see:
+[source,bash]
+----
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+----
+
+The next thing to ensure is that you've earned some points on the assignment.
+`test161` will not allow you to submit code that earns a zero. Use `test161
+run` to determine this.
+
+At that point you should be ready to submit. You need to run the `test161
+submit <target>` command from your Git source directory. When you do, the
+following steps will take place locally:
+
+. `test161` will clone a copy of the Git repository in your `.test161.conf`
+file into a temporary directory and check out the commit that you are
+submitting. This can fail if you have not pushed your changes.
+
+. `test161` will then configure and build your kernel. This can fail or
+produce incorrect results if you have uncommitted changes in your working
+tree.
+
+. `test161` will then run and the kernel that it built by running `test161
+run <target>`. If you have not earned any points you will not be able to
+submit. If you have earned some points, `test161` will ask you to confirm
+your submission and agree to the course collaboration policy before
+submitting. This is mandatory.
+
+At that point the action moves to the
+https://test161.ops-class.org[`test161.ops-class.org`] server. You can watch
+the live testing process if you are logged in and have all or that submission
+target selected. The server-side testing process is fundamentally no
+different than the local testing process, with a few caveats described below.
+Hopefully, when testing completes you have earned the score that you were
+expecting.
+
+Note that testing and grading may not happen immediately. If the `test161`
+server receives many requests the process will slow down and future
+submissions will be delayed. *Keep this in mind when submitting close to the
+deadline!* Your submission will be timestamped when the request arrives on
+our server, but you may not be able to see the testing results until after
+the deadline has passed.
+
+Congrats! You submitted your assignment.
+
+==== Troubleshooting
+
+Here is a list of things to try if your submission is not succeeding, either
+locally or remotely:
+
+. Try updating your copy of `test161` by running `go get -u
+github.com/ops-class/test161/test161`. This is always safe to do.
+
+. Make sure that all of your changes are checked in and pushed to your
+remote repository.
+
+. If you have configured a remote in your `.test161.conf` file, make sure it
+matches the one that you are pushing and pulling from.
+
+. Make sure that the https://test161.ops-class.org[`test161.ops-class.org`]
+server can use the public key that you have configured through the web
+interface to pull from the repository that you are submitting.
+
+Here is a list of things to try if you are not getting as much credit as you
+deserve:
+
+. If the assignment required you to write certain tests, make sure that they
+are complete and accurate.
+
+. Make sure that `test161 run` is testing the same kernel that you are
+submitting! This can happen if the root directory configured in your
+`.test161.conf` file is different from where you are installing your kernels
+and, as a result, hosts a stale kernel file. Check the file timestamps after
+a `bmake install`.
+
+. Examine the server logs to determine what went wrong and use that to focus
+your local testing.
+
+=== Differences Between the Local and Remote Testing Environments
+
+One of the design goals of `test161` is to make local evaluation as accurate
+as possible. However, there are some differences between your local test
+environment and the remote one.
+
+Specifically, before performing remote testing `test161` applies an _overlay_
+to your kernel which removes some files and replaces the contents of others.
+For example, we overwrite all of your ``Makefiles``s and anything else that
+we have to interpret or run to make sure that you don't try to damage our
+server. We also overwrite all of the tests in `kern/test` with trusted code
+to ensure that your kernel is running our tests and that you didn't rewire
+the menu to try and trick the testing suite footnote:[We have a few other
+tricks up our sleeve here, so I wouldn't bother trying to flummox the remote
+grader. Doing the assignment is probably easier.].
+
+=== Cheating Detection
+
+Finally, note that each repository submitted to the
+https://test161.ops-class.org[`test161.ops-class.org`] server will be checked
+in its entirely for plagiarism: *every file, and every commit*, not limited
+to submissions. Any evidence of plagiarism will be forwarded to the relevant
+course staff and plagiarized assignments will be removed from the `test161`
+results.
+
 == Writing `test161` Tests
 
 [.lead]
