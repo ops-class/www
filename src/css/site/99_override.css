@@ -241,3 +241,30 @@ pre.highlight {
 	margin-left: 15px;
 	margin-right: inherit;
 }
+@media print {
+	a[href]:after {
+		content: none;
+	}
+	body {
+		font-size: 14px;
+		padding-top: 0px;
+	}
+	h1, .h1 {
+		font-size: 30px;
+	}
+	h2, .h2 {
+		font-size: 24px;
+	}
+	h3, .h3 {
+		font-size: 20px;
+	}
+	h4, .h4 {
+		font-size: 16px;
+	}
+	h5, .h5 {
+		font-size: 14px;
+	}
+	h6, .h6 {
+		font-size: 12px;
+	}
+}

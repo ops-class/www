@@ -26,19 +26,19 @@ performance and introduce the idea of hardware virtualization. Programming
 assignments provide hands-on experience with implementing core operating
 system components in a realistic development environment.
 
+[[calendar]]
 == Calendar
 
-We suggest that you add our
-https://calendar.google.com/calendar/embed?src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&ctz=America/New_York[shared
-calendar] to your calendaring program. If you are not using a calendaring
-program, we suggest that you start using a calendaring program.
+We suggest that you add our https://goo.gl/9KR1PT[shared calendar] to your
+calendaring program. If you are not using a calendaring program, we suggest
+that you start using a calendaring program.
 
 ++++
 <div class="hidden-xs hidden-sm embed-responsive embed-responsive-4by3">
-  <div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
+	<div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
 </div>
 <div class="hidden-md hidden-lg embed-responsive embed-responsive-4by3">
-  <div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=AGENDA&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
+	<div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=AGENDA&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
 </div>
 ++++
 
@@ -69,10 +69,8 @@ hold office hours but do not do any grading.
 
 === Times and Locations
 
-The
-https://calendar.google.com/calendar/embed?src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&ctz=America/New_York[online
-calendar] contains up-to-date information about all course meetings and
-activities. Please check it regularly--changes do happen.
+The <<calendar,online calendar>> contains up-to-date information about all
+course meetings and activities. Please check it regularly--changes do happen.
 
 . *Lecture*: MWF 2:00--2:50PM, Knox 104.
 
@@ -92,15 +90,12 @@ the course staff. Don't wait until you have a problem to come!
 An ungraded pre-term exam will be given in class on Wednesday 1/27/2016. The
 50-minute midterm will be given in class Wednesday 3/23/2016. A 3-hour final
 exam will be Monday 5/9/2016 from 3:30--6:30PM in Knox 104. All dates are on
-the
-https://calendar.google.com/calendar/embed?src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&ctz=America/New_York[calendar].
-*Please contact the course staff as soon as possible if you cannot attend a
-scheduled exam for any reason.*
+the <<calendar>>. *Please contact the course staff as soon as possible if you
+cannot attend a scheduled exam for any reason.*
 
 === Other Important Dates
 
-(Also on the
-https://calendar.google.com/calendar/embed?src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&ctz=America/New_York[calendar].)
+(Also on the <<calendar>>.)
 
 * *Last Day to Drop Add*: 2/1/2016
 * *Last Day to Resign*: 4/15/2016
@@ -520,6 +515,7 @@ Please register and coordinate with the Office of Disability Services. Let
 the course staff know when accommodations need to be made. We are committed
 to helping you learn.
 
+[.hidden-print]
 == Videos
 
 === Lectures
