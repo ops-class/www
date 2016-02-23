@@ -9,7 +9,10 @@ spelling_exceptions:
 ---
 :sectnums:
 
+[.hidden-print]
+--
 This web page serves as the syllabus for the course.
+--
 
 == Description
 
