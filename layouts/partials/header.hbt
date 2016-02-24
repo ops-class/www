@@ -97,10 +97,10 @@
 											<li><a href="/asst/1/">ASST1</a></li>
 											<li><a href="/asst/2/">ASST2</a></li>
 											<li role="separator" class="divider"></li>
-											<li><a href="/asst/test161/">test161</a></li>
+											<li><a class="noexternal" href="https://test161.ops-class.org/test161">test161</a></li>
 										</ul>
 									</li>
-									<li><a id="menu-discuss" class="noexternal"
+									<li><a id="menu-discuss"
 											title="Discourse-based course discussion forum."
 											href="https://discourse.ops-class.org">discuss</a></li>
 									<li><a id="menu-test161" class="noexternal"
