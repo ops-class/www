@@ -18,12 +18,15 @@ you finish ASST2 you will have the ability to launch a simple shell and enter
 a somewhat-familiar UNIX environment. Indeed, future tests will be run as
 user processes, not from the kernel menu.
 
-In contrast to {asst1}, ASST2 requires a great deal more thought
-and planning. We are not giving you many examples. We have not designed your
-data structures for you. You will need to determine what needs to be
+In contrast to {asst1}, ASST2 requires a great deal more thought and
+planning. You will be writing a lot more code--while our {asst1} solution
+adds 624 non-commenting lines of C code footnote:[Many of which are for the
+synchronization problem solutions...], the {asst2} solutions adds an
+additional _2274_. We are not giving you many examples. We have not designed
+your data structures for you. You will need to determine what needs to be
 implemented, where to put the code required, how the data structures are
 designed and implemented, and how everything fits together. We just care that
-your system calls fulfill the interface specification.
+your system calls meet the interface specification.
 
 As a final piece of advice, ASST2 and {asst3} begin to produce code bases that
 are large, complex, and potentially _very_ difficult to debug. *You do not
@@ -581,7 +584,7 @@ execution to the user level.
 
 === Error Handling
 
-The man pages in the OS/161 distribution contain a description of the error
+The man pages in the {os161} distribution contain a description of the error
 return values that you must return. If there are conditions that can happen
 that are not listed in the man page, return the most appropriate error code
 from `kern/include/kern/errno.h`.  If none seem particularly appropriate,
@@ -618,4 +621,3 @@ objectives of {asst3}.
 Finally, In OS/161, there is also a process created for the kernel which tracks
 all the kernel threads that are created.  This process is created by calling
 `proc_bootstrap`. Try to track down when and where this happens.
-
