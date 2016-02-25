@@ -18,7 +18,7 @@ throughout the rest of the `ops-class.org` assignments.
 It is unlikely that you have used OS/161 before, but some of the
 other tools may be familiar to you:
 
-* http://os161.eecs.harvard.edu[*OS/161*]: OS/161 includes both
+* *{os161}*: OS/161 includes both
 . the sources of the the operating system you will be designing,
 implementing, running and debugging, and
 . a toolchain for cross compiling and running your kernel, including a
@@ -149,9 +149,8 @@ through your options carefully before making a decision.
 
 If you have a computer running Ubuntu Linux, we have packaged the OS/161
 toolchain for the last two Ubuntu [.spelling_exception]#LTS# releases (12.04
-Precise and 14.04 Trusty) in a
-https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain/[Launchpad
-PPA]. Installation is simple:
+Precise and 14.04 Trusty) in a {ppa-link}[Launchpad PPA]. Installation is
+simple:
 
 [source,bash]
 ----
@@ -175,18 +174,17 @@ administration and, to some degree, about operating systems as well.
 
 If you'd prefer to develop on your own machine but don't run Ubuntu Linux, we
 have a Vagrant configuration allowing you to easily fire up a
-https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain/[VirtualBox]
-guest virtual machine on your Windows or Mac host footnote:[We'll talk a lot
-more about virtualization in class, but here's one example of how useful it
-can be.].
+https://www.virtualbox.org/[VirtualBox] guest virtual machine on your Windows
+or Mac host footnote:[We'll talk a lot more about virtualization in class,
+but here's one example of how useful it can be.].
 
 The first step is to install https://www.vagrantup.com/[Vagrant], which
-happily comes with installers for most common operating systems. Next you need
-to https://github.com/ops-class/vagrant[get our `Vagrantfile` ]which describes
-how to provision and configure your virtual machine. You'll need
+happily comes with installers for most common operating systems. Next you
+need to {github-link}vagrant[get our `Vagrantfile`] which describes how to
+provision and configure your virtual machine. You'll need
 https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git installed]
-to complete this next step.  Pick or create an empty directory to use for your
-OS/161 sources. Then clone our Vagrant repository into that directory.
+to complete this next step.  Pick or create an empty directory to use for
+your {os161} sources. Then clone our Vagrant repository into that directory.
 
 Once that's done, you should be able to run `vagrant up` from the directory
 containing our `Vagrantfile`. Note that `vagrant up` will take a few minutes
@@ -224,12 +222,12 @@ created previously. That's just how Vagrant works.
 
 ==== Notes for Windows users
 
-The README on our https://github.com/ops-class/vagrant[OS/161 Vagrant
-repository GitHub repository] describes some potential pitfalls for Windows
-users with the Vagrant installation and initial VM creation. However, another
-problem is known to exist where Windows hosts will not allow the guest to
-create symbolic links in shared folders. Because OS/161 generates symbolic
-links during `bmake depend` step, this problem will cause that step to fail.
+The README on our {github-link}vagrant[OS/161 Vagrant repository GitHub
+repository] describes some potential pitfalls for Windows users with the
+Vagrant installation and initial VM creation. However, another problem is
+known to exist where Windows hosts will not allow the guest to create
+symbolic links in shared folders. Because OS/161 generates symbolic links
+during `bmake depend` step, this problem will cause that step to fail.
 
 There are several workarounds. The first is to make sure that you run all of
 your `vagrant` commands as a Windows administrator, which will provide the
@@ -248,11 +246,11 @@ of source code editor.
 === Do-It-Yourself Installation on Other Flavors of UNIX
 
 We don't support this option, but if you'd like to try instructions are
-available at the http://os161.eecs.harvard.edu[OS/161 website]. You will need
-to download, configure, compile and install from the OS/161 toolchain
-sources. Linux and other UNIX variants are likely to work. Superheroes have
-gotten things to work on OSX. Please use the most recent version of the
-cross-compilation toolchain and System/161.
+available at the {os161-link}[OS/161 website]. You will need to download,
+configure, compile and install from the OS/161 toolchain sources. Linux and
+other UNIX variants are likely to work. Superheroes have gotten things to
+work on OSX. Please use the most recent version of the cross-compilation
+toolchain and System/161.
 
 === Other Virtualization Options
 
@@ -279,9 +277,10 @@ building and booting your first OS/161 kernel.
 
 === Download the OS/161 Source Code
 
-We distribute the OS/161 source code using Git. Starting with a clone of our
-repository makes it easy for us to distribute updates, bug fixes, and new
-OS/161 releases, which can be merged easily into your development repository.
+We distribute the {github-link}os161[{`ops-class.org` OS/161 source code] using
+Git. Starting with a clone of our repository makes it easy for us to
+distribute updates, bug fixes, and new OS/161 releases, which can be merged
+easily into your repository.
 
 First, choose a directory to work in:
 
@@ -295,15 +294,10 @@ directory wherever you want.
 
 Let's say you've chosen a directory called `src`, which should either not
 exist or (in the case of the Vagrant VM) be empty. Clone
-https://github.com/ops-class/os161[our `ops-class.org` Git repository.]
-into that directory. *Note that a simple `git clone` will not do the right
-thing.* Take a look at the man page for `git clone` or peruse the help output
-to make sure you get it right.
-
+{github-link}os161[our `ops-class.org` Git repository.] into that directory.
 Note that we refer to this directory as your _source directory_. In contrast,
 your _root directory_ is where your built kernel and other binaries are
-installed and where you run `sys161`. That's an important piece of
-terminology to get right.
+installed and where you run `sys161`.
 
 === Configure Your OS/161 Source Tree
 
@@ -333,8 +327,8 @@ four configurations that include `conf.kern`.
 
 You should take a look at `kern.conf` and one of the configurations to get a
 sense of the format. But for now, the only thing we're concerned about is
-ensuring that we enable `dumbvm` for `ASST0`. You're going to write a
-full-fledged virtual memory (VM) system in `ASST3`, but for the first few
+ensuring that we enable `dumbvm` for this assignment. You're going to write a
+full-fledged virtual memory (VM) system in {asst3}, but for the first few
 assignments `dumbvm` provides enough of a "dumb" VM to allow you to proceed.
 Configure a kernel now with `dumbvm` enabled.
 
@@ -398,9 +392,9 @@ Unlike OS/161, we _do not_ expect you to modify `sys161`. However, you do
 need to _configure_ the simulated machine that `sys161` provides by choosing
 the number of simulated CPU cores, the amount of simulated memory, and the
 number of simulated disk drives. link:/files/sys161.conf[Here is a
-`sys161.conf` file] that you can
-use to get started. But you should read and understand the structure of this
-configuration file so that you can modify it as needed in later assignments.
+`sys161.conf` file] that you can use to get started. You should read and
+understand the structure of this configuration file so that you can modify it
+as needed in later assignments.
 
 === Running Your First Kernel
 
@@ -466,7 +460,7 @@ entire previous OS/161 source tree.
 If you change into your root directory you should see only a few files,
 including your compiled kernel, a symbolic link pointing to that kernel, and
 the `sys161.conf` file that configures `sys161`. That's fine for now, and all
-your need until ASST2.
+your need until {asst2}.
 
 But your OS/161 kernel would not be very interesting or useful if it couldn't
 run user programs. So let's build those now. Head over to the base of your
@@ -480,7 +474,7 @@ Note that building the user space tools is _not_ part of the kernel
 development cycle. Unless you modify or add tests in the `userland`
 subdirectory of your source directory--which you are encouraged to do--you
 should not need to rebuild or reinstall these binaries. And until you begin
-ASST2 your kernel can't run user binaries anyway, so this part of the build
+{asst2} your kernel can't run user binaries anyway, so this part of the build
 process is completely useless. We only point this out because compiling and
 installing the user space tools takes enough time to be annoying, so don't
 let it slow you down unnecessarily. Focus your development loop on your
@@ -554,7 +548,7 @@ most of your time.
 * `man/`: the OS/161 man pages appear here.  The man pages
 document (or specify) every program, every function in the C library, and
 every system call. You will use the system call man pages for reference in
-the course of ASST2. The man pages are HTML and can be read with any browser.
+the course of {asst2}. The man pages are HTML and can be read with any browser.
 * `mk/`: fragments of `Makefiles` used to build the system.
 * `userland/`: user space libraries and program code.
 
@@ -669,18 +663,18 @@ synchronization primitives.
 ==== `kern/synchprobs/`
 
 This is the directory that contains the starter code that you will need to
-complete ASST1.
+complete {asst1}.
 
 ==== `kern/syscall/`
 
 This is where you will add code to create and manage user level processes. As
 it stands now, OS/161 runs only kernel threads--there is no support for user
 level code. (Try running the shell from the OS/161 menu and see what
-happens.) In ASST2, you'll implement this support.
+happens.) In {asst2}, you'll implement this support.
 
 ==== `kern/vm/`
 
-This directory is also fairly vacant. In ASST3, you'll implement virtual
+This directory is also fairly vacant. In {asst3}, you'll implement virtual
 memory and most of your code will go in here.
 
 ==== `kern/vfs/`

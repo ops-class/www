@@ -1,0 +1,12 @@
+:asst0: link:/asst/0/[ASST0]
+:asst1: link:/asst/1/[ASST1]
+:asst2: link:/asst/2/[ASST2]
+:asst3: ASST3
+:test161: pass:normal[https://test161.ops-class.org[`test161`]]
+:ops-class: pass:normal[link:/[`ops-class.org`]]
+:os161: http://os161.eecs.harvard.edu[OS/161]
+:os161-link: http://os161.eecs.harvard.edu
+:ppa-link: https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain/
+:github-link: https://github.com/ops-class/
+
+{{{ contents }}}

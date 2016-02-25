@@ -9,8 +9,8 @@ spelling_exceptions:
 == Introduction
 
 [.lead]
-In this assignment you will add process and system call support to
-	your OS/161 kernel.
+In this assignment you will add process and system call support to your
+OS/161 kernel.
 
 Currently no support exists for running user processes--the tests you have
 run up to this point have run in the kernel as kernel threads. By the time
@@ -18,14 +18,14 @@ you finish ASST2 you will have the ability to launch a simple shell and enter
 a somewhat-familiar UNIX environment. Indeed, future tests will be run as
 user processes, not from the kernel menu.
 
-In contrast to link:/asst/1/[ASST1], ASST2 requires a great deal more thought
+In contrast to {asst1}, ASST2 requires a great deal more thought
 and planning. We are not giving you many examples. We have not designed your
 data structures for you. You will need to determine what needs to be
 implemented, where to put the code required, how the data structures are
 designed and implemented, and how everything fits together. We just care that
 your system calls fulfill the interface specification.
 
-As a final piece of advice, ASST2 and ASST3 begin to produce code bases that
+As a final piece of advice, ASST2 and {asst3} begin to produce code bases that
 are large, complex, and potentially _very_ difficult to debug. *You do not
 want to introduce bugs into your kernel* because they will be very hard to
 remove. Our advice--slow down, design, think, design again, discuss with your
@@ -43,7 +43,7 @@ operating system.
 
 === Collaboration Guidelines
 
-ASST2 is the first large `ops-class.org` assignment. Here are the guidelines
+ASST2 is the first large {ops-class} assignment. Here are the guidelines
 for how to work with other students and with your partner (if you have one):
 
 TIP: Pair programming to complete the ASST2 implementation tasks is *strongly
@@ -277,7 +277,7 @@ from the file system and into virtual memory space. Of course, at this point
 this virtual memory space does not provide what is normally meant by virtual
 memory--although there is translation between virtual and physical addresses,
 there is no mechanism for providing more memory than exists physically. You
-will fix this during ASST3. For now, don't worry about it.
+will fix this during {asst3}. For now, don't worry about it.
 
 ==== `kern/syscall/runprogram.c`
 
@@ -449,11 +449,11 @@ The grading scripts rely on the return of appropriate error codes and so
 adherence to the guidelines is as important as the correctness of your
 implementation.
 
-The file `userland/include/unistd.h` contains the user-level interface definition
-of the system calls that you will be writing for OS/161.  This interface is
-different from that of the kernel functions that you will define to implement
-these calls. You need to design this interface and put it in
-`kern/include/syscall.h`. As you discovered in link:/asst/0/[ASST0], the integer codes for
+The file `userland/include/unistd.h` contains the user-level interface
+definition of the system calls that you will be writing for OS/161.  This
+interface is different from that of the kernel functions that you will define
+to implement these calls. You need to design this interface and put it in
+`kern/include/syscall.h`. As you discovered in {asst0}, the integer codes for
 the calls are defined in `kern/include/kern/syscall.h`.
 
 You need to think about a variety of issues associated with implementing
@@ -461,6 +461,32 @@ system calls. Perhaps the most obvious one: can two different user-level
 processes (or user-level threads, if you choose to implement them) find
 themselves running a system call at the same time? Be sure to argue for or
 against this, and explain your final decision in your design document.
+
+=== Kernel Menu Changes
+
+A small but important part of ASST2 is improving the relationship between the
+kernel menu thread and the thread that it creates that will run your shell
+(via `s`) or user programs (via `p`). Currently the menu thread does not
+coordinate with that it forks to go to user space. This means that the kernel
+menu will immediately return to the top of its loop, redraw the prompt, and
+begin trying to read terminal input.
+
+If the user program that was launched is also trying to read from the
+terminal (like `/bin/shell`), it will compete with the kernel menu thread for
+input. If you find yourself having to type `//bbiinn//ttrruuee` to run
+`/bin/true`, this what is happening footnote:[Because of the default
+round-robin scheduling algorithm, input characters will frequently be
+alternately delivired to the kernel menu and shell threads.]. If the user
+program is just generating output, you will notice that the kernel prompt is
+printed and interleaved with its output.
+
+Given that this makes it impossible to correctly interact with the shell or
+capture test output--which {test161} depends on--fixing this problem is a
+part of ASST2. There are multiple approaches that will work. If you consider
+this while designing `sys_wait` and `sys_exit`, it is possible to reuse that
+approach without duplicating any code. Alternatively, you can fix this
+problem before implementing any of your system calls by using some of the
+synchronization primitives you became familiar with during {asst1}.
 
 === File System Support
 
@@ -584,9 +610,10 @@ going through the code and understanding how the link between a process and its
 threads is established would be beneficial.
 
 The functions `proc_getas` and `proc_setas` are essentially the getter and
-setter for the address space that a process has been assigned. You will find an
-example of how to use `proc_setas` by looking into the `runprogram` function.
-As a final note, address space management is one of the core objectives of ASST3.
+setter for the address space that a process has been assigned. You will find
+an example of how to use `proc_setas` by looking into the `runprogram`
+function. As a final note, address space management is one of the core
+objectives of {asst3}.
 
 Finally, In OS/161, there is also a process created for the kernel which tracks
 all the kernel threads that are created.  This process is created by calling

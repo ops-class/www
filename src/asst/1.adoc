@@ -402,8 +402,8 @@ implementation.
 Does this depart from our normal practice of providing you with the tools
 necessary to evaluate your assignment? Yes. And for a very good reason:
 writing tests is a _critical development practice_. You will write a lot of
-OS/161 code this semester, and particularly for ASST2 and ASST3 our tests are
-designed to tell if everything is working at a very high level. They are
+OS/161 code this semester, and particularly for {asst2} and {asst3} our tests
+are designed to tell if everything is working at a very high level. They are
 _comprehensive_ tests, not _unit_ tests, which target a particular piece of
 functionality. Writing good unit tests is extremely important to building
 large pieces of software--some even claim that you should write the unit test
