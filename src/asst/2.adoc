@@ -21,12 +21,12 @@ user processes, not from the kernel menu.
 In contrast to {asst1}, ASST2 requires a great deal more thought and
 planning. You will be writing a lot more code--while our {asst1} solution
 adds 624 non-commenting lines of C code footnote:[Many of which are for the
-synchronization problem solutions...], the {asst2} solutions adds an
-additional _2274_. We are not giving you many examples. We have not designed
-your data structures for you. You will need to determine what needs to be
-implemented, where to put the code required, how the data structures are
-designed and implemented, and how everything fits together. We just care that
-your system calls meet the interface specification.
+synchronization problem solutions...], the ASST2 solution adds an additional
+_2274_. We are not giving you many examples. We have not designed your data
+structures for you. You will need to determine what needs to be implemented,
+where to put the code required, how the data structures are designed and
+implemented, and how everything fits together. We just care that your system
+calls meet the interface specification.
 
 As a final piece of advice, ASST2 and {asst3} begin to produce code bases that
 are large, complex, and potentially _very_ difficult to debug. *You do not
