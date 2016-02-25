@@ -1,0 +1,10 @@
+---
+title: "Overview of the <code>ops-class.org</code>Assignments"
+---
+:sectnums:
+
+== Hack The Kernel
+
+[.lead]
+Programming assignments are the heart of the {ops-class} experience. The most
+effective way to learn operating systems concepts is to build one yourself.
