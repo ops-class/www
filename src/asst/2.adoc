@@ -740,53 +740,67 @@ ASST2 grading is divided into three parts:
 
 === File-related System Calls
 
-[.lead]
 We will test the following:
 
-. *Does your console work?* We will use `/testbin/consoletest` to determine this. Once you have implemented the `write` system call,
-you should have a working console. *NOTE*: you do not need to implement `open` to write to console.
-. *Do your `open` and `close` syscalls work?* We will test this using `/testbin/opentest`, `/testbin/closetest`.
+. *Does your console work?* We will use `/testbin/consoletest` to determine
+this. Once you have implemented the `write` system call, you should have a
+working console. Note that you should not need to implement `open` to write to
+the console.
+
+. *Do your `open` and `close` syscalls work?* We will test this using
+`/testbin/opentest`, `/testbin/closetest`.
+
 . *Do your `read` and `write` syscalls work?* We will test these using
 `/testbin/readwritetest` and `/testbin/fileonlytest`.
+
 . *Does your `lseek` syscall work?* We will test this using
 `/testbin/fileonlytest` and `/testbin/sparsefile`.
-. *Does your `dup2` syscall work?* We will test this using `/testbin/redirect`.
+
+. *Does your `dup2` syscall work?* We will test this using
+`/testbin/redirect`.
 
 Many tests use multiple system calls. For example, although only
 `/testbin/opentest` is listed for testing `open`, almost all of the
 file-related syscall testing programs use `open`.
 
-*NOTE*: You *must* pass `/testbin/consoletest` before you can run most of the other tests.
+Note that you *must* pass `/testbin/consoletest` before you can run most of
+the other tests. This ensures that your kernel menu is not competing with the
+test output.
 
 === Process-related System Calls
 
-[.lead]
 We will test the following:
 
 . *Does your `fork` syscall work?* We will use `/testbin/forktest` to test this.
+
 . *Does your `execv` syscall work?* We will use `/testbin/argtest`,
 `/testbin/add`, `/testbin/factorial` and `/testbin/bigexec` to test this.
+
 . *Do your `waitpid`/`_exit` syscalls work?* We will use `/testbin/forktest`,
 to test this. A lot of other tests internally use `fork`, `waitpid` and
 `_exit`. You will need to implement `waitpid` and `_exit` to pass these.
+
 . *Does your `getpid` syscall work?* Almost all of the tests described above
 use `getpid` in some way. You will need `getpid` to work to pass these.
 
 === Stability
 
-[.lead]
 We will test the stability of your system by running the following tests:
+
 . *`/testbin/badcall`* Tests whether your system call interface can handle
 invalid arguments.
+
 . *`/testbin/crash`* Tests whether your system can gracefully recover from user
 programs attempting to perform malicious actions.
+
 . *`/testbin/forktest`* Runs multiple iterations of `/testbin/forktest` to check for
 race conditions.
 
-
-Please use `test161` to go through the set of tests we run and to understand
-what they do.  We have also taken effort to describe each of these tests. The
-descriptions can be found in the `.t` files located under the `test161`
-directory in your sources. We have also added new features to `test161` through
-which you can get it to explain the tests and targets. You can learn more
-about these by running `test161 help`.
+////
+Please use `test161` to go through the set of tests we run as part of the
+`asst2` target and to understand what they do. We have also taken effort to
+describe each of these tests. The descriptions can be found in the `.t` files
+located under the `test161` directory in your sources. We have also added new
+features to `test161` through which you can get it to explain the tests and
+targets. You can learn more about these by running `test161 help`.
+////
