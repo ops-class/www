@@ -1,9 +1,7 @@
 ---
-title: "Overview of the <code>ops-class.org</code>Assignments"
+title: "Hack The Kernel"
 ---
 :sectnums:
-
-== Hack The Kernel
 
 [.lead]
 Programming assignments are the heart of the {ops-class} experience. The most
