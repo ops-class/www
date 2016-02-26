@@ -1,8 +1,77 @@
 ---
 title: "Hack The Kernel"
+omitTop: true
+spelling_exceptions:
+  - Facebook
+  - Mark Zuckerberg
 ---
-:sectnums:
-
 [.lead]
 Programming assignments are the heart of the {ops-class} experience. The most
 effective way to learn operating systems concepts is to build one yourself.
+
+{ops-class} assignments use the excellent {os161} instructional operating
+system developed at Harvard University by
+http://www.hcs.harvard.edu/~dholland/[David Holland],
+https://www.eecs.harvard.edu/margo/[Margo Seltzer], and others. OS/161
+provides some of the realism of large operating systems (such as
+https://www.linux.com[Linux]) while still allowing you to implement large OS
+subsystems (such as virtual memory) yourself.
+http://docencia.ac.upc.edu/FIB/SO/pla91/doc/OS_161.pdf[This paper] provides an
+excellent overview of OS/161.
+
+The {ops-class} assignments also provide a variety of different programming
+challenges. After a warmup in {asst1}, {asst2} (mainly) challenges you to
+connect two interfaces, while {asst3} provides the opportunity to implement a
+large piece of complex functionality with many internal interfaces.  These
+challenges map well onto common programming tasks you will face in industry.
+And through all the assignments you must understand a large and complex code
+base.
+
+////
+and {asst4} requires you to make a small set of important changes to an
+existing (file)system.
+////
+
+And if that wasn't exciting enough, these assignments are the same ones that
+kept https://en.wikipedia.org/wiki/Mark_Zuckerberg[Mark Zuckerberg]
+https://www.youtube.com/watch?v=-3Rt2_9d7Jg[busy in his last semester at
+Harvard]&mdash;while he was starting https://www.facebook.com[Facebook].
+Multiple generations of Harvard students and students at other universities
+have benefited from their struggle with {os161} and we think that you will
+too.
+
+We provide a bit more detail about each assignment below.
+
+== {asst0}
+
+This first (and ungraded) assignment introduces you to the programming
+environment you will be working in this semester, including the OS/161
+operating system, the `sys161` simulator, the GNU debugger (GDB), and the Git
+revision control system.  Consists of code reading questions, a few simple
+scripting tasks, and a very simple implementation task.
+
+== {asst1}
+
+Your first real taste of kernel programming. After completing a set of code
+reading questions, you implement locks, condition variables and reader-writer
+locks. Next, you use them to solve a few simple toy synchronization problems.
+
+== {asst2}
+
+The first big and complex assignment. Start by completing a design that
+indicates you understand all of the moving pieces and what to do. Next,
+implement the system call interface. When you are finished, your kernel should
+be able to run user programs.
+
+== {asst3}
+
+The mountain top. A large amount of code to implement and many internal
+interfaces to design. As always, start with a careful design. Then implement
+virtual memory, including address translation, TLB management, page
+replacement and swapping. When you are finished, your kernel should be able to
+run forever without running out of memory, and you will have completed the
+course.
+
+////
+== {asst4}
+////

@@ -1,7 +1,8 @@
-:asst0: link:/asst/0/[ASST0]
-:asst1: link:/asst/1/[ASST1]
-:asst2: link:/asst/2/[ASST2]
+:asst0: pass:normal[link:/asst/0/[ASST0]]
+:asst1: pass:normal[link:/asst/1/[ASST1]]
+:asst2: pass:normal[link:/asst/2/[ASST2]]
 :asst3: ASST3
+:asst4: ASST4
 :test161: pass:normal[https://test161.ops-class.org[`test161`]]
 :ops-class: pass:normal[link:/[`ops-class.org`]]
 :os161: http://os161.eecs.harvard.edu[OS/161]

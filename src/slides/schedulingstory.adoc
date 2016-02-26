@@ -1,0 +1,721 @@
+---
+title: "A Scheduling Story"
+date: 2016-02-29
+author: Geoffrey Challen
+description: >
+   Discussion of scheduling on Linux and the Rotating Staircase Deadline
+   Scheduler by Con Kolivas.
+song:
+  name: "Failure"
+  author: "Breaking Benjamin"
+  youtube: fVIh1MFWDVw
+spelling_exceptions:
+  - Svein Engelsgjerd
+  - Ingo Molnar
+  - RSDL
+  - BFS
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/040.jpg[width="100%",link="https://en.wikipedia.org/wiki/Mitchell_Baker",title="Mitchell Baker"]
+
+[.h3.center]
+icon:music[] https://breakingbenjamin.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today: A Linux Scheduling Story
+
+* An introduction to Linux kernel development.
+* Scheduling tensions: server, desktops, and performance.
+* The road to the Completely Fair Scheduler:
+** Who are Ingo Molnar and Con Kolivas?
+** The Linux 2.6 O(1) scheduler
+** The Rotating Staircase Deadline Scheduler (RSDL)
+
+[.nooutline]
+== $ cat announce.txt
+
+[.nooutline]
+== I Have a Problem, Right?
+
+[quote, Svein Engelsgjerd, role='small spelling_exception']
+____
+I could not take it anymore so I counted the number of times this guy says
+"right" from 19:00 to 24:00...  53 "rights" in 5 minutes. That is a "right"
+for every 5.6 seconds! AAAAARGH!!!!
+____
+
+== Oracular Spectacular
+
+[.slider]
+.Normally we *cannot predict the future*
+* Control flow is unpredictable.
+* Users are unpredictable.
+
+[.slider]
+.Instead, *use the past to predict the future*.
+* What did the thread do recently? It will probably keep doing that.
+
+== Multi-Level Feedback Queues
+
+[.slider]
+* Choose a *scheduling quantum*. This is the maximum amount of time any
+thread will be able to run at one time.
+* Establish some number of queues; each represents a *level*.
+* Threads from the highest-level queues are chosen first.
+* Then:
+[.slider]
+..  Choose and run a thread from the highest-level non-empty queue.
+..  If the thread *blocks* or *yields*, promote it to a higher level
+queue.
+..  If the thread must be *preempted* at the end of a quantum, demote it
+to a lower level queue.
+
+== Multi-Level Feedback Queues
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-11.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-12.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-13.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-14.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-15.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-16.svg[width="80%"]
+--
+
+
+== Multi-Level Feedback Queues
+
+[.slider]
+.What happens to:
+* CPU-bound threads? They descend to the depths.
+* I/O-bound threads? They rise to the heights!
+
+[.slider]
+.Can anyone spot any problems with this approach?
+* *Starvation!* Threads trapped in the lower queues may never have a
+chance to run.
+
+[.slide]
+--
+One solution is to periodically *rebalance* the levels by periodically
+tossing everyone back to the top level. [.slide]#(Seems like kind of a
+hack.)#
+--
+
+== Establishing Priorities
+
+*Priorities* are a scheduling *abstraction* that allows the user, or
+the system itself, to assign relative important to different tasks on
+the system.
+
+[.slider]
+* Backup task: low priority.
+* Video encoding: low priority.
+* Video playback: high priority.
+* Interactive applications: medium priority.
+
+[.slide]
+--
+Priorities are always *relative*, and so host to a variety of
+different problems.
+--
+
+== Priority Starvation
+
+Strict priorities can lead to starvation when low-priority threads are
+constantly blocked by high-priority threads with work to do.
+
+[.slider]
+.One solution: *lottery* scheduling:
+. Give each thread a number of *tickets* proportional to their
+*priority*.
+. Choose a ticket at random. The thread holding the ticket gets to
+run.
+
+[.slide]
+--
+Priorities may also be used to determine *how long* threads are
+allowed to run, i.e. dynamically adjusting their time quantum.
+--
+
+[.nooutline]
+== Scheduling Algorithms: Questions?
+
+== The Semi-Recent Recent History of the Linux Scheduler
+
+The recent evolution of the Linux scheduler provides a fascinating view into:
+
+* the difficulties in supporting a huge and growing number of hardware
+platforms. (Servers, desktops, Android, embedded devices, etc.)
+* the tensions that arise in collaborative development.
+* the difficulties is steering large software projects fueled by
+volunteers.
+* the challenges of interactive benchmarking.
+* incredibly contributions made by hackers with day jobs.
+
+== Linux By The Numbers
+
+[.slider]
+* *9.2 million* lines of code. (55% device drivers.)
+* *2,400* developers.
+* New kernel every *2.75* months.
+
+== Linux Development Process
+
+*Big caveat*: I am not speaking from experience!
+
+[.slider]
+* Each file has a maintainer.
+* Each subsystem has a maintainer.
+* And then there's Linus/Andrew.
+
+[cols="2*", role='slide']
+|===
+
+
+| image:figures/scheduling/mm.jpg[title="Andrew Morton",width="80%"]
+| image:figures/scheduling/linus.jpg[title="Linus Torvalds", width="50%"]
+
+|===
+
+== Kernel Development
+
+[.slider]
+* Linus, Andrew, and others maintain the *mainline* Linux kernel tree
+used to generate official releases.
+* Other developers may maintain their own trees to experiment with new
+features. Some code will eventually move into the mainline, other things
+may not.
+* (Git was built to facilitate this working model. And to not suck.)
+
+== Desktop v. Server
+
+Just one example of tensions in a large community that now supports
+many devices.
+
+[.slider]
+.Server Linux:
+* *Well-defined* goals and well-established benchmarks.
+* *Corporate* clients, many who pay for support.
+* *Regular contact* with the Linux community.
+
+[.slider]
+.Desktop Linux:
+* *Poorly-defined* goals, a scarcity of good benchmarks, and few people
+savvy enough to run them.
+* Users *too cheap* to buy Windows.
+* Development? *What's that?*
+
+== The Linux Kernel Mailing List
+
+[.slider]
+* I tried reading it once. *I had no idea what was going on 99% of the
+time.*
+* This is an intimidating place to go for "help", and you probably won't
+get it.
+
+== The Linux Kernel Mailing List
+
+And, it's sometimes a male-dominated mean environment:
+
+[quote, Sarah Sharp,role='small']
+____
+Seriously, guys?  Is this what we need in order to get improve -stable?
+Linus Torvalds is advocating for physical intimidation and violence.
+Ingo Molnar and Linus are advocating for verbal abuse.
+
+Not *fucking* cool.  Violence, whether it be physical intimidation,
+verbal threats or verbal abuse is not acceptable.  Keep it professional
+on the mailing lists.
+
+Let's discuss this at Kernel Summit where we can at least yell at each
+other in person.  Yeah, just try yelling at me about this.  I'll roar
+right back, louder, for all the people who lose their voice when they
+get yelled at by top maintainers.  I won't be the nice girl anymore.
+____
+
+== Linux Scheduling Pre-2.6
+
+[.slider]
+* Pre-2.6 Linux systems used a scheduler that scaled poorly, requiring
+O(n) time to schedule tasks where n is the number of runnable threads.
+* The Linux 2.6 scheduler aimed to fix this.
+
+== The Linux 2.6 O(1) Scheduler
+
+[.slider]
+* For Linux 2.6, Ingo Molnar, the Linux kernel scheduler maintainer,
+implemented a new O(1) scheduler to address the scalability problems
+inherent to the earlier approach.
+* The O(1) scheduler combines a *static* and *dynamic* priority.
+** Static priority: set by the user or system using nice.
+** Dynamic priority: a potential "boost" to the static priority intended
+to reward interactive threads.
+
+== Problems With The O(1) Scheduler
+
+[.slider]
+* The *interactivity* boost code got very complex and difficult to
+understand. It was not clear that it was doing the right thing.
+* Not surprisingly, the scheduler was also difficult to model, useful in
+order to convince yourself that it is doing "the right thing."
+
+== Enter Con Kolivas
+
+[.slider]
+* An *Australian anaesthetist* turned Linux kernel programmer.
+* Con became interested in scheduling, and in particular scheduling for
+interactive workloads and systems.
+
+[.slide]
+--
+image::figures/scheduling/con.jpg[title="Con Kolivas", width="40%"]
+--
+
+== Interactivity, what is it?
+
+[quote, Con Kolivas,role='smaller spelling_exception']
+____
+There has been a lot of talk about what makes up a nice feeling desktop
+under linux. It comes down to two different but intimately related
+parameters which are not well defined. We often use the terms
+responsiveness and interactivity in the same sentence, but I'd like to
+separate the two. As there is no formal definition I prefer to define
+them as such:
+
+*Responsiveness*: The rate at which your workloads can proceed under
+different load conditions.
+
+*Interactivity*: The scheduling latency and jitter present in tasks where
+the user would notice a palpable deterioration under different load
+conditions.
+
+Responsiveness would allow you to continue using your machine without
+too much interruption to your work, whereas interactivity would allow
+you to play audio or video without any dropouts, or drag a gui window
+across the screen and have it render smoothly across the screen without
+jerks.
+____
+
+== 2004: Kolivas Releases The Rotating Staircase Scheduler
+
+[.slider]
+* Removes 498 lines of "black magic" aimed at improving interactivity
+and replaces them with 200 lines of new code implementing a simple,
+rank-based approach.
+* Some similarities to MLFQ.
+
+== 2007: Kolivas Releases The Rotating Staircase Deadline Scheduler
+
+[.slider]
+
+[quote, Con Kolivas, role='small spelling_exception']
+____
+A starvation free, strict fairness O(1) scalable design with
+interactivity as good as the above restrictions can provide. There is no
+interactivity estimator, no sleep/run measurements and only simple fixed
+accounting. The design has strict enough a design and accounting that
+task behaviour can be modelled and maximum scheduling latencies can be
+predicted by the virtual deadline mechanism that manages runqueues. The
+prime concern in this design is to maintain fairness at all costs
+determined by nice level, yet to maintain as good interactivity as can
+be allowed within the constraints of strict fairness.
+____
+
+== The Rotating Staircase Deadline Scheduler (RSDL)
+
+(Complete description http://ck.wikia.com/wiki/RSDL[here].)
+
+[.slider]
+* One parameter: the *round-robin interval* (`RR_INTERVAL`).
+* One input: a thread *priority*.
+
+[.slider]
+* Priority defines the levels at which each task can run.
+** High priority tasks: *more* levels, *more* chances to run.
+** Low priority tasks: *fewer* levels, *fewer* chances to run.
+* Tasks can run more at most a fixed amount of time per level.
+* Each level can also run for at most a fixed amount of time--ensures *bounded
+latency*.
+
+== RSDL
+
+[.slider]
+.To begin a scheduling epoch:
+* Put all threads in a queue determined by their priority.
+* Then:
+[.slider]
+. Run threads from the highest non-empty queue round-robin
+[.slider]
+. If a thread *blocks* or *yields*, it remains at that level
+. If a thread runs out of its quota, it moves to the *next level down.*
+. If the level runs out of _its_ quota, *all threads move to the next level
+down.*
+. Continue until all quotas are exhausted or no threads are runnable, then restart another epoch.
+
+== RSDL
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-11.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-12.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-13.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-14.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-15.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-16.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-17.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-18.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-19.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-20.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-21.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-22.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-23.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-24.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-25.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-26.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-27.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-28.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-29.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-30.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-31.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-32.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-33.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-34.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-35.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-36.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-37.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/rsdl-38.svg[width="80%"]
+--
+
+== Nice Features of RSDL
+
+[.slider]
+* Can easily calculate how long it will be before a thread at a certain
+priority level runs given the number of runnable tasks in the system and
+their priorities. *Easy to model.*
+* Simple, fixed accounting. Scheduling can be done in O(1).
+* More recent versions use *interleaving* to further reduce the delay
+between tasks scheduling with different priorities:
+
+[source,c,role='slide small']
+----
+PRIORITY:0..................20.................39
+nice -20 0000000000000000000000000000000000000000
+nice -10 1000100010001000100010001000100010010000
+nice   0 1010101010101010101010101010101010101010
+nice   5 1011010110110101101101011011010110110110
+nice  10 1110111011101110111011101110111011101110
+nice  15 1111111011111110111111101111111011111110
+nice  19 1111111111111111111111111111111111111110
+----
+
+== Achieving Interactivity
+           
+[quote, Con Kolivas, role='spelling_exception']
+____
+This design relies on the fact that interactive tasks, by their nature, sleep
+often. Most fair scheduling designs end up penalising such tasks indirectly
+giving them less than their fair possible share because of the sleep, and
+have to use a mechanism of bonusing their priority to offset this based on
+the duration they sleep.
+____
+
+== Sounds Great! So Now What?
+
+[.slider]
+* Kolivas struggles to demonstrate that his scheduler is better than the
+native scheduler. (Remember about desktop benchmarks?)
+* Despite popularity with users, RSDL never leaves Con's private -ck
+Linux kernel tree.
+* Simultaneously, Ingo Molnar (remember him?) develops and integrates a
+new Completely Fair Scheduler based on Kolivas' work.
+* Con withdraws from the Linux community, citing the difficulty in
+having multiple patches, including RSDL, accepted.
+
+== To Rule Them All
+
+[.slider]
+* Interesting design question: does it make sense to rely on a *single
+scheduler* given the diversity of devices Linux runs on?
+* Kolivas proposed a *pluggable* scheduler architecture, parts of which
+were later adopted.
+
+== Moral?
+
+[.slider]
+* Find something to do that's fun.
+* Get good at it.
+* If you have good ideas, *they will carry the day*, even if your
+implementation does not.
+
+== ...He's [.spelling_exception]#Baaaccckkk!#
+
+[.slider]
+* In 2009 Kolivas returns with the Brain Fuck Scheduler, which continues
+to try and achieve interactivity without sacrificing simplicity.
+
+== BFS
+
+[quote, Con Kolivas,role='smaller spelling_exception']
+____
+BFS is the Brain Fuck Scheduler. It was designed to be forward looking only,
+make the most of lower spec machines, and not scale to massive hardware. ie it
+is a desktop orientated scheduler, with extremely low latencies for excellent
+interactivity by design rather than "calculated", with rigid fairness, nice
+priority distribution and extreme scalability within normal load levels.
+____
+
+== Why Brain Fuck?
+
+[.slider.small]
+* Because it throws out everything about what we know is good about how
+to design a modern scheduler in scalability.
+* Because it's so ridiculously simple.
+* Because it performs so ridiculously well on what it's good at despite
+being that simple.
+* Because it's designed in such a way that mainline would never be
+interested in adopting it, which is how I like it.
+* Because it will make people sit up and take notice of where the
+problems are in the current design.
+* Because it throws out the philosophy that one scheduler fits all and
+shows that you can do a _lot_ better with a scheduler designed for a
+particular purpose. I don't want to use a steamroller to crack nuts
+* Because it actually means that more CPUs means better latencies.
+* Because I must be fucked in the head to be working on this again.
+
+[.nooutline]
+== Monday
+
+Virtual memory: my *favorite* operating systems topic.
