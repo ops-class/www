@@ -51,6 +51,7 @@
     "metalsmith-in-place": "^1.4.3",
     "metalsmith-layouts": "^1.4.2",
     "metalsmith-linkcheck": "^0.2.3",
+    "metalsmith-metadata": "0.0.4",
     "metalsmith-permalinks": "^0.4.1",
     "metalsmith-register-partials": "^1.0.2",
     "metalsmith-rename": "^1.0.0",

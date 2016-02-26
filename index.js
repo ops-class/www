@@ -1,6 +1,7 @@
 var metalsmith = require('metalsmith'),
     drafts = require('metalsmith-drafts'),
     filemetadata = require('metalsmith-filemetadata'),
+		metadata = require('metalsmith-metadata'),
     branch = require('metalsmith-branch'),
     collections = require('metalsmith-collections'),
     github = require('./lib/github.js'),
@@ -58,6 +59,9 @@ var isASST = function(filename, file, i) {
 metalsmith(__dirname)
   .destination('.build')
   .use(drafts())
+	.use(metadata({
+		asst: 'asst/videos.yaml'
+	}))
   .use(filemetadata([
     {pattern: slides_pattern,
       metadata: {
