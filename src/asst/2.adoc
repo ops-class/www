@@ -672,7 +672,7 @@ Finally, In OS/161, there is also a process created for the kernel which tracks
 all the kernel threads that are created.  This process is created by calling
 `proc_bootstrap`. Try to track down when and where this happens.
 
-=== Scheduling
+== Scheduling
 Although implementing a scheduler is not part of the assignments, the scheduler
 is a critical components of most operating system. Your OS/161 code
 also implements a scheduler.
@@ -699,16 +699,16 @@ schedule(void)
 ++++
 
 
-A scheduler's primary job is to determine the order in which processes should
-run.  Once the order is determined, the kernel needs to switch between
-processes.  Or in other words, the kernel needs to perform a context-switch.
-
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
 <div class="youtube-container" data-id="NHRFQZ5PZBo"></div>
 </div>
 ++++
+[.lead]
+A scheduler's primary job is to determine the order in which processes should
+run.  Once the order is determined, the kernel needs to switch between
+processes.  Or in other words, the kernel needs to perform a context-switch.
 
 == Writing Your Own Tests
 
