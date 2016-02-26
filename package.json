@@ -48,6 +48,7 @@
     "metalsmith-formatcheck": "^0.2.0",
     "metalsmith-highlight": "^1.0.4",
     "metalsmith-if": "^0.1.1",
+    "metalsmith-in-place": "^1.4.3",
     "metalsmith-layouts": "^1.4.2",
     "metalsmith-linkcheck": "^0.2.3",
     "metalsmith-permalinks": "^0.4.1",

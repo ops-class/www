@@ -11,6 +11,7 @@ var metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
+		inplace = require('metalsmith-in-place'),
     decks = require('./lib/decks.js'),
     outline = require('./lib/outline.js'),
     copy = require('metalsmith-copy'),
@@ -147,6 +148,11 @@ metalsmith(__dirname)
   .use(decks())
   .use(outline())
   .use(sections())
+	.use(inplace({
+		engine: 'handlebars',
+		pattern: '**/*.hbs',
+		rename: true
+	}))
   .use(layouts({
     engine: 'handlebars'
   }))
