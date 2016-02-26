@@ -3,6 +3,11 @@ title: "System Calls"
 spelling_exceptions:
   - MarkDown
   - EOF
+  - ISRs
+  - syscall
+  - syscalls
+  - kernelspace
+  - userspace
 ---
 :sectnums:
 
@@ -108,10 +113,55 @@ you will need. Your job is to identify, design and build the missing pieces.
 So far, all the code you have written for OS/161 has only been run within,
 and only been used by, the operating system kernel. In a real operating
 system, the kernel's main function is to provide support for user-level
-programs. Most such support is accessed via system calls. We give you one
-system call, `reboot`, which is implemented in the function `sys_reboot()` in
-`main.c`. In GDB, if you put a breakpoint on `sys_reboot` and run the
-`reboot` program, you can print a backtrace in GDB to see how it got there.
+programs. Most such support is accessed via system calls.
+
+However, before looking at how to implement system calls, we first walk you
+through how the kernel gets to run. Remember, that the kernel is just like most
+programs except that it is the first program that gets to run.
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="ftnrkvBAasI"></div>
+</div>
+++++
+Now that you have some idea on how the kernel boots up, take a look at the
+comments inside the `__start` function to get an idea of what it is doing.  Try
+to find the lines where the Interrupt Service Routines (ISRs) are loaded into
+memory.
+
+Because a system call allows flow of information across the
+userspace-kernelspace boundary, there needs to be relevant code on both sides
+to handle a system call.
+We give you one system call, `reboot`, which is implemented in the function
+`sys_reboot()` in `main.c`. In GDB, if you put a breakpoint on `sys_reboot` and
+run the `reboot` program, you can print a backtrace in GDB to see how it got
+there.
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="ruF0DN0LT6Q"></div>
+</div>
+++++
+[.lead]
+How a system call occurs in userspace
+
+A system call is invoked from userspace by using the `syscall` instruction
+which can be seen by disassembling any of the binaries.
+
+The system call numbering has to be agreed upon between userspace and kernelspace.
+This is taken care of `libc` that is present in your sources. It does this by
+using the kernel header file `kern/include/kern/syscall.h`.
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="ULwkafH8gCo"></div>
+</div>
+++++
+[.lead]
+What happens in the kernel on a system call
 
 === Process Support
 
@@ -621,3 +671,122 @@ objectives of {asst3}.
 Finally, In OS/161, there is also a process created for the kernel which tracks
 all the kernel threads that are created.  This process is created by calling
 `proc_bootstrap`. Try to track down when and where this happens.
+
+=== Scheduling
+Although implementing a scheduler is not part of the assignments, the scheduler
+is a critical components of most operating system. Your OS/161 code
+also implements a scheduler.
+
+++++
+<div class="col-md-12">
+++++
+
+[source,c]
+----
+void
+schedule(void)
+{
+        /*
+         * You can write this. If we do nothing, threads will run in
+         * round-robin fashion.
+         */
+}
+----
+
+++++
+</div>
+<div style="clear: both;"></div>
+++++
+
+
+A scheduler's primary job is to determine the order in which processes should
+run.  Once the order is determined, the kernel needs to switch between
+processes.  Or in other words, the kernel needs to perform a context-switch.
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="NHRFQZ5PZBo"></div>
+</div>
+++++
+
+== Writing Your Own Tests
+
+++++
+<div class="embed-responsive embed-responsive-16by9"
+		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+<div class="youtube-container" data-id="ACE0BaUcaNI"></div>
+</div>
+++++
+[.lead]
+Part of ASST2 is learning to test your own code.
+
+We provide comprehensive test programs that usually test multiple system calls at once.
+A consequence of this is that if even one of these system calls is
+unimplemented, then the whole test will likely fail.
+
+You are encouraged to write your own tests which will help you debug specific system calls.
+You are also encouraged to look at `/testbin/badcall` and refer to the OS/161 man pages to
+ensure that you are handling all of the exceptions correctly.
+
+== Grading
+
+[.lead]
+ASST2 grading is divided into three parts:
+
+. *File-related system calls*
+. *Process-related system calls*
+. *Stability*
+
+=== File-related System Calls
+
+[.lead]
+We will test the following:
+
+. *Does your console work?* We will use `/testbin/consoletest` to determine this. Once you have implemented the `write` system call,
+you should have a working console. *NOTE*: you do not need to implement `open` to write to console.
+. *Do your `open` and `close` syscalls work?* We will test this using `/testbin/opentest`, `/testbin/closetest`.
+. *Do your `read` and `write` syscalls work?* We will test these using
+`/testbin/readwritetest` and `/testbin/fileonlytest`.
+. *Does your `lseek` syscall work?* We will test this using
+`/testbin/fileonlytest` and `/testbin/sparsefile`.
+. *Does your `dup2` syscall work?* We will test this using `/testbin/redirect`.
+
+Many tests use multiple system calls. For example, although only
+`/testbin/opentest` is listed for testing `open`, almost all of the
+file-related syscall testing programs use `open`.
+
+*NOTE*: You *must* pass `/testbin/consoletest` before you can run most of the other tests.
+
+=== Process-related System Calls
+
+[.lead]
+We will test the following:
+
+. *Does your `fork` syscall work?* We will use `/testbin/forktest` to test this.
+. *Does your `execv` syscall work?* We will use `/testbin/argtest`,
+`/testbin/add`, `/testbin/factorial` and `/testbin/bigexec` to test this.
+. *Do your `waitpid`/`_exit` syscalls work?* We will use `/testbin/forktest`,
+to test this. A lot of other tests internally use `fork`, `waitpid` and
+`_exit`. You will need to implement `waitpid` and `_exit` to pass these.
+. *Does your `getpid` syscall work?* Almost all of the tests described above
+use `getpid` in some way. You will need `getpid` to work to pass these.
+
+=== Stability
+
+[.lead]
+We will test the stability of your system by running the following tests:
+. *`/testbin/badcall`* Tests whether your system call interface can handle
+invalid arguments.
+. *`/testbin/crash`* Tests whether your system can gracefully recover from user
+programs attempting to perform malicious actions.
+. *`/testbin/forktest`* Runs multiple iterations of `/testbin/forktest` to check for
+race conditions.
+
+
+Please use `test161` to go through the set of tests we run and to understand
+what they do.  We have also taken effort to describe each of these tests. The
+descriptions can be found in the `.t` files located under the `test161`
+directory in your sources. We have also added new features to `test161` through
+which you can get it to explain the tests and targets. You can learn more
+about these by running `test161 help`.
