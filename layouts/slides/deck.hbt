@@ -22,10 +22,16 @@
 			<div class="deck-container">
 				{{{ contents }}}
 
-				<div data-progress-size=": spe.bottom(3, 20) ; left: slide.left+'px' ; height: (3*designRatio)+'px'" data-progress="width: pFull * slide.width" style="background: #191995; position: absolute; z-index:-1"></div>
+				<div data-progress-size=": spe.bottom(3, 24) ; left: slide.left+'px' ; height: (4*designRatio)+'px'" data-progress="width: pFull * slide.width" style="background: #191995; position: absolute; z-index:-1"></div>
 				<div class="deck-status deck-progress-10"></div>
-				<div class="deck-status-wrapper" data-progress-size=": spe.bottom(12, 16);left:(slide.left+10)+'px';height:(24*designRatio)+'px'" style="padding-top:2px; position: absolute; z-index:-1; display:none;">
-					(<span class="deck-status-current"></span> / <span class="deck-status-total"></span>)
+				<div class="deck-status-wrapper"
+					data-progress-size=": spe.bottom(16, 20);left:(slide.left+10)+'px';height:(30*designRatio)+'px'"
+					style="padding-top:2px; position: absolute; display:none; z-index:10">
+					<span style="margin-right:20px;"><a target="_blank" href="/slides/">Home</a></span>
+					<span style="margin-right:20px;"><a target="_blank" href="/{{ slide_path }}">Outline</a></span>
+					<span style="margin-right:20px;">
+						(<span class="deck-status-current"></span> / <span class="deck-status-total"></span>)
+					</span>
 				</div>
 				<div> 
 					<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
