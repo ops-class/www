@@ -1,0 +1,389 @@
+---
+title: "Virtual Memory"
+spelling_exceptions:
+  - i386
+  - Translation Lookaside Buffer
+  - PTE
+  - VFS
+---
+:sectnums:
+
+== Introduction
+
+[.lead]
+In this assignment you will add support for virtual memory to your {os161}
+kernel.
+
+In {asst2} you improved OS/161 to the point that you could run user
+processes. However, there are a number of shortcomings in the current system.
+A process's size is limited to 64 pages by the number of Translation
+Lookaside Buffer (TLB) entries. In addition, while your kernel allocator
+`kmalloc` correctly manages sub-page allocations--memory requests for under
+4 KB--single and multiple-page requests are not properly returned to the
+system, meaning that pages are discarded after use. This severely limits the
+lifetime of your system, as you may have observed. Your current kernel cannot
+run forever.
+
+In this assignment we will adapt OS/161 to take full advantage of the
+simulated hardware by implementing management of the MIPS software-managed
+TLB. You will write the code to manage the TLB. You will also write the code
+to implement paging--the mechanism by which memory pages of an active process
+can be sent to disk when memory is needed, and restored to memory when
+required by the program. This permits many processes to share limited
+physical memory while providing each process with the abstraction of a very
+large virtual memory. Finally, you will correctly handle page reclamation,
+allowing your system to reclaim memory when processes exit and run forever.
+
+ASST3 is harder than {asst2} in many ways. In particular, for a large portion
+of {asst2} you were essentially connecting two interfaces: the system call
+interface and the virtual file system (VFS) interface. There were some new
+features to implement--like file tables and process relationship tracking--but
+ASST3 is _all_ new features to implement, and requires you to create multiple
+large modules that must interface effectively with each other.
+
+This advice from {asst2} is worth reiterating now that you may have learned the
+cost of ignoring it:
+
+____
+As a final piece of advice, {asst2} and ASST3 begin to produce code bases
+that are large, complex, and potentially _very_ difficult to debug. *You do
+not want to introduce bugs into your kernel* because they will be very hard
+to remove. Our advice--slow down, design, think, design again, discuss with
+your partner, and slow down again. Then write some code.
+____
+
+Note that the description of ASST3 is somewhat shorter than it was for
+{asst2}. This should make you feel nervous. In fact, there is less to
+introduce you to simply because there is more to do. That said, we _strongly_
+suggest you look carefully at the `dumbvm` included in your source tree and
+included in your build for ASST0&ndash;2. While it is not a good starting
+point for your solution, It may at least give you an idea of some of what
+needs to be done.
+
+=== Objectives
+
+After completing ASST3 you should:
+
+. Understand how to design a set of interfaces to implement a collection of
+functionality.
+. Be familiar with OS handling of TLB and page faults.
+. Possess a solid intuition about virtual memory and what it means to support it.
+
+=== Collaboration Guidelines
+
+The ASST3 collaboration guidelines are pretty much identical to those for {asst2}:
+
+TIP: Pair programming to complete the implementation tasks is *strongly
+encouraged*.
+
+TIP: Writing a design document with your partner is *strongly encouraged.*
+
+TIP: Answering the code reading questions side-by-side with your partner is
+*strongly encouraged*.
+
+TIP: Discussing the code reading questions and browsing the source tree with
+other students is encouraged.
+
+WARNING: Dividing the code reading questions and development tasks between
+partners is discouraged.
+
+CAUTION: Any arrangement that results in one partner writing the entire
+design document is cheating.
+
+CAUTION: Any arrangement that results in one partner writing all or almost
+all of the code is cheating.
+
+CAUTION: Copying any answers from anyone who is not your partner or anywhere
+else and submitting them as your own is cheating.
+
+CAUTION: You may not refer to or incorporate any external sources without
+explicit permission footnote:[Which you are extremely unlikely to get.].
+
+== TLB Handling and Paging
+
+[.lead]
+To some degree, implementing virtual memory comes down to managing the TLB.
+
+So to begin, it useful to familiarize yourself with how the `sys161`
+simulated TLB works. Each TLB entry includes a 20-bit virtual page number and
+a 20-bit physical page number as well as the following five fields:
+
+. `global`: 1 bit; if set, ignore the `pid` bits in the TLB.
+
+. `valid`: 1 bit; set if the TLB entry contains a valid translation.
+
+. `dirty`: 1 bit; enables writing to the page referenced by the
+	entry; if this bit is 0, the page is only accessible for reading.
+
+. `nocache`: 1 bit; unused in System/161. In a real processor,
+	indicates that the hardware cache will be disabled when accessing this page.
+
+. `pid`: 6 bits; a context or address space ID that can be used
+	to allow entries to remain in the TLB after a context switch.
+
+All these bits/values are maintained by the operating system. When the
+`valid` bit is set, the TLB entry contains a valid translation. This implies
+that the virtual page is present in physical memory. A *TLB miss* occurs when
+no TLB entry can be found with a matching virtual page and address space ID
+footnote:[Unless the global bit is set in which case the address space ID is
+ignored] with the valid bit set.
+
+=== TLB and Page Faults
+
+The operating system creates the illusion of unlimited memory by using
+physical memory as a cache of *virtual pages*. Paging relaxes the
+requirement that all the pages in a process's virtual address space must
+be in physical memory. Instead, we allow a process to have pages either
+on disk or in memory.
+
+When the process issues an access to a page  that is on disk, a *page fault*
+occurs. The operating system must retrieve the page from disk and bring it
+into memory. Pages with valid TLB entries are always in physical memory. This
+means that a reference to a page on disk will always generate a TLB fault.
+At the time of a TLB fault, the hardware generates a TLB exception, trapping
+to the operating system. The operating system then checks its own page table
+to locate the virtual page requested. If that page is currently in memory but
+wasn't mapped by the TLB, then all we need to do is update the TLB. However,
+the page might be on disk.  If this is the case, the operating system must:
+
+. Allocate a place in physical memory to store the page;
+. Read the page from disk,
+. Update the page table entry with the new virtual-to-physical
+	address translation;
+. Update the TLB to contain the new translation; and
+. Resume execution of the user program.
+
+=== Paging
+
+Notice that when the operating system selects a location in physical memory
+in which to place the new page, the space may already be occupied. In this
+case, the operating system must *evict* that other page from memory. If the
+page has been modified or does not currently have a copy on disk, then the
+old page must first be written to disk before the physical page can be
+reallocated. If the old page has not been modified and already has a copy on
+disk, then the write to disk can be avoided. The appropriate page table entry
+must be updated to reflect the fact that the page is no longer in memory.
+
+As with any caching system, performance of your virtual memory system depends
+on the policy used to decide which things are kept in memory and which are
+evicted. On a page fault, the kernel must decide which page to replace.
+Ideally, it will evict a page that will not be needed soon. Many systems
+(such as UNIX) avoid the delay of synchronously writing memory pages to disk
+on a page fault by writing modified pages to disk in advance, so that
+subsequent page faults can be completed more quickly.
+
+== Code Reading
+
+These should help refresh your memory a bit on the details of address
+translation and the types of memory-related faults.
+
+=== Virtual Memory
+
+. Assuming that a user program just attempted to access a virtual address,
+describe the conditions under which each of the following can arise. If the
+situation cannot happen, explain why it cannot occur.
+
+.. TLB miss, page fault
+.. TLB miss, no page fault
+.. TLB hit, page fault
+.. TLB hit, no page fault
+
+. A friend of yours who foolishly decided not to take this class, but who
+likes OS/161, implemented a TLB that has room for only one entry, and
+experienced a bug that caused a user instruction to generate a TLB fault
+infinitely--the instruction never completed executing! Explain how this could
+happen. Recall that after OS/161 handles an exception, it restarts the
+instruction that caused the exception.
+
+. How many memory-related exceptions—-including hardware exceptions and other software exceptional
+conditions—-can the following MIPS-like instruction raise? Explain the cause
+of each.
+
+[source,mipsasm]
+----
+# load word from $0 (contains zeros) offset 0x120 into register $3
+lw $3,0x0120($0)
+----
+
+=== The `malloc` Library Allocator
+
+Once OS/161 has paging, you can support applications with larger address
+spaces. The `malloc` and `free` functions are provided in the standard C
+library. Read the code and answer the following questions.
+
+Consider the following (useless) program:
+
+[source,c]
+----
+/* This is bad code: it doesn't do any error-checking */
+#include <stdio.h>
+int main (int argc, char **argv) {
+	int i;
+	void *start, *finish;
+	void *res[10];
+	start = sbrk(0);
+	for (i = 0; i < 10; i++) {
+		res[i] = malloc(10);
+	}
+	finish = sbrk(0);
+	/* INSERT */
+	return 0;
+}
+----
+
+[start=4]
+. How many times does the system call `sbrk` get called from within `malloc`?
+
+. On the i386 platform, what is the numeric value of `(finish - start)`?
+
+Now, suppose that in the example above we now insert the following code at
+location `/* INSERT */` above:
+
+[source,c]
+----
+  void *x;
+	free(res[8]); free(res[7]); free(res[6]);
+	free(res[1]); free(res[3]); free(res[2]);
+	x = malloc(60); /* MARK */
+----
+
+[start=6]
+. Again on the i386, would `malloc` call `sbrk` when doing that last
+allocation at the marked line above? What can you say about `x`?
+
+. It is conventional for `libc` internal functions and variables to be
+prefaced with `__`. Why do you think this is so?
+
+. The man page for `malloc` requires that "the pointer returned must be
+suitably aligned for use with any data type." How does our implementation of
+`malloc` guarantee this?
+
+Note that the operation of `malloc` and `free` is a *standard job interview
+question*&mdash;you should understand this code!
+
+== Design
+
+[.lead]
+Create a design document for ASST3 similar to what you created for {asst2}.
+
+Note that because you are designing a much larger and more independent OS
+module, a good design is ever more important for ASST3 than it was for
+{asst2}--although the link:/asst/2/#_design[ASST2 instructions] are still a
+good starting point.
+
+For ASST3 you have several internal interfaces to design and are completely
+free to design them in any way you like. However, some of the key issues to
+consider are:
+
+. What will your page tables look like?
+
+. What should you put in each page table entry (PTE)?
+
+. What will your core map (or reverse page table) look like?
+
+. In what order can TLB faults and page faults occur? For example, can a page
+fault occur without causing a TLB fault?
+
+. If you have partner, how will you divide up the work?
+
+. What is your strategy for splitting the assignment into smaller pieces that
+can be developed and tested and tested separately? *You are strongly
+encouraged to add new user and kernel tests as needed.*
+
+== Implementation
+
+[.lead]
+Implement virtual memory and swapping.
+
+To do this, you must
+
+. Implement the code that services TLB faults.
+
+. Add paging to your operating system.
+
+. Add the `sbrk` system call, so that the `malloc` library we provide works.
+
+=== Setup
+
+Consult the ASST3 `config` file and notice that the `arch/mips/mips/dumbvm.c`
+file will be omitted from your kernel. You will undoubtedly need to add new
+files to the system for this assignment: `kern/vm/vm.c` or
+`kern/arch/mips/mips/mipsvm.c`. Be sure to update the file
+`kern/conf/conf.kern`, or, for machine-dependent files,
+`kern/arch/mips/conf/conf.arch`, to include any new files that you create.
+Take care to place files in the correct place, separating machine-dependent
+components from machine-independent components appropriately. You should also
+now restrict your physical memory to 512 KB by editing the `ramsize` line in
+your `sys161.conf` file.
+
+=== TLB Handling
+
+In this part of the assignment, you will modify OS/161 to handle TLB
+faults. Additionally, you need to guarantee that the TLB state is
+initialized properly on a context switch.
+
+One implementation alternative is to invalidate all the TLB entries on a
+context switch. The entries are then re-loaded by taking TLB faults as pages
+are referenced. If you do this, be sure to copy any relevant state maintained
+by the TLB entries back into the page table before invalidating them. For
+example, in order for the paging algorithm to know which pages must be
+written to disk before eviction, you must make sure that the information
+about whether a page is dirty or not is properly propagated back into the
+page table.
+
+An alternative to invalidating everything is to use the 6-bit address space
+IDs and maintain separate processes in the TLB simultaneously. Please
+separate implementation of the TLB entry replacement algorithm from the
+actual piece of code that handles the replacement.
+
+=== Paging
+
+In this part of the assignment, you will modify OS/161 to handle page faults.
+When you have completed this task your system will generate an exception when
+a process tries to access an address that is not memory-resident and then
+handle that exception and continue running the user process.
+
+You will need routines to move a page from disk to memory and from memory to
+disk. You will also need to decide how to implement backing store--the place
+on disk where you store virtual pages not currently stored in physical
+memory. The default `sys161.conf` includes two disks; you should use the
+first disk for swapping. Please do swap to a disk and not somewhere else
+--such as a file footnote:[Also, be sure not to use that disk for anything
+else!].
+
+You will need to store evicted pages and find them when you need them.
+You should maintain a bitmap that describes the space in your swap area.
+Think of the swap area as a collection of chunks, where each chunk holds
+a page. Use the bitmap to keep track of which chunks are full and which
+are empty. The empty chunks can be evicted into. You also need to keep
+track, for each page of a given address space, of which chunk in the swap
+area it maps onto. When there are too many pages to fit in physical
+memory, you can write (modified) pages out to swap.
+
+When the time comes to bring a page into memory, you will need to know
+which physical pages are currently in use. One way to manage physical
+memory is to maintain a *core map*, a sort of reverse page table.
+Instead of being indexed by virtual addresses, a core map is indexed by
+its physical page number and contains the virtual address and address
+space identifier for the virtual page currently backed by the page in
+physical memory.
+
+When you need to evict a page, you first need to determine what page to
+evict. Please implement one page replacement policy for ASST3, although you
+want to experiment with several. Once you have chosen a page, you look up the
+physical address in the core map, locate the address space whose page you are
+evicting and modify the corresponding state information to indicate that the
+page will no longer be in memory. Then you can evict the page. If the page is
+dirty, it must first be written to the backing store.
+
+In some systems, the writing of dirty pages to backing store is done in the
+background by a daemon. As a result, when the time comes to evict a page, the
+page itself usually clean--it has been written to backing store, but not
+modified since then. To improve performance you may design and implement this
+functionality in your system. You will need to create a thread that
+periodically examines pages in memory and writes them to backing store if
+they are dirty.
+
+Your paging system will also need to support page allocation requests
+generated by `kmalloc`. You should review `kmalloc` to understand how these
+requests are generated, so that your system will respond to them correctly.

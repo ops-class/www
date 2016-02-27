@@ -10,8 +10,8 @@ spelling_exceptions:
 == Introduction
 
 [.lead]
-In ASST1 you will implement synchronization primitives for
-OS/161 and use them to solve several synchronization problems.
+In this assignment you will implement new synchronization primitives for
+{os161} and use them to solve several synchronization problems.
 
 Once you complete ASST1 you should have a fairly solid grasp of the pitfalls
 of concurrent programming and--more importantly--how to avoid those pitfalls
@@ -38,10 +38,10 @@ and applying the correct synchronization primitive.
 ASST1 is your first chance to write real kernel code. Here are the guidelines
 for how to work with other students and work with your partner (if you have one):
 
-TIP: Pair programming to complete the ASST1 implementation tasks is *strongly
+TIP: Pair programming to complete the implementation tasks is *strongly
 encouraged*.
 
-TIP: Answering the ASST1 code reading questions side-by-side with your
+TIP: Answering the code reading questions side-by-side with your
 partner is *strongly encouraged*.
 
 TIP: Helping other students with Git, GDB, editing, and with other parts of

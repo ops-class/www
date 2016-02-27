@@ -1,0 +1,483 @@
+---
+title: "Simple Schedulers"
+date: 2016-02-26
+author: Geoffrey Challen
+description: >
+  An overview of simple schedulers including the know-nothings (random,
+  round-robin) and oracle schedulers.
+song:
+  name: "Shake It Off"
+  author: "Taylor Swift"
+  youtube: nfWlot6h_JM
+spelling_exceptions:
+  - BFS
+  - Alls
+  - rebalance
+video: ZoYzxoLwplg
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/039.jpg[width="100%",title="Maria Klawe",link="https://www.hmc.edu/about-hmc/president-klawe/"]
+
+[.small.center]
+icon:music[] http://paxamrecords.com/["Wildest Dreams" performed by Ryan
+Adams, Written by Taylor Swift]
+
+[.center]
+icon:music[] http://taylorswift.com/[{song}]
+
+video::qVCme_D7pV4[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+* Simple schedulers.
+* Slightly more complex schedulers.
+
+[.nooutline]
+== $ cat announce.txt
+
+* Two weeks to complete ASST2.
+* Screen casts are up, and `test161` targets and a new `test161` release
+should be out Monday.
+* *Please contact the course staff if you are working alone.* We have some
+important information for you.
+* Any questions about submitting using `test161`?
+
+[.nooutline]
+== Review: Scheduling: What?
+
+[.slider]
+.What is scheduling?
+* *Scheduling* is the process of choosing the next thread (or threads)
+to run on the CPU (or CPUs).
+
+[.nooutline]
+== Review: Scheduling: Why?
+
+[.slider]
+.Why schedule threads?
+* *CPU multiplexing*: we have more threads that cores to run them on.
+* *Kernel privilege*: we are in charge of allocating the CPU and must
+try to make good decisions. *Applications rely on it.*
+
+[.nooutline]
+== Review: Scheduling: When?
+
+[.slider]
+.When does scheduling happen?
+. When a thread *voluntarily* gives up the CPU by calling yield().
+. When a thread makes a blocking *system call* and must sleep until
+the call completes.
+. When a thread *exits*.
+. When the *kernel decides* that a thread has run for long enough--and uses a
+timer interrupt to take control.
+
+[.nooutline]
+== Review: Human-Computer Interaction (and Expectations)
+
+[.slider]
+. What do you expect from your machine?
+* *Respond* (Click)
+* *Continue* (Watch, or active waiting)
+* *Finish* (Expect, or passive waiting)
+
+[.nooutline]
+== Review: Scheduling Goals
+
+[.slider]
+* How well does it meet deadlines—unpredictable or predictable?
+* How completely does it allocate system resources?
+** No point having idle CPU, memory, or disk bandwidth when something
+useful could be happening.
+* On human-facing systems, deadlines (or *interactivity*) usually wins. Why?
+[.slider]
+** Your time is more valuable than your computer's.
+* *Performance*: making great scheduling decisions is futile if the
+decision process itself takes _forever_.
+
+[.nooutline]
+== Review: Conflicting Goals
+
+[.slider]
+* Scheduling is a balance between *meeting deadlines* and *optimizing
+resource allocation*.
+* Responsiveness and continuity require meeting deadlines—unpredictable
+or predictable.
+
+[.nooutline]
+== Why Schedule: Questions?
+
+== Scheduling Information
+
+Today we will talk about schedulers that use *three* kinds of
+additional information in order to choose what thread to run next:
+
+[.slider]
+* *What will happen next?* Oracular schedulers can _cannot be
+implemented_ but can be a good point of comparison.
+* *What just happened?* Typical schedulers—and many other operating
+system algorithms—_use the past to predict the future_.
+* *What does the user want?* Schedulers usually have ways to
+incorporate user input.
+
+== The Know Nothings
+
+[.slide.replace]
+--
+image::figures/scheduling/random.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-11.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-12.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-13.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-14.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-15.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-16.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-17.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-18.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-19.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-20.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-21.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/random-22.svg[width="80%"]
+--
+
+== Random Scheduling
+
+[.slider]
+* Choose a *scheduling quantum*. This is the maximum amount of time any
+thread will be able to run at one time.
+* Then:
+[.slider]
+.  Choose a thread a random from the *ready pile*.
+.  Run the thread until it it blocks or the scheduling quantum expires.
+
+
+[.slider]
+.What happens when a thread leaves the waiting state?
+* Just return it to the ready pile!
+
+== Round-Robin Scheduling
+
+[.slider]
+* Choose a *scheduling quantum*. This is the maximum amount of time any
+thread will be able to run at one time.
+* Establish an ordered ready queue. For example, when a thread is
+created add it to the tail of the ready queue.
+* Then:
+. Choose the thread at the head of the ready queue.
+. Run the thread until it it blocks or the scheduling quantum expires.
+. If its scheduling quantum expires, place it at the tail of the ready
+queue.
+* What happens when a thread leaves the waiting state?
+** Could put it at the head of the ready queue, or at the tail.
+
+== The Know Nothings
+
+[.slider]
+* The *random* and *round robin* scheduling algorithms:
+** require no information about a threads past, present, or future, and
+** accept no user input.
+* These are rarely useful algorithms except as straw men to compare
+other approaches to.
+* Both *penalize*—or at least do not reward—threads that give up the CPU
+before their quantums expire.
+* As one exception, *round robin* scheduling is sometimes used once
+other scheduling decisions have been made and a set of threads are
+considered equivalent.
+** As an example, you might rotate round-robin though a set of threads
+with the same priority.
+
+== The Know-It-Alls
+
+Let's say we can predict the future. What might we like to know about
+the thread we are about to execute?
+
+[.slider]
+* *How long* is it going to use the CPU!
+* Will it *block* or *yield*?
+* How long will it wait?
+
+
+== !
+
+[.background]
+image:http://bgg2wlplugins.bgg2wl.netdna-cdn.com/wp-content/uploads/2012/01/knowitallcat128551724867326215.jpg[]
+
+== The Know-It-Alls
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/sjf-11.svg[width="80%"]
+--
+
+== Shortest-Job First
+
+[.slider]
+.Why would we use this algorithm?
+* *Minimizes waiting time!*
+
+[.slider]
+.More generally, why would we prefer threads that give up the CPU before their time quantum ends?
+* They are probably waiting for *something else*, which can be done in parallel with CPU use.
+
+== The Know-It-Alls
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-11.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-12.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-13.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-14.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-15.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-16.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-17.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-18.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-18.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/waiting-19.svg[width="80%"]
+--
+
+[.nooutline]
+== Monday: The Story of the Linux Completely Fair Scheduler
+
+* How one Australian anaesthetist changed the Linux kernel forever...
+and then gave up.
+* The scheduler may be fair, but is Linux development?
+* A fascinating view into the Linux community, and a good story
+highlighting many aspects of large-scale community-driven operating
+systems development.
+* Including discussion of the BFS (Brain F*ck Scheduler).

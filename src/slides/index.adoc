@@ -1,5 +1,0 @@
----
-layout: "slides/index.hbt"
-slides: false
-doGithub: false
----

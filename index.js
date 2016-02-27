@@ -1,6 +1,7 @@
 var metalsmith = require('metalsmith'),
     drafts = require('metalsmith-drafts'),
     filemetadata = require('metalsmith-filemetadata'),
+		metadata = require('metalsmith-metadata'),
     branch = require('metalsmith-branch'),
     collections = require('metalsmith-collections'),
     github = require('./lib/github.js'),
@@ -11,6 +12,7 @@ var metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
+		inplace = require('metalsmith-in-place'),
     decks = require('./lib/decks.js'),
     outline = require('./lib/outline.js'),
     copy = require('metalsmith-copy'),
@@ -57,6 +59,9 @@ var isASST = function(filename, file, i) {
 metalsmith(__dirname)
   .destination('.build')
   .use(drafts())
+	.use(metadata({
+		asst: 'asst/videos.yaml'
+	}))
   .use(filemetadata([
     {pattern: slides_pattern,
       metadata: {
@@ -147,6 +152,11 @@ metalsmith(__dirname)
   .use(decks())
   .use(outline())
   .use(sections())
+	.use(inplace({
+		engine: 'handlebars',
+		pattern: '**/*.hbs',
+		rename: true
+	}))
   .use(layouts({
     engine: 'handlebars'
   }))

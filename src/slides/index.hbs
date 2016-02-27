@@ -1,0 +1,172 @@
+---
+layout: "index.hbt"
+slides: false
+doGithub: false
+---
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<h1>Lecture Slides and Videos</h1>
+		<a class="anchor" id="_top"></a>
+
+		<p class="lead">
+		Below find lecture slides and videos for 2016 as well as videos for
+		previous years.
+		</p>
+
+		<p>
+		<a href="https://blue.cse.buffalo.edu/people/gwa/">
+			Geoffrey Challen
+		</a> has been taping his OS lectures since 2012, resulting
+		in hundreds of hours of freely available online content.
+		Browse the lectures below or
+		<a href="https://www.youtube.com/channel/UCzntthQN6ZF01rRRWikcmmQ?sub_confirmation=1">
+			subscribe to his YouTube channel</a>.
+		</p>
+
+		<h2>2016</h2>
+		<ul class="list-inline dash-list h5">
+			<li>
+			<a href="/courses/buffalo/CSE421_Spring2016/">
+				Course Page
+			</a>
+			</li>
+			<li>
+			<a href="https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3">
+				Lecture Playlist
+			</a>
+			</li>
+			<li>
+			<a href="https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF">
+				Recitation Playlist
+			</a>
+			</li>
+			<li>
+			<a href="https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_hjJpG9tqicpEgI6C3aaAE">
+				Pre-Lecture Music Playlist
+			</a>
+			</li>
+		</ul>
+		<hr />
+		{{#each collections.slides}}
+		<a class="anchor" id="_{{ slug }}"></a>
+		<div class="row" style="margin-bottom:10px;">
+			<div class="col-xs-12 hidden-xs hidden-sm col-md-2">
+				{{#if video}}
+				<a href="https://www.youtube.com/watch?v={{ video }}" title="Watch on YouTube">
+					<img style="width:100%" src="//i.ytimg.com/vi/{{ video }}/mqdefault.jpg"
+					alt="YouTube thumbnail" />
+				</a>
+				{{/if}}
+			</div>
+			<div class="col-xs-12 col-md-10">
+				<span class="h3">
+					<a href="/{{path}}">{{ format_date date "normal"}}. {{{ title }}}</a>
+				</span>
+				<br/>
+				<ul class="list-inline dash-list">
+					{{#if video}}
+					<li><a href="https://www.youtube.com/watch?v={{ video }}">Watch</a></li>
+					{{/if}}
+					<li><a href="/{{path}}">Notes</a></li>
+					<li><a href="/{{path}}/deck.html">Slides</a></li>
+				</ul>
+				<p class="lead">{{{ description }}}</p>
+			</div>
+		</div>
+		{{/each}}
+		<div class="row">
+			<div class="col-xs-12">
+				<a class="anchor" id="_2015"></a>
+				<h2>2015</h2>
+				<ul class="list-inline dash-list h5">
+					<li>
+					<a href="/courses/buffalo/CSE421_Spring2015.pdf">
+						Course Syllabus
+					</a>
+					</li>
+					<li>
+					<a href="https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-Xv0MVlCHugU_xchof5N0a">
+						Pre-Lecture Music Playlist
+					</a>
+					</li>
+				</ul>
+				<hr />
+				<h3>Lectures</h3>
+				<div class="embed-responsive embed-responsive-16by9">
+					<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp8U4xVODdQtgJ945HeMwosQ&amp;showinfo=1"></div>
+				</div>
+				<h3>Recitations</h3>
+				<div class="embed-responsive embed-responsive-16by9">
+					<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp9DnLcZFyX2f_JnUsmeS7vL&amp;showinfo=1"></div>
+				</div>
+				<a class="anchor" id="_2014"></a>
+				<h2>2014</h2>
+				<ul class="list-inline dash-list h5">
+					<li>
+					<a href="/courses/buffalo/CSE421_Spring2014.pdf">
+						Course Syllabus
+					</a>
+					</li>
+					<li>
+					<a href="https://www.youtube.com/playlist?list=PLE6LEE8y2Jp8Mu0pQX_wS8sZpY8Wy6Ay-">
+						Pre-Lecture Music Playlist
+					</a>
+					</li>
+				</ul>
+				<hr />
+				<h3>Lectures</h3>
+				<div class="embed-responsive embed-responsive-16by9">
+					<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp_Dugcm7mBsEahZS5Xr-zWe&amp;showinfo=1"></div>
+				</div>
+				<h3>Recitations</h3>
+				<div class="embed-responsive embed-responsive-16by9">
+					<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp9POq3yWUBM3XLsW2il8U32&amp;showinfo=1"></div>
+				</div>
+				<a class="anchor" id="_2013"></a>
+				<h2>2013</h2>
+				<ul class="list-inline dash-list h5">
+					<li>
+					<a href="/courses/buffalo/CSE421_Spring2013.pdf">
+						Course Syllabus
+					</a>
+					</li>
+				</ul>
+				<hr />
+				<h3>Lectures</h3>
+				<div class="embed-responsive embed-responsive-16by9">
+					<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp-qxcxaYtTf5zQXdcfzrW_r&amp;showinfo=1"></div>
+				</div>
+				<a class="anchor" id="_2012"></a>
+				<h2>2012</h2>
+				<ul class="list-inline dash-list h5">
+					<li>
+					<a href="/courses/buffalo/CSE421_Spring2012.pdf">
+						Course Syllabus
+					</a>
+					</li>
+				</ul>
+				<hr />
+				<h3>Lectures</h3>
+				<div class="embed-responsive embed-responsive-16by9">
+					<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp8tllE40n3tHfWXqxFeyFuY&amp;showinfo=1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="scrollspy" class="col-md-2 spelling_exception">
+		<ul id="side" class="nav hidden-xs hidden-sm"
+			data-spy="affix" style="padding-top:20px; padding-right:10px;">
+			<li class="h5"><a href="#_top">2016</a>
+			<ul class="nav">
+				{{#each collections.slides}}
+				<li class="h5"><a href="#_{{ slug }}">{{ title }}</a></li>
+				{{/each}}
+			</ul>
+			</li>
+			<li class="h5"><a href="#_2015">2015</a>
+			<li class="h5"><a href="#_2014">2014</a>
+			<li class="h5"><a href="#_2013">2013</a>
+			<li class="h5"><a href="#_2012">2012</a>
+		</ul>
+	</div>
+</div>

@@ -7,21 +7,46 @@
 				<a class="anchor" id="top"></a>
 				<h1>{{#if number}}ASST{{number}}: {{/if}}{{{title}}}</h1>
 				{{{ contents }}}
+				{{#if videos}}
+					<a class="anchor" id="videos"></a>
+					<h2>Related Videos</h2>
+					<p class="lead">
+					Below are some related videos that may help you
+					complete this assignment.
+					</p>
+					<div class="row">
+						{{#each videos}}
+						<div class="col-xs-12 col-sm-6 col-md-4">
+							<div class="embed-responsive embed-responsive-16by9"
+									 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+								<div class="youtube-container" data-id="{{ youtube }}"></div>
+							</div>
+							<h4>{{ date }}: {{ presenter }}</h4>
+						</div>
+						{{/each}}
+					</div>
+				{{/if}}
 			</div>
 			<div id="scrollspy" class="col-md-2 spelling_exception">
 				<ul id="side" class="nav hidden-xs hidden-sm"
 									data-spy="affix" style="padding-top:20px; padding-right:10px;">
+					{{#if omitTop}}
+					<li class="h5"><a href="#top">{{ title }}</a></li>
+					{{/if}}
 					{{#each sections}}
-					<li class="h5"><a href="#{{ this.id }}">{{ this.text }}</a>
+					<li class="h5"><a href="#{{ id }}">{{ text }}</a>
 						{{#if children}}
 						<ul class="nav">
 							{{#each children}}
-							<li class="h6"><a href="#{{ this.id }}">{{ this.text }}</a></li>
+							<li class="h6"><a href="#{{ id }}">{{ text }}</a></li>
 							{{/each}}
 						</ul>
 						{{/if}}
 					</li>
 					{{/each}}
+					{{#if videos}}
+					<li class="h5"><a href="#videos">Related Videos</a></li>
+					{{/if}}
 				</ul>
 			</div>
 		</div>

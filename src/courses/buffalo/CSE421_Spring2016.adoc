@@ -407,10 +407,10 @@ locks. Next, you use them to solve a few simple toy synchronization problems.
 
 *Deadline*: Friday 3/11/2016 @ 5PM.
 
-The first big and complex assignment. Start by submitting a design that
+The first big and complex assignment. Start by completing a design that
 indicates you understand all of the moving pieces and what to do. Next,
-implement the system call interface. When you are finished, your kernel
-should be able to run user programs.
+implement the system call interface. When you are finished, your kernel should
+be able to run user programs.
 
 === `ASST3`: Virtual Memory
 

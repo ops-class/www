@@ -268,3 +268,21 @@ pre.highlight {
 		font-size: 12px;
 	}
 }
+ul.dash-list {
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 1.3;
+  display: inline;
+}
+.dash-list > li {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+}
+.dash-list > li:after {
+  content:  " // ";
+}
+.dash-list > li:last-of-type:after {
+  content: none;
+}

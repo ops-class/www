@@ -12,8 +12,8 @@ spelling_exceptions:
 == Introduction
 
 [.lead]
-ASST0 introduces you to the source code and tools that you will be using
-throughout the rest of the `ops-class.org` assignments.
+This assignment introduces you to the {os161} source code and tools that you
+will be using throughout the rest of the {ops-class} assignments.
 
 It is unlikely that you have used OS/161 before, but some of the
 other tools may be familiar to you:
@@ -95,10 +95,10 @@ a small amount of coding involved, but not too much. While the assignment is
 ungraded, here are the guidelines for how to work together and work with your
 partner (if you have one):
 
-TIP: Working side-by-side with your partner on ASST0 is *strongly
+TIP: Working side-by-side with your partner is *strongly
 encouraged*.
 
-TIP: Helping other students set up their `ops-class.org` environment is
+TIP: Helping other students set up their {ops-class} environment is
 encouraged.
 
 TIP: Helping each other with Git is encouraged.
