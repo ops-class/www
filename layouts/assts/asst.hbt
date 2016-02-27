@@ -12,7 +12,7 @@
 					<h2>Related Videos</h2>
 					<p class="lead">
 					Below are some related videos that may help you
-					complete this assingment.
+					complete this assignment.
 					</p>
 					<div class="row">
 						{{#each videos}}
