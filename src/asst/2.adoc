@@ -15,7 +15,7 @@ spelling_exceptions:
 
 [.lead]
 In this assignment you will add process and system call support to your
-OS/161 kernel.
+{os161} kernel.
 
 Currently no support exists for running user processes--the tests you have
 run up to this point have run in the kernel as kernel threads. By the time
@@ -54,7 +54,7 @@ operating system.
 ASST2 is the first large {ops-class} assignment. Here are the guidelines
 for how to work with other students and with your partner (if you have one):
 
-TIP: Pair programming to complete the ASST2 implementation tasks is *strongly
+TIP: Pair programming to complete the implementation tasks is *strongly
 encouraged*.
 
 TIP: Writing a design document with your partner is *strongly encouraged.*
@@ -64,7 +64,7 @@ partner works on process support is a good division of labor. The partner
 working on the file system system calls may finish first, at which point they
 can help and continue testing.
 
-TIP: Answering the ASST2 code reading questions side-by-side with your
+TIP: Answering the code reading questions side-by-side with your
 partner is *strongly encouraged*.
 
 TIP: Discussing the code reading questions and browsing the source tree with
