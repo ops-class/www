@@ -13,6 +13,7 @@ spelling_exceptions:
   - BFS
   - Alls
   - rebalance
+video: ZoYzxoLwplg
 ---
 [.nooutline.spelling_exception]
 == Technical Women
