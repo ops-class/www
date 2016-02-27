@@ -13,7 +13,7 @@ spelling_exceptions:
 [.lead]
 In this assignment you will add support for virtual memory to your {os161}
 kernel.
- 
+
 In {asst2} you improved OS/161 to the point that you could run user
 processes. However, there are a number of shortcomings in the current system.
 A process's size is limited to 64 pages by the number of Translation
@@ -98,7 +98,7 @@ else and submitting them as your own is cheating.
 
 CAUTION: You may not refer to or incorporate any external sources without
 explicit permission footnote:[Which you are extremely unlikely to get.].
- 
+
 == TLB Handling and Paging
 
 [.lead]
@@ -108,7 +108,7 @@ So to begin, it useful to familiarize yourself with how the `sys161`
 simulated TLB works. Each TLB entry includes a 20-bit virtual page number and
 a 20-bit physical page number as well as the following five fields:
 
-. `global`: 1 bit; if set, ignore the `pid` bits in the TLB. 
+. `global`: 1 bit; if set, ignore the `pid` bits in the TLB.
 
 . `valid`: 1 bit; set if the TLB entry contains a valid translation.
 
@@ -152,6 +152,8 @@ the page might be on disk.  If this is the case, the operating system must:
 	address translation;
 . Update the TLB to contain the new translation; and
 . Resume execution of the user program.
+
+=== Paging
 
 Notice that when the operating system selects a location in physical memory
 in which to place the new page, the space may already be occupied. In this
@@ -259,7 +261,7 @@ suitably aligned for use with any data type." How does our implementation of
 Note that the operation of `malloc` and `free` is a *standard job interview
 question*&mdash;you should understand this code!
 
-== Design 
+== Design
 
 [.lead]
 Create a design document for ASST3 similar to what you created for {asst2}.
