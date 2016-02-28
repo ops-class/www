@@ -10,7 +10,7 @@
 		<meta content="{{ author }}" name="author">
 		{{/if}}
 		{{#if keywords}}
-			<meta name="keywords" lang="en-us" content="operating systems,OS,{{ keywords }}">	
+			<meta name="keywords" lang="en-us" content="operating systems,OS,{{ keywords }}">
 		{{/if}}
 		<meta name="description" lang="en-us" content="{{ description }}">
 
@@ -34,7 +34,7 @@
 						(<span class="deck-status-current"></span> / <span class="deck-status-total"></span>)
 					</span>
 				</div>
-				<div> 
+				<div>
 					<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
 					<a class="deck-next-link" href="#" title="Next">&#8594;</a>
 				</div>

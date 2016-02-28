@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>ops-class.org | {{ title }}</title>
 		{{#if keywords}}
-			<meta name="keywords" lang="en-us" content="operating systems,OS,{{ keywords }}">	
+			<meta name="keywords" lang="en-us" content="operating systems,OS,{{ keywords }}">
 		{{/if}}
 		<meta name="description" lang="en-us" content="{{ description }}">
 
@@ -36,7 +36,7 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	
+
 		<script src="/js/site.js" async></script>
 	</head>
 
