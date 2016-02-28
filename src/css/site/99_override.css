@@ -286,3 +286,9 @@ ul.dash-list {
 .dash-list > li:last-of-type:after {
   content: none;
 }
+div#content a.external:after {
+  font-family: "Glyphicons Halflings";
+  font-size: 0.7em;
+  margin-left: 0.3em;
+  content: "\e164";
+}

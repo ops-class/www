@@ -56,7 +56,7 @@ However, you should rarely contact me directly.  Instead, 99% of the time use
 the https://discourse.ops-class.org[Discourse] or 1% of the time contact the
 entire staff at mailto:staff@ops-class.org[`staff@ops-class.org`].
 
-. *Teaching Assistants*: Jerry Ajay, Ali Ben Ali and Xu Zhen are your
+. *Teaching Assistants*: Ali Ben Ali and Xu Zhen are your
 fantastic and hard-working teaching assistants this semester. They will be
 teaching recitation, holding office hours, and grading exams.  Please do not
 email them directly--instead, use https://discourse.ops-class.org[Discourse]
@@ -78,7 +78,7 @@ course meetings and activities. Please check it regularly--changes do happen.
 . *Lecture*: MWF 2:00--2:50PM, Knox 104.
 
 . *Recitations*: T 4:00--4:50PM, NSC 222; and F 8:00--8:50AM, Knox 04.
-Recitations will be taught by Ali and Jerry. Attendance is not mandatory, and
+Recitations will be taught by Ali. Attendance is not mandatory, and
 you can attend either or both depending on what fits your schedule. *Graduate
 students may only attend recitations if there is space* footnote:[I suspect
 that there will regularly be space in the 8AM recitation...].
