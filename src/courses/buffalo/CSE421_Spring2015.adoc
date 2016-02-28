@@ -1,5 +1,8 @@
 ---
 title: "CSE 421/521 Spring 2015"
+description: >
+  Course materials for CSE 421/521 at the University at Buffalo in Spring
+  2015.
 ---
 
 == Videos

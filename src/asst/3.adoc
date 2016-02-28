@@ -5,6 +5,8 @@ spelling_exceptions:
   - Translation Lookaside Buffer
   - PTE
   - VFS
+description: >
+  In ASST3 you will add support for virtual memory to your OS/161 kernel.
 ---
 :sectnums:
 

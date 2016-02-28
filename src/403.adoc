@@ -1,5 +1,8 @@
 ---
+title: Access Denied
 layout: index.hbt
+description: >
+  You are not allowed to access this page. Sorry.
 ---
 ++++
 <div class="row">

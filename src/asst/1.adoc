@@ -4,6 +4,9 @@ spelling_exceptions:
   - Buffalonians
   - Hoare
   - unflummoxable
+description: >
+  In ASST1 you will implement new synchronization primitives for OS/161 and
+  use them to solve several synchronization problems.
 ---
 :sectnums:
 

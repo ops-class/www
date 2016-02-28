@@ -4,6 +4,10 @@ omitTop: true
 spelling_exceptions:
   - Facebook
   - Mark Zuckerberg
+description: >
+  Programming assignents are the heart of the ops-class.org experience. The
+  most effective way to learn operating system concepts is to build one
+  yourself.
 ---
 [.lead]
 Programming assignments are the heart of the {ops-class} experience. The most

@@ -4,8 +4,12 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ops-class.org | {{ title }}</title>
+		{{#if keywords}}
+			<meta name="keywords" lang="en-us" content="operating systems,OS,{{ keywords }}">	
+		{{/if}}
+		<meta name="description" lang="en-us" content="{{ description }}">
 
-		<title>ops-class.org&mdash;Learn Operating Systems Online</title>
 		<link rel="stylesheet" type="text/css" href="/css/site.css">
 		{{#each extra_css}}
 		<link rel="stylesheet" type="text/css" href="{{this}}">

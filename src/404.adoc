@@ -1,5 +1,8 @@
 ---
+title: Page Not Found
 layout: index.hbt
+description: >
+  We could not find the page you are looking for.
 ---
 ++++
 <div class="row">

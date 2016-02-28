@@ -6,6 +6,9 @@ spelling_exceptions:
   - LTS
   - EC2
   - VMware
+description: >
+  ASST0 introduces you to the OS/161 source code and tools that you will use
+  throughout the rest of the assignments.
 ---
 :sectnums:
 
@@ -13,7 +16,7 @@ spelling_exceptions:
 
 [.lead]
 This assignment introduces you to the {os161} source code and tools that you
-will be using throughout the rest of the {ops-class} assignments.
+will use throughout the rest of the {ops-class} assignments.
 
 It is unlikely that you have used OS/161 before, but some of the
 other tools may be familiar to you:

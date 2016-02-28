@@ -6,6 +6,9 @@ spelling_exceptions:
   - MWF
   - exo
   - "/ASST3\\.\\d/"
+description: >
+  Course materials for CSE 421/521 at the University at Buffalo in Spring
+  2016.
 ---
 :sectnums:
 

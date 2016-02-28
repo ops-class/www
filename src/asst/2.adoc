@@ -8,6 +8,9 @@ spelling_exceptions:
   - syscalls
   - kernelspace
   - userspace
+description:
+  In ASST2 you will add process and system call support to your OS/161
+  kernel.
 ---
 :sectnums:
 
