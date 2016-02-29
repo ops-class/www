@@ -10,5 +10,9 @@
 		<priority>{{ priority }}</priority>{{/if}}
 	</url>
 	{{/each}}
+	<url>
+		<loc>https://www.ops-class.org/mailman/</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.1</priority>
+	</url>
 </urlset>
-
