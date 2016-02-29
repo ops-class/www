@@ -3,8 +3,8 @@ title: "A Scheduling Story"
 date: 2016-02-29
 author: Geoffrey Challen
 description: >
-   Discussion of scheduling on Linux and the Rotating Staircase Deadline
-   Scheduler by Con Kolivas.
+   Introduction to MLFQ, Con Kolivas, Linux development, and the Rotating
+   Staircase Deadline Scheduler.
 song:
   name: "Failure"
   author: "Breaking Benjamin"
@@ -14,6 +14,7 @@ spelling_exceptions:
   - Ingo Molnar
   - RSDL
   - BFS
+video: _jSHfO3gdgQ
 ---
 [.nooutline.spelling_exception]
 == Technical Women
