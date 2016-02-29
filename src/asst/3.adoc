@@ -7,6 +7,8 @@ spelling_exceptions:
   - VFS
 description: >
   In ASST3 you will add support for virtual memory to your OS/161 kernel.
+priority: 0.8
+changefreq: monthly
 ---
 :sectnums:
 

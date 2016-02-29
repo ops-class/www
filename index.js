@@ -176,6 +176,10 @@ metalsmith(__dirname)
   .use(lessjavascript())
   .use(highlight())
   .use(hacks())
+	.use(inplace({
+		engine: 'handlebars',
+		pattern: 'sitemap.xml'
+	}))
   .use(msif((argv['deploy'] == true), clean_css({ files: 'css/**/*.css' })))
   .use(msif((argv['deploy'] == true), uglify()))
   .use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))

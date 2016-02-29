@@ -3,6 +3,8 @@ title: Page Not Found
 layout: index.hbt
 description: >
   We could not find the page you are looking for.
+changefreq: yearly
+priority: 0.1
 ---
 ++++
 <div class="row">

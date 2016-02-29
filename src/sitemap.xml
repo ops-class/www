@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	{{#each sitemap}}
+	<url>
+		<loc>https://www.ops-class.org/{{ filename }}</loc>
+		<lastmod>{{ format_date updated "file" false }}</lastmod>
+		<changefreq>{{#if changefreq }}{{ changefreq }}{{else}}monthly{{/if}}</changefreq>{{#if priority }}
+		<priority>{{ priority }}</priority>{{/if}}
+	</url>
+	{{/each}}
+</urlset>
+

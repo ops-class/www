@@ -11,6 +11,8 @@ spelling_exceptions:
 description:
   In ASST2 you will add process and system call support to your OS/161
   kernel.
+priority: 0.8
+changefreq: monthly
 ---
 :sectnums:
 

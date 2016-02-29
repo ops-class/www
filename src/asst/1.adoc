@@ -7,6 +7,8 @@ spelling_exceptions:
 description: >
   In ASST1 you will implement new synchronization primitives for OS/161 and
   use them to solve several synchronization problems.
+priority: 0.8
+changefreq: monthly
 ---
 :sectnums:
 

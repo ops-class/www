@@ -9,6 +9,8 @@ spelling_exceptions:
 description: >
   Course materials for CSE 421/521 at the University at Buffalo in Spring
   2016.
+priority: 0.8
+changefreq: monthly
 ---
 :sectnums:
 

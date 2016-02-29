@@ -3,6 +3,8 @@ title: Access Denied
 layout: index.hbt
 description: >
   You are not allowed to access this page. Sorry.
+changefreq: yearly
+priority: 0.1
 ---
 ++++
 <div class="row">

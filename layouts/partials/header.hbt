@@ -5,9 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>ops-class.org | {{ title }}</title>
-		{{#if keywords}}
-			<meta name="keywords" lang="en-us" content="operating systems,OS,{{ keywords }}">
-		{{/if}}
 		<meta name="description" lang="en-us" content="{{ description }}">
 
 		<link rel="stylesheet" type="text/css" href="/css/site.css">

@@ -9,6 +9,8 @@ spelling_exceptions:
 description: >
   ASST0 introduces you to the OS/161 source code and tools that you will use
   throughout the rest of the assignments.
+priority: 0.8
+changefreq: monthly
 ---
 :sectnums:
 
