@@ -530,7 +530,7 @@ to helping you learn.
 
 ++++
 <div class="embed-responsive embed-responsive-16by9">
-<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3&amp;showinfo=1"></div>
+<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3&amp;showinfo=1"></div>
 </div>
 ++++
 
@@ -538,6 +538,6 @@ to helping you learn.
 
 ++++
 <div class="embed-responsive embed-responsive-16by9">
-<div class="lazy-iframe" data-src="https://www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF&amp;showinfo=1"></div>
+<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF&amp;showinfo=1"></div>
 </div>
 ++++

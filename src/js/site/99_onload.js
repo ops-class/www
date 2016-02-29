@@ -81,7 +81,7 @@ function processPage() {
 					throb.start();
 				}
 				$(elem).replaceWith('<iframe id="' + iframeID +
-						'" src="' + $(elem).data("src") + ' allowfullscreen"></iframe>');
+						'" src="' + $(elem).data("src") + '" allowfullscreen></iframe>');
 				$('#' + iframeID).on("load", function() {
 					if (throbbers[$(this).attr('id')]) {
 						throbbers[$(this).attr('id')].stop();
