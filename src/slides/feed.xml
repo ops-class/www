@@ -1,0 +1,23 @@
+---
+permalink: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ops-class.org Lectures</title>
+    <description>OS lectures and videos by Geoffrey Challen.</description>
+		<link>https://www.ops-class.org/slides/</link>
+
+		<atom:link href="https://www.ops-class.org/slides/feed.xml" rel="self" type="application/rss+xml" />
+
+		{{#each collections.slides }}
+    <item>
+      <title>{{ title }}</title>
+      <description>{{ this.description }}</description>
+      <pubDate>{{ format_date date "xml" true }}</pubDate>
+			<link>https://www.ops-class.org/{{ this.path }}</link>
+			<guid isPermaLink="true">https://www.ops-class.org/{{ this.path }}</guid>
+    </item>
+    {{/each}}
+  </channel>
+</rss>
