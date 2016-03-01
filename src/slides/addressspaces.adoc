@@ -1,0 +1,481 @@
+---
+title: "Introduction to Memory Management"
+date: 2016-03-02
+author: Geoffrey Challen
+description: >
+  Introduction to the challenge of OS energy management and the address space
+  abstraction.
+song:
+  name: "Whole Wide World"
+  author: "Wreckless Eric"
+  youtube: cUFL8WSxTgY
+spelling_exceptions:
+  - Ingo Molnar
+  - RSDL
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/041.jpg[width="100%"]
+
+[.h4.center]
+icon:music[] http://teganandsara.com/["Nineteen" by Tegan and Sara]
+
+[.h4.center]
+icon:music[] http://wrecklesseric.com/[{song}]
+
+video::3Yb7OoGAIEw[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today: Introduction to Memory Management
+
+* Problems with direct physical allocation.
+* Goals of memory multiplexing.
+* The address space abstraction.
+
+[.nooutline]
+== $ cat announce.txt
+
+[.nooutline]
+== Scheduling Goals
+
+(Or, *how to evaluate schedulers*.)
+
+[.slider]
+* *Meeting deadlines*: how well does it meet deadlines--unpredictable or predictable?
+* *Resource allocation*: how completely does it allocate system resources?
+* *Performance*: making great scheduling decisions is futile if the
+decision process itself takes _forever_.
+
+[.slider]
+.On human-facing systems, deadlines (or *interactivity*) usually wins. Why?
+* Your time is more valuable than your computer's.
+
+[.nooutline]
+== The Know Nothings
+
+[.slider]
+.Give two examples of schedulers that do not use any information about threads:
+* *Random*
+* *Round Robin*
+
+[.nooutline]
+== The Know-It-Alls
+
+[.slider]
+.Let's say we can predict the future. What might we like to know about the thread we are about to execute?
+* *How long* is it going to use the CPU!
+* Will it *block* or *yield*?
+* How long will it wait?
+
+[.nooutline]
+== Non-Oracular
+
+* Instead of predicting the future we [.slide]*use the past to predict the
+future.*
+* One example of such a scheduler is [.slide]#multi-level feedback queues
+(MLFQ).#
+
+[.nooutline]
+== Linux Scheduling
+
+* Who is Ingo Molnar? [.slide]#The Linux scheduling subsystem maintainer and
+developer.#
+* Who is Con Kolivas? [.slide]#An Australian anaesthetist and Linux kernel
+developer who focused on improving interactivity while striving for
+simplicity and predictability.#
+
+[.nooutline]
+== Rotating Staircase Deadline Scheduler
+
+Assume we have a RSDL scheduler with a 5 ms quantum and 10 levels.
+
+[.slider]
+* A thread that starts at the highest priority level 0 can potentially run in which levels?
+[.slide]*0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.*
+* A thread that starts at priority level 5 can potentially run in which
+levels? [.slide]*5, 6, 7, 8, and 9.*
+* At the beginning of a time quantum we have one runnable thread at
+priority 0, 3, 7, and 9. What is the *longest* amount of time before the
+thread at level 9 has a chance to run? [.slide]*15 ms = 5 ms + 5 ms + 5 ms.*
+
+[.nooutline]
+== Scheduling: Questions?
+
+== !
+
+[.background]
+image:https://c1.staticflickr.com/5/4020/4347046050_4740318003.jpg[]
+
+[.meme-top]
+Professors favorite topic
+
+[.meme-bottom]
+Generates irrational enthusiasm
+
+== Space v. Time Multiplexing
+
+[.slider]
+.*Time multiplexing:* sharing a resource by dividing up access to it over time.
+* Example: CPU scheduling on a single-core system.
+* Example: Room scheduling using temporal scheduling.
+* Example: Car share programs.
+
+[.slider]
+.*Space multiplexing:* sharing a resource by dividing it into smaller pieces.
+* Example: CPU scheduling on a multi-core system. *Low granularity*.
+* Example: memory management. *High granularity.*
+* Example: splitting up a cake.
+
+== Clarification: Memory Allocation
+
+[.slider]
+.Memory allocation happens in several steps:
+. A process requests large chunks of memory from the OS kernel...
+. ...and then divides available memory up using a process-level allocation
+library (such as `malloc`).
+
+[.slider]
+* You're probably more familiar with the second step, but we're going to
+focus on the first. (Although allocators are fascinating and still an area of
+active research...)
+
+== [.small]#Direct Physical Memory Multiplexing#
+
+[.slider]
+* Why not just *divide physical memory* between processes?
+
+[.slide.replace]
+--
+image::figures/memory/physical-1.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-2.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-3.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-4.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-5.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-6.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-7.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-8.svg[width="60%"]
+--
+
+== Direct Multiplexing: Problems
+
+[.slider]
+* Limited to the amount of physical memory on the machine.
+* What happens if processes request memory that they *do not use*?
+
+== [.small]#Direct Physical Memory Multiplexing#
+
+[.slider]
+* Why not just *divide physical memory* between processes?
+
+[.slide.replace]
+--
+image::figures/memory/physical-8.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-9.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-10.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-11.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/physical-12.svg[width="60%"]
+--
+
+== Direct Multiplexing: Problems
+
+[.slider]
+* Limited to the amount of physical memory on the machine.
+* Potentially discontiguous allocations.
+** Complicates process memory layout.
+* Potential for *fragmentation* to reduce allocation efficiency.
+
+== Process Memory Layout
+
+How do processes know where their code and data is located?
+
+[source,c,role='small']
+----
+int data[128];
+...
+data[5] = 8; // Where the heck is data[5]?
+...
+result = foo(data[5]); // Where the heck is foo?
+----
+
+== Fragmentation
+
+*Fragmentation*: when a request for contiguous memory fails _despite
+the fact that there is enough unused memory available_ (on the system).
+
+[.slider]
+* *Internal* fragmentation: unused memory is _inside_ existing
+allocations.
+* *External* fragmentation: unused memory is _between_ existing
+allocations.
+
+[.slide]
+--
+* Note that it is not always feasible to split data structures across
+multiple pieces of discontiguous memory:
+
+[source,c,role='smaller']
+----
+int data[10240]; // I had better be contiguous.
+----
+--
+
+== Direct Multiplexing: Problems
+
+[.slider]
+* Limited to the amount of physical memory on the machine.
+* Potentially discontiguous allocations.
+* Potential for *fragmentation* to reduce allocation efficiency.
+* Can I enforce my allocations?
+** Not without checking *every* memory access. Way too slow, but
+hardware could help...
+* Can I safely reclaim unused memory?
+** Leads to increased discontiguity and suffers from the same
+enforcement problem.
+
+== Memory Multiplexing Requirements
+
+[.slider]
+* *Grant*: the kernel should be able to allocate memory to processes
+statically (at startup) and dynamically (as needed).
+* *Enforce*: the kernel should be able to enforce memory allocations
+efficiently.
+* *Reclaim*: the kernel should be able to repurpose unused memory
+without destroying its contents.
+* *Revoke*: the kernel should be able to stop a process from using
+memory that it was previously allocated.
+
+== Comparison to CPU
+
+[.slider]
+* *Grant*: schedule a thread via a context switch.
+* *Enforce*: interrupt a thread using a timer interrupt.
+* *Reclaim*: this is new.
+* *Revoke*: deschedule a thread via a context switch.
+
+== Address Spaces: The Memory Management Abstraction
+
+We provide every process with an *identical* view of memory that makes
+it appear:
+
+[.slider]
+* *plentiful*, [.slide]*contiguous,* [.slide]*uniform,* and [.slide]*private.*
+
+[.slide.replace]
+--
+image::figures/memory/addressspace-1.svg[width="50%", title="The Address Space"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/addressspace-2.svg[width="50%", title="The Address Space"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/addressspace-3.svg[width="50%", title="The Address Space"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/addressspace-4.svg[width="50%", title="The Address Space"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/addressspace-5.svg[width="50%", title="The Address Space"]
+--
+
+== Address Spaces: Layout
+
+The uniformity of address spaces simplifies process *layout*:
+
+[.slider]
+* "I always put my code and static variables at 0x10000."
+* "My heap always starts at 0x20000000 and grows *up*."
+* "My stack always starts at 0xFFFFFFFF and grows *down*."
+
+[.slide.replace]
+--
+image::figures/memory/layout-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/layout-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/layout-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/layout-4.svg[width="80%"]
+--
+
+== Convention
+
+[.slider]
+* Process layout is specified by the Executable and Linker Format (ELF)
+file. (Remember ELF?)
+* Some layout is the function of *convention*.
+* Example: why not load the code at `0x0`?
+** To catch possibly the most common programmer error: `NULL` pointer
+problems!
+** Leaving a large portion of the process address space starting at `0x0`
+empty allows the kernel to catch these errors, including offsets against
+`NULL` caused by `NULL` structures:
+
+[source,c,role='smaller slide']
+----
+struct bar * foo = NULL;
+foo->bar = 10;
+----
+
+[canvas-image="http://laportecreative.com/blog/wp-content/uploads/2012/11/woman-mad-at-computer1.jpg"]
+== !
+
+[.background]
+image:http://laportecreative.com/blog/wp-content/uploads/2012/11/woman-mad-at-computer1.jpg[]
+
+[.meme-top]
+Segmentation fault
+
+[.meme-bottom]
+Core dumped
+
+[.nooutline]
+== Aside: ASST2
+
+[source,c,role='small']
+----
+int32_t sys_open(userptr_t pathname, ...) {
+  if (pathname == NULL) {
+    return EINVAL;
+  }
+  ...
+----
+
+This is also why *not* to check `userptr_t` types for `NULL` in ASST2:
+
+[.slider]
+* `0x0` can be a valid user address. ("Look, Mom, I did my own linking.")
+* There are `2^31` ways that address can be bogus...[.slide]#and you just
+checked _one_ of them.#
+
+== Destined To Ever Meet?
+
+[.slider]
+* The *stack* starts at the top of the address space and grows ↓.
+* The *heap* starts towards the bottom and grows ↑.
+* *Will they ever meet?*
+** *Probably not!* That would mean either the stack or probably the heap
+was _huge_.
+
+== Relocation
+
+[source,c,role='small']
+----
+int data[128];
+...
+data[5] = 8; // Where the heck is data[5]?
+...
+result = foo(data[5]); // Where the heck is foo?
+----
+
+So given our address space model, no more problems with locating
+things, right?
+
+[.slider]
+*Not quite!* Dynamically-loaded libraries still need to be relocated at
+run time. Cool: but not something we'll cover in this course.
+
+== !
+
+[.background]
+image:http://inwallspeakers1.com/wp-content/uploads/2014/07/happy-computer-user.jpg[]
+
+[.meme-top]
+Sounds great
+
+[.meme-bottom]
+What's the catch?
+
+== Address Spaces: A Great Idea?
+
+[.slider]
+* The address space abstraction sounds powerful and useful. (It would be
+better if it cooked breakfast.)
+* *But can we implement it?*
+
+== Implementing Address Spaces
+
+[.slider]
+.What's required?
+* *Address translation*: 0x10000 to Process 1 is not the same as 0x10000
+to Process 2 is not the same as...
+* *Protection*: address spaces are intended to provide a _private_ view
+of memory to each process.
+* *Memory management*: together one or several processes may have *more
+address space* allocated than physical memory on the machine.
+** In a way, we are _encouraging_ processes to spread out and let us
+handle the details.
+
+[.slide]
+--
+The details will consume us for the next few weeks.
+--
+
+[.nooutline]
+== Next Time
+
+* Address translation.
+* Levels of indirection.
+* Physical and virtual addresses.
