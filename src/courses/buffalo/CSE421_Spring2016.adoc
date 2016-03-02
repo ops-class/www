@@ -417,7 +417,7 @@ indicates you understand all of the moving pieces and what to do. Next,
 implement the system call interface. When you are finished, your kernel should
 be able to run user programs.
 
-=== `ASST3`: Virtual Memory
+=== link:/asst/3/[`ASST3`: Virtual Memory]
 
 The mountain top. A large amount of code to implement and many internal
 interfaces to design. As always, start with a careful design. Then implement
@@ -426,7 +426,7 @@ replacement and swapping. When you are finished, your kernel should be able to
 run forever without running out of memory, and you will have completed the
 course.
 
-This year we are splitting the ASST3 deadlines into three parts:
+This year we are splitting the link:/asst/3/[ASST3] deadlines into three parts:
 
 . *ASST3.1*: working core map. *Deadline*: Friday 4/8/2016 @ 5PM.
 . *ASST3.2*: user paging. *Deadline*: Friday 4/22/2016 @ 5PM.
@@ -459,9 +459,9 @@ the missing 5%.
 ** 15% Midterm Exam
 ** 30% Final Exam
 * 50% Programming
-** 5% ASST1
-** 15% ASST2
-** 30% ASST3
+** 5% link:/asst/1/[ASST1]
+** 15% link:/asst/2/[ASST2]
+** 30% link:/asst/3/[ASST3]
 
 ==== Extra credit
 
