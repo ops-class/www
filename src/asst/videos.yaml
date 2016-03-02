@@ -22,6 +22,7 @@ videos:
     - presenter: "Jerry Ajay"
       youtube: 9DA06Rw9SAk
       date: 02-09-2016
+      slides: "https://drive.google.com/file/d/0B2KANO6SyBWldG9icFVxdXlvSGM/view"
   2:
     - presenter: "Jinghao Shi"
       youtube: qCC23NnHddY
@@ -44,6 +45,11 @@ videos:
     - presenter: "Ali Ben Ali"
       youtube: 1Km71RPweLM
       date: 02-23-2016
+      slides: "https://drive.google.com/file/d/0B2KANO6SyBWlSjlvckVVWkVzN28/view"
+    - presenter: "Ali Ben Ali"
+      youtube: l4YXBmWzZoU
+      date: 03-01-2016
+      slides: "https://drive.google.com/file/d/0B2KANO6SyBWlaVFYODRYMjZ5c28/view"
   3:
     - presenter: "Jinghao Shi"
       youtube: bFxD6NyuwBo

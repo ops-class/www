@@ -11,7 +11,7 @@
 					<a class="anchor" id="videos"></a>
 					<h2>Related Videos</h2>
 					<p class="lead">
-					Below are some related videos that may help you
+					Below are some related videos and slides that may help you
 					complete this assignment.
 					</p>
 					<div class="row">
@@ -21,7 +21,11 @@
 									 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
 								<div class="youtube-container" data-id="{{ youtube }}"></div>
 							</div>
-							<h4>{{ date }}: {{ presenter }}</h4>
+							<ul class="list-inline dash-list h5">
+								<li>{{ date }}</li>
+								<li>{{ presenter }}</li>
+								{{#if slides}}<li><a href="{{ slides }}">Slides</a></li>{{/if}}
+							</ul>
 						</div>
 						{{/each}}
 					</div>
