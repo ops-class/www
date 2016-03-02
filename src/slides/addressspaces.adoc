@@ -12,6 +12,7 @@ song:
 spelling_exceptions:
   - Ingo Molnar
   - RSDL
+video: SGeDjFoYAis
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -390,88 +391,6 @@ Segmentation fault
 
 [.meme-bottom]
 Core dumped
-
-[.nooutline]
-== Aside: ASST2
-
-[source,c,role='small']
-----
-int32_t sys_open(userptr_t pathname, ...) {
-  if (pathname == NULL) {
-    return EINVAL;
-  }
-  ...
-----
-
-This is also why *not* to check `userptr_t` types for `NULL` in ASST2:
-
-[.slider]
-* `0x0` can be a valid user address. ("Look, Mom, I did my own linking.")
-* There are `2^31` ways that address can be bogus...[.slide]#and you just
-checked _one_ of them.#
-
-== Destined To Ever Meet?
-
-[.slider]
-* The *stack* starts at the top of the address space and grows ↓.
-* The *heap* starts towards the bottom and grows ↑.
-* *Will they ever meet?*
-** *Probably not!* That would mean either the stack or probably the heap
-was _huge_.
-
-== Relocation
-
-[source,c,role='small']
-----
-int data[128];
-...
-data[5] = 8; // Where the heck is data[5]?
-...
-result = foo(data[5]); // Where the heck is foo?
-----
-
-So given our address space model, no more problems with locating
-things, right?
-
-[.slider]
-*Not quite!* Dynamically-loaded libraries still need to be relocated at
-run time. Cool: but not something we'll cover in this course.
-
-== !
-
-[.background]
-image:http://inwallspeakers1.com/wp-content/uploads/2014/07/happy-computer-user.jpg[]
-
-[.meme-top]
-Sounds great
-
-[.meme-bottom]
-What's the catch?
-
-== Address Spaces: A Great Idea?
-
-[.slider]
-* The address space abstraction sounds powerful and useful. (It would be
-better if it cooked breakfast.)
-* *But can we implement it?*
-
-== Implementing Address Spaces
-
-[.slider]
-.What's required?
-* *Address translation*: 0x10000 to Process 1 is not the same as 0x10000
-to Process 2 is not the same as...
-* *Protection*: address spaces are intended to provide a _private_ view
-of memory to each process.
-* *Memory management*: together one or several processes may have *more
-address space* allocated than physical memory on the machine.
-** In a way, we are _encouraging_ processes to spread out and let us
-handle the details.
-
-[.slide]
---
-The details will consume us for the next few weeks.
---
 
 [.nooutline]
 == Next Time
