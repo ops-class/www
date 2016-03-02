@@ -367,7 +367,7 @@ ret = fork();
 if (ret != 0) {
   printf("%x", &i); // prints virtual address 0x20010
   i = 4;
-  printf("%d", i); 
+  printf("%d", i);
 } else {
   printf("%x", &i);
   i = 3;
@@ -384,9 +384,9 @@ if (ret != 0) {
   i = 4;
   printf("%d", i); // prints 4. virtual address points to private memory.
 } else {
-  printf("%x", &i); 
+  printf("%x", &i);
   i = 3;
-  printf("%d", i); 
+  printf("%d", i);
 }
 ----
 
