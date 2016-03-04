@@ -21,7 +21,7 @@ video: QyWPDVqqIt8
 image::women/033.jpg[width="100%"]
 
 [.h4.center]
-icon:music[] http://ilovemetric.com["Gimme Sympathy" by Metric]
+icon:music[] https://www.ilovemetric.com["Gimme Sympathy" by Metric]
 
 [.h4.center]
 icon:music[] {song}
