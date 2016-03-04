@@ -4,11 +4,24 @@ date: 2016-03-04
 author: Geoffrey Challen
 description: >
   Discussion of creating and translating virtual addresses.
+song:
+  name: "Never Gonna Give You Up"
+  author: "Rick Astley"
+  youtube: dQw4w9WgXcQ
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/044.jpg[width="100%"]
+image::women/044.jpg[width="50%",title="Qiheng Hu",link="http://internethalloffame.org/inductees/qiheng-hu"]
+
+[.h4.center]
+icon:music[] http://www.fleetwoodmac.com/["Never Going Back Again" by Fleetwood Mac]
+
+[.h4.center]
+icon:music[] https://en.wikipedia.org/wiki/Rickrolling[{song}]
+
+video::sKj1EFeU-cM[youtube,width=0,height=0]
+video::{music}[youtube,width=160,height=90]
 
 [.nooutline]
 == Today: Address Translation
@@ -19,6 +32,11 @@ image::women/044.jpg[width="100%"]
 
 [.nooutline]
 == $ cat announce.txt
+
+[.slider]
+* link:/asst/2/[ASST2] is due one week from today.
+** (Office hours are ominously quiet.)
+* A reminder about the collaboration policy.
 
 == Convention
 
@@ -93,9 +111,11 @@ result = foo(data[5]); // Where the heck is foo?
 So given our address space model, no more problems with locating
 things, right?
 
-[.slider]
+[.slide]
+--
 *Not quite!* Dynamically-loaded libraries still need to be relocated at
 run time. Cool: but not something we'll cover in this course.
+--
 
 == !
 
@@ -107,34 +127,6 @@ Sounds great
 
 [.meme-bottom]
 What's the catch?
-
-== Address Spaces: A Great Idea?
-
-[.slider]
-* The address space abstraction sounds powerful and useful. (It would be
-better if it cooked breakfast.)
-* *But can we implement it?*
-
-== Implementing Address Spaces
-
-[.slider]
-.What's required?
-* *Address translation*: 0x10000 to Process 1 is not the same as 0x10000
-to Process 2 is not the same as...
-* *Protection*: address spaces are intended to provide a _private_ view
-of memory to each process.
-* *Memory management*: together one or several processes may have *more
-address space* allocated than physical memory on the machine.
-** In a way, we are _encouraging_ processes to spread out and let us
-handle the details.
-
-[.slide]
---
-The details will consume us for the next few weeks.
---
-
-[.nooutline]
-== Address Spaces: Questions?
 
 == Address Spaces: A Great Idea?
 
@@ -157,7 +149,7 @@ Implement address spaces
 == Implementing Address Spaces
 
 [.slider]
-* What's required?
+.What's required?
 * *Address translation*: 0x10000 to Process 1 is not the same as 0x10000
 to Process 2 is not the same as...
 * *Protection*: address spaces are intended to provide a _private_ view
@@ -460,7 +452,7 @@ portion of a *file*.
 * Addresses are 32-bits wide: from 0x0 to 0xFFFFFFFF.
 
 .This MIPS architecture defines *four* address regions:
-[.slider]
+[.slider.small]
 * `0x0–0x7FFFFFFF`: *process virtual addresses*. Accessible to user
 processes, translated by the kernel. 2 GB.
 * `0x80000000–0x9FFFFFFF`: *kernel direct-mapped addresses*. Only
