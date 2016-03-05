@@ -161,8 +161,7 @@ The cake
 they are not the only way--or even always the _best_ way--to make use of
 system resources.
 * Another approach is known as
-http://www.gnu-darwin.org/www001/src/ports/devel/ocaml-equeue/work/equeue-2.1.4/doc/users-guide/html/c494.html[event-driven
-programming].
+https://en.wikipedia.org/wiki/Event-driven_programming[event-driven programming].
 * Anyone who has done JavaScript development or used frameworks like
 http://nodejs.org/[node.js] has grown familiar with this programming model.
 

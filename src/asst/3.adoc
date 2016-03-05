@@ -320,6 +320,21 @@ components from machine-independent components appropriately. You should also
 now restrict your physical memory to 512 KB by editing the `ramsize` line in
 your `sys161.conf` file.
 
+=== Tracking Kernel Page Allocations
+
+To begin the assignment you will need to write a kernel page allocator that
+conforms to the interface in `include/vm.h`. Specifically, you will need to
+handle `{alloc,free}_kpages` and ensure that `coremap_free_bytes` returns
+correct values. You will probably also want to add functions to return user
+pages as well.
+
+This part of the assignment is very related to the design of your _core map_,
+described below. However, you can test your kernel page allocator entirely
+from the kernel using `km{3,4}`, which should pass repeatedly once you are
+finished. Note that your kernel page allocator must support multi-page kernel
+allocations, although you are not required to deal with external
+fragmentation.
+
 === TLB Handling
 
 In this part of the assignment, you will modify OS/161 to handle TLB
