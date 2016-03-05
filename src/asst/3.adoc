@@ -324,7 +324,7 @@ your `sys161.conf` file.
 
 To begin the assignment you will need to write a kernel page allocator that
 conforms to the interface in `include/vm.h`. Specifically, you will need to
-handle `{alloc,free}_kpages` and ensure that `coremap_free_bytes` returns
+handle `{alloc,free}_kpages` and ensure that `coremap_used_bytes` returns
 correct values. You will probably also want to add functions to return user
 pages as well.
 

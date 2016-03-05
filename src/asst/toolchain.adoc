@@ -1,0 +1,134 @@
+---
+title: "<code>ops-class.org</code> Toolchain"
+description: >
+  Overview of ops-class.org toolchain components, versions, and installation
+  instructions.
+omitTop: true
+priority: 0.8
+changefreq: monthly
+spelling_exceptions:
+  - LTS
+  - Trusty Tahr
+---
+[.lead]
+{ops-class} assignments require a specific toolchain. This page documents the
+current versions of toolchain components.
+
+'''
+
+== OS/161
+
+{os161} is maintained by http://www.hcs.harvard.edu/~dholland/[David Holland]
+at Harvard University. We maintain a https://github.com/ops-class/os161[fork
+of OS/161 on GitHub] that includes many {ops-class}-specific changes,
+particularly related to testing automation using {test161}.
+
+=== Current Version
+
+https://github.com/ops-class/os161/tree/master[2.0.1]
+based on http://os161.eecs.harvard.edu/download/[upstream version 2.0.1].
+(Latest upstream is 2.0.2. We will incorporate these changes in Summer 2016.)
+
+=== Installation
+
+Clone our https://github.com/ops-class/os161[GitHub repository].
+
+=== Upgrading
+
+Pull and merge upstream changes from our
+https://github.com/ops-class/os161[GitHub repository].
+
+'''
+
+== Vagrant Virtual Machine
+
+We maintain a https://github.com/ops-class/vagrant[Vagrant configuration]
+based on http://releases.ubuntu.com/14.04/[Ubuntu 14.04 LTS "Trusty Tahr"]
+that simplifies the process of installing the rest of the toolchain:
+including `sys161`, the OS/161 cross-compilers, and `test161`. *This is the
+recommended way to install the rest of the toolchain.*
+
+=== Current Version
+
+https://github.com/ops-class/vagrant/tree/v1.0[1.0] is the current version.
+
+=== Installation
+
+https://www.vagrantup.com/[Install Vagrant], clone our
+https://github.com/ops-class/vagrant/tree/v1.0[`Vagrantfile`], then `vagrant
+up`.
+
+=== Upgrading
+
+Upgrading the toolchain from within the virtual machine can be accomplished
+via `sudo apt-get update; sudo apt-get upgrade`.
+
+Upgrading the virtual machine itself can be done by updating the
+`Vagrantfile` and provisioning scripts via `git pull` and then forcing
+Vagrant to reprovision the VM--although it may be easier to simply destroy
+the old VM and create a new one. *But be sure to preserve your OS/161
+sources!*
+
+'''
+
+== `test161` Client
+
+{test161} is our OS/161 distribute automated grading and testing tool. It is
+maintained by https://blue.cse.buffalo.edu/people/shaseley[Scott Haseley].
+Sources are available on https://github.com/ops-class/test161[GitHub] and
+pull requests are welcome.
+
+=== Current Version
+
+{ppa-link}[1.2.0].
+
+=== Installation
+
+Use our {ppa} (preferred) or
+https://github.com/ops-class/test161/blob/master/README.adoc[install from
+source.]
+
+=== Upgrading
+
+Upgrade from our {ppa} using `sudo apt-get update ; sudo apt-get upgrade` or,
+if you installed from source, `go get -u
+github.com/ops-class/test161/test161`.
+
+'''
+
+== System/161
+
+{system161} is also maintained by http://www.hcs.harvard.edu/~dholland/[David
+Holland] at Harvard University. We maintain our own
+https://github.com/ops-class/sys161[GitHub `sys161` repository] for the
+purpose of packaging `sys161` for our {ppa}. We have also made some
+contributions to `sys161` in version 2.0.6 and 2.0.7 related to {test161}
+automation and statistics control.
+
+=== Current Version
+
+{ppa-link}[2.0.8] which is identical to
+http://os161.eecs.harvard.edu/download/[upstream version 2.0.8].
+
+=== Installation
+
+Use our {ppa} (preferred) or
+http://os161.eecs.harvard.edu/resources/setup.html[install from source].
+
+'''
+
+== OS/161 Cross Compilers
+
+{os161} requires a set of patched cross compilers which are also (surprise
+surprise) maintained by http://www.hcs.harvard.edu/~dholland/[David Holland]
+Holland] at Harvard University. We have packaged these for our {ppa}.
+
+=== Current Version
+
+Identical to the latest versions shown
+http://os161.eecs.harvard.edu/download/[here].
+
+=== Installation
+
+Use our {ppa} (preferred) or
+http://os161.eecs.harvard.edu/resources/setup.html[install from source].
