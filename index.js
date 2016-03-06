@@ -158,6 +158,7 @@ metalsmith(__dirname)
 		pattern: '**/*.hbs',
 		rename: true
 	}))
+  .use(msif((argv['check'] == true), failmeta()))
   .use(layouts({
     engine: 'handlebars'
   }))
@@ -188,7 +189,6 @@ metalsmith(__dirname)
   .use(msif((argv['deploy'] == true), uglify()))
   .use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
   .use(msif((argv['deploy'] == true), beautify({'indent_size': 2, 'css': false, 'js': false})))
-  .use(msif((argv['check'] == true), failmeta()))
   .use(msif((argv['check'] == true), internalize()))
   .use(msif((argv['check'] == true),
     spellcheck({ dicFile: 'dicts/en_US.dic',

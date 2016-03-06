@@ -73,7 +73,7 @@ sources!*
 
 == `test161` Client
 
-{test161} is our OS/161 distribute automated grading and testing tool. It is
+{test161} is our OS/161 distributed automated grading and testing tool. It is
 maintained by https://blue.cse.buffalo.edu/people/shaseley[Scott Haseley].
 Sources are available on https://github.com/ops-class/test161[GitHub] and
 pull requests are welcome.
