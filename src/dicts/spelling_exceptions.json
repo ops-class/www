@@ -98,7 +98,7 @@
 	"subdirectories": true,
 	"/TAs?/": true,
 	"timeline": true,
-	"TLB": true,
+	"/TLBs?/": true,
 	"toolchain": true,
 	"transformative": true,
   "virtualization": true,

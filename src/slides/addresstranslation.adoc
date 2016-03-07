@@ -5,11 +5,25 @@ author: Geoffrey Challen
 description: >
   Discussion of efficiently translating virtual addresses to physical
   addresses.
+spelling_exceptions:
+  - /CAMs?/
+  - lookaside
+  - V.A.
+  - KTHXBAI
+song:
+  name: "Achilles Last Stand"
+  author: "Led Zeppelin"
+  youtube: nlRjjGc6pJA
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/045.jpg[width="100%",title="Anuradha Annaswamy",link="http://meche.mit.edu/people/faculty/aanna@mit.edu"]
+
+[.h3.center]
+icon:music[] http://www.ledzeppelin.com/[{song}]
+
+video::{music}[youtube,width=160,height=90]
 
 [.nooutline]
 == Today: Efficient Translation
@@ -78,14 +92,14 @@ blueprint.#
 .This MIPS architecture defines *four* address regions:
 [.slider]
 * `0x0–0x7FFFFFFF`: *process virtual addresses*. Accessible to user
-processes, translated by the kernel. 2GB.
+processes, translated by the kernel. 2 GB.
 * `0x80000000–0x9FFFFFFF`: *kernel direct-mapped addresses*. Only
-accessible to the kernel, translated by subtracting 0x80000000. 512MB.
+accessible to the kernel, translated by subtracting 0x80000000. 512 MB.
 Cached.
 * `0xA0000000–0xBFFFFFFF`: *kernel direct-mapped addresses*. Only
-accessible to the kernel. 512MB. Uncached.
+accessible to the kernel. 512 MB. Uncached.
 * `0xC0000000–0xFFFFFFFF`: *kernel virtual addresses*. Only accessible to
-the kernel, translated by the kernel. 1GB.
+the kernel, translated by the kernel. 1 GB.
 
 [.nooutline]
 == Virtual Addresses: Questions?
@@ -201,7 +215,7 @@ image::figures/memory/translationexample-12.svg[width="100%"]
 image::figures/memory/translationexample-13.svg[width="100%"]
 --
 
-== K.I.S.S.: Base and Bound
+== [.spelling_exception]#K.I.S.S.: Base and Bound#
 
 *Simplest* virtual address mapping approach.
 
@@ -301,7 +315,7 @@ image::figures/memory/baseandboundscon-3.svg[width="60%"]
 image::figures/memory/baseandboundscon-4.svg[width="60%"]
 --
 
-== K.I.Simplish.S.: Segmentation
+== [.spelling_exception]#K.I.Simplish.S.: Segmentation#
 
 *One* base and bounds isn't a good fit for the address space
 abstraction.
@@ -317,7 +331,7 @@ heap, stack—to its own *segment*.
 ** Each can be a separate *size*.
 ** Each can have separate *permissions*.
 
-== K.I.Simplish.S.: Segmentation
+== [.spelling_exception]#K.I.Simplish.S.: Segmentation#
 
 *Segmentation* works as follows:
 
