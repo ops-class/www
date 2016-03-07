@@ -19,7 +19,7 @@ changefreq: monthly
 This web page serves as the syllabus for the course.
 --
 
-== Description
+== Overview
 
 [.lead]
 This course is an introduction to operating system design and implementation.
@@ -114,90 +114,7 @@ cannot attend a scheduled exam for any reason.*
 http://www.cse.buffalo.edu/shared/course.php?e=CSE&n=250&t=DATA+STRUCTURES[CSE
 250: Data Structures].
 
-== Online Resources
-
-This website is the source for all information about the class: the syllabus
-(which you are reading) lecture slides, assignments, previous exams, lecture
-videos, and other useful information.
-
-=== Videos
-
-We try to tape all
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[lectures]
-and
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF[recitation].
-A playlist of the music played before class is also
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_hjJpG9tqicpEgI6C3aaAE[available].
-Finally, we are experimenting with screencasts which are embedded into the
-assignments and also available in a playlist
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9PC8fyzc2meL4XvrVSyP8O[here].
-
-Previous years have also been recorded:
-
-* *2015*:
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp8U4xVODdQtgJ945HeMwosQ[Lectures],
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9DnLcZFyX2f_JnUsmeS7vL[recitations].
-
-* *2014*: 
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_Dugcm7mBsEahZS5Xr-zWe[Lectures],
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9POq3yWUBM3XLsW2il8U32[recitations].
-
-* *2013*:
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-qxcxaYtTf5zQXdcfzrW_r[Lectures].
-
-* *2012*:
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp8tllE40n3tHfWXqxFeyFuY[Lectures].
-
-=== Forum
-
-We are using a https://discourse.ops-class.org[Discourse forum] this semester
-for all class-related communications. Please update your profile on it and use
-it for all lecture- and assignment-related Q&A.
-
-Before we got tired of it and it's strange approach to pedagogy we used
-Piazza in past years. Unfortunately, there seems to be no way to make the
-previous forums contents public footnote:[Yet another thing to dislike about
-Piazza...].
-
-=== Mailing List
-
-All enrolled students will be added to a mailing list which we will use for
-course communication. *You are responsible for email messages sent to this
-list.* If you are not enrolled and would like to be added to the list, you can
-sign up https://www.ops-class.org/mailman/listinfo/ub[here].
-
-== Getting Help
-
-The operating systems programming assignments are difficult and most students
-require a fair amount of help during the semester. Here's how to--and how
-not to--get help.
-
-=== Great Ways to Get Help
-
-* *Use the https://discourse.ops-class.org[the forum].* This is by far your
-best resource because it allows you to get help from anyone--not just a TA or
-Ninja--at any time--not just during office hours. Please use and contribute
-to this valuable shared resource.
-
-* *Come to office hours.* We don't hold them for our health and
-the staff gets bored when there isn't anyone to help! So please don't
-hesitate to come in. Office hours are also a great time to work on your
-assignments, since if (when) you get stuck help is already nearby.
-
-=== Bad Ways to Get Help
-
-* *Emailing any staff member using their `@buffalo.edu` email address. I
-instruct the staff to ignore these emails and I will as well.
-
-* Emailing mailto:staff@ops-class.org[`staff@ops-class.org`].
-This address is only for administrative uses, not for getting help on
-assignments.
-
-* Emailing mailto:prof@ops-class.org[`prof@ops-class.org`].
-This address is only for highly-sensitive administrative uses, not for
-getting help on assignments.
-
-== Extended Course Description
+== Description
 
 Operating systems are the masterworks of the programming world: beautiful and
 sophisticated solutions to difficult design problems that have emerged from
@@ -392,7 +309,7 @@ you have followed each time you submit answers.
 A description of each assignment along with due dates are listed below. This
 year we expect these to be firm and *no extensions will be given.*
 
-=== link:/asst/0/[`ASST0`: Introduction to OS/161]
+==== link:/asst/0/[`ASST0`: Introduction to OS/161]
 
 Introduces you to the programming environment you will be working in this
 semester, including the OS/161 operating system, the `sys161` simulator, the
@@ -400,7 +317,7 @@ GNU debugger (GDB), and the Git revision control system.  Consists of code
 reading questions, a few simple scripting tasks, and a very simple
 implementation task.
 
-=== link:/asst/1/[`ASST1`: Synchronization]
+==== link:/asst/1/[`ASST1`: Synchronization]
 
 *Deadline*: Monday 2/22/2016 @ 5PM.
 
@@ -408,7 +325,7 @@ Your first real taste of kernel programming. After completing a set of code
 reading questions, you implement locks, condition variables and reader-writer
 locks. Next, you use them to solve a few simple toy synchronization problems.
 
-=== link:/asst/2/[`ASST2`: System Calls and Process Support]
+==== link:/asst/2/[`ASST2`: System Calls and Process Support]
 
 *Deadline*: Friday 3/11/2016 @ 5PM.
 
@@ -417,7 +334,7 @@ indicates you understand all of the moving pieces and what to do. Next,
 implement the system call interface. When you are finished, your kernel should
 be able to run user programs.
 
-=== link:/asst/3/[`ASST3`: Virtual Memory]
+==== link:/asst/3/[`ASST3`: Virtual Memory]
 
 The mountain top. A large amount of code to implement and many internal
 interfaces to design. As always, start with a careful design. Then implement
@@ -523,21 +440,100 @@ Please register and coordinate with the Office of Disability Services. Let
 the course staff know when accommodations need to be made. We are committed
 to helping you learn.
 
+== Getting Help
+
+The operating systems programming assignments are difficult and most students
+require a fair amount of help during the semester. Here's how to--and how
+not to--get help.
+
+=== Great Ways to Get Help
+
+* *Use the https://discourse.ops-class.org[the forum].* This is by far your
+best resource because it allows you to get help from anyone--not just a TA or
+Ninja--at any time--not just during office hours. Please use and contribute
+to this valuable shared resource.
+
+* *Come to office hours.* We don't hold them for our health and
+the staff gets bored when there isn't anyone to help! So please don't
+hesitate to come in. Office hours are also a great time to work on your
+assignments, since if (when) you get stuck help is already nearby.
+
+=== Bad Ways to Get Help
+
+* *Emailing any staff member using their `@buffalo.edu` email address. I
+instruct the staff to ignore these emails and I will as well.
+
+* Emailing mailto:staff@ops-class.org[`staff@ops-class.org`].
+This address is only for administrative uses, not for getting help on
+assignments.
+
+* Emailing mailto:prof@ops-class.org[`prof@ops-class.org`].
+This address is only for highly-sensitive administrative uses, not for
+getting help on assignments.
+
+== Online Resources
+
+This website is the source for all information about the class: the syllabus
+(which you are reading) lecture slides, assignments, previous exams, lecture
+videos, and other useful information.
+
+=== Videos
+
+We try to tape all
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[lectures]
+and
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF[recitation].
+A playlist of the music played before class is also
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_hjJpG9tqicpEgI6C3aaAE[available].
+Finally, we are experimenting with screencasts which are embedded into the
+assignments and also available in a playlist
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9PC8fyzc2meL4XvrVSyP8O[here].
+
+Previous years have also been recorded:
+
+* *2015*:
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp8U4xVODdQtgJ945HeMwosQ[Lectures],
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9DnLcZFyX2f_JnUsmeS7vL[recitations].
+
+* *2014*: 
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_Dugcm7mBsEahZS5Xr-zWe[Lectures],
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9POq3yWUBM3XLsW2il8U32[recitations].
+
+* *2013*:
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-qxcxaYtTf5zQXdcfzrW_r[Lectures].
+
+* *2012*:
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp8tllE40n3tHfWXqxFeyFuY[Lectures].
+
+=== Forum
+
+We are using a https://discourse.ops-class.org[Discourse forum] this semester
+for all class-related communications. Please update your profile on it and use
+it for all lecture- and assignment-related Q&A.
+
+Before we got tired of it and it's strange approach to pedagogy we used
+Piazza in past years. Unfortunately, there seems to be no way to make the
+previous forums contents public footnote:[Yet another thing to dislike about
+Piazza...].
+
+=== Mailing List
+
+All enrolled students will be added to a mailing list which we will use for
+course communication. *You are responsible for email messages sent to this
+list.* If you are not enrolled and would like to be added to the list, you can
+sign up https://www.ops-class.org/mailman/listinfo/ub[here].
+
 [.hidden-print]
 == Videos
 
-=== Lectures
-
 ++++
+<h3>Lectures</h3>
 <div class="embed-responsive embed-responsive-16by9">
-<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3&amp;showinfo=1"></div>
+	<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3&amp;showinfo=1"></div>
 </div>
-++++
 
-=== Recitations
-
-++++
+<h3>Recitations</h3>
 <div class="embed-responsive embed-responsive-16by9">
-<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF&amp;showinfo=1"></div>
+	<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF&amp;showinfo=1"></div>
 </div>
 ++++
