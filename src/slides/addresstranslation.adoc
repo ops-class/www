@@ -23,7 +23,7 @@ image::women/045.jpg[width="100%",title="Anuradha Annaswamy",link="http://meche.
 [.h3.center]
 icon:music[] http://www.ledzeppelin.com/[{song}]
 
-video::{music}[youtube,width=160,height=90]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today: Efficient Translation
