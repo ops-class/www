@@ -380,7 +380,6 @@ struct bar * foo = NULL;
 foo->bar = 10;
 ----
 
-[canvas-image="http://laportecreative.com/blog/wp-content/uploads/2012/11/woman-mad-at-computer1.jpg"]
 == !
 
 [.background]

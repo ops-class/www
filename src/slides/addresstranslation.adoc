@@ -6,8 +6,6 @@ description: >
   Discussion of efficiently translating virtual addresses to physical
   addresses.
 spelling_exceptions:
-  - /CAMs?/
-  - lookaside
   - V.A.
   - KTHXBAI
 song:
