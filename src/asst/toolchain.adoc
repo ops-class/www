@@ -50,7 +50,7 @@ recommended way to install the rest of the toolchain.*
 
 === Current Version
 
-https://github.com/ops-class/vagrant/tree/v1.0[1.0] is the current version.
+https://github.com/ops-class/vagrant/tree/v1.1[1.1] is the current version.
 
 === Installation
 
