@@ -8,6 +8,7 @@ song:
   name: "Never Gonna Give You Up"
   author: "Rick Astley"
   youtube: dQw4w9WgXcQ
+video: lM0w8CBhJmw
 ---
 [.nooutline.spelling_exception]
 == Technical Women
