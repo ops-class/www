@@ -110,7 +110,7 @@ contiguous allocations.
 == [.spelling_exception]#K.I.Simplish.S.: Segmentation#
 
 [.slider]
-* Multiple bases and bounds per process, each called a 
+* Multiple bases and bounds per process, each called a
 *segment*.
 
 [.slider]
