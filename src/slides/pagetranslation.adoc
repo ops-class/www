@@ -15,7 +15,7 @@ spelling_exceptions:
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/046.jpg[width="100%"]
+image::women/046.jpg[width="100%",link="https://en.wikipedia.org/wiki/Helen_Greiner",title="Helen Greiner"]
 
 [.h4.center]
 icon:music[] http://www.freedomfrymusic.com/["Shaky Ground" by Freedom Fry]
