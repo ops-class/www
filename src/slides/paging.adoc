@@ -12,7 +12,7 @@ song:
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/047.jpg[width="100%"]
+image::women/047.jpg[width="100%",link="https://en.wikipedia.org/wiki/Jean_E._Sammet",title="Jean Sammet"]
 
 [.h4.center]
 icon:music[] http://www.fruitbatsmusic.com/["From A Soon-To-Be Ghost Town" by Fruit Bats]
