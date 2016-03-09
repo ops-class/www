@@ -31,15 +31,31 @@ based on http://os161.eecs.harvard.edu/download/[upstream version 2.0.1].
 
 === Installation
 
-Clone our https://github.com/ops-class/os161[GitHub repository].
+Clone our https://github.com/ops-class/os161[GitHub repository]. Note that
+this sets the Git remote name to `staff` so that you can use `origin` for your
+own private repository where you store your changes.
+
+[source,bash]
+----
+git clone https://github.com/ops-class/os161 -o staff
+----
 
 === Upgrading
 
 Pull and merge upstream changes from our
-https://github.com/ops-class/os161[GitHub repository].
+https://github.com/ops-class/os161[GitHub repository]. Note that this depends
+on having our OS/161 GitHub repository named `staff` rather than `origin`, as
+described above. You will also need to inspect the output of `git pull` and
+fix any merge conflicts that may result.
+
+[source,bash]
+----
+git pull staff master
+----
 
 '''
 
+[[vagrant]]
 == Vagrant Virtual Machine
 
 We maintain a https://github.com/ops-class/vagrant[Vagrant configuration]
@@ -54,29 +70,78 @@ https://github.com/ops-class/vagrant/tree/v1.1[1.1] is the current version.
 
 === Installation
 
-https://www.vagrantup.com/[Install Vagrant], clone our
-https://github.com/ops-class/vagrant/tree/v1.0[`Vagrantfile`], then `vagrant
-up`.
+https://www.vagrantup.com/[Install Vagrant]. Then:
+
+[source,bash]
+----
+git clone https://github.com/ops-class/vagrant
+cd vagrant && vagrant up
+----
+
+If you are having trouble, please look at the 
+https://github.com/ops-class/vagrant/blob/master/README.adoc[README]. There
+are some known issues on Windows hosts.
 
 === Upgrading
 
-Upgrading the toolchain from within the virtual machine can be accomplished
-via `sudo apt-get update; sudo apt-get upgrade`.
+Upgrading the toolchain from inside the virtual machine is simple:
+
+[source,bash]
+----
+[trinity@zion:~] $ sudo apt-get update ; sudo apt-get upgrade
+----
 
 Upgrading the virtual machine itself can be done by updating the
 `Vagrantfile` and provisioning scripts via `git pull` and then forcing
-Vagrant to reprovision the VM--although it may be easier to simply destroy
-the old VM and create a new one. *But be sure to preserve your OS/161
-sources!*
+Vagrant to reprovision the VM:
+
+[source,bash]
+----
+vagrant halt
+git pull
+vagrant up --provision
+----
+
+It may be easier to simply destroy the old VM and create a new one. *But be
+sure to preserve your OS/161 sources!*
 
 '''
+
+[[ppa]]
+== {ops-class} Launchpad PPA
+
+The {ops-class} {ppa} includes all toolchain components packaged for Ubuntu
+14.04 "Trusty Tahr". If you 14.04 installed, you can install these packages
+directly. If you are using a later Ubuntu release, the `trusty` packages will
+probably work. If you are using an earlier Ubuntu release, you should upgrade.
+If you need to install Ubuntu and don't want to run it on bare metal, try our
+link:#vagrant[Vagrant virtual machine].
+
+=== Installation
+
+Our {ppa} makes things very simple:
+
+[source,bash]
+----
+sudo add-apt-repository ppa:geoffrey-challen/os161-toolchain
+sudo apt-get update ; sudo apt-get install os161-toolchain
+----
+
+=== Upgrading
+
+Upgrading is also easy:
+
+[source,bash]
+----
+sudo apt-get update ; sudo apt-get install os161-toolchain
+----
 
 == `test161` Client
 
 {test161} is our OS/161 distributed automated grading and testing tool. It is
 maintained by https://blue.cse.buffalo.edu/people/shaseley[Scott Haseley].
-Sources are available on https://github.com/ops-class/test161[GitHub] and
-pull requests are welcome.
+Sources are available on https://github.com/ops-class/test161[GitHub] and bug
+fixes and improvements via pull requests are welcome.
 
 === Current Version
 
@@ -84,15 +149,24 @@ https://github.com/ops-class/test161/tree/v1.2.2[1.2.2] is the current version.
 
 === Installation
 
-Use our {ppa} (preferred) or
-https://github.com/ops-class/test161/blob/master/README.adoc[install from
-source].
+If you are using our link:#ppa[PPA], then you already have `test161`. If you
+are installing from source, once you have https://golang.org[Go] installed,
+the following command will install {test161} into your `$GOPATH`:
+
+[source,bash]
+----
+go get -u github.com/ops-class/test161/test161
+----
 
 === Upgrading
 
-Upgrade from our {ppa} using `sudo apt-get update ; sudo apt-get upgrade` or,
-if you installed from source, `go get -u
-github.com/ops-class/test161/test161`.
+If you are using our link:#ppa[PPA], then follow the upgrade instructions
+above. If you installed from source:
+
+[source,bash]
+----
+go get -u github.com/ops-class/test161/test161
+----
 
 '''
 
@@ -112,8 +186,14 @@ http://os161.eecs.harvard.edu/download/[upstream version 2.0.8].
 
 === Installation
 
-Use our {ppa} (preferred) or
-http://os161.eecs.harvard.edu/resources/setup.html[install from source].
+If you are using our link:#ppa[PPA], then you already have `sys161`. You can
+also try http://os161.eecs.harvard.edu/resources/setup.html[installing from
+source] footnote:[Good luck!].
+
+=== Upgrading
+
+If you are using our link:#ppa[PPA], then follow the upgrade instructions
+above. If you installed from source, reinstall from source.
 
 '''
 
@@ -121,7 +201,7 @@ http://os161.eecs.harvard.edu/resources/setup.html[install from source].
 
 {os161} requires a set of patched cross compilers which are also (surprise
 surprise) maintained by http://www.hcs.harvard.edu/~dholland/[David Holland]
-Holland] at Harvard University. We have packaged these for our {ppa}.
+at Harvard University. We have packaged these for our link:#ppa[PPA].
 
 === Current Version
 
@@ -130,5 +210,11 @@ http://os161.eecs.harvard.edu/download/[here].
 
 === Installation
 
-Use our {ppa} (preferred) or
-http://os161.eecs.harvard.edu/resources/setup.html[install from source].
+If you are using our link:#ppa[PPA], then you already have the OS/161
+toolchain. You can also try
+http://os161.eecs.harvard.edu/resources/setup.html[installing from source].
+
+=== Upgrading
+
+If you are using our link:#ppa[PPA], then follow the upgrade instructions
+above. If you installed from source, reinstall from source.
