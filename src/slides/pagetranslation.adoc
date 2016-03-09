@@ -42,6 +42,10 @@ solution sets without penalty.
 * Midterm will cover everything through *Friday*.
 * ASST2 turn-in party Friday starting after class, in and around Davis 303.
 
+<<<
+
+* A leader board is coming! (And it includes privacy settings, obviously.)
+
 [.nooutline]
 == PS: ASST2 and ASST3 Are Hard
 

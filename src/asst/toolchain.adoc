@@ -80,13 +80,13 @@ pull requests are welcome.
 
 === Current Version
 
-{ppa-link}[1.2.0].
+https://github.com/ops-class/test161/tree/v1.2.2[1.2.2] is the current version.
 
 === Installation
 
 Use our {ppa} (preferred) or
 https://github.com/ops-class/test161/blob/master/README.adoc[install from
-source.]
+source].
 
 === Upgrading
 

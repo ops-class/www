@@ -158,7 +158,7 @@ metalsmith(__dirname)
 		pattern: '**/*.hbs',
 		rename: true
 	}))
-  .use(msif((argv['check'] == true), failmeta()))
+  .use(failmeta())
   .use(layouts({
     engine: 'handlebars'
   }))
