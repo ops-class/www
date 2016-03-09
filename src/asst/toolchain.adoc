@@ -78,7 +78,7 @@ git clone https://github.com/ops-class/vagrant
 cd vagrant && vagrant up
 ----
 
-If you are having trouble, please look at the 
+If you are having trouble, please look at the
 https://github.com/ops-class/vagrant/blob/master/README.adoc[README]. There
 are some known issues on Windows hosts.
 
