@@ -3,7 +3,7 @@ title: "Paging and Swapping"
 date: 2016-03-11
 author: Geoffrey Challen
 description: >
-  Continuation of paging and introduction to swapping.
+  Page table design and introduction to swapping.
 song:
   name: "Till My Fingers Bleed"
   author: "Haider Atta"
@@ -38,71 +38,168 @@ video::{music}[youtube,width=160,height=90]
 * No recitation Friday.
 * ASST2 turn-in party today after class, in and around Davis 303.
 
-== Pages
+== Locating Page State
 
-Modern solution is to choose a translation granularity that is [.slide]*small
-enough* to limit internal fragmentation but [.slide]*large* enough to allow the
-TLB to cache entries covering a significant amount of memory.
+[.slider]
+* _Process:_ "Machine! Store to address `0x10000`!"
+* _MMU:_ "Where the heck is virtual address `0x10000` supposed to map to?
+Kernel...help!"
+* (Exception.)
+* _Kernel_: Let's see... where did I put that page table entry for
+`0x10000`... just give me a minute... I know it's around here somewhere...
+I really should be more organized!
 
-[.slide]
+[.slider]
+.What are the requirements for how we locate page information?
+* *Speed*: translation is a _hot path_ and should be as efficient as
+possible.
+* *Compactness*: data structures we use should not take up too much
+physical memory.
+
+== Page Tables
+
+The data structure used to quickly map a *virtual page number* to a *page
+table entry* is called a *page table*.
+
+[.slider]
+* Each process has a _separate_ page table.
+* *Why?* [.slide]#Virtual addresses are private to each process and
+translated differently for each.#
+
+== Flat Page Tables
+
+*Approach*: use one array to hold all page table entries for each process.
+Virtual page number is index into this array.
+
+[.slide.replace]
 --
-[.slide]#Execution *locality* also helps here#: processes memory accesses are typically
-highly spatially _clustered_, meaning that even a small cache can be very
-effective.
+image::figures/memory/flatpagetable-1.svg[width="60%"]
 --
 
-[.nooutline]
-== Page Size
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-2.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-3.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-4.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-5.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-6.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-7.svg[width="60%"]
+--
+
+== Flat Page Tables
+
+* *Approach*: use one array to hold all page table entries for each
+process. Virtual page number is index into this array.
 
 [.slider]
-* 4K is a very common page size. 8K or larger pages are also sometimes used.
-* You can think of pages as *fixed size* segments, so the *bound* is the
-same for each.
+* *Speed*: O(1). VPN is used directly as an index into the array.
+* *Compactness*: *4 MB* per process that may have to be *contiguous*!
+Most is *unused*!
 
-[.nooutline]
-== Page Translation
+image:figures/memory/flatpagetable-7.svg[width="50%"]
 
-[.nooutline]
-[.slider]
-* We refer to the portion of the virtual address that identifies the
-page as the [.slide]*virtual page number (VPN)* and the remainder as the
-[.slide]*offset*.
-* Virtual pages map to physical pages.
-
-[.nooutline]
-== TLB Management
+== Linked List Page Tables
 
 [.slider]
-.Where do entries in the TLB come from?
-* The operating system loads them.
+* *Approach*: list of PTEs for each process, searched on each
+translation.
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-1.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-2.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-3.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-4.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-5.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-6.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-7.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-8.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-9.svg[width="60%"]
+--
+
+== Linked List Page Tables
+
+*Approach*: list of PTEs for each process, searched on each
+translation.
 
 [.slider]
-.What happens if a process tries to access an address that is *not* in the TLB?
-* The TLB asks the operating system for help via a *TLB exception*. The
-operating system must either load the mapping or figure out what to do
-with the process. (Maybe boom.)
+* *Speed*: O(n) for n valid virtual pages.
+* *Compactness*: *4 bytes * n* for n valid virtual pages. All entries
+are used!
+
+image:figures/memory/linkedlistpagetable-9.svg[width="50%"]
 
 [.nooutline]
-== Page State
 
-[.slider]
-.In order to keep the TLB up-to-date we need to be able to:
-* *Store* information about each virtual page.
-* *Locate* that information quickly.
+== [.spelling_exception]#An Early ASST3 K.I.S.S.:#
 
-[.nooutline]
+Don't feel like you have to do something overly complicated for ASST3!
+First get it right, then optimize.
+
 == Multi-Level Page Tables
 
-A tree-like data structure mapping VPN to PTE. Break
+*Approach*: build a tree-like data structure mapping VPN to PTE. Break
 VPN into multiple parts, each used as an index at a separate level of
 the tree.
 
-* *Speed*: [.slide]#O(c). Constant number of look ups per translation depending on
-tree depth.#
-* *Compactness*: [.slide]#Depends on sparsity of address space, but better than
-flat and worse than linked list.#
+[.slider]
+* Example: with 4K pages VPN is *20* bits. Use *top 10* bits as index
+into *top-level* page table, *bottom 10 bits* as index into second-level
+page table.
+** Each page table is 2^10^ * 4 bytes = 4K. Convenient!
 
-[.nooutline]
 == Multi-Level Page Tables
 
 [.slide.replace]
@@ -135,8 +232,16 @@ image::figures/memory/multilevelpagetable-5.svg[width="60%"]
 image::figures/memory/multilevelpagetable-6.svg[width="60%"]
 --
 
-[.nooutline]
-== Questions About Pages and Page Tables?
+== Multi-Level Page Tables
+
+Build a tree-like data structure mapping VPN to PTE. Break VPN into multiple
+parts, each used as an index at a separate level of the tree.
+
+[.slider]
+* *Speed*: O(c). Constant number of look ups per translation depending on
+tree depth.
+* *Compactness*: Depends on sparsity of address space, but better than
+flat and worse than linked list.
 
 == Out of Core
 

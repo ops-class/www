@@ -16,6 +16,7 @@ current versions of toolchain components.
 
 '''
 
+[[os161]]
 == OS/161
 
 {os161} is maintained by http://www.hcs.harvard.edu/~dholland/[David Holland]
