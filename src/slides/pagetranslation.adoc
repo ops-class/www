@@ -11,6 +11,7 @@ song:
 spelling_exceptions:
   - V.A.
   - KTHXBAI
+video: "A72mPh__ZFM"
 ---
 [.nooutline.spelling_exception]
 == Technical Women
