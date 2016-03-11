@@ -327,7 +327,7 @@ locks. Next, you use them to solve a few simple toy synchronization problems.
 
 ==== link:/asst/2/[`ASST2`: System Calls and Process Support]
 
-*Deadline*: Friday 3/11/2016 @ 5PM.
+*Deadline*: Friday 3/11/2016 @ 11:59PM.
 
 The first big and complex assignment. Start by completing a design that
 indicates you understand all of the moving pieces and what to do. Next,

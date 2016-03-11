@@ -1,6 +1,6 @@
 ---
 title: "Paging and Swapping"
-date: 2016-03-11
+date: 2016-03-21
 author: Geoffrey Challen
 description: >
   Page table design and introduction to swapping.
