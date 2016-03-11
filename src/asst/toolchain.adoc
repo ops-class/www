@@ -137,6 +137,7 @@ Upgrading is also easy:
 sudo apt-get update ; sudo apt-get install os161-toolchain
 ----
 
+[[test161]]
 == `test161` Client
 
 {test161} is our OS/161 distributed automated grading and testing tool. It is
