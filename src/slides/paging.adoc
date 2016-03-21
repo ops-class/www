@@ -33,10 +33,41 @@ video::{music}[youtube,width=160,height=90]
 == $ cat announce.txt
 
 [.slider]
-* This is it! ASST2 is due today.
 * Midterm will cover everything through today.
+* Jinghao will lead a midterm review in recitation tomorrow.
 * No recitation Friday.
-* ASST2 turn-in party today after class, in and around Davis 303.
+* I'll record a midterm review screencast so that we can continue Friday.
+
+[.nooutline]
+== Midterm
+
+[.slider]
+* 50 minutes, 50 points. Scaled to 15% of your final grade.
+* Same format as previous years:
+** 10 1-point multiple choice
+** 6 choose 4 5-point short answer
+** 2 choose 1 20-point long answer.
+* Same approach as the pre-term: assigned seats, seating chart distributed
+1-hour before, etc. *Please be on time.* We will end promptly at 2:50PM.
+* 2016 wrinkle:
+** _most_ of the multiple choice will similar to previous years
+** _at least 2__ of the short answer will be from previous years
+** one of the long answer _may_ be from a previous year
+
+[.nooutline]
+== ASST2/ASST3 Late Credit
+
+[.slider]
+* ASST2:
+** You can still submit (25 point penalty)
+** You can request the solution set (50 point penalty). If you do so, you
+will automatically receive your original ASST2 score.
+* ASST3 deal:
+** ASST3 is broken into three 100-point parts due at two-week intervals,
+starting Friday.
+** Late submission for the first two checkpoints will result in 10 point
+deductions.
+** Late submission for the final checkpoint will result in no credit.
 
 == Locating Page State
 
@@ -583,7 +614,7 @@ are handled in hardware.
 all of the hard work *and* design your own page table structures!
 
 [.nooutline]
-== Next Time (After the Midterm)
+== Next Time
 
 [.slider]
 * Page replacement algorithms. How do we choose a page to remove?
