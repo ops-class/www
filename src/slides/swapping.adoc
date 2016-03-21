@@ -1,0 +1,556 @@
+---
+title: "Swapping"
+date: 2016-03-25
+author: Geoffrey Challen
+description: >
+  Page table design and introduction to swapping.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/048.jpg[width="100%"]
+
+[.nooutline]
+== Today
+
+* Paging.
+
+[.nooutline]
+== $ cat announce.txt
+
+== Out of Core
+
+When we *run out*, there are two options:
+[.slider]
+. *Fail*, and either don't load the process (`exec()`), don't create a
+new process (`fork()`), refuse to allocate more heap (`sbrk()`), or kill the
+process if it is trying to allocate more stack.
+
+. *Create more space*, preserving the contents of memory for later use.
+
+== Virtually Sneaky
+
+Virtual address translation gives the kernel the ability to remove
+memory from a process *behind its back*.
+
+[.slider]
+.What are the requirements for doing this?
+* The _last time_ the process used the virtual address, it behaved like
+memory.
+* The _next time_ the process uses the virtual address, it behaves like
+memory.
+* In between, whatever data was stored at that address must be
+*preserved*.
+
+== Swapping
+
+[.slider]
+* The place operating systems typically place data stored in memory in
+order to borrow the memory from the process is *on disk*.
+* We call the process of moving data back and forth from memory to disk
+in order to improve memory usage *swapping*.
+* *Goal:* when swapping is done well your system *feels* like it has
+memory that is as _large_ as the size of the disk but as _fast_ as
+actual RAM.
+* Unfortunately, when swapping is not done well your system *feels* like
+it has memory that is as _small_ as RAM and as _slow_ as the disk.
+
+== TLB v. Page Faults
+
+[.slider]
+.We distinguish between two kinds of memory-related fault:
+* *TLB Fault:* a required virtual to physical address translation is
+not in the TLB.
+* *Page Fault:* the contents of a virtual page are either not
+initialized or not in memory.
+
+[.slider]
+._Every_ page fault is preceded by a TLB fault.
+* If the contents of the virtual page are not in memory, a translation
+cannot exist for it!
+
+[.slider]
+._Not every_ TLB fault generates a page fault.
+* If page is in memory and the translation is the page table, the TLB
+fault can be handled without generating a page fault.
+
+== Swap Out
+
+[.slider]
+.To swap a page to disk we must:
+. *Remove* the translation from the TLB, if it exists.
+. *Copy* the contents of the page to disk.
+. *Update* the page table entry to indicate that the page is on disk.
+
+== Swap Out
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapoutexample-10.svg[width="80%"]
+--
+
+== Swap Out Speed
+
+[.slider]
+. *Remove* the translation from the TLB: [.slide]#fast.#
+. *Copy* the contents of the page to disk: [.slide.spelling_exception]*sloooowwww...*
+. *Update* the page table entry to indicate that the page is on disk:
+[.slide]#fast.#
+
+== Page Cleaning
+
+Frequently when we are swapping out a page it is in order to allocate
+new memory to a running process, or possibly to swap _in_ a page.
+
+So it would be *great* if swapping out were fast.
+
+[.slider]
+.Can we prepare the system to optimize swap out?
+* *Yes!*
+
+[.slider]
+* Each page has a dedicated place on disk.
+* During idle periods operating system writes data from active memory
+pages to swap disk.
+* Pages with matching content on the swap disk are called *clean*.
+* Pages that do not match their swap disk content are called *dirty*.
+
+[.small]
+== Swap In
+
+[.slider]
+.When *must* we swap in a page?
+* When the virtual address is used by the process!
+
+[.slider]
+.To translate a virtual address used by a process that points to a page that has been swapped out, we must:
+.  *Stop* the instruction that is trying to translate the address until
+we can retrieve the contents.
+.  *Allocate* a page in memory to hold the new page contents.
+.  *Locate* the page on disk using the page table entry.
+.  *Copy* the contents of the page from disk.
+.  *Update* the page table entry to indicate that the page is in
+memory.
+.  *Load* the TLB.
+.  *Restart* the instruction that was addressing the virtual address we
+retrieved.
+
+== Swap In
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapinexample-11.svg[width="80%"]
+--
+
+== (On) Demand Paging
+
+Sometimes procrastination is useful, particularly when you end up
+*never* having to do the thing you're being asked to do!
+
+[.slider]
+* _Process:_ Kernel! Load this huge chunk of code into my address space!
+* _Kernel:_ Well, I'm kind of busy now, so maybe later? But I'll make a
+note of it!
+* _Process:_ Kernel! Give me 4 MB more heap!
+* _Kernel:_ Your request is granted, but come back and ask again when
+you *really* need it.
+
+== (On) Demand Paging
+
+[.slider]
+.Until:
+* an instruction on a code page is *executed*, or
+* a *read* or *write* occurs to a data or heap page.
+* the kernel does *not* load the contents of that page into memory!
+
+[.slider]
+.Why not?
+* A *lot* of code is never executed and some global variables are never
+used. *Why waste memory?*
+
+== Demanded Paging
+
+[.slider]
+.What happens the first time a process executes an instruction from a new code page?
+* That page contents are loaded from disk and the instruction is restarted.
+
+[.slider]
+.What happens the first time a does a load or store to an uninitialized heap, stack or data page?
+* The kernel allocates a new page filled with zeros and the instruction
+is restarted.
+
+== Aside: Hardware-Managed TLBs
+
+[.slider]
+* On certain architectures the MMU will search the page table *itself*
+to locate virtual-to-physical address translations missing from the TLB.
+** *Pro*: hardware is faster!
+** *Con*: operating system must set up the page tables in a fixed way
+that the hardware understands.
+* With a hardware-managed TLB, the kernel never sees TLB faults: they
+are handled in hardware.
+* Don't worry: System/161 has a *software-managed* TLB, so you get to do
+all of the hard work *and* design your own page table structures!
+
+[.small]
+== Page Eviction
+
+In order to swap _out_ a page we need to choose *which* page to move
+to disk.
+
+In order to swap _in_ a page we might need to choose which page to
+swap out.
+
+[.slider]
+.Swapping cost-benefit calculation:
+* *Cost*: [.slide]#mainly the *time* and disk *bandwidth* required to move a
+page to and from disk.#
+* *Benefit*: [.slide]#the use of 4K (or a page) of memory as long as the page on disk
+remains unused.#
+
+[.slide]
+--
+There are tricks that the operating might play to *minimize* the cost,
+but mainly we will focus on algorithms designed to *maximize* the
+benefit.
+
+(Another complementary description of our goal is *minimizing* the *page
+fault rate*.)
+--
+
+== Page Eviction FAIL: Thrashing
+
+[quote,Wikipedia,role='small']
+____
+Thrashing is a colloquialism normally used to describe a computer whose
+virtual memory subsystem is in a constant state of paging, rapidly
+exchanging data in memory for data on disk, to the exclusion of most
+application-level processing. This causes the performance of the
+computer to degrade or collapse.
+____
+
+== Maximizing Benefit
+
+*Benefit*: the use of 4K of memory as long as the page on disk remains unused.
+
+[.slider]
+.How do we *maximize* the benefit?
+* Pick the page to evict that will remain unused *the longest*!
+
+== The Best Bet
+
+[.slider]
+.What is the absolute best page to evict, the one that page replacement algorithms _dream_ about?
+* A page that will *never be used again*!
+
+== Break Out the Ball
+
+Think back to scheduling algorithms. (This is a bit simpler.)
+
+[.slider]
+.What would we like to know about a page when choosing one to evict?
+* *How long* will it be before this page is used again?
+
+[.slide]
+--
+The *optimal scheduler* evicts the page that will remain unused the
+longest. This clearly maximizes our swapping cost-benefit calculation.
+[.slider]
+* This scheduler is *difficult to implement*!
+--
+
+== What Now?
+
+When we can't predict the future, we... [.slide]*use the past to predict the
+future!*
+
+== The Past Didn't Go Anywhere
+
+[.slider]
+.Intelligent page replacement requires three things:
+. determining *what* information to track,
+. figuring out how to *collect* that information, and
+. how to *store* it.
+
+== There Be Tradeoffs
+
+[.slider]
+* Collecting statistics may be *expensive*, slowing down the process of
+translating virtual addresses.
+* Storing statistics may be *expensive*, occupying kernel memory that
+could be better used for other things.
+
+== Simplest
+
+[.slider]
+.What is the simplest possible page replacement algorithm?
+* *Random*.
+
+[.slider]
+.Pros:
+* Extremely simple.
+* Good baseline for algorithms that try to be smarter.
+
+[.slider]
+.Cons:
+* Too simple. We can probably do better.
+
+== Use The Past, Luke
+
+[.slider]
+.What is an algorithm that *uses a page's past to predict its future*?
+* *Least Recently Used (LRU)*:
+* Choose the page that has not been used for the longest period of time.
+* Hopefully this is a page that will not be used *again* for a while.
+
+[.slider]
+.Pros:
+* Might be as good as we can do without predicting the future.
+
+[.slider]
+.Cons:
+* How do we *tell* how long it has been since a page has been accessed?
+* How do we *store* how long it has been since a page has been accessed?
+
+== LRU: Collecting Statistics
+
+[.slider]
+.At what point does the operating system *know* that a process has accessed a virtual page?
+* When we load the entry into the TLB!
+
+[.slider]
+.Does this reflect every virtual page access?
+* *No!* Only the first. A page that is accessed once and one that is
+accessed 1,000 times are _indistiguishable_.
+
+[.slider]
+.Why not record every page access?
+* *Too slow!*
+
+== LRU: Storing Statistics
+
+[.slider]
+.How much access time information can we store?
+* 32 bits = 2^32^ "ticks", but *doubles* the page table entry size!
+* 8 bits = 256 "ticks".
+
+[.slider]
+.How do we find the least recently used page?
+* Need some kind of *efficient data structure* holding all physical
+pages on the system that is searched on every page eviction.
+
+== Clock LRU
+
+[.slider]
+* *Simple* and *efficient* LRU-_like_ algorithm.
+* *One bit* of accessed information, set when loading a virtual address
+into the TLB.
+
+[.slider]
+.To locate a page to evict:
+.  Cycle through all pages in memory in a fixed order.
+.  If a page accessed bit is *clear*, evict that page.
+.  If a page accessed bit is *set*, clear the bit.
+
+== Clock LRU
+
+[.slide.replace]
+--
+image::figures/memory/clock-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/clock-10.svg[width="80%"]
+--
+
+== Clock Speed
+
+[.slider]
+.What does it mean when the clock hand is turning *slowly?*
+* Little memory pressure, or
+* We are making good decisions about what to evict.
+
+[.slider]
+.What does it mean when the clock hand is turning *rapidly?*
+* Lots of memory pressure, or
+* We are making bad decisions about what to evict.
+
+[.nooutline]
+== Page Replacement: Questions?
+
+== Memory Management Design Exercise: Copy-on-Write
+
+Remember the problem with `fork`?
+
+[.slider]
+* Have to copy the entire address space of the parent!
+* If the parent has N pages allocated, we have to find *N more free
+pages!*
+[.slider]
+** ...and then the child calls exec anyway.
+
+[.slide]
+--
+Can we avoid this?
+--
+
+== Copy-on-Write
+
+[.small]
+--
+Goal: don't allocate *any* additional memory during fork, but preserve
+private address spaces.
+
+[.slider]
+.Here's what to do:
+. During fork, point all child's PTEs to the *same* physical memory as
+the parent.
+. As long as the child and parent are both just reading from any
+shared page, we are OK.
+** Large parts of the address space may be read-only or
+read-mostly anyway...
+. As soon as either the child or the parent modifies the contents of
+any shared virtual page, [.slide]*we have to make a private copy.*
+. How do we trap writes? [.slide]#Mark the page as *read only* in the TLB!#
+--
+
+[.nooutline]
+== Next Time
+
+* Disks!
