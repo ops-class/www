@@ -49,6 +49,11 @@ video::{music}[youtube,width=160,height=90]
 ** 2 choose 1 20-point long answer.
 * Same approach as the pre-term: assigned seats, seating chart distributed
 1-hour before, etc. *Please be on time.* We will end promptly at 2:50PM.
+* **There is no makeup exam.** If you are not here and not in the hospital,
+you will receive a 0.
+
+<<<
+
 * 2016 wrinkle:
 ** _most_ of the multiple choice will similar to previous years
 ** _at least 2__ of the short answer will be from previous years
