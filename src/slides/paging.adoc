@@ -3,11 +3,12 @@ title: "Paging"
 date: 2016-03-21
 author: Geoffrey Challen
 description: >
-  Page table design and introduction to swapping.
+  Page table design and implementation.
 song:
   name: "Till My Fingers Bleed"
   author: "Haider Atta"
   youtube: X-tLvUzntn4
+video: pW3g_yWMMYk
 ---
 [.nooutline.spelling_exception]
 == Technical Women

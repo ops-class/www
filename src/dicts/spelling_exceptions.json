@@ -55,6 +55,7 @@
   "Know-It-Alls": true,
 	"lifecycle": true,
   "Linux": true,
+	"LRU": true,
 	"/Makefile?s/": true,
 	"Mark Zuckerberg": true,
 	"metadata": true,

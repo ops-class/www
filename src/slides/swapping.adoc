@@ -3,7 +3,7 @@ title: "Swapping"
 date: 2016-03-25
 author: Geoffrey Challen
 description: >
-  Page table design and introduction to swapping.
+  Discussion of swapping and page replacement policies.
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -416,7 +416,7 @@ could be better used for other things.
 [.slider]
 .Does this reflect every virtual page access?
 * *No!* Only the first. A page that is accessed once and one that is
-accessed 1,000 times are _indistiguishable_.
+accessed 1,000 times are _indistinguishable_.
 
 [.slider]
 .Why not record every page access?
