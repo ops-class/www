@@ -4,11 +4,24 @@ date: 2016-03-25
 author: Geoffrey Challen
 description: >
   Discussion of swapping and page replacement policies.
+song:
+  name: "Sandstorm"
+  author: "Darude"
+  youtube: y6120QOlsfU
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/048.jpg[width="100%"]
+image::women/048.jpg[width="100%",title="Jennifer Widom",link="http://en.wikipedia.org/wiki/Jennifer_Widom"]
+
+[.h4.center]
+icon:music[] http://ironmaiden.com["Fear of the Dark" by Iron Maiden]
+
+[.h4.center]
+icon:music[] http://www.darude.com[{song}]
+
+video::wpFVRqWc2pg[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -17,6 +30,11 @@ image::women/048.jpg[width="100%"]
 
 [.nooutline]
 == $ cat announce.txt
+
+* link:/asst/3[ASST3] is out. Get started!
+
+[.nooutline]
+== Midterm Questions
 
 == Out of Core
 
