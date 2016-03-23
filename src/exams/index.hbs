@@ -6,6 +6,9 @@ description: >
   review the solution set.
 priority: 0.9
 changefreq: monthly
+videos:
+  - { date: "03-24-2015", presenter: "Jinghao Shi", youtube: Ob-TfSbbRa0 }
+  - { date: "03-22-2016", presenter: "Jinghao Shi", youtube: 3XiXoolZyeM }
 ---
 <h1>Old Exams</h1>
 
@@ -89,3 +92,26 @@ included as part of each solution set.</p>
 		</div>
 	</div>
 </div>
+{{#if videos}}
+<a class="anchor" id="videos"></a>
+<h2>Related Videos</h2>
+<p class="lead">
+Below are some related videos and slides that may help you
+review for midterms and final exams.
+</p>
+<div class="row">
+	{{#each videos}}
+	<div class="col-xs-12 col-sm-6 col-md-4">
+		<div class="embed-responsive embed-responsive-16by9"
+			style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
+			<div class="youtube-container" data-id="{{ youtube }}"></div>
+		</div>
+		<ul class="list-inline dash-list h5">
+			<li>{{ date }}</li>
+			<li>{{ presenter }}</li>
+			{{#if slides}}<li><a href="{{ slides }}">Slides</a></li>{{/if}}
+		</ul>
+	</div>
+	{{/each}}
+</div>
+{{/if}}
