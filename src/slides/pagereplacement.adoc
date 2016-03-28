@@ -5,9 +5,9 @@ author: Geoffrey Challen
 description: >
   Discussion of page replacement policies.
 song:
-  name: "Sandstorm"
-  author: "Darude"
-  youtube: y6120QOlsfU
+  name: "Learn to Fly"
+  author: "Foo Fighters"
+  youtube: 7dwuzqF6huc
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -15,8 +15,12 @@ song:
 image::women/049.jpg[width="100%",title="Linda Betzold",link="https://cse.cs.ucsb.edu/"]
 
 [.h4.center]
-icon:music[] http://www.darude.com[{song}]
+icon:music[] http://www.bobmarley.com/[Buffalo Soldier by Bob Marley]
 
+[.h4.center]
+icon:music[] http://foofighters.com/[{song}]
+
+video::S5FCdx7Dn0o[youtube,width=0,height=0]
 video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
@@ -24,8 +28,11 @@ video::{music}[youtube,width=0,height=0]
 
 * Page replacement policies.
 
-[.nooutline]
+[.nooutline.spelling_exception]
 == $ cat announce.txt
+
+* Dan Magnuszewski Tech Talk: Tomorrow, 5PM, Davis 101
+* `test161` leaderboards: questions?
 
 [.nooutline]
 == Review: TLB v. Page Faults
