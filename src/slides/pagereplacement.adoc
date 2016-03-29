@@ -5,9 +5,10 @@ author: Geoffrey Challen
 description: >
   Discussion of page replacement policies.
 song:
-  name: "Learn to Fly"
-  author: "Foo Fighters"
-  youtube: 7dwuzqF6huc
+  name: "Buffalo Soldier"
+  author: "Boby Marley"
+  youtube: S5FCdx7Dn0o
+video: kdlIQT7HEQw
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -15,12 +16,8 @@ song:
 image::women/049.jpg[width="100%",title="Linda Betzold",link="https://cse.cs.ucsb.edu/"]
 
 [.h4.center]
-icon:music[] http://www.bobmarley.com/[Buffalo Soldier by Bob Marley]
+icon:music[] http://www.bobmarley.com/[{song}]
 
-[.h4.center]
-icon:music[] http://foofighters.com/[{song}]
-
-video::S5FCdx7Dn0o[youtube,width=0,height=0]
 video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
