@@ -3,7 +3,7 @@ title: "Introduction to Disks"
 date: 2016-03-30
 author: Geoffrey Challen
 description: >
-  Introduction to disks and the basics of stable storage. 
+  Introduction to disks and the basics of stable storage.
 song:
   name: Learn to Fly
   author: Foo Fighters
