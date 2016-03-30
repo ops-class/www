@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Disks"
+title: "Disks"
 date: 2016-03-30
 author: Geoffrey Challen
 description: >
@@ -11,6 +11,7 @@ song:
 spelling_exceptions:
   - IDE
   - SATA
+video: 5RK0wZlHpg4
 ---
 [.nooutline.spelling_exception]
 == Technical Women
