@@ -1,0 +1,284 @@
+---
+title: "Introduction to Disks"
+date: 2016-03-30
+author: Geoffrey Challen
+description: >
+  Introduction to disks and the basics of stable storage. 
+song:
+  name: Learn to Fly
+  author: Foo Fighters
+  youtube: 7dwuzqF6huc
+spelling_exceptions:
+  - IDE
+  - SATA
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/050.jpg[width="100%",title="Radia Perlman", link="http://en.wikipedia.org/wiki/Radia_Perlman"]
+
+[.center]
+icon:music[] http://foofighters.com[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+* Introduction to stable storage.
+* From *disks* to *files*.
+* Spinning disk operation basics.
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* https://www.ops-class.org/asst/3/[ASST3 core map] due Friday, April 8th @ 5PM.
+* `test161` https://test161.ops-class.org/leaders[leader boards] are live.
+
+[.nooutline]
+== Virtual Memory: Questions?
+
+[.small]
+== SSDs v. HDDs
+
+[.slider]
+.Some important terminology:
+* *stable storage*: storage that does not lose its contents when the
+computer is turned off.
+
+[.slider]
+.Today we have two main categories of stable storage with very different characteristics:
+* *HDD*, *spinning disk* or *hard drive*: a stable storage device
+constructed of rotating magnetic platters. (HDD stands for Hard Disk
+Drive.)
+* *SSD* or *Flash drive*: a stable storage device constructed of
+non-moving non-volatile memory.
+
+[.slider]
+.HDDs are _bigger_, _slower_, and _cheaper_ than SSDs.
+* $0.10 per GB (HDD) v. $1 per GB (projected for SSDs in 2012).
+* Today: $0.07 per GB (HDD) v. $0.15 per GB (SSD)&mdash;not that bad!
+
+[.slide]
+--
+If I am not clear about what type of storage I am referring to *please
+ask*. The differences between HDDs and SSDs lead to very different
+system designs!
+--
+
+== Why Study Spinning Disks?
+
+[.slider]
+* Flash is the future!
+* But HDDs are still around.
+
+[.slider]
+* Hierarchical file systems are dead. Long live search!
+* But local search is still built on top of hierarchical file systems today.
+
+[.slider]
+* New storage technologies will completely alter the way that operating
+systems store data.
+* But new solutions will benefit from, and probably resemble, earlier
+efforts.
+
+[.slide]
+--
+Let's focus on the *systems design principles* at work here and admire
+the maturity of file system design. (And we won't linger here.)
+--
+
+== Disk Parts
+
+[.slider]
+* *Platter:* a circular flat disk on which magnetic data is stored.
+Constructed of a rigid non-magnetic material coated with a _very thin_
+layer of magnetic material. Can have data written on both sides.
+* *Spindle:* the drive shaft on which multiple *platters* are mounted
+and spun between 4200–15,000 RPM.
+* *Head:* the actuator that reads and writes data onto the magnetic
+surface of the *platters* while rotating at tens of nanometers over the
+platter surface.
+
+== Disk Part Diagram
+
+image::figures/disks/hdd.svg[width="80%"]
+
+== Disk Locations
+
+[.slider]
+* *Track:* think of a lane on a race track running around the platter.
+* *Sector:* resembles a slice of pie cut out of a single platter.
+* *Cylinder:* imagine the intersection between a cylinder and the set of
+platters. Composed of a set of vertically-aligned tracks on all
+platters.
+* Ah forget it. *To the diagram!*
+
+== Disk Location Diagram
+
+image:figures/disks/chs.svg[width="100%"]
+
+== A Disk In Action
+
+video::9eMWG3fwiEU[youtube,width=640,height=360]
+
+== Spinning Disks Are Different
+
+Spinning disks are fundamentally different from the other system
+components we have discussed so far.
+
+[.slider]
+* Difference in *kind*: disks *move*!
+* Difference in *degree*: disks are *slow*!
+* Difference in *integration*: disks are *devices*, and less
+tightly-coupled to the abstractions built on top of them.
+
+== Disks Move, Ergo Disks Are Slow
+
+[.slider]
+* Electronics time scale: the time necessary for electrons to flow from
+one part of the computer or chip to another. [.slide]*Very fast!*
+* Mechanics time scale: the time necessary for a physical object to move
+gently and precisely from one point to another point. [.slide]*Comparatively
+slow!*
+
+== Disks Move, Ergo Disks Fail
+
+[.slider]
+.Disks can fail by parts:
+* Many disks ship with sectors that are already broken. The operating
+system—or disk software—detect and ignore these sectors.
+* Sectors may also fail over time, potentially resulting in data loss.
+
+[.slider]
+.Disks can fail *catastrophically*:
+* A *head crash* occurs when a jolt or violent event sends the disk
+heads crashing into the magnetic surface, scraping off material and
+destroying the platter.
+* When this happens, you have about 20 seconds to say goodbye.
+
+== Head Crash
+
+video::nXa9oLwsZYY[youtube,width=640,height=360]
+
+== Handling Failures
+
+[.slider]
+* We will discuss RAID, a clever way to use multiple disks to create a
+more reliable and better-performing device that looks like a single
+disk.
+* Many interesting approaches to fault tolerance began with people
+thinking about spinning disks--and then have been applied elsewhere.
+
+== Disks Are Slow
+
+Disks frequently bottleneck other parts of the operating system.
+[.slider]
+.Operating systems play some of our usual games with disks to try and hide disk latency.
+* Use the *past to predict the future*.
+* Use a *cache*.
+* *Procrastination*.
+
+[.slide]
+--
+Contrast with memory latencies which are usually hidden *transparently* by
+the processor (through out-of-order execution). Here the operating system
+software is directly involved.
+--
+
+== Sources of Slowness
+
+Reading or writing from the disk requires a series of steps, each of
+which is a potential source of latency.
+
+[.slider]
+. *Issue the command.* The operating system has to tell the device
+what to do, the command has to cross the device interconnect (IDE, SATA,
+etc.), and the drive has to select which head to use.
+. *Seek time.* The drive has to move the heads to the appropriate
+track.
+. *Settle time.* The heads have to stabilize on the (very narrow)
+track.
+. *Rotation time.* The platters have to rotate to the position where
+the data is located.
+. *Transfer time.* The data has to be read and transmitted back across
+the interconnect into system memory.
+
+== What Improves?
+
+[.slider]
+* *Interconnect speeds*: [.slide]#seem to be increasing. (SATA-6, anyone?)#
+* *Seek times*: [.slide]#_not improving_ rapidly. This is the moving physical
+objects part.#
+* *Rotation speeds*: [.slide]#can vary between devices but may not be the primary
+source of latency anyway. Physical limitations come in to play here as
+well.#
+
+== The Already-Came I/O Crisis
+
+[.slider]
+.Two factors collide:
+* Hard drive densities and capacities soar, encouraging users to save
+more stuff and increasing I/O demand.
+* Seek times limit the ability of disks to keep up.
+
+== The Already-Came I/O Crisis
+
+image::figures/disks/storageevolution.gif[width="70%"]
+
+== The Already-Came I/O Crisis
+
+image::http://img.tomshardware.com/us/2006/11/28/15-years-of-hard-drive-history/image016.gif[width="50%"]
+
+== The Already-Came I/O Crisis
+
+[.slider]
+* So three orders of magnitude increase in capacity...
+* But only two in speed.
+* And think about what happened to processors during that time!
+
+== File Systems To The Rescue
+
+[.slider]
+.Low-level disk interface is messy and very limited:
+* Requires reading and writing entire 512-byte blocks.
+* No notion of files, directories, etc.
+
+[.slide]
+--
+File systems take this limited block-level device and create the *file
+abstraction* almost _entirely in software_.
+--
+
+[.slider]
+* Compared to the CPU and memory that we have studied previously *more*
+of the file abstraction is implemented in software.
+* This explains the plethora of available file systems: [.spelling_exception]#ext2,3 and 4,
+reiserfs, NTFS, jfs, lfs, xfs#, etc.
+* This is probably why many systems people have a soft spot for file
+systems even if they seem a bit outdated these days.
+
+== What About Flash?
+
+No moving parts! Great! We can eliminate a lot of the complexity of
+modern file systems. Yippee!
+
+[.slider]
+.Except that...
+* Have to erase an entire large chunk before we can rewrite it.
+* And it wears out faster that magnetic drives, and can wear unevenly
+if we are not careful.
+
+[.slide]
+--
+Sigh... things are sounding complicated again.
+--
+
+[.nooutline]
+== Next Time
+
+* Hard drive request scheduling algorithms.
+* Introduction to file systems.
+
+
