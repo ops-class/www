@@ -42,6 +42,7 @@
   "/HDDs?/": true,
 	"/https?/": true,
 	"/i\\.e\\./": true,
+	"/inodes?/": true,
 	"intra": true,
 	"interoperate": true,
 	"IP": true,
