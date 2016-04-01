@@ -5,9 +5,9 @@ author: Geoffrey Challen
 description: >
   Introduction to files, file metadata and UNIX file system semantics.
 song:
-  name: Coming Up Roses
-  author: Keira Knightley
-  youtube: 0sTyhogCeog
+  name: Send Me On My Way
+  author: Rusted Root
+  youtube: IGMabBGydC0
 spelling_exceptions:
   - BeOS
   - BFS
@@ -22,12 +22,16 @@ spelling_exceptions:
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/051.jpg[width="100%"]
+image::women/052.jpg[width="100%",title="Chieko Asakawa",link="http://researcher.watson.ibm.com/researcher/view.php?person=jp-CHIE"]
 
-[.center]
-icon:music[] http://foofighters.com[{song}]
+[.h4.center]
+icon:music[] http://goldspot.net/[Friday by Goldspot]
+
+[.h4.center]
+icon:music[] http://www.rustedroot.com/[{song}]
 
 video::{music}[youtube,width=0,height=0]
+video::e_hfh2k8p6o[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -390,6 +394,20 @@ well as an infinite number of *relative* names:
 * *Canonical name:* /you/used/to/love/well
 * *Relative name:* /you/used/to/love/me/../well
 * *Relative name:* love/me/../../love/me/../well
+
+[.spelling_exception.nooutline]
+== Sestina, by Clara Shuttleworth
+
+[quote,Clara Shuttleworth,role='small']
+____
+You used to love me well. +
+Well, you— me— used love to... +
+to... well... love. You used me. +
+Me, too, used... well... you. Love, +
+love me. You, too well used, +
+used love well. Me, Too. You! +
+You used to love me well.
+____
 
 [.nooutline]
 == Next Time
