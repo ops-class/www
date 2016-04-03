@@ -182,7 +182,7 @@ image::figures/lsof.svg[width="100%"]
 
 == !
 [.background]
-image:http://www.db18.com/d/sad/sad_025.jpg[]
+image:https://imgflip.com/readImage?iid=7920973[]
 
 [.meme-top]
 bashrc not open
