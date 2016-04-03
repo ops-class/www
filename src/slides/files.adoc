@@ -25,10 +25,10 @@ spelling_exceptions:
 image::women/052.jpg[width="100%",title="Chieko Asakawa",link="http://researcher.watson.ibm.com/researcher/view.php?person=jp-CHIE"]
 
 [.h4.center]
-icon:music[] http://goldspot.net/[Friday by Goldspot]
+icon:music[] http://www.rustedroot.com/[{song}]
 
 [.h4.center]
-icon:music[] http://www.rustedroot.com/[{song}]
+icon:music[] http://goldspot.net/[Friday by Goldspot]
 
 video::{music}[youtube,width=0,height=0]
 video::e_hfh2k8p6o[youtube,width=0,height=0]
