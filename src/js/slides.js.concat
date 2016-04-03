@@ -1,0 +1,19 @@
+---
+files:
+- js/slides/modernizr-3.3.1-custom.js
+- js/slides/jquery-2.2.0.js
+- js/slides/deck.core.js
+- js/slides/deck.fit.js
+- js/slides/deck.clone.js
+- js/slides/deck.goto.js
+- js/slides/deck.progress.js
+- js/slides/deck.navigation.js
+- js/slides/deck.menu.js
+- js/slides/deck.step.js
+- js/slides/deck.events.js
+- js/slides/deck.anim.js
+- js/slides/deck.timekeeper.js
+- js/slides/deck.split.js
+- js/slides/onload.js
+output: js/slides.js
+---

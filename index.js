@@ -21,7 +21,7 @@ var metalsmith = require('metalsmith'),
     hacks = require('./lib/hacks.js'),
     sections = require('./lib/sections.js'),
     lessjavascript = require('./lib/lessjavascript.js'),
-    concat = require('metalsmith-concat'),
+    concat_convention = require('metalsmith-concat-convention'),
     highlight = require('./lib/highlight.js'),
     msif = require('metalsmith-if'),
     clean_css = require('metalsmith-clean-css'),
@@ -145,7 +145,7 @@ metalsmith(__dirname)
       {pattern: outline_compiled_pattern, metadata: {'outline': true,
                                                      'doSections': true,
                                                      'layout': 'slides/outline.hbt',
-                                                     'extra_css': ["/css/slides/outline.css"]
+                                                     'extra_css': ["/css/outline.css"]
                                                     }},
       {pattern: deck_compiled_pattern, metadata: {'deck': true, 'layout': 'slides/deck.hbt'}}
     ]))
@@ -162,18 +162,9 @@ metalsmith(__dirname)
   .use(layouts({
     engine: 'handlebars'
   }))
-  .use(concat({
-    files: 'css/site/*.css',
-    output: 'css/site.css'
-  }))
-  .use(concat({
-    files: 'js/site/*.js',
-    output: 'js/site.js'
-  }))
-  .use(concat({
-    files: 'css/slides/deck/*.css',
-    output: 'css/slides/deck.css'
-  }))
+  .use(concat_convention({
+		extname: '.concat'
+	}))
   .use(lessjavascript())
   .use(highlight())
   .use(hacks())
@@ -185,7 +176,7 @@ metalsmith(__dirname)
 		engine: 'handlebars',
 		pattern: 'slides/feed.xml'
 	}))
-  .use(msif((argv['deploy'] == true), clean_css({ files: 'css/**/*.css' })))
+  .use(msif((argv['deploy'] == true), clean_css({ files: 'css/*.css' })))
   .use(msif((argv['deploy'] == true), uglify()))
   .use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
   .use(msif((argv['deploy'] == true), beautify({'indent_size': 2, 'css': false, 'js': false})))

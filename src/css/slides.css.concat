@@ -1,0 +1,15 @@
+---
+files:
+- css/slides/core.css
+- css/slides/deck.fit-fs.css
+- css/slides/deck.clone.css
+- css/slides/deck.goto.css
+- css/slides/deck.progress.css
+- css/slides/deck.navigation.css
+- css/slides/deck.menu.css
+- css/slides/deck.timekeeper.css
+- css/slides/highlight-9.1.0.css
+- css/slides/font-awesome.css
+- css/slides/override.css
+output: css/slides.css
+---

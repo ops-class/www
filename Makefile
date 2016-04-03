@@ -25,6 +25,6 @@ clean:
 	@rm -rf build deploy
 
 statics:
-	@wget http://google-analytics.com/ga.js -O assets/js/ga.js 2>/dev/null
+	@wget http://google-analytics.com/ga.js -O src/js/ga.js 2>/dev/null
 
 .PHONY: run clean silent build

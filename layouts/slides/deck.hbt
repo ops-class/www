@@ -11,8 +11,31 @@
 		{{/if}}
 		<meta name="description" lang="en-us" content="{{ description }}">
 
-		<link href="/css/slides/deck.css" rel="stylesheet" />
-		<script src="/js/common/jquery-2.2.0.js"></script>
+		<link href="/css/slides.css" rel="stylesheet" />
+		
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		
+		<script src="/js/slides.js" async></script>
 	</head>
 
 	<body>
@@ -37,19 +60,5 @@
 				</div>
 			</div>
 		</div>
-		<script src="/js/slides/deck/01_modernizr-3.3.1-custom.js"></script>
-		<script src="/js/slides/deck/03_deck.core.js"></script>
-		<script src="/js/slides/deck/04_deck.fit.js"></script>
-		<script src="/js/slides/deck/05_deck.clone.js"></script>
-		<script src="/js/slides/deck/06_deck.goto.js"></script>
-		<script src="/js/slides/deck/07_deck.progress.js"></script>
-		<script src="/js/slides/deck/08_deck.navigation.js"></script>
-		<script src="/js/slides/deck/09_deck.menu.js"></script>
-		<script src="/js/slides/deck/10_deck.step.js"></script>
-		<script src="/js/slides/deck/11_deck.events.js"></script>
-		<script src="/js/slides/deck/12_deck.anim.js"></script>
-		<script src="/js/slides/deck/13_deck.timekeeper.js"></script>
-		<script src="/js/slides/deck/14_deck.split.js"></script>
-		<script src="/js/slides/deck/99_onload.js"></script>
 	</body>
 </html>

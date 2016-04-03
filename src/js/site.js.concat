@@ -1,0 +1,12 @@
+---
+files:
+- js/site/jquery-2.2.0.js
+- js/site/bootstrap-3.3.6.js
+- js/site/highlight-9.1.0-custom.js
+- js/site/waypoints.js
+- js/site/inview.js
+- js/site/detectmobilebrowser.js
+- js/site/throbber.js
+- js/site/onload.js
+output: js/site.js
+---

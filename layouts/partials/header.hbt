@@ -4,7 +4,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
 		<title>ops-class.org | {{ title }}</title>
+		{{#if author }}
+		<meta content="{{ author }}" name="author">
+		{{/if}}
 		<meta name="description" lang="en-us" content="{{ description }}">
 
 		<link rel="stylesheet" type="text/css" href="/css/site.css">
