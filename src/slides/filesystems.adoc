@@ -11,7 +11,9 @@ spelling_exceptions:
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/053.jpg[width="100%"]
+image::women/053.jpg[width="50%",title="Grace Hopper",link="https://en.wikipedia.org/wiki/Grace_Hopper"]
+
+video::1-vcErOPofQ[youtube,width=320,height=180]
 
 [.nooutline]
 == Today
@@ -21,6 +23,8 @@ image::women/053.jpg[width="100%"]
 
 [.nooutline]
 == $ cat announce.txt
+
+* Please do link:/asst/3/[ASST3]! The first part is not that hard.
 
 == UNIX File Interface
 
@@ -148,7 +152,7 @@ ____
 [.nooutline]
 == Files: Questions?
 
-== File system Design Goals
+== File System Design Goals
 
 [.slider]
 . Efficiently *translate* file _names_ to file _contents_.
@@ -188,7 +192,7 @@ translate names and locate file data?
 * *Crash recovery.* How does the file system prepare for and recover
 from crashes?
 
-== File system Challenges
+== File System Challenges
 
 [.slider]
 * File systems are really maintaining a large and complex *data
