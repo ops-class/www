@@ -1,0 +1,275 @@
+---
+title: "File System Data Structures"
+date: 2016-04-06
+author: Geoffrey Challen
+description: >
+  Continuation of a discussion of file system data structures.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/053.jpg[width="100%"]
+
+[.nooutline]
+== Today
+
+* Finding data blocks
+* Caching and consistency
+
+[.nooutline]
+== $ cat announce.txt
+
+== `ext4` inodes
+
+image::figures/disks/debugfs-stat.svg[width="100%"]
+
+== Locating inodes
+
+[.slider]
+.How does the system translate an inode number into an inode structure?
+* All inodes are created at *format time* at well-known locations.
+
+[.slide]
+--
+image::figures/disks/inodelocations.svg[width="100%"]
+--
+
+<<<
+
+[.slider]
+.What are the consequences of this?
+* *inodes may not be located near file contents.* `ext4` creates multiple
+blocks of inodes within the drive to reduce seek times between inodes and
+data.
+* Fixed number of inodes for the file system. *Can run out of inodes before we
+run out of data blocks!* `ext4` creates approximately one inode per 16 KB of
+data blocks, but this can be configured at format time.
+
+== Directories
+
+Simply a *special file* the contents of which map inode numbers to relative
+names.
+
+image::figures/disks/lsid.svg[width="100%"]
+
+== File System Names are inode Numbers, Directories Are Files
+
+image::figures/disks/debugfs-stat.svg[width="100%"]
+
+== Using `debugfs`
+
+image::figures/disks/debugfs-show_super_stats1.svg[width="80%"]
+
+== Using `debugfs`
+
+image::figures/disks/debugfs-show_super_stats2.svg[width="80%"]
+
+== `open`: Path Name Translation
+
+`open("/etc/default/keyboard")` must translate [.slide]`"/etc/default/keyboard"`
+to an [.slide]*inode number.*
+
+[.slider]
+. Get inode number for *root directory*. This is usually a fixed
+agreed-on inode number, like *2*.
+. Open the directory with inode number 2. Look for `"etc"`. Find `"etc"`
+with inode number *393218*.
+. Open the directory with inode number 393218. Look for `"default"`.
+Find `"default"` with inode number *393247*.
+. Open the directory with inode number 393247. Look for `"keyboard"`.
+Find keyboard with inode number *394692*.
+. Open the file with inode number 394692.
+
+== `read`/`write`: Retrieving and Modifying Data Blocks
+
+[.slider]
+* `read/write(filehandle, 345)` must translate [.slide]#345# to a
+[.slide]#*data block* within the open file to determine what data block to
+modify.#
+* There are multiple ways of doing this.
+
+== Data Blocks: Linked List
+
+One solution: organize data blocks into a *linked list*.
+
+[.slider]
+* inode contains a pointer to the first data block.
+* Each data block contains a pointer to the previous and next data
+block.
+
+[.slider]
+.Pros:
+* Simple.
+* Small amount of information in inode.
+
+[.slider]
+.Cons:
+* Offset look ups are *slow*! O(n) in the size of the file.
+
+== Data Blocks: Flat Array
+
+A second solution: store all data blocks in the inode in a single
+array allocate at file creation time.
+
+[.slider]
+.Pros:
+* Also simple.
+* Offset look ups are fast, O(1).
+
+[.slider]
+.Cons:
+* Small file size fixed at startup time.
+* Large portion of array may be unused.
+
+== Data Blocks: Multilevel Index
+
+Observation: *most* files are small, but *some* can get very large.
+
+[.slider]
+.Have inode store:
+* some pointers to blocks, which we refer to as *direct* blocks.
+* some pointers to blocks containing pointers to blocks, which we refer
+to as *indirect* blocks.
+* some pointers to blocks containing pointers to blocks containing
+pointers to blocks, which we refer to as *doubly indirect* blocks.
+* etc...
+
+== Data Blocks: Multilevel Index
+
+image::figures/disks/multilevelindexblocks.svg[image]
+
+== Data Blocks: Multilevel Index
+
+[.slider]
+.Pros:
+* Index scales with the size of the file.
+* Offset look ups are still fairly fast.
+* Small files stay small, but big files can get extremely large.
+
+== Making File Systems Fast
+
+[.slider]
+.How do we make a big slow thing look faster?
+* *Use a cache!* (Put a smaller, faster thing in front of it.)
+
+[.slide]
+--
+In the case of the file system the smaller, faster thing is *memory*.
+We call the memory used to cache file system data the *buffer cache*.
+--
+
+== Putting Spare Memory To Work
+
+[.slider]
+.Operating systems use memory:
+* *as memory* (duh), but also
+* to cache file data in order to improve performance.
+
+[.slider]
+.These two uses of memory *compete* with each other.
+* *Big* buffer cache, *small* main memory: [.slide]#file access is fast, but
+potential thrashing in the memory subsystem...#
+* *Small* buffer cache, *large* main memory: [.slide]#little swapping occurs but
+file access is extremely slow.#
+
+[.slide]
+--
+On Linux the `swappiness` kernel parameter controls how aggressively
+the operating system prunes unused process memory pages and hence the
+balance between memory and buffer cache.
+--
+
+== Where To Put the Buffer Cache?
+
+[.slide.replace]
+--
+image::figures/disks/buffercachelocation-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/disks/buffercachelocation-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/disks/buffercachelocation-3.svg[width="80%"]
+--
+
+== Above the File System
+
+[.slider]
+.What do we cache?
+* *Entire files and directories!*
+
+.What is the buffer cache interface?
+* `open`, `close`, `read`, `write`. (Same as the file system call interface.)
+
+[.small]
+== Above the File System: Operations
+
+[.slider]
+.`open`
+* Pass down to underlying file system.
+
+[.slider]
+.`read`
+* If file is not in the buffer cache, pass down to underlying
+file system and load contents into the buffer cache.
+* If the file is in the cache, return the cached contents.
+
+[.slider]
+.`write`
+* If file is not in the buffer cache, pass load contents into the
+buffer cache and then modify them.
+* If the file is in the cache, modify the cached contents.
+
+[.slider]
+.`close`
+* Remove from the cache (if necessary) and flush contents through the file system.
+
+== Above the File System: Pros and Cons
+
+[.slider]
+.Pros:
+* Buffer cache sees file operations, may lead to better prediction or
+performance.
+
+.Cons:
+* Hides many file operations from the file system, preventing it from
+providing consistency guarantees.
+* Can't cache file system metadata: inodes, superblocks, etc.
+
+== Below the File System
+
+[.slider]
+.What do we cache?
+* *Disk blocks!*
+
+[.slider]
+.What is the buffer cache interface?
+* `readblock`, `writeblock`. (Same as the disk interface.)
+
+== Below the File System: Pros and Cons
+
+[.slider]
+.Pros:
+* Can cache all blocks including file system data structures, inodes,
+superblocks, etc.
+* Allows file system to see all file operations even if they eventually
+hit the cache.
+
+[.slider]
+.Cons:
+* Cannot observe file semantics or relationships.
+
+[.slide]
+--
+This is what modern operating systems do.
+--
+
+[.nooutline]
+== Next Time
+
+* Consistency and caching.
+* Journaling.

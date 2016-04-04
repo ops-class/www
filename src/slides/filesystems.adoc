@@ -1,5 +1,5 @@
 ---
-title: "Introduction to File systems"
+title: "Introduction to File Systems"
 date: 2016-04-04
 author: Geoffrey Challen
 description: >
