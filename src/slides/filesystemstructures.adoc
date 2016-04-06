@@ -8,6 +8,7 @@ song:
   name: Bleached
   author: Sour Candy
   youtube: m35dyeQGW1I
+video: GnNgu9IAWIg
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -154,128 +155,6 @@ image::figures/disks/multilevelindexblocks.svg[image]
 * Index scales with the size of the file.
 * Offset look ups are still fairly fast.
 * Small files stay small, but big files can get extremely large.
-
-== Making File Systems Fast
-
-[.slider]
-.How do we make a big slow thing look faster?
-* *Use a cache!* (Put a smaller, faster thing in front of it.)
-
-[.slide]
---
-In the case of the file system the smaller, faster thing is *memory*.
-We call the memory used to cache file system data the *buffer cache*.
---
-
-== Putting Spare Memory To Work
-
-[.slider]
-.Operating systems use memory:
-* *as memory* (duh), but also
-* to cache file data in order to improve performance.
-
-[.slider]
-.These two uses of memory *compete* with each other.
-* *Big* buffer cache, *small* main memory: [.slide]#file access is fast, but
-potential thrashing in the memory subsystem...#
-* *Small* buffer cache, *large* main memory: [.slide]#little swapping occurs but
-file access is extremely slow.#
-
-[.slide]
---
-On Linux the `swappiness` kernel parameter controls how aggressively
-the operating system prunes unused process memory pages and hence the
-balance between memory and buffer cache.
---
-
-== Where To Put the Buffer Cache?
-
-[.slide.replace]
---
-image::figures/disks/buffercachelocation-1.svg[width="80%"]
---
-
-[.slide.replace]
---
-image::figures/disks/buffercachelocation-2.svg[width="80%"]
---
-
-[.slide.replace]
---
-image::figures/disks/buffercachelocation-3.svg[width="80%"]
---
-
-== Above the File System
-
-[.slider]
-.What do we cache?
-* *Entire files and directories!*
-
-.What is the buffer cache interface?
-* `open`, `close`, `read`, `write`. (Same as the file system call interface.)
-
-[.small]
-== Above the File System: Operations
-
-[.slider]
-.`open`
-* Pass down to underlying file system.
-
-[.slider]
-.`read`
-* If file is not in the buffer cache, pass down to underlying
-file system and load contents into the buffer cache.
-* If the file is in the cache, return the cached contents.
-
-[.slider]
-.`write`
-* If file is not in the buffer cache, pass load contents into the
-buffer cache and then modify them.
-* If the file is in the cache, modify the cached contents.
-
-[.slider]
-.`close`
-* Remove from the cache (if necessary) and flush contents through the file system.
-
-== Above the File System: Pros and Cons
-
-[.slider]
-.Pros:
-* Buffer cache sees file operations, may lead to better prediction or
-performance.
-
-.Cons:
-* Hides many file operations from the file system, preventing it from
-providing consistency guarantees.
-* Can't cache file system metadata: inodes, superblocks, etc.
-
-== Below the File System
-
-[.slider]
-.What do we cache?
-* *Disk blocks!*
-
-[.slider]
-.What is the buffer cache interface?
-* `readblock`, `writeblock`. (Same as the disk interface.)
-
-== Below the File System: Pros and Cons
-
-[.slider]
-.Pros:
-* Can cache all blocks including file system data structures, inodes,
-superblocks, etc.
-* Allows file system to see all file operations even if they eventually
-hit the cache.
-
-[.slider]
-.Cons:
-* Cannot observe file semantics or relationships.
-
-[.slide]
---
-This is what modern operating systems do.
---
 
 [.nooutline]
 == Next Time
