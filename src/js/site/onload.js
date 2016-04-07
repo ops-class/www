@@ -97,7 +97,7 @@ function processPage() {
 	_gaq.push(['_setAccount', 'UA-71773451-1']);
 	_gaq.push(['_trackPageview']);
 
-	$.getScript("/js/common/ga.js", function () {
+	$.getScript("/js/ga.js", function () {
 		$("#content a[href$='.pdf']")
 			.attr("target","_blank")
 			.click(function() {
