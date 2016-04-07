@@ -1,0 +1,395 @@
+---
+title: "File System Caching and Consistency"
+date: 2016-04-08
+author: Geoffrey Challen
+description: >
+  Discussion of file system caching and its impacts on consistency, as well as
+  journaling as a solution to this problem.
+spelling_exceptions:
+  - LFS
+  - FFS
+---
+== Technical Women
+
+image::women/002.jpg[width="100%"]
+
+[.nooutline]
+== Today
+
+* Caching and consistency.
+* Journaling.
+
+[.nooutline]
+== $ cat announce.txt
+
+[.nooutline]
+== Schedule for This Week
+
+Moving forward we'll have a mixture of traditional lectures as well as
+meetings when we review an operating system research paper.
+
+* Today: caching and consistency (maybe slightly short).
+* Wednesday: FFS and LFS.
+* Friday: RAID. Please read the paper and look at the online resources posted
+on Piazza.
+
+== Making File Systems Fast
+
+[.slider]
+.How do we make a big slow thing look faster?
+* *Use a cache!* (Put a smaller, faster thing in front of it.)
+
+[.slide]
+--
+In the case of the file system the smaller, faster thing is *memory*.
+We call the memory used to cache file system data the *buffer cache*.
+--
+
+== Putting Spare Memory To Work
+
+[.slider]
+.Operating systems use memory:
+* *as memory* (duh), but also
+* to cache file data in order to improve performance.
+
+[.slider]
+.These two uses of memory *compete* with each other.
+* *Big* buffer cache, *small* main memory: [.slide]#file access is fast, but
+potential thrashing in the memory subsystem...#
+* *Small* buffer cache, *large* main memory: [.slide]#little swapping occurs but
+file access is extremely slow.#
+
+[.slide]
+--
+On Linux the `swappiness` kernel parameter controls how aggressively
+the operating system prunes unused process memory pages and hence the
+balance between memory and buffer cache.
+--
+
+== Where To Put the Buffer Cache?
+
+[.slide.replace]
+--
+image::figures/disks/buffercachelocation-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/disks/buffercachelocation-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/disks/buffercachelocation-3.svg[width="80%"]
+--
+
+== Above the File System
+
+[.slider]
+.What do we cache?
+* *Entire files and directories!*
+
+.What is the buffer cache interface?
+* `open`, `close`, `read`, `write`. (Same as the file system call interface.)
+
+[.small]
+== Above the File System: Operations
+
+[.slider]
+.`open`
+* Pass down to underlying file system.
+
+[.slider]
+.`read`
+* If file is not in the buffer cache, pass down to underlying
+file system and load contents into the buffer cache.
+* If the file is in the cache, return the cached contents.
+
+[.slider]
+.`write`
+* If file is not in the buffer cache, pass load contents into the
+buffer cache and then modify them.
+* If the file is in the cache, modify the cached contents.
+
+[.slider]
+.`close`
+* Remove from the cache (if necessary) and flush contents through the file system.
+
+== Above the File System: Pros and Cons
+
+[.slider]
+.Pros:
+* Buffer cache sees file operations, may lead to better prediction or
+performance.
+
+.Cons:
+* Hides many file operations from the file system, preventing it from
+providing consistency guarantees.
+* Can't cache file system metadata: inodes, superblocks, etc.
+
+== Below the File System
+
+[.slider]
+.What do we cache?
+* *Disk blocks!*
+
+[.slider]
+.What is the buffer cache interface?
+* `readblock`, `writeblock`. (Same as the disk interface.)
+
+== Below the File System: Pros and Cons
+
+[.slider]
+.Pros:
+* Can cache all blocks including file system data structures, inodes,
+superblocks, etc.
+* Allows file system to see all file operations even if they eventually
+hit the cache.
+
+[.slider]
+.Cons:
+* Cannot observe file semantics or relationships.
+
+[.slide]
+--
+This is what modern operating systems do.
+--
+
+
+[.nooutline]
+== Review: Data Blocks: Multilevel Index
+
+Observation: [.slide]*most* files are small, but [.slide]*some* can get very large.
+
+[.slider]
+.Have inode store:
+* some pointers to blocks, which we refer to as *direct* blocks.
+* some pointers to blocks containing pointers to blocks, which we refer
+to as *indirect* blocks.
+* some pointers to blocks containing pointers to blocks containing
+pointers to blocks, which we refer to as *doubly indirect* blocks.
+* etc...
+
+[.nooutline]
+== Buffer Cache v. Process Pages
+
+.Operating systems use memory:
+* *as memory* (duh), but also
+* to cache file data in order to improve performance.
+
+[.slider]
+.These two uses of memory *compete* with each other.
+* *Big* buffer cache, *small* main memory: [.slide]#file access is fast, but
+potential thrashing in the memory subsystem...#
+* *Small* buffer cache, *large* main memory: [.slide]#little swapping occurs but
+file access is extremely slow.#
+
+[.nooutline]
+== Buffer Cache Location
+
+[.slider]
+.Where is the buffer cache typically located? Above or below the file system?
+* Below.
+
+[.slider]
+.What does the buffer cache store?
+* Complete disk blocks, including file system metadata.
+
+[.nooutline]
+== File System Structures: Questions?
+
+== Caching and Consistency
+
+[.slider]
+.How can the cache cause consistency problems?
+* Objects in the cache are lost on failures!
+
+[.slide]
+--
+Remember: almost *every* file system operation involves modifying
+_multiple_ disk blocks.
+
+[.slider]
+.Example of creating a new file in an existing directory:
+. Allocate an *inode*, mark the used inode bitmap.
+. Allocate *data blocks*, mark the used data block bitmap.
+. *Associate* data blocks with the file by modifying the inode.
+. Add inode to the given *directory* by modifying the directory file.
+. *Write* data blocks.
+--
+
+== How Caching Exacerbates Consistency
+
+Observation: file system operations that modify multiple blocks may leave the
+file system in an *inconsistent* state if partially completed.
+
+[.slider]
+.How does caching exacerbate this situation?
+* May increase the time span between when the _first_ write of the
+operation hits the disk and the _last_ is completed.
+
+== What Can Go Wrong?
+
+What kinds of inconsistency can take place if the system is interrupted
+between the multiple operations necessary to complete a write?
+
+. Allocate an *inode*, mark the used inode bitmap. [.slide]#*inode*
+incorrectly marked in use.#
+. Allocate *data blocks*, mark the used data block bitmap. [.slide]#Data
+blocks incorrectly marked in use.#
+. *Associate* data blocks with the file by modifying the inode.
+[.slide]#Dangling file not present in any directory.#
+. Add inode to the given *directory* by modifying the directory file.
+. *Write* data blocks. [.slide]#Data loss!#
+
+== Maintaining File System Consistency
+
+[.slider]
+.What's the safest approach?
+* *Don't buffer writes!*
+* We call this a _write through_ cache because writes do not hit the cache.
+
+[.slider]
+.What's the most dangerous approach?
+* *Buffer all operations until blocks are evicted.*
+* We call this a _write back_ cache.
+
+[.slider]
+.Which approach is better for
+* performance?
+* safety?
+
+<<<
+
+[.slider]
+.What about a middle ground?
+* Write important file system data metadata structures—superblock, inode
+maps, bitmaps, etc.—immediately, but delay data writes.
+
+[.slide]
+--
+File systems also give use processes some control through `sync` (sync
+the entire file system) and `fsync` (sync one file).
+--
+
+== Another Approach to Consistency
+
+[.slider]
+* What's _not_ atomic? [.slide]#Writing *multiple* disk blocks.#
+* What _is_ atomic? [.slide]#Writing *one* disk block.#
+
+== Journaling
+
+[.slider]
+* Track pending changes to the file system in a special area on disk
+called the *journal*.
+* Following a failure, *replay* the journal to bring the file system back
+to a consistent state.
+
+[.slide.small]
+--
+Creation example:
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  Allocate inode 567 for a new file.
+2.  Associate data blocks 5, 87, and 98 with inode 567.
+3.  Add inode 567 to the directory with inode 33.
+4.  That's it!
+____
+--
+
+== Journaling: Checkpoints
+
+[.slider]
+.What happens when we flush cached data to disk?
+* Update the journal!
+* This is called a *checkpoint*.
+
+[.slide.small]
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  [line-through]*Allocate inode 567 for a new file.*
+2.  [line-through]*Associate data blocks 5, 87, and 98 with inode 567.*
+3.  [line-through]*Add inode 567 to the directory with inode 33.*
+4.  [line-through]*That's it!*
+
+Dear Journal, I already did everything mentioned above! Checkpoint!
+____
+
+== Journaling: Recovery
+
+[.slider]
+.What happens on recovery?
+* Start at the *last checkpoint* and work forward, updating on-disk
+structures as needed.
+
+[.slide.small]
+____
+Dear Journal, I already did everything mentioned above! Checkpoint!
+
+Dear Journal, here's what I'm going to do today:
+
+1. Allocate inode 567 for a new file. [.slide]*Did this already!*
+2. Associate data blocks 5, 87, and 98 with inode 567. [.slide]*Didn't do
+this... OK, done!*
+3.  Add inode 567 to the directory with inode 33. [.slide]*Didn't do this
+either! OK, done.*
+4.  That's it! [.slide]*All caught up!*
+____
+
+== Journaling: Recovery
+
+[.slider]
+.What about incomplete journal entries?
+* These are *ignored* as they may leave the file system in an incomplete
+state.
+
+[.slide.small]
+--
+What would happen if we processed the following incomplete journal entry?
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  Allocate inode 567 for a new file.
+2.  Associate data blocks 5, 87, and 98 with inode 567.
+____
+--
+
+== Journaling: Implications
+
+Observation: *metadata* updates (allocate inode, free data block, add
+to directory, etc.) can be represented compactly and probably written to
+the journal *atomically*.
+
+[.slider]
+.What about data blocks themselves changed by write()?
+* We could *include them in the journal* meaning that each data block
+would potentially be written _twice_ (ugh).
+* We could *exclude them from the journal* meaning that file system
+structures are maintained but not file data.
+
+== (Aside) On Top of Spa-caches...
+
+[.slider]
+.How can the *disk cache* potentially get in our way here?
+* Data that the operating system *thinks* is on disk may be stuck in a
+*device cache* on lost on failure.
+
+[.slider]
+.How do we solve this problem?
+. The device may support a command allowing the operating system to
+flush its own internal cache.
+. Or, the device may use a battery backup system to ensure that all
+cached modifications are flushed in case the main power is removed.
+(Some drives even harness the rotational energy of the disk platters
+themselves to power shutdown. Fancy [.spelling_exception]#shmancy#.)
+
+[.nooutline]
+== Next Time
+
+Two very different file system designs:
+
+* The Berkeley Fast File System (FFS)
+* And log-structures file systems (LFS).
