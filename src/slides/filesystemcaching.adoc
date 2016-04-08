@@ -5,13 +5,26 @@ author: Geoffrey Challen
 description: >
   Discussion of file system caching and its impacts on consistency, as well as
   journaling as a solution to this problem.
+song:
+  name: "Pancho and Lefty"
+  author: Willie Nelson and Merle Haggard
+  youtube: OQZmX5fbqfs
 spelling_exceptions:
   - LFS
   - FFS
 ---
 == Technical Women
 
-image::women/002.jpg[width="100%"]
+image::women/002.jpg[width="100%",title="Sophie Wilson",link="https://en.wikipedia.org/wiki/Sophie_Wilson"]
+
+[.h4.center]
+icon:music[] http://www.tpau.co.uk/["Heart and Soul" by T'Pau]
+
+[.h4.center]
+icon:music[] http://merlehaggard.com/[{song}]
+
+video::SwrYMWoqg5w[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -22,16 +35,20 @@ image::women/002.jpg[width="100%"]
 [.nooutline]
 == $ cat announce.txt
 
+* Mid-semester grades will be released today. They will include ASST1, all
+ASST2 submissions as of this AM (including late ones), and the midterm--but
+_not_ ASST3.
+
 [.nooutline]
-== Schedule for This Week
+== The Next Few Classes
 
 Moving forward we'll have a mixture of traditional lectures as well as
 meetings when we review an operating system research paper.
 
-* Today: caching and consistency (maybe slightly short).
-* Wednesday: FFS and LFS.
-* Friday: RAID. Please read the paper and look at the online resources posted
-on Piazza.
+* Today: caching and consistency.
+* Monday: FFS and LFS.
+* Wednesday: RAID. Please read the paper and look at the online resources posted
+on Discourse early next week.
 
 == Making File Systems Fast
 

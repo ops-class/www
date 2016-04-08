@@ -4,10 +4,6 @@ date: 2016-04-04
 author: Geoffrey Challen
 description: >
   Introduction to file system data structures and challenges.
-song:
-  name: Bleached
-  author: Sour Candy
-  youtube: m35dyeQGW1I
 spelling_exceptions:
   - Chuchu
   - Suzanna
