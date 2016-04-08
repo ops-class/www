@@ -13,6 +13,7 @@ spelling_exceptions:
   - LFS
   - FFS
 ---
+[.nooutline.spelling_exception]
 == Technical Women
 
 image::women/002.jpg[width="100%",title="Sophie Wilson",link="https://en.wikipedia.org/wiki/Sophie_Wilson"]
