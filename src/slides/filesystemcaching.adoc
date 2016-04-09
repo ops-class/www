@@ -8,6 +8,7 @@ song:
   name: "Pancho and Lefty"
   author: Willie Nelson and Merle Haggard
   youtube: OQZmX5fbqfs
+video: e1C4TD_HG-I
 ---
 [.nooutline.spelling_exception]
 == Technical Women
