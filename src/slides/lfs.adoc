@@ -1,0 +1,350 @@
+---
+title: "Log-Structured File Systems"
+date: 2016-04-13
+author: Geoffrey Challen
+description: >
+  Discussion of log-structured file systems.
+spelling_exceptions:
+  - John Ousterhout
+  - Mendel Rosenblum
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/004.jpg[width="100%"]
+
+[.nooutline]
+== Today
+
+* Log-structured file systems (LFS)
+
+[.nooutline]
+== $ cat announce.txt
+
+== FFS: Questions?
+
+== On To The '90s
+
+*FFS* circa 1982.
+
+[.slider]
+.Fast forward: it's now 1991. What's different?
+* _"(Everything I Do) I Do It for You"_ replaces _"Eye of the Tiger"._
+* _"The Silence of the Lambs"_ replaces _"Gandhi"_.
+
+[.slide]
+--
+OK, so what's different about *disks*?
+--
+
+== Computers Circa 1991
+
+[.slider]
+* Disk *bandwidth* is improving rapidly, meaning the operating system
+can stream reads or writes to the disk _faster_.
+* Computers have *more memory*. Up to _128 MB_! (Whoa.)
+* And, alas, disk seek times are ... [.slide]#still dog slow!#
+
+== Using What We Got
+
+So, if we can solve this pesky *seek* issue we can utilize growing disk
+*bandwidth* to improve file system *performance*.
+
+[.slider]
+* Oh, by the way: we've got a bunch of spare memory lying around. Might
+that be useful?
+
+== Use a Cache!
+
+[.slider]
+.How do we make a big slow thing look faster?
+* *Use a cache!* Or, put a smaller, faster thing in front of it.
+
+[.slider]
+* In the case of the file system the smaller, faster thing is [.slide]*memory.*
+* We call the memory used to cache file system data the [.slide]*buffer cache.*
+
+== A New Hope
+
+[.slider]
+* With a large cache, we should be able to avoid doing almost any disk
+*reads*.
+* But we will still have to do disk *writes*, but the cache will still
+help collect small writes in memory until we can do one larger write..
+
+[.slide]
+--
+Forget for a minute everything you've learned about file system design and
+answer the following question:
+
+[.slider]
+.What's the best way to avoid *seeks* when *writing*?
+* Write everything *to the same place*!
+--
+
+== Log Structured File Systems
+
+Invented and implemented at Stanford by then-faculty John Ousterhout
+and now-faculty Mendel Rosenblum.
+
+[.slider]
+.*Main idea:* all writes go to an *append-only* log.
+* Great... um... how do we _do_ that?
+
+== A Normal Write
+
+Example: let's say we want to change an existing byte in a file.
+
+[.slider]
+.What would we normally do?
+. *Seek* to _read_ the inode map.
+. *Seek* to _read_ the inode.
+. *Seek* to _write_ (modify) the data block.
+. *Seek* to _write_ (update) the inode.
+
+== A Normal Write
+
+[.slide.replace]
+--
+image:figures/disks/normalseeks-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/normalseeks-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/normalseeks-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/normalseeks-4.svg[width="100%"]
+--
+
+== A Cached-Read Write
+
+Let's assume that our big friendly cache is going to soak up the reads.
+
+[.slider]
+.Now what happens?
+. [line-through]**Seek* to _read_ the inode map.*
+. [line-through]**Seek* to _read_ the inode.*
+. *Seek* to _write_ (modify) the data block.
+. *Seek* to _write_ (update) the inode.
+
+== A Cached-Read Write
+
+[.slide.replace]
+--
+image:figures/disks/cachedseeks-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/cachedseeks-2.svg[width="100%"]
+--
+
+== An LFS Write
+
+[.slide.replace]
+--
+image:figures/disks/lfsseeks-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/lfsseeks-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/lfsseeks-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/lfsseeks-4.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/lfsseeks-5.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/lfsseeks-6.svg[width="100%"]
+--
+
+== I See What You Did There
+
+Elegant solution! Reads are handled by the cache. Writes can stream to
+the disk at full bandwidth due to short seeks to append to the log.
+
+[.slider]
+* But some *thorny details* to address.
+
+== When Do Writes Happen?
+
+Want to stream _as many writes_ to disk together as possible to
+maximize usage of disk bandwidth.
+
+[.slider]
+.*When* do we write to the log?
+* When the user calls `sync`, `fsync` or when blocks are evicted from the
+buffer cache.
+
+== Locating LFS inodes
+
+[.slider]
+.How did FFS translate an inode number to a disk block?
+* It stored the inode map in a *fixed* location on disk.
+
+[.slider]
+.Why is this a problem for LFS?
+* inodes are just appended to the log and so they can *move*!
+
+[.slider]
+.And so what do you think that LFS does about this?
+* Yep, it *logs* the inode map.
+
+== LFS metadata
+
+[.slider]
+.What about file system metadata: inode and data block allocation bitmaps, etc.?
+* We can log that stuff too!
+
+== As the Log Turns
+
+[.slider]
+.What happens when the log reaches the end of the disk?
+* Probably a *lot* of unused space earlier in the log due to
+overwritten inodes, data blocks, etc.
+
+[.slider]
+.How do we reclaim this space?
+* *Clean* the log by identifying empty space and compacting used
+blocks.
+
+[.slide]
+--
+Conceptually you can think of this happening across the entire disk
+all at once, but for performance reasons LFS divides the disk into
+*segments* which are cleaned separately.
+--
+
+== LFS Cleaning
+
+[.slide.replace]
+--
+image:figures/disks/logcleaning-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/logcleaning-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/logcleaning-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/disks/logcleaning-4.svg[width="100%"]
+--
+
+== The Devil's in the Cleaning
+
+[.slider]
+* LFS seems like an incredibly great idea... [.slide]#until you start thinking
+about *cleaning*.#
+* (Then it becomes a *debatably* great idea...)
+
+== Cleaning Questions
+
+[.slider]
+.*When* should we run the cleaner?
+* Probably when the system is _idle_, which may be a problem on systems
+that don't idle much.
+
+[.slider]
+.What *size* segments should we clean?
+* *Large* segments amortize the cost to read and write all of the data
+necessary to clean the segment.
+* ...but *small* segments increase the probability that _all_ blocks in
+a segment will be "dead", making cleaning trivial.
+
+[.slider]
+.What other effect does log cleaning have?
+* Cleaner overhead is *very* workload-dependent, making it difficult to
+reason about the performance of log-structure file system. (And easy to
+fight about their performance!)
+
+== Reading Questions
+
+Let's say that the cache *does not* soak up as many reads as we were
+hoping.
+
+[.slider]
+.What problem can LFS create?
+* Block allocation is extremely discontiguous, meaning that reads may
+seek all over the disk.
+
+[.smaller]
+== People Care About This Stuff
+
+[.slide]
+--
+* 1991: original LFS paper by Ousterhout and Rosenblum.
+--
+[.slide]
+--
+* 1993: reimplementation by Margo Seltzer questions performance
+improvements:
+____
+"Unfortunately, an enhanced version of FFS (with read and write
+clustering) provides comparable and sometimes superior performance to
+our LFS."
+____
+--
+[.slide]
+--
+* Ousterhout responds to the '93 critique and complains of "poor
+BSD-LFS implementation", "poor benchmark choice", and "poor analysis."
+--
+[.slide]
+--
+* 1995: a second paper by Margo Seltzer _again_ questions LFS
+performance claims.
+____
+For small files, both systems provide comparable read performance, but
+LFS offers superior performance on writes. For large files (one megabyte
+and larger), the performance of the two file systems is comparable. When
+FFS is tuned for writing, its large-file write performance is
+approximately 15% better than LFS, but its read performance is 25%
+worse. When FFS is optimized for reading, its large-file read and write
+performance is comparable to LFS.
+____
+--
+[.slide]
+--
+* Ousterhout describes the '95 analysis as improved but states that
+"the new paper is still misleading in several ways".
+--
+
+[.nooutline]
+== What Else Did Margo Do?
+
+[.slider]
+* Initiated the creation of OS/161.
+* Taught me operating systems.
+
+[.nooutline]
+== Next Time
+
+* RAID: please read the paper!
