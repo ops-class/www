@@ -147,7 +147,7 @@ fixes and improvements via pull requests are welcome.
 
 === Current Version
 
-https://github.com/ops-class/test161/tree/v1.2.3[1.2.3] is the current version.
+https://github.com/ops-class/test161/tree/v1.2.4[1.2.4] is the current version.
 
 === Installation
 

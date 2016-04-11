@@ -7,6 +7,7 @@ spelling_exceptions:
   - VFS
   - coremap
   - subpage
+  - userspace
 
 description: >
   In ASST3 you will add support for virtual memory to your OS/161 kernel.
@@ -413,11 +414,11 @@ requests are generated, so that your system will respond to them correctly.
 == Grading
 
 [.lead]
-ASST3 grading is divided into three incremental parts, with different
-`test161` targets testing different parts of your VM subsystem:
+ASST3 grading is divided into three incremental parts, with a cumulative
+`test161` target that tests different parts of your VM subsystem:
 
 . *Coremap*
-. *User Paging*
+. *Virtual Address Spaces*
 . *Swapping*
 
 === Coremap
@@ -448,3 +449,37 @@ is not too bloated with the `--avail` and `--kernel` arguments to `km5`.
 pages being allocated early in boot that are not properly freed. We test for
 this in various places using `khu` footnote:[running `khu` before and after any
 test should report the same number of bytes. If not, you have a memory leak.].
+
+=== Virtual Address Spaces
+
+The second part of ASST3 tests your VM subsystem's ability to maintain
+per-process virtual address spaces, and to multiplex physical memory between
+multiple userspace processes. In ASST2, userspace programs were able to run
+because `dumbvm` performed these tasks for you. In ASST3, however, your VM
+subsystem is now in charge. After completing this part of the assignment, not
+only should the tests from ASST2 pass, but so too should tests like `huge` and
+`sort`, which could not previously run because of the limitations of `dumbvm`.
+You will be provided with enough memory to run all tests in this section without
+the need for paging to disk.
+
+. *Basic VM Functionality:* The first group of tests checks that your VM is able
+to properly handle page faults from a single user program, and that it fixes
+some of the limitations imposed by `dumbvm`. This group of tests includes
+`huge`, `sort`, `palin`, `matmult`, `ctest`, and `bigexec`.
+
+. *Concurrent VM Functionality:* This next group of tests checks that your VM is
+able to properly handle concurrent user programs, which in turn tests both your
+page fault logic and TLB handling. Each of the programs in this group spawn a
+number of processes that run concurrently. Tests in this group include
+`bigfork`, `parallelvm`, `quintsort`, `quintmat`, and `quinthuge`.
+
+. *Userspace Heap:* One of the limitations of `dumbvm` is that it has no support
+for userspace heaps, meaning that all programs running on OS/161 must
+statically declare all memory. Your VM system will change this by implementing
+the `sbrk` system call, which allows user programs to dynamically allocate and
+free memory by changing the heap breakpoint. We test your `sbrk` implementation
+with `sbrktest` and `badcall`.
+
+. *Stability Tests:* Finally, we will run a few stability tests on your VM. These
+programs include `zero`, `forkbomb`, and a combination of previously run
+programs meant to stress test your system.
