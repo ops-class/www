@@ -11,8 +11,7 @@ song:
 spelling_exceptions:
   - UFS
   - Kirk McKusick
-  - John Ousterhout
-  - Mendel Rosenblum
+video: YerLRBpD4e0
 ---
 [.nooutline.spelling_exception]
 == Technical Women
