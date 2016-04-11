@@ -5,6 +5,10 @@ author: Geoffrey Challen
 description: >
   Discussion of journaling, the UNIX Fast File System (FFS) and log-structured
   file systems (LFS).
+song:
+  name: "Carry On My Wayward Son"
+  author: Kansas
+  youtube: 2X_2IdybTV0
 spelling_exceptions:
   - UFS
   - Kirk McKusick
@@ -15,6 +19,15 @@ spelling_exceptions:
 == Technical Women
 
 image::women/003.jpg[width="100%",title="Kristina Johnson",link="https://en.wikipedia.org/wiki/Kristina_M._Johnson"]
+
+[.h4.center]
+icon:music[] http://ilovem83.com/["Go!" by M83]
+
+[.h4.center]
+icon:music[] http://www.kansasband.com/[{song}]
+
+video::U3YZTYXftzg[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -28,6 +41,8 @@ image::women/003.jpg[width="100%",title="Kristina Johnson",link="https://en.wiki
 
 [.slider]
 * Do ASST3!
+* Due to a goof on my part midterms will be returned later this week.
+(Sorry.)
 
 == Another Approach to Consistency
 

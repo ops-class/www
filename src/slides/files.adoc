@@ -26,7 +26,7 @@ video: TYn5_Jg26A0
 image::women/052.jpg[width="100%",title="Chieko Asakawa",link="http://researcher.watson.ibm.com/researcher/view.php?person=jp-CHIE"]
 
 [.h4.center]
-icon:music[] http://www.rustedroot.com/[{song}]
+icon:music[] https://en.wikipedia.org/wiki/Rusted_Root[{song}]
 
 [.h4.center]
 icon:music[] http://goldspot.net/[Friday by Goldspot]
