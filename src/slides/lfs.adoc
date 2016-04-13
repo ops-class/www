@@ -7,11 +7,24 @@ description: >
 spelling_exceptions:
   - John Ousterhout
   - Mendel Rosenblum
+song:
+  name: "Righteous Path"
+  author: "Drive By Truckers"
+  youtube: "-CyNabyA4lA"
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/004.jpg[width="100%"]
+image::women/004.jpg[width="100%",title="Mary Lou Jepsen",link="https://en.wikipedia.org/wiki/Mary_Lou_Jepsen"]
+
+[.h4.center]
+icon:music[] http://www.chvrch.es/["Leave a Trace" by CHVRCHES]
+
+[.h4.center]
+icon:music[] http://www.drivebytruckers.com/[{song}]
+
+video::4Eo84jDIMKI[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -20,6 +33,9 @@ image::women/004.jpg[width="100%"]
 
 [.nooutline]
 == $ cat announce.txt
+
+* Midterms are ready for pick up.
+* Please follow our instructions for requesting grade corrections.
 
 == FFS: Questions?
 
@@ -399,7 +415,7 @@ laptops, desktops.
 . Understand the _kinds of papers_
 . Understand the _parts of a paper_
 
-[.small]
+[.small.spelling_exception]
 == Places Where Papers Get Published
 
 [.slider]
@@ -423,22 +439,6 @@ conference paper with extra material (frequently all of the unneccesary
 results that they removed to make the conference page limit).
 ** My advice: read the conference paper.
 
-== Example Workshop Paper
-
-++++
-<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
-<iframe width="100%" height="440" class="embed-responsive-item" src="http://www.eecs.harvard.edu/margo/papers/hotos09/paper.pdf"></iframe>
-</div>
-++++
-
-== Example Conference Paper
-
-++++
-<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
-<iframe width="100%" height="440" class="embed-responsive-item" src="http://pdos.csail.mit.edu/papers/commutativity:sosp13.pdf"></iframe>
-</div>
-++++
-
 [.small]
 == Kinds of Papers
 
@@ -452,7 +452,7 @@ new, (2) works, and (3) is useful.
 . *Problem papers*: presents a _new problem_ and, usually, some ideas about
 how to solve it. Should convince you that the problem is (1), (2) matters and
 (3) that there are some ways to solve it.
-. *Data papers*: present _novel analysis_ or _analysis of a novel dataset_ that
+. *Data papers*: present _novel analysis_ or _analysis of a novel data set_ that
 produces interesting insights. Should convince you that the results are
 useful to the design of future systems.
 . *New technology papers*: describe some new hardware capability or device
@@ -499,7 +499,7 @@ interesting implementation challenges.
 . *Related work*: put the work in context by comparing it to other systems.
 Important to establish _novelty_.
 . *Results*: for data analysis papers, most of the paper is spent analyzing
-the dataset that was collected and evaluated. This usually supercedes an
+the data set that was collected and evaluated. This usually replaces an
 typical evaluation since there may not be a new idea.
 
 <<<

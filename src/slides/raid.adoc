@@ -63,8 +63,8 @@ ____
 == The RAID Report
 
 ++++
-<div class="responsive-embed embed-responsive-4by3">
-<iframe width="100%" height="440" class="embed-responsive-item" src="http://www.eecs.berkeley.edu/Pubs/TechRpts/1987/CSD-87-391.pdf"></iframe>
+<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
+<iframe height="440" class="embed-responsive-item" src="http://www.eecs.berkeley.edu/Pubs/TechRpts/1987/CSD-87-391.pdf"></iframe>
 </div>
 ++++
 
