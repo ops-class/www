@@ -1,0 +1,160 @@
+---
+title: "RAID"
+date: 2016-04-15
+author: Geoffrey Challen
+description: >
+  Discussion of Redundant Arrays of Inexpensive Disks (RAID).
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/005.jpg[width="100%"]
+
+[.nooutline]
+== Today
+
+* Redundant Arrays of Inexpensive Disks (RAID).
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* Do ASST3!
+* Max score is 69/100--getting there!
+
+== Redundant Arrays of Inexpensive Disks
+
+[.slider]
+.What kind of paper is this?
+* *Big idea* paper!
+* Spawned a commonly-used technology, an entire industry, and lots of similar
+approaches.
+
+[.slider]
+.What is the big idea? (Hint: it has nothing to do with disks...)
+* Several cheap things can be better than one expensive thing!
+
+[.slider]
+.Where else do we see this idea applied today?
+* Multicore processors.
+* Google.
+* Crowdsourcing.
+
+[.small]
+== RAID: Problems
+
+[.slider]
+.What is the problem that the RAID paper identifies?
+* Computer CPUs are getting faster...
+* Computer memory is getting faster...
+* Hard drives are not keeping up!
+
+[.slide]
+____
+While we can imagine improvements in software file systems via buffering for
+near term I/O demands, we need innovation to avoid an I/O crisis.
+____
+
+[.slider]
+.What is the problem with the RAID solution?
+* Many cheap things fail much more frequently than one expensive thing.
+* So need a plan to handle failures.
+
+== The RAID Report
+
+++++
+<div class="responsive-embed embed-responsive-4by3">
+<iframe width="100%" height="440" class="embed-responsive-item" src="http://www.eecs.berkeley.edu/Pubs/TechRpts/1987/CSD-87-391.pdf"></iframe>
+</div>
+++++
+
+[.small]
+== RAID 1
+
+image::http://upload.wikimedia.org/wikipedia/commons/b/b7/RAID_1.svg[height="200"]
+
+.RAID 1 (Mirroring)
+* Two duplicate disks.
+* Writes must go to both disks, reads can
+come from either.
+
+[.slider]
+* Performance: [.slide]*better for reads.*
+* Capacity: [.slide]*unchanged!*
+
+[.small]
+== RAID 2
+
+image::http://upload.wikimedia.org/wikipedia/commons/b/b5/RAID2_arch.svg[height="200"]
+
+.RAID 2
+* *Byte-level striping*, single error disk.
+* *Hamming codes* to detect failures and correct errors.
+* Most reads and writes require all disks.
+
+[.slider]
+* Capacity: [.slide]*improved.*
+
+[.small]
+== RAID 3
+
+image::http://upload.wikimedia.org/wikipedia/commons/f/f9/RAID_3.svg[height="200"]
+
+.RAID 3
+* *Only correct errors* since disks can detect when they fail.
+* Byte-level striping, single *parity* disk.
+* Most reads and writes require all disks.
+
+[.slider]
+* Capacity: [.slide]*improved.*
+
+[.small]
+== RAID 4
+
+image::http://upload.wikimedia.org/wikipedia/commons/a/ad/RAID_4.svg[height="200"]
+
+.RAID 4
+* *Block-level striping*, single parity disk.
+* Better distribution of reads between disks due to larger stripe size,
+* but all writes all must access the parity disk.
+
+[.slider]
+* Performance: [.slide]*improved for reads.*
+
+[.small]
+== RAID 5 (Full Victory)
+
+image::http://upload.wikimedia.org/wikipedia/commons/6/64/RAID_5.svg[height="200"]
+
+.RAID 5
+* Block-level striping
+* *Multiple parity disks*.
+* Better distribution of writes between disks.
+
+[.slider]
+* Performance: [.slide]*improved for writes.*
+
+== RAID 0 (Non-RAID)
+
+.RAID 0
+* Each disk stores half of the data.
+* No error correction or redundancy.
+
+[.slider]
+* Performance: [.slide]*fantastic!*
+* Capacity: [.slide]*fantastic!*
+* Redundancy: [.slide]*ZERO!*
+
+== RAID: Redundancy
+
+[.slider]
+* RAID arrays can tolerate the failure of one (or more) disks.
+* Once a (or several) fail, the array is vulnerable to data loss.
+* An administrator must replace the disk(s) and then rebuild the array.
+
+== RAID: Questions?
+
+[.nooutline]
+== Next Time
+
+* Operating system design.
