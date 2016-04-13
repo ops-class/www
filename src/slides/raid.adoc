@@ -98,7 +98,7 @@ get the _big picture_.
 ** Persuasive arguments to keep you reading
 ** A preview of the interesting results ahead
 ** Navigational information to guide you through the rest of the paper
-. *Motivation*: 
+. *Motivation*:
 ** More arguments about why this is a problem, why people have been solving
 this problem the wrong way, or why this data is interesting--depending on the
 type of paper.
