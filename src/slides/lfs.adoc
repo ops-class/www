@@ -11,6 +11,7 @@ song:
   name: "Righteous Path"
   author: "Drive By Truckers"
   youtube: "-CyNabyA4lA"
+video: 8Ayz-5A4eJM
 ---
 [.nooutline.spelling_exception]
 == Technical Women
