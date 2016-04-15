@@ -4,11 +4,24 @@ date: 2016-04-15
 author: Geoffrey Challen
 description: >
   Overview of Redundant Arrays of Inexpensive Disks (RAID).
+song:
+  name: "The Passenger"
+  author: "Iggy Pop"
+  youtube: "hLhN__oEHaw"
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/005.jpg[width="100%"]
+image::women/005.jpg[width="100%",title="Susan Landau",link="http://privacyink.org/"]
+
+[.h4.center]
+icon:music[] http://www.chvrch.es/["Leave a Trace" by CHVRCHES]
+
+[.h4.center]
+icon:music[] http://iggypop.com[{song}]
+
+video::4Eo84jDIMKI[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -54,7 +67,7 @@ conference paper with extra material (frequently all of the unneccesary
 results that they removed to make the conference page limit).
 ** My advice: read the conference paper.
 
-[.small]
+[.smaller]
 == Kinds of Papers
 
 Clearly this is an incomplete list, but identifying the kind of paper can
@@ -78,6 +91,7 @@ problem incorrectly_. Frequently these are workshop-length papers and
 eventually lead to idea papers. Should be able to convince you that everyone
 else is confused and misguided. (Good luck!)
 
+[.slide]
 --
 We'll read examples of all of these kinds of papers.
 --
@@ -167,9 +181,12 @@ ____
 
 == The RAID Report
 
+http://www.eecs.berkeley.edu/Pubs/TechRpts/1987/CSD-87-391.pdf[Here is the
+link to a classic paper.]
+
 ++++
-<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
-<iframe height="440" class="embed-responsive-item" src="http://www.eecs.berkeley.edu/Pubs/TechRpts/1987/CSD-87-391.pdf"></iframe>
+<div class="embed-responsive-16by9" style="height:400px;">
+<iframe style="width:100%; height:400px;" src="http://www.eecs.berkeley.edu/Pubs/TechRpts/1987/CSD-87-391.pdf#view=fitH"></iframe>
 </div>
 ++++
 
