@@ -279,4 +279,4 @@ image::http://upload.wikimedia.org/wikipedia/commons/6/64/RAID_5.svg[height="200
 [.nooutline]
 == Next Time
 
-* Operating system design.
+* Full virtualization.
