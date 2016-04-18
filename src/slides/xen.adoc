@@ -10,6 +10,7 @@ description: >
 
 image::women/007.jpg[width="100%"]
 
+[.spelling_exception]
 == Xen and the Art of Virtualization
 
 http://www.cl.cam.ac.uk/research/srg/netos/papers/2003-xensosp.pdf["Xen and the Art of Virtualization"], by:
@@ -52,7 +53,7 @@ ____
 
 <<<
 
-[.small]
+[.small.spelling_exception]
 ____
 Notwithstanding the intricacies of the x86, there are other arguments against
 full virtualization. In particular, there are *situations in which it is
@@ -129,7 +130,7 @@ Of course the x86 has neither of these features.
 
 <<<
 
-[.small]
+[.small.spelling_exception]
 ____
 Given these limitations, we made two decisions: (i) guest OSes are
 responsible for allocating and managing the hardware page tables, with
@@ -153,7 +154,7 @@ ____
 
 <<<
 
-[.small]
+[.small.spelling_exception]
 ____
 Guest OSes may batch update requests to amortize the overhead of entering the
 hypervisor. The top 64MB region of each address space, which is reserved for
@@ -179,13 +180,13 @@ x86 privilege rings to the rescue!
 
 [.small]
 ____
-Efficient virtualizion of privilege levels is possible on x86 because it
+Efficient virtualization of privilege levels is possible on x86 because it
 supports four distinct privilege levels in hardware. The x86 privilege levels
 are generally described as rings, and are numbered from zero (most
 privileged) to three (least privileged). OS code typically executes in ring 0
 because no other ring can execute privileged instructions, while ring 3 is
-generally used for application code. *To our knowledge, rings 1 and 2 have not
-been used by any well-known x86 OS since OS/2.*
+generally used for application code. *To our knowledge, rings 1 and 2 have
+not been used by any well-known x86 OS since OS/2.*
 ____
 
 <<<
@@ -193,7 +194,7 @@ ____
 What exceptions happen enough to create a performance problem? [.slide]#Page
 faults and system calls.#
 
-[.small.slide]
+[.small.slide.spelling_exception]
 ____
 Typically only two types of exception occur frequently enough to affect
 system performance: system calls (which are usually implemented via a
@@ -210,7 +211,7 @@ link.]
 
 ++++
 <div class="responsive-embed embed-responsive-4by3">
-<iframe width="100%" height="400" class="embed-responsive-item"
+<iframe style="width:100%" height="400" class="embed-responsive-item"
 src="http://www.cl.cam.ac.uk/research/srg/netos/papers/2003-xensosp.pdf"></iframe>
 </div>
 ++++

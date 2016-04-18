@@ -4,6 +4,8 @@ date: 2016-04-18
 author: Geoffrey Challen
 description: >
   Introduction to virtualization.
+spelling_exceptions:
+  - VMware
 song:
   name: "The Passenger"
   author: "Iggy Pop"
@@ -66,7 +68,7 @@ underlying physical machine.
 == What Is Virtualization?
 
 [.slider]
-.Et voila: the *virtual machine monitor (VMM)* is
+.[.spelling_exception]#Et# voila: the *virtual machine monitor (VMM)* is
 . a piece of software running on an operating system (the *host OS*)
 . that can allow another operating system (the *guest OS*) to be run
 as an application
@@ -116,7 +118,7 @@ sticking your hand in the box and mucking around.
 [.slider]
 .Lack of true *isolation* between multiple applications.
 . Operating systems "leak" a lot of information between processes
-through the filesystem and other channels.
+through the file system and other channels.
 . Multiple applications may require specific (and conflicting)
 software packages to run.
 . Certain applications may have very specific operating systems
@@ -136,7 +138,7 @@ or move it.
 
 == To Be a VMM
 
-In 1974 (!) Popek and Goldberg provide three essential requirements for a
+In 1974 (!) [.spelling_exception]#Popek and Goldberg# provide three essential requirements for a
 piece of software to be considered a *virtual machine monitor* (VMM), or to
 implement a *virtual machine*:
 
@@ -171,7 +173,7 @@ solutions.
 * How do we handle traps by applications running in the guest OS?
 * Guest OS will try to execute *privileged instructions*!
 
-== De-Privileging the Guest OS
+== [.spelling_exception]#De-Privileging# the Guest OS
 
 [.slider]
 .What happens if we run the Guest OS with *kernel* privileges?
@@ -207,7 +209,7 @@ OS.
 * If the trap is caused by the *guest OS*, handle the trap by adjusting
 the state of the virtual machine.
 
-== Getting Trappy
+== [.spelling_exception]#Getting Trappy#
 
 VMware and VirtualBox VMMs run as standard system processes but
 *require* operating system support.
@@ -230,7 +232,7 @@ executing a privileged instruction.
 . VMM will pass arguments back to the process that originated the
 system call.
 
-== Getting (Really) Trappy
+== [.spelling_exception]#Getting (Really) Trappy#
 
 [.slider]
 .What happens when a process inside the virtual machine creates a TLB fault?
