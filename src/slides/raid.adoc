@@ -8,6 +8,7 @@ song:
   name: "The Passenger"
   author: "Iggy Pop"
   youtube: "hLhN__oEHaw"
+video: 96PJhAKMA3w
 ---
 [.nooutline.spelling_exception]
 == Technical Women
