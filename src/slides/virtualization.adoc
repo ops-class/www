@@ -1,0 +1,307 @@
+---
+title: "Full Virtualization"
+date: 2016-04-18
+author: Geoffrey Challen
+description: >
+  Introduction to virtualization.
+song:
+  name: "The Passenger"
+  author: "Iggy Pop"
+  youtube: "hLhN__oEHaw"
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/006.jpg[width="100%",link="http://www.cs.columbia.edu/~kathy/",title="Kathleen McKeown"]
+
+[.h4.center]
+icon:music[] http://iggypop.com[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+* Why virtualize?
+
+[.nooutline]
+== $ cat announce.txt
+
+* link:/asst/3/[ASST3].2 is due Friday @ 5PM.
+* Schedule change today: virtualization is awesome!
+* Please suggest topics for later in the class...
+
+<<<
+
+Read http://www.cl.cam.ac.uk/research/srg/netos/papers/2003-xensosp.pdf["Xen
+and the Art of Virtualization"] for Wednesday.
+
+== What Is Virtualization?
+
+Until today we've been talking about operating systems running on
+*physical machines*: a collection of
+
+[.slider]
+. *real* hardware resources,
+. that the operating system has *exclusive* access to
+. through *hardware interfaces* (instruction set architectures, device
+I/O ports, etc.
+
+== What Is Virtualization?
+
+Operating systems can also run inside *virtual machines (VMs)* implemented by
+*virtual machine monitors (VMMs)*.
+
+[.slider]
+* We refer to an operating system running inside a virtual machine as a
+*guest OS*.
+
+[.slider]
+.Virtual machines differ from physical machines in important ways.
+* They _do not_ provide the guest OS with *exclusive* access to the
+underlying physical machine.
+* Equivalently, they _do not_ provide the guest OS with
+*privileged* (or fully-privileged) access to the physical machine.
+
+== What Is Virtualization?
+
+[.slider]
+.Et voila: the *virtual machine monitor (VMM)* is
+. a piece of software running on an operating system (the *host OS*)
+. that can allow another operating system (the *guest OS*) to be run
+as an application
+. alongside other applications.
+
+[.slider]
+* When we said that the *operating system* was really _just another
+program_ we weren't kidding!
+
+== Meme
+[.background]
+image:http://qph.is.quoracdn.net/main-qimg-7fbf5d6ce580e75dc50dcc254d2e3ace?convert_to_webp=true[]
+
+[.meme-top]
+This is not
+
+[.meme-bottom]
+The only matrix
+
+== Why Virtualize?
+
+(Clearly there is a big *how* question here, but let's start with *why*!)
+
+[.slider]
+* We've been talking about *operating systems* all semester...
+* ...and I hope by this point I've convinced you that they are *pretty great*.
+
+[.slide]
+--
+But just for the sake of argument... what might be some problems with the
+operating system environments we've discussed thus far?
+--
+
+== Problems with Operating Systems: Hardware Coupling
+
+[.slider]
+.Unfortunate *coupling* between hardware resources and the operating system.
+. Hard to run multiple operating systems on the same machine. (Geeky.)
+. Difficult to transfer software setups to another machine, unless it
+has identical or nearly identical hardware.
+. Messy to adjust hardware resources to system needs. Requires
+sticking your hand in the box and mucking around.
+. Requires static, up-front provision of machine resources.
+
+== Problems with Operating Systems: Application Isolation
+
+[.slider]
+.Lack of true *isolation* between multiple applications.
+. Operating systems "leak" a lot of information between processes
+through the filesystem and other channels.
+. Multiple applications may require specific (and conflicting)
+software packages to run.
+. Certain applications may have very specific operating systems
+configuration and tuning requirements.
+. In some cases, software vendors _will not provide support_ if you
+are running their precious application alongside *anything* else.
+
+== Why We Virtualize
+
+[.slider]
+* We can package and distribute an entire software development
+environment which can be used and discarded.
+* We can dynamically divide up one large machine into multiple smaller
+machines, each running a different operating system and applications.
+* We can easily replicate an entire machine image in order to duplicate
+or move it.
+
+== To Be a VMM
+
+In 1974 (!) Popek and Goldberg provide three essential requirements for a
+piece of software to be considered a *virtual machine monitor* (VMM), or to
+implement a *virtual machine*:
+
+[.slider]
+. *Fidelity:* software on the VMM executes identically to how it would
+on real hardware (modulo timing effects).
+. *Performance:* to achieve good performance _most_ instructions
+executed by the guest OS should be run directly on the underlying
+physical hardware.
+. *Safety:* the VMM should manage all hardware resources.
+
+== Two Approaches to Virtualization
+
+[.slider]
+* *Full virtualization*. Should be able to run an *unmodified* guest OS. We
+will discuss this today.
+* *Paravirtualization*. Includes small changes to the guest operating
+system to improve interaction with the virtual machine monitor. We will read
+this paper for Monday.
+
+== Full Virtualization
+
+*Our goal:* run an *unmodified* operating system and applications in a VM
+itself running on a host OS and potentially next to other VMs.
+
+[.slider]
+* *VMware* is the best-known provider of full virtualization software
+solutions.
+
+[.slider]
+.Why is this hard?
+* How do we handle traps by applications running in the guest OS?
+* Guest OS will try to execute *privileged instructions*!
+
+== De-Privileging the Guest OS
+
+[.slider]
+.What happens if we run the Guest OS with *kernel* privileges?
+* Privileged instructions work as expected, but guest has access to the
+*entire machine*! (Violates safety.)
+
+[.slider]
+.What happens if we run the Guest OS with *user* privileges?
+* Need to figure out how to deal with privileged instructions...
+
+== Trapping Privileged Instructions
+
+Ideally, when *privileged* instructions are run by the guest OS at
+user privilege level:
+
+[.slider]
+. The CPU traps the instruction due to a *privilege violation*.
+. The trap is handled by the VMM.
+. Assuming the guest OS is doing something legitimate, the VMM adjusts
+the VM state and continues the guest OS.
+
+[.slider]
+* We refer to an instruction set having this property as *classically
+virtualizable*.
+* We refer to the approach described above as *trap and emulate*.
+
+== Trap and Emulate
+
+[.slider]
+.What does the VMM do with traps that occur within the virtual machine?
+* If the trap is caused by an *application*, pass the trap to the guest
+OS.
+* If the trap is caused by the *guest OS*, handle the trap by adjusting
+the state of the virtual machine.
+
+== Getting Trappy
+
+VMware and VirtualBox VMMs run as standard system processes but
+*require* operating system support.
+
+[.slider]
+* *All* traps and exceptions originating inside the VM _must_ be
+handled by the VMM.
+* Most of the time guest applications and the guest OS simply use the
+physical processor *normally*.
+
+<<<
+
+[.slider]
+.What happens when an application running _inside_ the virtual machine makes a system call?
+. `syscall`: host OS vectors trap to VMM.
+. VMM inspects trap, identifies it as a system call, and passes
+control and arguments to the guest OS trap handling code.
+. `rfe`: when the guest OS is done, it will also trap back to the VMM by
+executing a privileged instruction.
+. VMM will pass arguments back to the process that originated the
+system call.
+
+== Getting (Really) Trappy
+
+[.slider]
+.What happens when a process inside the virtual machine creates a TLB fault?
+. Trap to the *host OS*.
+. Hand trap to the *VMM*.
+. VMM inspects trap, sees that it was generated by the application,
+passes control to the *guest OS*.
+. Guest OS begins handling the TLB fault, tries to load an entry into the TLB.
+. Trap to the *host OS*.
+. Hand trap to the *VMM*.
+. VMM inspects trap, sees that it was generated by the guest OS, adjusts the
+state of the virtual machine appropriately.
+
+== Hardware Virtualization
+
+Note that what is being virtualized is the *hardware interface*.
+
+Let's compare to *virtual memory*:
+
+[.slider]
+.What is the interface?
+* *Load* and *store*.
+
+[.slider]
+.How do we ensure safety?
+*Translate* _every_ unprivileged memory access.
+
+[.slider]
+.How do we get good performance?
+* *Cache* translations in the TLB.
+
+<<<
+
+What about full hardware virtualization:
+
+[.slider]
+.What is the interface?
+* *All* instructions executed on the processor that modify the state of the machine.
+
+[.slider]
+.How do we ensure safety?
+* *Intercept* or *rewrite* unsafe instructions that could "pierce" the VM.
+
+[.slider]
+.How do we get good performance?
+* Allow *safe* instructions to run directly on the physical hardware (or "bare metal").
+
+== Sadly
+
+The x86 architecture *is not* (or was not) classically virtualizable.
+
+[.slider]
+* Some instructions *did not trap correctly*.
+* Others had *different side effects* when run in kernel or user mode. *Ugh.*
+
+[.slider]
+.VMware developed an innovative solution to this problem: *binary translation*.
+* During guest OS execution scan code pages for non-virtualizable
+instructions and rewrite them to safe instruction sequences.
+* Cache translations to improve performance.
+
+== A Short, Non-Exhaustive List of Cool Details I Have Glossed Over
+
+[.slider]
+* x86 privilege rings.
+* Primary and shadow page tables.
+* Memory traces.
+* x86 extensions to better support virtualization.
+* Lot's of good resources out there to learn more.
+
+== Next Time
+
+[.slider]
+* Paravirtualization.
