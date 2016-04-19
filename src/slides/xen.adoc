@@ -5,9 +5,9 @@ author: Geoffrey Challen
 description: >
   Discussion of the Xen approach to paravirtualization.
 song:
-  name: "Country Roads"
-  author: "John Denver"
-  youtube: 1vrEljMfXYo
+  name: I Would Walk 500 Miles
+  author: The Proclaimers
+  youtube: KZojpl-p_5A
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -18,7 +18,7 @@ image::women/007.jpg[width="100%",title="Valerie Taylor",link="https://engineeri
 icon:music[] http://galacticfunk.com[Into the Deep by Galactic with Macy Gray]
 
 [.h4.center]
-icon:music[] http://johndenver.com[{song}]
+icon:music[] http://www.proclaimers.co.uk/[{song}]
 
 video::JhWEgVNMoTE[youtube,width=0,height=0]
 video::{music}[youtube,width=0,height=0]
