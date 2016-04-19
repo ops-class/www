@@ -41,6 +41,20 @@ http://www.cl.cam.ac.uk/research/srg/netos/papers/2003-xensosp.pdf["Xen and the 
 [.nooutline]
 == $ cat announce.txt
 
+* Finish link:/asst/3/[ASST3]!
+
+<<<
+
+[.slider]
+* Course evaluations are open.
+* I want you to do them.
+* So I provide incentives.
+[.slider]
+** 70% participation: I release a short answer question from the final exam
+** 80%: _medium_ answer, and ...
+** 95%: one of the dreaded *long* answers
+* Questions?
+
 == Paper Overview
 
 [.slider]
