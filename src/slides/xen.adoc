@@ -15,7 +15,7 @@ song:
 image::women/007.jpg[width="100%",title="Valerie Taylor",link="https://engineering.tamu.edu/cse/people/vtaylor"]
 
 [.h4.center]
-icon:music[] http://galacticfunk.com["Into the Deep", Galactic with Macy Gray]
+icon:music[] http://galacticfunk.com[Into the Deep by Galactic with Macy Gray]
 
 [.h4.center]
 icon:music[] http://johndenver.com[{song}]
