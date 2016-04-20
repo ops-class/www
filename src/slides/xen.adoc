@@ -232,6 +232,13 @@ is accessed directly by the processor without indirecting via ring 0; this
 handler is validated before installing it in the hardware exception table.
 ____
 
+== Para v. Full Virtualization
+
+[.slider]
+* Full virtualization: don't change the OS...[.slide]#except at runtime!#
+* Paravirtualization: minimal changes to the OS, which sometimes results in
+better interaction between the OS and virtual hardware.
+
 == To The Rest of the Paper
 
 http://www.cl.cam.ac.uk/research/srg/netos/papers/2003-xensosp.pdf[Here's the
