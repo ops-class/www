@@ -46,7 +46,7 @@ http://www.cl.cam.ac.uk/research/srg/netos/papers/2003-xensosp.pdf["Xen and the 
 <<<
 
 [.slider]
-* Course evaluations are open.
+* https://buffalo.campuslabs.com/courseeval/[Course evaluations are open]
 * I want you to do them.
 * So I provide incentives.
 [.slider]
