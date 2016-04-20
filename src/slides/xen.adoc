@@ -8,6 +8,7 @@ song:
   name: I Would Walk 500 Miles
   author: The Proclaimers
   youtube: KZojpl-p_5A
+video: oJ53G70A0YM
 ---
 [.nooutline.spelling_exception]
 == Technical Women
