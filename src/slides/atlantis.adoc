@@ -3,13 +3,14 @@ title: "Atlantis: Robust, Extensible Execution Environments for Web Applications
 date: 2016-04-22
 author: Geoffrey Challen
 description: >
-  Discussion of Atlantis paper by Mickens et. al.
+  Discussion of Atlantis paper by James Mickens and collaborators.
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/008.jpg[width="100%"]
 
+[.spelling_exception]
 == Atlantis: Robust, Extensible Execution Environments for Web Applications
 
 [.small]
