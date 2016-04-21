@@ -1,0 +1,63 @@
+---
+title: "Atlantis: Robust, Extensible Execution Environments for Web Applications"
+date: 2016-04-22
+author: Geoffrey Challen
+description: >
+  Discussion of Atlantis paper by Mickens et. al.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/008.jpg[width="100%"]
+
+== Atlantis: Robust, Extensible Execution Environments for Web Applications
+
+[.small]
+--
+http://research.microsoft.com/pubs/154698/Atlantis-SOSP.pdf["Atlantis:
+Robust, Extensible Execution Environments for Web Applications"], by:
+--
+
+* James Mickens
+* Mohan Dhawan
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+.Course evaluation percentage is currently:
+* 83%. I will release a short answer question and a medium answer question... [.slide]#as soon as I write
+then.#
+
+== !
+[.background]
+image:http://userserve-ak.last.fm/serve/500/4563284/James+Mickens+metalhair++Copy+2.jpg[]
+
+[.meme-top]
+Because you can't out-Mickens
+
+[.meme-bottom]
+James Mickens
+
+== To the Tape
+
+++++
+<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
+<iframe style="width:100%; height:440px;" class="embed-responsive-item"
+src="https://www.youtube.com/embed/4c0DdOvH6lg"></iframe>
+</div>
+++++
+
+== Or, To the Paper
+
+++++
+<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
+<iframe style="width:100%; height:440px;" class="embed-responsive-item"
+src="http://research.microsoft.com/pubs/154698/Atlantis-SOSP.pdf"></iframe>
+</div>
+++++
+
+[.nooutline]
+== Next Time
+
+* Exam AMA.
