@@ -38,6 +38,11 @@ Robust, Extensible Execution Environments for Web Applications"], by:
 [.nooutline]
 == $ cat announce.txt
 
+[.spelling_exception]
+--
+link:/asst/3/[ASST3.2] is due today @ 5PM. Good luck!
+--
+
 [.slider]
 .Course evaluation percentage is currently:
 * 17%. *Do the evaluation!*
