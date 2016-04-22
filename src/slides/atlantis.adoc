@@ -3,11 +3,12 @@ title: "Atlantis: Robust, Extensible Execution Environments for Web Applications
 date: 2016-04-22
 author: Geoffrey Challen
 description: >
-  Discussion of Atlantis paper by James Mickens and collaborators.
+  Discussion of the Atlantis paper by James Mickens and collaborators.
 song:
   name: "How You Like Me Now?"
   author: The Heavy
   youtube: sVzvRsl4rEM
+video: NieWBs6qRuM
 ---
 [.nooutline.spelling_exception]
 == Technical Women
