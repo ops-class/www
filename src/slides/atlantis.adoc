@@ -4,11 +4,24 @@ date: 2016-04-22
 author: Geoffrey Challen
 description: >
   Discussion of Atlantis paper by James Mickens and collaborators.
+song:
+  name: "How You Like Me Now?"
+  author: The Heavy
+  youtube: sVzvRsl4rEM
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/008.jpg[width="100%"]
+image::women/008.jpg[width="100%",title="Tova Milo",link="http://www.math.tau.ac.il/~milo/"]
+
+[.h4.center]
+icon:music[] https://en.wikipedia.org/wiki/Ani_DiFranco[Buildings and Bridges by Ani Difranco]
+
+[.h4.center]
+icon:music[] http://www.theheavy.co.uk/[{song}]
+
+video::a9elTQix5oQ[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.spelling_exception]
 == Atlantis: Robust, Extensible Execution Environments for Web Applications
@@ -27,12 +40,43 @@ Robust, Extensible Execution Environments for Web Applications"], by:
 
 [.slider]
 .Course evaluation percentage is currently:
-* 83%. I will release a short answer question and a medium answer question... [.slide]#as soon as I write
-then.#
+* 17%. *Do the evaluation!*
+
+== The Modern Operating System
+
+[.slider]
+* Today millions of people create apps by writing code that runs in a
+protected sandbox and manipulates a rich windowing environment...
+* ...except that code is _JavaScript_ and the environment is the _web browser_.
+
+<<<
+
+At some level, the web browser is the modern operating system and has many of
+the features and responsibilities that we associate with traditional
+operating systems:
+
+[.slider]
+* Multiplexing resources
+** The CPU, sockets, memory, etc.
+* Protecting applications from each other
+** Preventing information leakage between different tabs, enforcing the same
+origin policy
+* Providing useful abstractions
+** Events, the document object model, etc.
+
+== Browsers v. Operating Systems
+
+So what's a core difference between the OS and web browsers?
+
+[.slider]
+* Operating systems were designed and implemented to be operating systems...
+* ...but web browsers were designed as applications and have kind of had the
+OS responsibility added to them over time.
+* So browsers may not make very good operating systems!
 
 == !
 [.background]
-image:http://userserve-ak.last.fm/serve/500/4563284/James+Mickens+metalhair++Copy+2.jpg[]
+image:https://pbs.twimg.com/profile_images/442754167413551105/DFLS38c3.jpeg[]
 
 [.meme-top]
 Because you can't out-Mickens
@@ -40,14 +84,9 @@ Because you can't out-Mickens
 [.meme-bottom]
 James Mickens
 
-== To the Tape
+== To the Tape!
 
-++++
-<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
-<iframe style="width:100%; height:440px;" class="embed-responsive-item"
-src="https://www.youtube.com/embed/4c0DdOvH6lg"></iframe>
-</div>
-++++
+video::4c0DdOvH6lg[youtube,width=600,height=440]
 
 == Or, To the Paper
 
@@ -59,6 +98,6 @@ src="http://research.microsoft.com/pubs/154698/Atlantis-SOSP.pdf"></iframe>
 ++++
 
 [.nooutline]
-== Next Time
+== Next Week
 
-* Exam AMA.
+* Performance and benchmarking.
