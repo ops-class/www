@@ -1,0 +1,226 @@
+---
+title: "Scaling Linux to Many Cores"
+date: 2016-04-29
+author: Geoffrey Challen
+description: >
+  Discussion of "An Analysis of Linux Scalability to Many Cores" by Silas
+  Boyd-Wickizer et al.
+spelling_exceptions:
+  - gmake
+  - MOSBENCH
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/011.jpg[width="100%"]
+
+[.spelling_exception]
+== An Analysis of Linux Scalability to Many Cores
+
+http://pdos.csail.mit.edu/papers/linux:osdi10.pdf["An Analysis of Linux
+Scalability to Many Cores"], by:
+
+* Silas Boyd-Wickizer
+* Austin T. Clemens
+* Yandong Mao
+* Aleksey Pesterev
+* M. Frans Kaashoek
+* Robert Morris
+* Nickolai Zeldovich
+
+[.nooutline]
+== $ cat announce.txt
+
+== Paper Overview
+
+[.slider]
+.What kind of paper is this?
+* Benchmarking and analysis paper. (A kind we did not previously discuss...)
+* But also kind of a _big idea_ paper.
+
+[.slider]
+.What's the big idea?
+* People (including the authors) have been proposing that traditional OS designs would not scale to
+many-core machines.
+* Is this true?
+
+<<<
+
+[.small.spelling_exception]
+____
+There is a sense in the community that traditional kernel
+designs won’t scale well on multicore processors: that
+applications will spend an increasing fraction of their time
+in the kernel as the number of cores increases. Prominent
+researchers have advocated rethinking operating systems and new kernel designs intended to allow
+scalability have been proposed (e.g., Barrelfish,
+Corey, and fos). *This paper asks whether traditional
+kernel designs can be used and implemented in a
+way that allows applications to scale.*
+____
+
+[.small.slide]
+____
+This question is difficult to answer conclusively, but we attempt to shed a
+small amount of light on it.
+____
+
+== What's The Approach?
+
+[.slider]
+.What is the approach taken in the paper?
+* Benchmark Linux using applications that should scale well.
+* Identify and fix scalability bottlenecks.
+* Repeat.
+
+<<<
+
+[.small.spelling_exception]
+____
+*First* we measure scalability of the MOSBENCH applications on a recent Linux
+kernel (2.6.35-rc5, released July 12, 2010) with 48 cores, using the
+in-memory tmpfs file system to avoid disk bottlenecks. gmake scales well, but
+the other applications scale poorly, performing much less work per core with
+48 cores than with one core.
+____
+
+<<<
+
+[.small]
+____
+We attempt to understand and fix the scalability problems, by modifying
+either the applications or the Linux kernel.
+____
+
+<<<
+
+[.small]
+____
+We then iterate, since fixing one scalability problem usually exposes further
+ones.
+____
+
+<<<
+
+[.small]
+____
+The end result for each application is either good scalability on 48 cores,
+or attribution of non-scalability to a hard-to-fix problem with the
+application, the Linux kernel, or the underlying hardware.
+____
+
+[.small]
+____
+The analysis of whether the kernel design is compatible with scaling rests on
+the extent to which our changes to the Linux kernel turn out to be modest,
+and the extent to which hard-to-fix problems with the Linux kernel ultimately
+limit application scalability.
+____
+
+== What's The Result?
+
+[.small.slide]
+____
+Our final contribution is an analysis using MOSBENCH that suggests that there
+is *no immediate scalability reason to give up on traditional kernel designs*.
+____
+
+[.small]
+== What is MOSBENCH?
+
+[.slider.spelling_exception]
+.What applications are included in MOSBENCH?
+* A mail server (`exim`), using multiple processes to process incoming mail
+concurrently.
+* An in-memory key-value store object cache (`memcached`), using multiple
+servers to handle multiple connections in parallel. (Already working around
+an internal bottleneck.)
+* A web server (`apache`) using one process per core.
+* A database server (`postgres`), which starts one process per connection.
+* A parallel build (`gmake`) building Linux using multiple cores.
+* A file indexer (`psearchy').
+* A map-reduce library (`metis`).
+
+[.slider]
+.Are these good benchmarks?
+* The goal is to identify _kernel_ bottlenecks.
+
+[.slider]
+.What's a sign of bad kernel scalability?
+* Spending more time in the kernel as the number of cores rises.
+
+== (Aside) Why Does `gmake` Scale Well?
+
+All the benchmarks scale poorly to multiple cores...except `gmake`.
+
+.Why?
+[.slider]
+* Because kernel developers use it all the time!
+
+[.slide.small]
+____
+`gmake` is the unofficial default benchmark in the Linux community since all
+developers use it to build the Linux kernel. Indeed, many Linux patches
+include comments like "This speeds up compiling the kernel."
+____
+
+== The Problems
+
+____
+Here are a few types of serializing interactions that the MOSBENCH
+applications encountered. These are all classic considerations in parallel
+programming...
+____
+
+<<<
+____
+1) The tasks may *lock a shared data structure*, so that increasing the
+number of cores increases the lock wait time.
+____
+
+<<<
+____
+2) The tasks may *write a shared memory location*, so that increasing the
+number of cores increases the time spent waiting for the cache coherence
+protocol to fetch the cache line in exclusive mode. This problem can occur
+even in lock-free shared data structures.
+____
+
+<<<
+____
+The tasks may *compete for space in a limited-size shared hardware cache*, so
+that increasing the number of cores increases the cache miss rate. This
+problem can occur even if tasks never share memory.
+____
+
+<<<
+____
+The tasks may *compete for other shared hardware resources* such as
+inter-core interconnect or DRAM interfaces, so that additional cores spend
+their time waiting for those resources rather than computing.
+____
+
+<<<
+____
+There may be *too few tasks to keep all cores busy*, so that increasing the
+number of cores leads to more idle cores.
+____
+
+== To The Paper
+
+++++
+<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
+<iframe style="width:100%" height="400" class="embed-responsive-item"
+src="http://pdos.csail.mit.edu/papers/linux:osdi10.pdf"></iframe>
+</div>
+++++
+
+[.nooutline]
+== Next Time
+
+* Butler Lampson on how to make things fast.
+
+[.nooutline]
+== Next Time
+
+* Making Linux run fast on many cores.

@@ -1,0 +1,80 @@
+---
+title: "Hints for Computer System Design"
+date: 2016-04-27
+author: Geoffrey Challen
+description: >
+  Discussion of "Hints for Computer System Design" by Butler Lampson.
+---
+== Technical Women
+
+image::women/010.jpg[width="100%"]
+
+== Hints for Computer System Design
+
+http://research.microsoft.com/en-us/um/people/blampson/33-hints/webpage.html["Hints
+for Computer System Design"] by
+http://research.microsoft.com/en-us/um/people/blampson/[Butler Lampson]
+
+[.nooutline]
+== $ cat announce.txt
+
+== Systems Are More Complicated Than Algorithms
+
+(Don't tell [.spelling_exception]#Atri#.)
+
+[.slider]
+.Why is designing a computer system different from designing an algorithm?
+* "The external interface (that is, the requirement) is less precisely
+defined, more complex, and more subject to change."
+* "The system has much more internal structure, and hence many internal
+interfaces."
+* "The measure of success is much less clear."
+
+<<<
+
+[quote, "Butler Lampson", role='small']
+____
+I have designed and built a number of computer systems, some that worked and
+some that didn’t. I have also used and studied many other systems, both
+successful and unsuccessful. From this experience come some general hints for
+designing successful systems. I claim no originality for them; most are part
+of the folk wisdom of experienced designers. Nonetheless, even the expert
+often forgets, and after the second system [6] comes the fourth one.
+____
+
+== Three Goals
+
+[.slider]
+.What are the three goals Lampson focuses on?
+* Functionality
+* Speed
+* Fault-tolerance
+
+[.slider]
+.What are the three parts of the design task he identifies?
+* Ensuring completeness
+* Choosing interfaces
+* Designing implementations
+
+== Summary of the Hints
+
+image::figures/papers/hints_table.jpg[width="100%"]
+
+== To The Paper
+
+++++
+<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
+<iframe style="width:100%" height="440" class="embed-responsive-item"
+src="http://research.microsoft.com/en-us/um/people/blampson/33-hints/webpage.html"></iframe>
+</div>
+++++
+
+[.nooutline]
+== Next Time
+
+* Butler Lampson on how to make things fast.
+
+[.nooutline]
+== Next Time
+
+* Making Linux run fast on many cores.

@@ -1,0 +1,432 @@
+---
+title: "Performance and Benchmarking"
+date: 2016-04-25
+author: Geoffrey Challen
+description: >
+  Discussion of the process of benchmarking and performance improvement.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/009.jpg[width="100%"]
+
+[.nooutline]
+== Today
+
+* Performance and benchmarking.
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* Questions about the collaboration policy?
+* [.spelling_exception]#ASST3.3# is due Friday May 6th @ 5PM
+* The final exam is two weeks from today: Monday, May 9 @ 3:30PM.
+* Recitations resume this week covering
+** ASST3 swapping (this week)
+** Exam review (next week)
+
+== Operating System Performance
+
+[.slider]
+.Why do we care?
+* Understandable but interesting fact: people prefer a *mostly-correct*
+but *extremely fast* system to a completely correct and slow system.
+* *Thought experiment*: would crashes bother you _at all_ if your system
+rebooted *instantaneously*?
+
+== THE Last Correct Operating System
+
+[quote, Edsger Dijkstra]
+____
+We have found it is possible to design a refined multiprogramming system
+in such a way that its logical soundness can be proved a priori and that
+its implementation admits exhaustive testing. The only errors that
+showed up during testing were trivial coding errors (occurring with a
+density of only one error per 500 instructions), each of them located
+with 10 minutes (classical) inspection at the machine and each of them
+correspondingly easy to remedy.
+____
+
+== Operating System Performance
+
+OK, so we care about performance... [.slide]#but operating system performance
+is *not so different* from improving the performance of any other computer
+system or program.#
+
+[.sliders.spelling_exception]
+.Here's what to do:
+. *Measure* your system.
+. *Analyze* the results.
+. *Improve* the slow parts.
+. *Drink* celebratory beer.
+. *Goto* 1.
+
+[.nooutline]
+== Next Time
+
+* Hints for improving operating system performance.
+
+== !
+
+[.background]
+image:http://s2.quickmeme.com/img/6d/6dd8139d7037b498af25d3620821ab031dced03297c351d046e598aadda49111.jpg[]
+
+== But Seriously...
+
+[.slider]
+.What's so hard here?
+. *Measure* your system. [.slide]#*How* And doing *what*?#
+. *Analyze* the results. [.slide]#You mean *statistics*? Ugh.#
+. *Improve* the slow parts. [.slide]#*How* And *which* slow parts?#
+. *Drink* celebratory beer. [.slide]#*Which* beer? And *where*? (But I'm ready for one after the
+statistics.)#
+
+== Measuring Your System: How?
+
+Should be *easy* to measure time passed on a single computer, right?
+
+[.slider]
+.Welcome to the *wonderful* world of hardware:
+* High-level software counters may not have fine enough resolution to
+measure extremely fast events.
+* Low-level hardware counters may have extremely device-specific
+interfaces, making cross-platform measurement more difficult.
+* All counters *roll* eventually, and the higher-resolution the faster.
+
+<<<
+
+Measurements should be *repeatable*, right?
+
+[.slider]
+.*Wrong!*
+* You are trying to measure the present, but the rest of the system is trying
+to [.slide]*use the past to predict the future*.
+* In general _real_ systems are almost *never* in the exact same state
+that they were the last time you measured whatever you are trying to measure.
+
+== !
+
+[.background]
+image:http://img.wikinut.com/img/211heg1l061vhx_f/jpeg/0/I-Am-Confused!.jpeg[]
+
+[.meme-top]
+Couldn't understand results
+
+[.meme-bottom]
+Blamed cache effects
+
+== Measuring Real Systems
+
+Yet another problem: measurement tends to affect *the thing you are trying to
+measure*!
+
+[.slider]
+.This has three results:
+. Measurement may *destroy* the problem you are trying to measure.
+. Must separate *results* from the noise produced by measurement.
+. Measurement overhead may *limit* your access to real systems.
+* Vendor: "_No way_ am I running your instrumented binary. Your software
+is slow enough already!"
+
+== (Aside) Measuring Operating Systems
+
+You can imagine that this is *even more* fraught given how central the
+operating system is to the operation of the computer itself.
+
+[.slider]
+* Difficult to find the appropriate places to insert debugging hooks.
+* Operating systems can generate *a lot* of debugging output: imagine
+tracing _every_ page fault. (And imagine how slow that system would be!)
+
+== Let's Measure Something Else...
+
+OK, benchmarking *real* systems seem *real* hard.
+
+[.slider]
+.What else can we do?
+* Build a *model*: abstract away all of the low-level details and
+reason analytically.
+* Build a *simulator*: write some additional code to perform a
+simplified simulation of more complex parts of the system—particularly
+hardware.
+
+[.slider]
+.Distinguishing *models* from *simulations* is pretty easy:
+* "I see equations." *That's a model.*
+* "I see code." *That's a simulation.*
+
+== Choosing the Right Virtual Reality
+
+[.slider]
+.Models:
+* *Pro*: can make *strong* mathematical guarantees about system
+performance...
+* *Con*: ...usually after making a bunch of *unrealistic* assumptions.
+
+[.slider]
+.Simulations:
+* *Pro*: in the best case, experimental speedup outweighs lack of
+hardware details...
+* *Con*: ...and in the worst case bugs in the simulator lead you in all
+sorts of wrong directions.
+
+== Measuring Your System: What?
+
+[.slider]
+.What metric do I use to compare:
+* Two *disk drives*?
+* Two *scheduling algorithms*?
+* Two *page replacement algorithms*?
+* Two *file systems*?
+
+<<<
+
+image::figures/elephant.gif[image,width="80%"]
+
+== Benchmarks: Definitions
+
+[.slider]
+.**Micro**benchmarks:
+* try to isolate *one* aspect of system performance.
+
+[.slider]
+.**Macro**benchmarks:
+** measure one operation involving many parts of the system working
+together.
+
+[.slider]
+.*Application* benchmarks:
+** focus on the performance of the system as observed by one
+application.
+
+[.small]
+== Benchmarks: Examples
+
+Let's say we are interested in improving our *virtual memory* system.
+(Just a random choice.)
+
+[.slider]
+.**Micro**benchmarks:
+* Time to handle single *page fault*. (Micro enough?)
+* Time to *look up* page in the page table?
+* Time to *choose* a page to evict?
+
+[.slider]
+.**Macro**benchmarks:
+* Aggregate time to handle page faults on a heavily-loaded system?
+* Page fault rate?
+
+[.slider]
+.*Application* benchmarks:
+* *`triplesort`*?
+* *`parallelvm`*?
+
+== Benchmarks: Problems
+
+[.slider]
+.**Micro**benchmarks:
+* Tree, meet forest. *May not* be studying the right thing!
+
+[.slider]
+.**Macro**benchmarks:
+* Forest, meet trees. Introduces *many, many* variables that can
+complicate analysis.
+
+[.slider]
+.*Application* benchmarks:
+* Who cares about your stupid application? Improvements for it *may
+harm* others!
+
+== Benchmark Bias
+
+Bigger problem with benchmarking in practice.
+
+[.slider]
+* People *choosing and running* the benchmarks may be trying to
+justify some change by *making their system look faster*.
+* Alternatively, the people *chose* a benchmark and did a lot of work to
+improve its performance while ignoring other effects on the system.
+
+== Benchmarking Blues
+
+This isn't (all) just human folly. There's a *fundamental* tension here.
+
+[.slider]
+* The *most useful* system is a general-purpose system.
+* The *fastest* system is a single-purpose system.
+
+== What TO Do
+
+[.slider]
+. Have a *goal* in mind more specific than "I want to make this blob of
+code faster." This helps choose measurement techniques and benchmarks.
+. *Validate* your models and simulator *before* you start changing
+things.
+** Do their results match your intuition? If not, something is wrong.
+** Do their results match reality? If not, something is _really_ wrong.
+. Use modeling, simulation, and real experiments as appropriate.
+** If you can't convince yourself analytically that a new approach is an
+improvement, don't bother simulating.
+** If your simulator doesn't show improvement, don't bother
+implementing.
+
+== Statistics: That's Math, Right
+
+Computer systems researchers have a somewhat tortured relationship with
+*statistics* and math. [.slide]#(Many of us are computer systems researchers
+because we weren't smart enough to do mathematics.)#
+
+[.slider]
+* On a *good day*: [.slide]#"I'll rerun my experiment a few times and compute an
+average."#
+* For *extra-special bonus points*: [.slide]#"I'll put error bars on my
+graph."#
+
+== First, Predict
+
+*Before* performing an experiment and collecting data it is helpful to make
+predictions.
+
+[.slider]
+* One way to do this is to *draw* sketches of the graphs you expect to
+produce.
+* After collecting real results you can compare them against your
+predictions as a way of developing intuition about your system.
+* (Predictions about simple cases are also good ways to validate models
+and simulators.)
+
+== Understand Your Data
+
+Beware the premature use of *summary statistics*--means, medians, etc.
+
+[.slide]
+--
+As an example, the following data from two experiments could have the
+*same* mean and median:
+
+[cols="2*"]
+|===
+
+a|
+image:figures/narrow.jpg[width="50%"]
+
+a|
+image:figures/bimodal.gif[width="50%"]
+
+|===
+--
+
+[.slide]
+--
+Clearly they would have *very different* implications for performance
+improvement, so _examine your raw data!_
+--
+
+== Love Your Outliers
+
+[.slider]
+.Outliers are special and deserve special treatment.
+* They may just be *weird* remnants of your measurement harness.
+* *They may have a lot more to tell you.*
+* Understand them either way.
+
+== Deciding What to Improve
+
+Improve the *slowest* part, right?
+
+[.slider]
+* (Even if it _were_ this simple, getting programmers to work on any
+one specific thing can be hard. Frequently they decide to optimize
+something simply because "they want to".)
+
+[.slider]
+.Say your code has two functions:
+. `foo` which takes 5 minutes to execute.
+. `bar` which takes 5 seconds to execute.
+
+[.slide]
+--
+Clearly you should immediately get to work improving `foo`, right?
+--
+
+== Why Not `foo`?
+
+What two elements have we missed in our overly-simplistic decision?
+
+[.slider]
+. *Significance*: how much does `foo` matter?
+. *Difficulty*: how hard is it going to be to improve `foo`?
+
+[.slider]
+.What do we likely know more about at this point after our experimentation?
+* *Significance*, so let's start there.
+
+== Amdahl's Law
+
+[.small]
+____
+The impact of any effort to improve system performance is constrained by
+the performance of the parts of the system *not targeted* by the
+improvement.
+____
+
+[.slider]
+.Imagine that have the choice between:
+. Reducing the execution time of `foo` from + 5 minutes → 1 minute.
+. Reducing the execution time of `bar` from + 5 seconds → 4 seconds.
+
+[.slider]
+.Note that the improvement to `foo` is better:
+* _absolutely_ (4 minutes v. 1 second) and
+* _proportionally_ (80% v. 20%).
+
+== !
+
+[.background]
+image:http://i2.kym-cdn.com/photos/images/facebook/000/048/783/a_winner_is_you20110724-22047-1nd3wif.jpg[]
+
+[.meme-top]
+foo
+
+== Not So Fast (Pun Intended)
+
+.Imagine that have the choice between:
+. Reducing the execution time of `foo` from + 5 minutes → 1 minute.
+. Reducing the execution time of `bar` from + 5 seconds → 4 seconds.
+
+But what if our program spends *95%* of its time running `bar` but
+only *0.1%* running `foo`?
+[.slider]
+* `foo` speedup: 0.001 * 240 seconds = *0.24 seconds*.
+* `bar` speedup: 0.95 * 1 = *0.95 seconds*.
+
+[.slide]
+--
+This is why server performance geeks take a *month vacation* every
+time they trim _one instruction_ off of a hot path.
+--
+
+== Amdahl's Law
+
+Even more colloquially:
+
+____
+Ignore the thing that *looks* the worst and fix the thing that is *doing
+the most damage*.
+____
+
+[.slide]
+--
+And the unfortunate corollary to Amdahl's law:
+
+____
+The more you improve one part of a system the less likely it is that you
+are still working on the right problem!
+____
+--
+
+[.nooutline]
+== Next Time
+
+* Butler Lampson on how to make things fast.
