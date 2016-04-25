@@ -353,7 +353,7 @@ kernel!
 One important note before you start. You are probably used to using
 https://www.gnu.org/software/make/[GNU `make`] to build software on UNIX-like
 systems. However, the OS/161 sources use
-http://www.crufty.net/help/sjg/bmake.htm[BSD `make`], which has a different
+http://linux.die.net/man/1/bmake[BSD `make`], which has a different
 `Makefile` syntax footnote:[Why? Because
 http://www.hcs.harvard.edu/~dholland/[David Holland] is a big
 http://www.netbsd.org/[NetBSD] hacker.]. To avoid confusion, BSD `make` has

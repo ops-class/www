@@ -4,11 +4,24 @@ date: 2016-04-25
 author: Geoffrey Challen
 description: >
   Discussion of the process of benchmarking and performance improvement.
+song:
+  name: Highway to Hell
+  author: "AC/DC"
+  youtube: qKggnBh2Mdw
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/009.jpg[width="100%"]
+image::women/009.jpg[width="100%",title="Vicki Hanson",link="https://en.wikipedia.org/wiki/Vicki_L._Hanson"]
+
+[.h4.center]
+icon:music[] https://www.facebook.com/dressestheband[Catch by Dresses]
+
+[.h4.center]
+icon:music[] http://www.acdc.com/[{song}]
+
+video::zYbGAnRmdqk[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
