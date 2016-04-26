@@ -5,18 +5,176 @@ author: Geoffrey Challen
 description: >
   Discussion of "Hints for Computer System Design" by Butler Lampson.
 ---
+[.nooutline.spelling_exception]
 == Technical Women
 
 image::women/010.jpg[width="100%"]
+
+[.nooutline]
+== $ cat announce.txt
+
+== Statistics: That's Math, Right
+
+Computer systems researchers have a somewhat tortured relationship with
+*statistics* and math. [.slide]#(Many of us are computer systems researchers
+because we weren't smart enough to do mathematics.)#
+
+[.slider]
+* On a *good day*: [.slide]#"I'll rerun my experiment a few times and compute an
+average."#
+* For *extra-special bonus points*: [.slide]#"I'll put error bars on my
+graph."#
+
+== First, Predict
+
+*Before* performing an experiment and collecting data it is helpful to make
+predictions.
+
+[.slider]
+* One way to do this is to *draw* sketches of the graphs you expect to
+produce.
+* After collecting real results you can compare them against your
+predictions as a way of developing intuition about your system.
+* (Predictions about simple cases are also good ways to validate models
+and simulators.)
+
+== Understand Your Data
+
+Beware the premature use of *summary statistics*--means, medians, etc.
+
+[.slide]
+--
+As an example, the following data from two experiments could have the
+*same* mean and median:
+
+[cols="2*"]
+|===
+
+a|
+image:figures/narrow.jpg[width="50%"]
+
+a|
+image:figures/bimodal.gif[width="50%"]
+
+|===
+--
+
+[.slide]
+--
+Clearly they would have *very different* implications for performance
+improvement, so _examine your raw data!_
+--
+
+== Love Your Outliers
+
+[.slider]
+.Outliers are special and deserve special treatment.
+* They may just be *weird* remnants of your measurement harness.
+* *They may have a lot more to tell you.*
+* Understand them either way.
+
+== Deciding What to Improve
+
+Improve the *slowest* part, right?
+
+[.slider]
+* (Even if it _were_ this simple, getting programmers to work on any
+one specific thing can be hard. Frequently they decide to optimize
+something simply because "they want to".)
+
+[.slider]
+.Say your code has two functions:
+. `foo` which takes 5 minutes to execute.
+. `bar` which takes 5 seconds to execute.
+
+[.slide]
+--
+Clearly you should immediately get to work improving `foo`, right?
+--
+
+== Why Not `foo`?
+
+What two elements have we missed in our overly-simplistic decision?
+
+[.slider]
+. *Significance*: how much does `foo` matter?
+. *Difficulty*: how hard is it going to be to improve `foo`?
+
+[.slider]
+.What do we likely know more about at this point after our experimentation?
+* *Significance*, so let's start there.
+
+== Amdahl's Law
+
+[.small]
+____
+The impact of any effort to improve system performance is constrained by
+the performance of the parts of the system *not targeted* by the
+improvement.
+____
+
+[.slider]
+.Imagine that have the choice between:
+. Reducing the execution time of `foo` from + 5 minutes → 1 minute.
+. Reducing the execution time of `bar` from + 5 seconds → 4 seconds.
+
+[.slider]
+.Note that the improvement to `foo` is better:
+* _absolutely_ (4 minutes v. 1 second) and
+* _proportionally_ (80% v. 20%).
+
+== !
+
+[.background]
+image:http://i2.kym-cdn.com/photos/images/facebook/000/048/783/a_winner_is_you20110724-22047-1nd3wif.jpg[]
+
+[.meme-top]
+foo
+
+== Not So Fast (Pun Intended)
+
+.Imagine that have the choice between:
+. Reducing the execution time of `foo` from + 5 minutes → 1 minute.
+. Reducing the execution time of `bar` from + 5 seconds → 4 seconds.
+
+But what if our program spends *95%* of its time running `bar` but
+only *0.1%* running `foo`?
+[.slider]
+* `foo` speedup: 0.001 * 240 seconds = *0.24 seconds*.
+* `bar` speedup: 0.95 * 1 = *0.95 seconds*.
+
+[.slide]
+--
+This is why server performance geeks take a *month vacation* every
+time they trim _one instruction_ off of a hot path.
+--
+
+== Amdahl's Law
+
+Even more colloquially:
+
+____
+Ignore the thing that *looks* the worst and fix the thing that is *doing
+the most damage*.
+____
+
+[.slide]
+--
+And the unfortunate corollary to Amdahl's law:
+
+____
+The more you improve one part of a system the less likely it is that you
+are still working on the right problem!
+____
+--
+
+== Performance and Benchmarking: Questions?
 
 == Hints for Computer System Design
 
 http://research.microsoft.com/en-us/um/people/blampson/33-hints/webpage.html["Hints
 for Computer System Design"] by
 http://research.microsoft.com/en-us/um/people/blampson/[Butler Lampson]
-
-[.nooutline]
-== $ cat announce.txt
 
 == Systems Are More Complicated Than Algorithms
 
