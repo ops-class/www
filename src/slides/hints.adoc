@@ -41,6 +41,18 @@ systems and networking researcher and the talk is about an app and will be quite
 ** You might also discover what a good driver I am...
 
 [.nooutline]
+== Shameless Plug
+
+If you are around next year, please apply to be a UTA for the new freshman
+seminar! Here's the link: https://goo.gl/forms/kJV3VBs9gX. Or here:
+
+++++
+<a rel='nofollow' href='http://www.qrcode-generator.de' border='0' style='cursor:default'>
+<img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fgoo.gl%2Fforms%2FkJV3VBs9gX&chs=180x180&choe=UTF-8&chld=L|2' alt='' style="width:300px;height:300px;"
+</a>
+++++
+
+[.nooutline]
 == Performance and Benchmarking: Questions?
 
 == Statistics: That's Math, Right
