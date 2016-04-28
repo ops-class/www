@@ -4,11 +4,12 @@ date: 2016-04-27
 author: Geoffrey Challen
 description: >
   Continuation of a discussion of performance and benchmarking, followed by an
-  introduction to 'Hints for Computer System Design' by Butler Lampson.
+  introduction to Hints for Computer System Design by Butler Lampson.
 song:
   name: Reptilia
   author: The Strokes
   youtube: b8-tXG8KrWs
+video: VSqdBOWoyqk
 ---
 [.nooutline.spelling_exception]
 == Technical Women
