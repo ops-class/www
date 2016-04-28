@@ -3,7 +3,8 @@ title: "Hints for Computer System Design"
 date: 2016-04-27
 author: Geoffrey Challen
 description: >
-  Discussion of "Hints for Computer System Design" by Butler Lampson.
+  Continuation of a discussion of performance and benchmarking, followed by an
+  introduction to 'Hints for Computer System Design' by Butler Lampson.
 song:
   name: Reptilia
   author: The Strokes
