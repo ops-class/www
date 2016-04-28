@@ -16,12 +16,8 @@ song:
 image::women/010.jpg[width="100%",title="Jennifer Tour Chayes",link="http://research.microsoft.com/en-us/um/people/jchayes/"]
 
 [.h4.center]
-icon:music[] http://www.thegoteam.co.uk/[The Scene Between by the Go! Team]
-
-[.h4.center]
 icon:music[] http://thestrokes.com/[{song}]
 
-video::iw_F3tzI3NM[youtube,width=0,height=0]
 video::{music}[youtube,width=0,height=0]
 
 [.nooutline]

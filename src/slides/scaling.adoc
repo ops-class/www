@@ -14,6 +14,11 @@ spelling_exceptions:
 
 image::women/011.jpg[width="100%"]
 
+[.h4.center]
+icon:music[] http://www.thegoteam.co.uk/[The Scene Between by the Go! Team]
+
+video::iw_F3tzI3NM[youtube,width=0,height=0]
+
 [.spelling_exception]
 == An Analysis of Linux Scalability to Many Cores
 
