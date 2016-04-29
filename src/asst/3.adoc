@@ -483,3 +483,19 @@ with `sbrktest` and `badcall`.
 . *Stability Tests:* Finally, we will run a few stability tests on your VM. These
 programs include `zero`, `forkbomb`, and a combination of previously run
 programs meant to stress test your system.
+
+=== Swapping
+
+The third and final part of ASST3 tests your VM subsystem's ability to operate
+with less physical memory than needed by the running processes. To test your
+swapping implementation, we run many of the same tests that were used to test
+your basic VM implementation, but with less memory.
+
+. *Basic Swapping:* The first group of tests checks that you're able to run a
+single process with less physical memory than the process needs. Tests in this
+group include `sort` and `matmult`.
+
+. *Concurrent Swapping:* The second group of tests are designed to stress test
+your swapping implementation by running several multi-process tests. Tests in
+this group include `parallelvm`, `bigfork`, `quintsort`, `quintmat`, and
+`quinthuge`.
