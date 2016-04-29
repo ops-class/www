@@ -12,6 +12,7 @@ song:
 spelling_exceptions:
   - gmake
   - MOSBENCH
+video: F9z7zuezpzI
 ---
 [.nooutline.spelling_exception]
 == Technical Women
