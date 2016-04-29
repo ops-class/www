@@ -5,6 +5,10 @@ author: Geoffrey Challen
 description: >
   Discussion of "An Analysis of Linux Scalability to Many Cores" by Silas
   Boyd-Wickizer et al.
+song:
+  name: Time Is Running Out
+  author: Muse
+  youtube: O2IuJPh6h_A
 spelling_exceptions:
   - gmake
   - MOSBENCH
@@ -12,12 +16,16 @@ spelling_exceptions:
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/011.jpg[width="100%"]
+image::women/011.jpg[width="100%",title="Ada Lovelace King",link="https://en.wikipedia.org/wiki/Ada_Lovelace"]
 
 [.h4.center]
 icon:music[] http://www.thegoteam.co.uk/[The Scene Between by the Go! Team]
 
+[.h4.center]
+icon:music[] http://muse.mu/[{song}]
+
 video::iw_F3tzI3NM[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.spelling_exception]
 == An Analysis of Linux Scalability to Many Cores
@@ -35,6 +43,14 @@ Scalability to Many Cores"], by:
 
 [.nooutline]
 == $ cat announce.txt
+
+[.slider]
+* Course evaluation is currently... [.slide]#*45%*.#
+* Please do the evaluation! Time is running out...
+
+== Discussion of the Hints
+
+image::figures/papers/hints_table.jpg[width="100%"]
 
 == Paper Overview
 
@@ -223,9 +239,4 @@ src="http://pdos.csail.mit.edu/papers/linux:osdi10.pdf"></iframe>
 [.nooutline]
 == Next Time
 
-* Butler Lampson on how to make things fast.
-
-[.nooutline]
-== Next Time
-
-* Making Linux run fast on many cores.
+* Bonus class!
