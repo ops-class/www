@@ -4,7 +4,7 @@ date: 2016-05-02
 author: Geoffrey Challen
 description: >
   Discussion of Cells: A Virtual Mobile Smartphone Architecture by Jeremy
-  Andrus et al. 
+  Andrus et al.
 song:
   name: Mango Bay
   author: X-Coast
@@ -143,6 +143,25 @@ in their own name space and not others.
 * The device name space (similar to the file system name space): all virtual
 phones must have access to the same underlying devices through the `/dev/`
 name space.
+
+<<<
+
+[.small.spelling_exception]
+____
+Cells uses four techniques to isolate all VPs from the root namespace and
+from one another, thereby securing both system and individual VP data from
+malicious reads or writes. First, user credentials, virtualized through UID
+namespaces, isolate the root user in one VP from the root user in the root
+namespace or any other VP. Second, kernel-level device namespaces isolate
+device access and associated data; no data or device state may be accessed
+outside a VP’s device namespace. Third, mount namespaces provide a unique and
+separate FS view for each VP; no files belonging to one VP may be accessed by
+another VP. Fourth, CellD removes the capability to create device nodes
+inside a VP, preventing processes from gaining direct access to Linux devices
+or outside their environment, e.g., by re-mounting block devices. These
+isolation techniques secure Cells system data from each VP, and individual VP
+data from other VPs.
+____
 
 == Device Virtualization
 
