@@ -17,6 +17,7 @@ spelling_exceptions:
   - CDMA
   - SIM
   - VoIP
+video: 8y4G04cMGwM
 ---
 [.nooutline.spelling_exception]
 == Technical Women
