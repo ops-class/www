@@ -1,0 +1,195 @@
+---
+title: "Cells: A Virtual Mobile Smartphone Architecture"
+date: 2016-05-02
+author: Geoffrey Challen
+description: >
+  Discussion of Cells: A Virtual Mobile Smartphone Architecture by Jeremy
+  Andrus et al. 
+spelling_exceptions:
+  - RIL
+  - VP
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/012.jpg[width="100%"]
+
+[.spelling_exception]
+== Cells: A Virtual Mobile Smartphone Architecture
+
+http://systems.cs.columbia.edu/files/wpid-cells-sosp2011.pdf["Cells: A
+Virtual Mobile Smartphone Architecture"], by:
+
+* Jeremy Andrus
+* Christoffer Dall
+* Alexander Van't Hof
+* Oren Laadan
+* Jason Nieh
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* Course evaluation is currently... [.slide]#*54%*.#
+* Please do the evaluation! Time is really running out...
+* No class Wednesday--go see the talk by Bob Horowitz
+* No recitation Friday at 8AM. (Nobody showed up last week.)
+
+== Paper Overview
+
+[.slider]
+.What kind of paper is this?
+* Old idea meets new application paper (another new type)
+
+[.slider]
+.What's the old idea?
+* OS virtualization (aka Docker)
+
+[.slider]
+.What's the new application?
+* Smartphones!
+
+== What's A Virtual Phone?
+
+[.small]
+____
+Cells runs multiple VPs on a single hardware phone. Each
+VP runs a standard Android environment capable of making
+phone calls, running unmodified Android applications, using
+data connections, interacting through the touch screen, utilizing
+the accelerometer, and everything else that a user can
+normally do on the hardware. Each VP is completely isolated
+from other VPs and cannot inspect, tamper with, or
+otherwise access any other VP.
+____
+
+<<<
+
+image:figures/cells-architecture.jpg[width="100%"]
+
+== Why Do This?
+
+[.slider]
+* *Security*: apps running in one virtual phone have no visibility into
+virtual phones--useful for "bring your own device" work environments.
+* *Encapsulation*: can distribute an entire virtual phone image preloaded
+with a bunch of useful software--again, think of a corporate setting.
+
+== Why Not Use Existing Virtualization Approaches?
+
+[.small.slider]
+____
+While VMs are useful for desktop
+and server computers, applying these hardware virtualization
+techniques to smartphones has two crucial drawbacks.
+First, smartphones are more resource constrained, and running
+an entire additional operating system (OS) and user
+space environment in a VM imposes high overhead and limits
+the number of instances that can run. Slow system responsiveness
+is less acceptable on a smartphone than on a
+desktop computer since smartphones are often used for just
+a few minutes or even seconds at a time.
+____
+
+<<<
+
+[.small]
+____
+Second, smartphones
+incorporate a plethora of devices that applications
+expect to be able to use, such as GPS, cameras, and GPUs.
+Existing approaches provide no effective mechanism to enable
+applications to directly leverage these hardware device
+features from within VMs, severely limiting the overall system
+performance and making existing approaches unusable
+on a smartphone.
+____
+
+== What Does Container Virtualization Virtualize?
+
+[.slider]
+* For hardware virtualization we virtualize the _hardware interface_: certain
+instructions change the state of the VM rather than the hardware itself.
+* For container virtualization the OS interface is shared by all virtual
+"machines" (or phones).
+
+[.slider]
+.So what is virtualized?
+* _The OS name space_.
+
+== [.spelling_exception]#Mi `/home/foo` No Es Su `/home/foo`#
+
+Name space virtualization requires that we isolate several name spaces between
+VPs:
+
+[.slider]
+* The file system name space: all virtual phones must see their own root
+partition containing no files owned by other virtual phones.
+* The process name space: all virtual phones must see only processes running
+in their own name space and not others.
+* The device name space (similar to the file system name space): all virtual
+phones must have access to the same underlying devices through the `/dev/`
+name space.
+
+== Device Virtualization
+
+2/3 of these problem had already been solved by existing container
+virtualization approaches.
+
+[.slider]
+.What's hard on smartphones?
+* Device virtualization.
+
+[.slider.small]
+____
+Cells meets all three requirements in the tightly integrated, and often
+proprietary, smartphone ecosystem. It does so by integrating novel
+kernel-level and user-level device virtualization methods to present a
+complete virtual smartphone OS environment. Kernel-level mechanisms provide
+transparency and performance. User-level mechanisms provide portability and
+transparency when the user space environment provides interfaces that can be
+leveraged for virtualization. *For proprietary devices with completely closed
+software stacks, user-level virtualization is necessary.*
+____
+
+== User- and Kernel-Level Virtualization
+
+[.slider]
+.What does it mean to have to do both?
+* I have to make changes to the OS kernel. (Duh.)
+* I also have to make changes to the user-space processes, in this case the
+_Android runtime_.
+
+<<<
+
+[.small]
+____
+The entire radio baseband system is proprietary and closed source, starting
+from the user-level RIL vendor library down to the physically separate
+hardware baseband processor. Details of the vendor library implementation and
+its communication with the baseband are well-guarded secrets. Each hardware
+phone vendor provides its own proprietary radio stack. Since the stack is a
+complete black box, it would be difficult if not impossible to intercept,
+replicate, or virtualize any aspect of this system in the kernel without
+direct hardware vendor support. Furthermore, the vendor library is designed
+to be used by only a single RilD and the radio stack as a whole is not
+designed to be multiplexed.
+____
+
+<<<
+
+image:figures/cells-ril.jpg[width="100%"]
+
+== To The Paper
+
+++++
+<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
+<iframe style="width:100%" height="400" class="embed-responsive-item"
+src="http://systems.cs.columbia.edu/files/wpid-cells-sosp2011.pdf"></iframe>
+</div>
+++++
+
+[.nooutline]
+== Next Time
+
+* Exam review
