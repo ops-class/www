@@ -5,14 +5,32 @@ author: Geoffrey Challen
 description: >
   Discussion of Cells: A Virtual Mobile Smartphone Architecture by Jeremy
   Andrus et al. 
+song:
+  name: Mango Bay
+  author: X-Coast
+  youtube: yuyV6G6atoQ
 spelling_exceptions:
+  - RilD
   - RIL
-  - VP
+  - /VPs?/
+  - baseband
+  - CDMA
+  - SIM
+  - VoIP
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/012.jpg[width="100%"]
+image::women/012.jpg[width="100%",title="Katherine Johnson", link="https://en.wikipedia.org/wiki/Katherine_Johnson"]
+
+[.h4.center]
+icon:music[] http://www.ofmonstersandmen.com/[Black Water by Of Monsters and Men]
+
+[.h4.center]
+icon:music[] https://www.facebook.com/xcoastriviera/[{song}]
+
+video::AILsB9G8qEw[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.spelling_exception]
 == Cells: A Virtual Mobile Smartphone Architecture
@@ -53,19 +71,17 @@ Virtual Mobile Smartphone Architecture"], by:
 
 [.small]
 ____
-Cells runs multiple VPs on a single hardware phone. Each
-VP runs a standard Android environment capable of making
-phone calls, running unmodified Android applications, using
-data connections, interacting through the touch screen, utilizing
-the accelerometer, and everything else that a user can
-normally do on the hardware. Each VP is completely isolated
-from other VPs and cannot inspect, tamper with, or
-otherwise access any other VP.
+Cells runs multiple VPs on a single hardware phone. Each VP runs a standard
+Android environment capable of making phone calls, running unmodified Android
+applications, using data connections, interacting through the touch screen,
+utilizing the accelerometer, and everything else that a user can normally do
+on the hardware. Each VP is completely isolated from other VPs and cannot
+inspect, tamper with, or otherwise access any other VP.
 ____
 
 <<<
 
-image:figures/cells-architecture.jpg[width="100%"]
+image:figures/cells-architecture.jpg[width="60%"]
 
 == Why Do This?
 
@@ -79,30 +95,25 @@ with a bunch of useful software--again, think of a corporate setting.
 
 [.small.slider]
 ____
-While VMs are useful for desktop
-and server computers, applying these hardware virtualization
-techniques to smartphones has two crucial drawbacks.
-First, smartphones are more resource constrained, and running
-an entire additional operating system (OS) and user
-space environment in a VM imposes high overhead and limits
-the number of instances that can run. Slow system responsiveness
-is less acceptable on a smartphone than on a
-desktop computer since smartphones are often used for just
-a few minutes or even seconds at a time.
+While VMs are useful for desktop and server computers, applying these
+hardware virtualization techniques to smartphones has two crucial drawbacks.
+First, smartphones are more resource constrained, and running an entire
+additional operating system (OS) and user space environment in a VM imposes
+high overhead and limits the number of instances that can run. Slow system
+responsiveness is less acceptable on a smartphone than on a desktop computer
+since smartphones are often used for just a few minutes or even seconds at a
+time.
 ____
 
 <<<
 
 [.small]
 ____
-Second, smartphones
-incorporate a plethora of devices that applications
-expect to be able to use, such as GPS, cameras, and GPUs.
-Existing approaches provide no effective mechanism to enable
-applications to directly leverage these hardware device
-features from within VMs, severely limiting the overall system
-performance and making existing approaches unusable
-on a smartphone.
+Second, smartphones incorporate a plethora of devices that applications
+expect to be able to use, such as GPS, cameras, and GPUs. Existing approaches
+provide no effective mechanism to enable applications to directly leverage
+these hardware device features from within VMs, severely limiting the overall
+system performance and making existing approaches unusable on a smartphone.
 ____
 
 == What Does Container Virtualization Virtualize?
@@ -127,18 +138,21 @@ VPs:
 partition containing no files owned by other virtual phones.
 * The process name space: all virtual phones must see only processes running
 in their own name space and not others.
+* The network name space: IP addresses, port mappings, etc.
 * The device name space (similar to the file system name space): all virtual
 phones must have access to the same underlying devices through the `/dev/`
 name space.
 
 == Device Virtualization
 
-2/3 of these problem had already been solved by existing container
+3/4 of these problem had already been solved by existing container
 virtualization approaches.
 
 [.slider]
 .What's hard on smartphones?
 * Device virtualization.
+
+<<<
 
 [.slider.small]
 ____
@@ -178,7 +192,21 @@ ____
 
 <<<
 
-image:figures/cells-ril.jpg[width="100%"]
+image:figures/cells-ril.jpg[width="60%"]
+
+== Multiple Phone Numbers
+
+[.small]
+____
+While some smartphones support multiple SIM cards, which makes supporting
+multiple phone numbers straightforward, most phones do not provide this
+feature. Since mobile network operators do not generally o↵er multiple phone
+numbers per SIM card or CDMA phone, we o↵er an alternative system to provide
+a distinct phone number for each VP on existing unmodified single SIM card
+phones, which dominate the market. Our approach is based on pairing Cells
+with a VoIP service that enables telephony with the standard cellular voice
+network and standard Android applications, but with separate phone numbers.
+____
 
 == To The Paper
 

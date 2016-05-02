@@ -47,6 +47,8 @@
 	"GDB": true,
 	"GitHub": true,
 	"GitLab": true,
+  "GPS": true,
+  "/GPUs?/": true,
 	"Guru Prasad": true,
   "Hari Balakrishnan": true,
   "/HDDs?/": true,
