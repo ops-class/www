@@ -103,7 +103,7 @@ But I did after 421/521
 Undergraduate and first-year graduate courses:
 
 [.slider.spelling_exception.small]
-* 422/512: OS Internals with Ken Smith. Taught in the summer. 
+* 422/512: OS Internals with Ken Smith. Taught in the summer.
 * 462/562: Databases with Oliver Kennedy.
 * 486/586: Distributed Systems with Murat Demirbas or Steve Ko.
 * 489/589: Networks with Dimitrios Koutsonikolas or Chunming Qiao.
@@ -139,4 +139,3 @@ Became a systems researcher
 
 [.nooutline]
 == Next Time
-
