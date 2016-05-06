@@ -8,6 +8,7 @@ song:
   name: Someone Great
   author: LCD Soundsystem
   youtube: bOHLeXxfNu0
+video: 8AgW_yHuHLk
 ---
 [.nooutline.spelling_exception]
 == Technical Women
