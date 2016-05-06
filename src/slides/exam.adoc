@@ -1,0 +1,138 @@
+---
+title: "Exam Review"
+date: 2016-05-06
+author: Geoffrey Challen
+description: >
+  Exam review ask me anything session.
+song:
+  name: Someone Great
+  author: LCD Soundsystem
+  youtube: bOHLeXxfNu0
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+* Look around you!
+
+[.h4.center]
+icon:music[] http://en.wikipedia.org/wiki/The_Sundays[Here's Where the Story Ends by the Sundays]
+
+[.h4.center]
+icon:music[] http://lcdsoundsystem.com/[{song}]
+
+video::FHsip5xOenQ[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
+
+== Exam AMA
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+.Course evaluation percentage is currently:
+* 86%. *You're so close!* I will release a short answer question, a medium answer
+question...[.slide]#as soon as I write then.#
+
+[.nooutline.spelling_exception]
+== Staff Appreciation
+
+.TAs/Recitation Teachers and Dedicated Exam Graders
+* Ali Ben Ali
+* Xu Zhen
+
+<<<
+.Unofficial TAs/`test161` Torturers
+* Scott Haseley
+* Yihong Chen
+
+<<<
+.Old Wise Man TA/Advice Giver
+* Jinghao Shi
+
+<<<
+
+.Ninjas:
+[.slider]
+. Yihong Chen
+. Dan Conway
+. Scott Haseley
+. Carl Nuessle.
+. Gela Malek Pour
+. Guru Prasad
+. Isaac Reath
+. Benjamin Rueda.
+. Jinghao Shi
+. Mark Simpson
+. Yousuf Zubairi
+
+[.slide]
+--
+These people are _volunteers_!
+--
+
+== Exam
+
+Monday, May 9th, 3:30-6:30PM. *No makeups will be given.* Come or get a
+zero.
+
+Identical to last year:
+
+.100 points, 180 minutes.
+* 10 easy multiple choice questions, 1 point each
+* 6 choose 4 short answer questions, 5 points each (one will be released, up
+to two will be from previous exams)
+* *1 medium answer question*, 20 points (will be released)
+* *2 long answer questions*, 25 points each (up to one will be from a
+previous exam)
+
+[.nooutline]
+== Questions
+
+== !
+image:http://www.flask.com/wp-content/uploads/dos-equis-most-interesting-guy-in-the-world.jpeg[]
+
+[.meme-top.small]
+I don't always have free time
+
+[.meme-bottom.small]
+But I did after 421/521
+
+== What To Do Next?
+
+[.slider.spelling_exception]
+.Undergraduate and first-year graduate courses:
+* 422/512: OS Internals with Ken Smith. Taught in the summer. 
+* 462/562: Databases with Oliver Kennedy.
+* 486/586: Distributed Systems with Murat Demirbas or Steve Ko.
+* 489/589: Networks with Dimitrios Koutsonikolas or Chunming Qiao.
+
+<<<
+
+[.slider.spelling_exception]
+.More advanced courses:
+* 622: Advanced computer systems with Karthik Dantu and Steve Ko. 720:
+* Systems seminar with me, particularly for PhD students or PhD-curious
+Masters students or undergraduates. Next semester we will be exploring
+defining and improving smartphone quality of experience.
+
+<<<
+
+Volunteer as a ninja for 421/521 in 2016!
+
+<<<
+
+Join my group! This is the first step on the road to an exciting future
+building novel computer systems.
+
+== Meme
+image:http://images.amcnetworks.com/ifc.com/wp-content/uploads/2014/02/nerd-dance.jpg[]
+
+[.meme-top]
+Took this class
+
+[.meme-bottom]
+Became a systems researcher
+
+[.nooutline]
+== Next Time
+
