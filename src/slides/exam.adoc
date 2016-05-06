@@ -52,7 +52,7 @@ question...[.slide]#as soon as I write then.#
 <<<
 
 .Ninjas:
-[.slider]
+[.slider.small]
 . Yihong Chen
 . Dan Conway
 . Scott Haseley
@@ -89,6 +89,7 @@ previous exam)
 == Questions
 
 == !
+[.background]
 image:http://www.flask.com/wp-content/uploads/dos-equis-most-interesting-guy-in-the-world.jpeg[]
 
 [.meme-top.small]
@@ -99,8 +100,9 @@ But I did after 421/521
 
 == What To Do Next?
 
-[.slider.spelling_exception]
-.Undergraduate and first-year graduate courses:
+Undergraduate and first-year graduate courses:
+
+[.slider.spelling_exception.small]
 * 422/512: OS Internals with Ken Smith. Taught in the summer. 
 * 462/562: Databases with Oliver Kennedy.
 * 486/586: Distributed Systems with Murat Demirbas or Steve Ko.
@@ -108,8 +110,9 @@ But I did after 421/521
 
 <<<
 
-[.slider.spelling_exception]
-.More advanced courses:
+More advanced courses:
+
+[.slider.spelling_exception.small]
 * 622: Advanced computer systems with Karthik Dantu and Steve Ko. 720:
 * Systems seminar with me, particularly for PhD students or PhD-curious
 Masters students or undergraduates. Next semester we will be exploring
@@ -124,7 +127,8 @@ Volunteer as a ninja for 421/521 in 2016!
 Join my group! This is the first step on the road to an exciting future
 building novel computer systems.
 
-== Meme
+== !
+[.background]
 image:http://images.amcnetworks.com/ifc.com/wp-content/uploads/2014/02/nerd-dance.jpg[]
 
 [.meme-top]
