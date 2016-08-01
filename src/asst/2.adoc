@@ -6,7 +6,6 @@ spelling_exceptions:
   - ISRs
   - syscall
   - syscalls
-  - kernelspace
   - userspace
 description:
   In ASST2 you will add process and system call support to your OS/161
@@ -15,6 +14,15 @@ priority: 0.8
 changefreq: monthly
 ---
 :sectnums:
+
+[.visible-print]
+--
+WARNING: This assignment is available online at
+link:https://www.ops-class.org/asst/2/[`https://www.ops-class.org/asst/2/`, role='hidden_print'].
+//
+The online version is easier to read and includes helpful links, embedded video
+walkthroughs, and other useful resources.
+--
 
 == Introduction
 
@@ -135,29 +143,31 @@ comments inside the `__start` function to get an idea of what it is doing.  Try
 to find the lines where the Interrupt Service Routines (ISRs) are loaded into
 memory.
 
-Because a system call allows flow of information across the
-userspace-kernelspace boundary, there needs to be relevant code on both sides
-to handle a system call.
-We give you one system call, `reboot`, which is implemented in the function
-`sys_reboot()` in `main.c`. In GDB, if you put a breakpoint on `sys_reboot` and
-run the `reboot` program, you can print a backtrace in GDB to see how it got
-there.
+Because a system call allows flow of information across the user-kernel
+boundary, there needs to be relevant code on both sides to handle a system
+call. We give you one system call, `reboot`, which is implemented in the
+function `sys_reboot()` in `main.c`. In GDB, if you put a breakpoint on
+`sys_reboot` and run the `reboot` program, you can print a backtrace in GDB to
+see how it got there.
 
+=== How a system call occurs in userspace
 ++++
 <div class="embed-responsive embed-responsive-16by9"
 		 style="margin-top:10px; margin-bottom:10px; border:1px solid grey">
 <div class="youtube-container" data-id="ruF0DN0LT6Q"></div>
 </div>
 ++++
-[.lead]
-How a system call occurs in userspace
 
 A system call is invoked from userspace by using the `syscall` instruction
 which can be seen by disassembling any of the binaries.
 
-The system call numbering has to be agreed upon between userspace and kernelspace.
+The system call numbering has to be agreed upon between userspace and the
+kernel.
+//
 This is taken care of `libc` that is present in your sources. It does this by
 using the kernel header file `kern/include/kern/syscall.h`.
+
+=== What happens in the kernel on a system call
 
 ++++
 <div class="embed-responsive embed-responsive-16by9"
@@ -165,8 +175,12 @@ using the kernel header file `kern/include/kern/syscall.h`.
 <div class="youtube-container" data-id="ULwkafH8gCo"></div>
 </div>
 ++++
-[.lead]
-What happens in the kernel on a system call
+
+Once the system call enters the kernel the system call handler retrieves the
+arguments and passes them to the appropriate kernel function.
+//
+When it completes, any arguments are passed back to userspace and the code
+that invoked the system call continues.
 
 === Process Support
 

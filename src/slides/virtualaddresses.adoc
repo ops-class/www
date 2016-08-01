@@ -121,7 +121,7 @@ run time. Cool: but not something we'll cover in this course.
 == !
 
 [.background]
-image:http://inwallspeakers1.com/wp-content/uploads/2014/07/happy-computer-user.jpg[]
+image:http://elgordoraffle.com/wp-content/uploads/2014/11/happy-computer-user.jpg[]
 
 [.meme-top]
 Sounds great

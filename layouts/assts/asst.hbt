@@ -8,6 +8,7 @@
 				<h1>{{#if number}}ASST{{number}}: {{/if}}{{{title}}}</h1>
 				{{{ contents }}}
 				{{#if videos}}
+				<div class="hidden-print">
 					<a class="anchor" id="videos"></a>
 					<h2>Related Videos</h2>
 					<p class="lead">
@@ -29,10 +30,11 @@
 						</div>
 						{{/each}}
 					</div>
+				</div>
 				{{/if}}
 			</div>
 			<div id="scrollspy" class="col-md-2 spelling_exception">
-				<ul id="side" class="nav hidden-xs hidden-sm"
+				<ul id="side" class="nav hidden-xs hidden-sm hidden-print"
 									data-spy="affix" style="padding-top:20px; padding-right:10px;">
 					{{#if omitTop}}
 					<li class="h5"><a href="#top">{{{ title }}}</a></li>

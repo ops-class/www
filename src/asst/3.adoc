@@ -16,6 +16,15 @@ changefreq: monthly
 ---
 :sectnums:
 
+[.visible-print]
+--
+WARNING: This assignment is available online at
+link:https://www.ops-class.org/asst/3/[`https://www.ops-class.org/asst/3/`, role='hidden_print'].
+//
+The online version is easier to read and includes helpful links, embedded video
+walkthroughs, and other useful resources.
+--
+
 == Introduction
 
 [.lead]

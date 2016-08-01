@@ -242,8 +242,41 @@ pre.highlight {
 	margin-right: inherit;
 }
 @media print {
-	a[href]:after {
-		content: none;
+	code {
+		font-size: 100%
+	}
+	.alert {
+		border-color: Silver !important;
+	}
+	blockquote {
+		border-left: 1px solid #999;
+	}
+	a.hidden_print:after {
+		content: none !important;
+	}
+	span.badge.footnote {
+		display: none;
+	}
+	div#content a[href^="http"].external:after {
+		content: "(" attr(href) ")" !important;
+		font-size: inherit !important;
+	}
+	div#content a[href^="http"].external.hidden_print:after {
+		content: none !important;
+	}
+	div#content a[href^="/"]:after {
+  	margin-left: 0.3em;
+		content: "(https://www.ops-class.org" attr(href) ")" !important;
+		font-size: inherit !important;
+	}
+	div#content a[href^="/"].hidden_print:after {
+		content: none !important;
+	}
+	div#content a[href^="mailto:"]:after {
+		content: none !important;
+	}
+	a:after {
+		font-family: Consolas, monospace !important;
 	}
 	body {
 		font-size: 14px;

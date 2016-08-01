@@ -13,6 +13,16 @@ priority: 0.8
 changefreq: monthly
 ---
 :sectnums:
+:linkattrs:
+
+[.visible-print]
+--
+WARNING: This syllabus is available online at +
+link:https://www.ops-class.org/courses/buffalo/CSE421_Spring2016/[`https://www.ops-class.org/courses/buffalo/CSE421_Spring2016/`, role='hidden_print'].
+//
+The online version is easier to read and includes helpful links, embedded
+videos, and other useful resources.
+--
 
 [.hidden-print]
 --
@@ -57,9 +67,9 @@ that you start using a calendaring program.
 . *Instructor*: Geoffrey Challen. I go by "Geoff", "Geoffrey", or
 "GWA"&mdash;not "Dr", "Professor, or "Sir". Please use
 mailto:prof@ops-class.org[`prof@ops-class.org`] to aid my email filtering.
-However, you should rarely contact me directly.  Instead, 99% of the time use
-the https://discourse.ops-class.org[Discourse] or 1% of the time contact the
-entire staff at mailto:staff@ops-class.org[`staff@ops-class.org`].
+However, you should rarely contact me directly. Instead, 99% of the time use
+the https://discourse.ops-class.org[Discourse forum] or 1% of the time contact
+the entire staff at mailto:staff@ops-class.org[`staff@ops-class.org`].
 
 . *Teaching Assistants*: Ali Ben Ali and Xu Zhen are your
 fantastic and hard-working teaching assistants this semester. They will be
@@ -112,7 +122,7 @@ cannot attend a scheduled exam for any reason.*
 === Undergraduate Prerequisites
 
 http://www.cse.buffalo.edu/shared/course.php?e=CSE&n=250&t=DATA+STRUCTURES[CSE
-250: Data Structures].
+250: Data Structures, role='hidden_print'].
 
 == Description
 
@@ -343,7 +353,7 @@ replacement and swapping. When you are finished, your kernel should be able to
 run forever without running out of memory, and you will have completed the
 course.
 
-This year we are splitting the link:/asst/3/[ASST3] deadlines into three parts:
+This year we are splitting the link:/asst/3/[ASST3,role='hidden_print'] deadlines into three parts:
 
 . *ASST3.1*: working core map. *Deadline*: Friday 4/8/2016 @ 5PM.
 . *ASST3.2*: user paging. *Deadline*: Friday 4/22/2016 @ 5PM.
@@ -354,11 +364,14 @@ This year we are splitting the link:/asst/3/[ASST3] deadlines into three parts:
 [.spelling_exception]
 --
 There is no required textbook for this course. You can consider
-http://www.amazon.com/Modern-Operating-Systems-Andrew-Tanenbaum/dp/013359162X/["Modern
-Operating Systems" by Andrew Tannenbaum] to be a supplemental reference for
-those interested in learning more.
-http://www.amazon.com/C-Programming-Language-2nd/dp/0131103628/["The C
-Programming Language"] by Kernighan and Ritchie may be a helpful reference
+//
+http://www.amazon.com/Modern-Operating-Systems-Andrew-Tanenbaum/dp/013359162X/["Modern Operating Systems" by Andrew Tannenbaum",role='hidden_print']
+//
+to be a supplemental reference for those interested in learning more.
+//
+http://www.amazon.com/C-Programming-Language-2nd/dp/0131103628/["The C Programming Language",role='hidden_print']
+//
+by Kernighan and Ritchie may be a helpful reference
 when completing the assignments, particularly if you are new to C.
 --
 
@@ -376,9 +389,9 @@ the missing 5%.
 ** 15% Midterm Exam
 ** 30% Final Exam
 * 50% Programming
-** 5% link:/asst/1/[ASST1]
-** 15% link:/asst/2/[ASST2]
-** 30% link:/asst/3/[ASST3]
+** 5% link:/asst/1/[ASST1,role='hidden_print']
+** 15% link:/asst/2/[ASST2,role='hidden_print']
+** 30% link:/asst/3/[ASST3,role='hidden_print']
 
 ==== Extra credit
 
@@ -480,15 +493,17 @@ videos, and other useful information.
 === Videos
 
 We try to tape all
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[lectures]
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[lectures,role='hidden_print']
 and
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF[recitation].
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF[recitation,role='hidden_print'].
 A playlist of the music played before class is also
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_hjJpG9tqicpEgI6C3aaAE[available].
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_hjJpG9tqicpEgI6C3aaAE[available,role='hidden_print'].
 Finally, we are experimenting with screencasts which are embedded into the
-assignments and also available in a playlist
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9PC8fyzc2meL4XvrVSyP8O[here].
+assignments and also available in a
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9PC8fyzc2meL4XvrVSyP8O[playlist,role='hidden_print'].
 
+[.hidden-print]
+--
 Previous years have also been recorded:
 
 * *2015*:
@@ -504,6 +519,7 @@ https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-qxcxaYtTf5zQXdcfzrW_r[Lecture
 
 * *2012*:
 https://www.youtube.com/playlist?list=PLE6LEE8y2Jp8tllE40n3tHfWXqxFeyFuY[Lectures].
+--
 
 === Forum
 

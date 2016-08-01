@@ -9,7 +9,7 @@
 				{{{ contents }}}
 			</div>
 			<div id="scrollspy" class="col-md-2 spelling_exception">
-				<ul id="side" class="nav hidden-xs hidden-sm"
+				<ul id="side" class="nav hidden-xs hidden-sm hidden-print"
 									data-spy="affix" style="padding-top:20px; padding-right:10px;">
 					{{#each sections}}
 					<li class="h5"><a href="#{{ this.id }}">{{ this.text }}</a>
