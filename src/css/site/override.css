@@ -247,9 +247,12 @@ pre.highlight {
 	}
 	.alert {
 		border-color: Silver !important;
+		margin-bottom: inherit;
+		padding: 4px;
 	}
 	blockquote {
 		border-left: 1px solid #999;
+		font-size: 12px;
 	}
 	a.hidden_print:after {
 		content: none !important;
@@ -279,26 +282,38 @@ pre.highlight {
 		font-family: Consolas, monospace !important;
 	}
 	body {
-		font-size: 14px;
+		font-size: 11px;
+		line-height: 1.1;
 		padding-top: 0px;
 	}
+	.lead {
+		line-height: 1.2;
+		margin-bottom: 5px;
+	}
 	h1, .h1 {
-		font-size: 30px;
+		font-size: 18px;
 	}
 	h2, .h2 {
-		font-size: 24px;
-	}
-	h3, .h3 {
-		font-size: 20px;
-	}
-	h4, .h4 {
 		font-size: 16px;
 	}
-	h5, .h5 {
+	h3, .h3 {
 		font-size: 14px;
 	}
-	h6, .h6 {
+	h1, .h1, h2, .h2, h3, .h3 {
+		margin-top: 10px;
+		margin-bottom: 5px;
+	}
+	h4, .h4 {
 		font-size: 12px;
+	}
+	h5, .h5 {
+		font-size: 11px;
+	}
+	h6, .h6 {
+		font-size: 10px;
+	}
+	p {
+		margin-bottom: 4px;
 	}
 }
 ul.dash-list {
