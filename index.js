@@ -1,18 +1,18 @@
 var metalsmith = require('metalsmith'),
     drafts = require('metalsmith-drafts'),
     filemetadata = require('metalsmith-filemetadata'),
-		metadata = require('metalsmith-metadata'),
+    metadata = require('metalsmith-metadata'),
     branch = require('metalsmith-branch'),
     collections = require('metalsmith-collections'),
     github = require('./lib/github.js'),
-    asciidoc = require('./lib/asciidoc'),
+    asciidoc = require('./lib/asciidoc.js'),
     updated = require('metalsmith-updated'),
     slides = require('./lib/slides.js'),
     footnotes = require('./lib/footnotes.js'),
     permalinks = require('metalsmith-permalinks'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
-		inplace = require('metalsmith-in-place'),
+    inplace = require('metalsmith-in-place'),
     decks = require('./lib/decks.js'),
     outline = require('./lib/outline.js'),
     copy = require('metalsmith-copy'),
@@ -27,9 +27,8 @@ var metalsmith = require('metalsmith'),
     clean_css = require('metalsmith-clean-css'),
     uglify = require('metalsmith-uglify'),
     rename = require('metalsmith-rename'),
-    beautify = require('./lib/beautify.js'),
     internalize = require('./lib/internalize.js'),
-		failmeta = require('./lib/failmeta.js'),
+    failmeta = require('./lib/failmeta.js'),
     spellcheck = require('metalsmith-spellcheck'),
     formatcheck = require('metalsmith-formatcheck'),
     linkcheck = require('metalsmith-linkcheck');
@@ -60,9 +59,9 @@ var isASST = function(filename, file, i) {
 metalsmith(__dirname)
   .destination('.build')
   .use(drafts())
-	.use(metadata({
-		asst: 'asst/videos.yaml'
-	}))
+  .use(metadata({
+    asst: 'asst/videos.yaml'
+  }))
   .use(filemetadata([
     {pattern: slides_pattern,
       metadata: {
@@ -153,33 +152,32 @@ metalsmith(__dirname)
   .use(decks())
   .use(outline())
   .use(sections())
-	.use(inplace({
-		engine: 'handlebars',
-		pattern: '**/*.hbs',
-		rename: true
-	}))
+  .use(inplace({
+    engine: 'handlebars',
+    pattern: '**/*.hbs',
+    rename: true
+  }))
   .use(failmeta())
   .use(layouts({
     engine: 'handlebars'
   }))
   .use(concat_convention({
-		extname: '.concat'
-	}))
+    extname: '.concat'
+  }))
   .use(lessjavascript())
   .use(highlight())
   .use(hacks())
-	.use(inplace({
-		engine: 'handlebars',
-		pattern: 'sitemap.xml'
-	}))
-	.use(inplace({
-		engine: 'handlebars',
-		pattern: 'slides/feed.xml'
-	}))
+  .use(inplace({
+    engine: 'handlebars',
+    pattern: 'sitemap.xml'
+  }))
+  .use(inplace({
+    engine: 'handlebars',
+    pattern: 'slides/feed.xml'
+  }))
   .use(msif((argv['deploy'] == true), clean_css({ files: 'css/*.css' })))
   .use(msif((argv['deploy'] == true), uglify()))
   .use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
-  .use(msif((argv['deploy'] == true), beautify({'indent_size': 2, 'css': false, 'js': false})))
   .use(msif((argv['check'] == true), internalize()))
   .use(msif((argv['check'] == true),
     spellcheck({ dicFile: 'dicts/en_US.dic',
@@ -198,3 +196,5 @@ metalsmith(__dirname)
       throw err;
     }
   });
+
+// vim: ts=2:sw=2:et
