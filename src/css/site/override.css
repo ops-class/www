@@ -340,3 +340,6 @@ div#content a.external:after {
   margin-left: 0.3em;
   content: "\e164";
 }
+.jumbotron p {
+	font-weight: inherit;
+}
