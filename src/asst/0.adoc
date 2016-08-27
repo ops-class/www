@@ -398,8 +398,8 @@ enough realism to enable kernel development using OS/161. degree of realism.
 Apart from floating point support and certain issues relating to RAM cache
 management, it provides an accurate emulation of a MIPS processor
 footnote:[If you'd like to know more about System/161 and OS/161,
-http://www.eecs.harvard.edu/~syrah/papers/sigcse-02/sigcse-02.pdf[this paper]
-provides an excellent overview.].
+http://dl.acm.org/citation.cfm?id=563383[this paper] provides an excellent
+overview.].
 
 Unlike OS/161, we _do not_ expect you to modify `sys161`. However, you do
 need to _configure_ the simulated machine that `sys161` provides by choosing

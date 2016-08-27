@@ -47,6 +47,7 @@
     "metalsmith-filemetadata": "^1.0.0",
     "metalsmith-formatcheck": "^0.2.1",
     "metalsmith-highlight": "^1.0.4",
+    "metalsmith-html-minifier": "^2.1.0",
     "metalsmith-if": "^0.1.1",
     "metalsmith-in-place": "^1.4.4",
     "metalsmith-layouts": "^1.6.5",
