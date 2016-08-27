@@ -19,12 +19,12 @@ silent:
 	@:
 
 run:
-	./node_modules/http-server/bin/http-server build
+	./node_modules/http-server/bin/http-server build -p 8081
 
 clean:
 	@rm -rf build deploy
 
 statics:
-	@wget http://google-analytics.com/ga.js -O src/js/ga.js 2>/dev/null
+	@wget https://www.google-analytics.com/analytics.js -O src/js/analytics.js 2>/dev/null
 
 .PHONY: run clean silent build
