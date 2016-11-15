@@ -386,15 +386,20 @@ successfully.
 
 === Configuring `sys161`
 
-Now that you have a kernel, the next step is to run it. But how? Given that
-your kernel doesn't yet have any useful features, it would be impossible to
-use it to run an actual computer, or even in a fully-featured virtual machine
-like VirtualBox.
+Now that you have a kernel, the next step is to run it.
+//
+But how?
+//
+Given that your kernel doesn't yet have any useful features, it would be
+impossible to run it on real hardware, or even in a fully-featured VM like
+VirtualBox.
 
 Instead, OS/161 kernels are built to be run by a special-purpose system
-simulator called `sys161`, or System/161. Compared to other virtual machines
-or full-system simulators, `sys161` is much simpler and faster but retains
-enough realism to enable kernel development using OS/161. degree of realism.
+simulator called `sys161`, or System/161.
+//
+Compared to other VMs or full-system simulators, `sys161` is simpler and
+faster but retains enough realism to enable OS/161 kernel development.
+//
 Apart from floating point support and certain issues relating to RAM cache
 management, it provides an accurate emulation of a MIPS processor
 footnote:[If you'd like to know more about System/161 and OS/161,
