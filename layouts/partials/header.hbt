@@ -72,8 +72,12 @@
 											data-toggle="dropdown" role="button"
 											aria-haspopup="true" aria-expanded="false">courses</a>
 										<ul class="dropdown-menu">
-											<li><a href="/courses/buffalo/CSE421_Spring2016">UB CSE 421/521 Spring 2016</a></li>
+											<li><a href="/courses/buffalo/CSE421_Spring2017">UB CSE 421/521 Spring 2017</a></li>
 											<li role="separator" class="divider"></li>
+											<li>
+											<li>
+											<a href="/courses/buffalo/CSE421_Spring2016">UB CSE 421/521 Spring 2016</a>
+											</li>
 											<li>
 											<a href="/courses/buffalo/CSE421_Spring2015">UB CSE 421/521 Spring 2015</a>
 											</li>
