@@ -10,6 +10,7 @@ var metalsmith = require('metalsmith'),
     slides = require('./lib/slides.js'),
     footnotes = require('./lib/footnotes.js'),
     permalinks = require('metalsmith-permalinks'),
+    fixpath = require('./lib/fixpath.js'),
     register_partials = require('metalsmith-register-partials'),
     layouts = require('metalsmith-layouts'),
     inplace = require('metalsmith-in-place'),
@@ -131,6 +132,7 @@ metalsmith(__dirname)
   .use(slides())
   .use(footnotes())
   .use(permalinks({ relative: false }))
+  .use(fixpath())
   .use(branch(isSlides)
     .use(copy({
       pattern: 'slides/**/*.html',
