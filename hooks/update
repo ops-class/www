@@ -19,20 +19,24 @@ exlock_now || exit 0
 
 export HOME="/home/git/"
 WORKING_DIR=$HOME/www/www.ops-class.org/
+PATCH_FILE=/tmp/ops-patch
 
 if ! [ -z "$3" ]; then
-  git diff --binary $2 $3 > $WORKING_DIR/patch
+	git diff --binary $2 $3 > $PATCH_FILE
   unset GIT_DIR
   cd $WORKING_DIR
+	git clean -df > /dev/null
   git fetch origin > /dev/null
   git reset --hard $2 > /dev/null
-	git clean -df > /dev/null
-  if [ -f patch ]; then
-    git apply patch > /dev/null >> /dev/null
-    rm -f patch
-  fi
+	if [ -f $PATCH_FILE ]; then
+		git apply $PATCH_FILE > /dev/null >> /dev/null
+		rm -f $PATCH_FILE
+	else
+		echo "Warning: patch file is empty"
+	fi
 else
   cd $WORKING_DIR
+	git clean -df > /dev/null
   git fetch origin > /dev/null
   git reset --hard origin/master > /dev/null
 fi
