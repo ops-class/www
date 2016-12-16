@@ -96,6 +96,19 @@ a.logo-fixed > img {
 		content: "_";
 	}
 }
+@media (min-width: 992px) {
+  .fixed-md-3 {
+    position: fixed;
+		width: 262px;
+  }
+}
+#side {
+	top: 60px;
+	bottom: 0;
+	overflow-y: auto;
+	background-color: white;
+	padding-bottom: 10px;
+}
 ul#side li a:hover {
 	background: inherit;
 }
