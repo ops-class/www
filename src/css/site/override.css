@@ -3,6 +3,8 @@ body {
 	position: relative;
 	color: #333;
 	font-size: 18px;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
 }
 .lead {
 	font-size: 1.2em;

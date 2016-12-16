@@ -29,7 +29,7 @@ var metalsmith = require('metalsmith'),
     rename = require('metalsmith-rename'),
     internalize = require('./lib/internalize.js'),
 		failmeta = require('./lib/failmeta.js'),
-    html_minifier = require('metalsmith-html-minifier'),
+    beautify = require('./lib/beautify.js'),
     spellcheck = require('metalsmith-spellcheck'),
     formatcheck = require('metalsmith-formatcheck'),
     linkcheck = require('metalsmith-linkcheck');
@@ -179,8 +179,7 @@ metalsmith(__dirname)
   .use(msif((argv['deploy'] == true), clean_css({ files: 'css/*.css' })))
   .use(msif((argv['deploy'] == true), uglify()))
   .use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
-  .use(msif((argv['deploy'] == true), html_minifier()))
-  .use(msif((argv['deploy'] == false), html_minifier({ collapseWhitespace: false })))
+	.use(msif((argv['deploy'] == true), beautify({'indent_size': 2, 'css': false, 'js': false})))
   .use(msif((argv['check'] == true), internalize()))
   .use(msif((argv['check'] == true),
     spellcheck({ dicFile: 'dicts/en_US.dic',
