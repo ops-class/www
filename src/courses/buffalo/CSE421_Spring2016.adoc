@@ -44,22 +44,6 @@ performance and introduce the idea of hardware virtualization. Programming
 assignments provide hands-on experience with implementing core operating
 system components in a realistic development environment.
 
-[[calendar]]
-== Calendar
-
-We suggest that you add our https://goo.gl/9KR1PT[shared calendar] to your
-calendaring program. If you are not using a calendaring program, we suggest
-that you start using a calendaring program.
-
-++++
-<div class="hidden-xs hidden-sm embed-responsive embed-responsive-4by3">
-	<div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
-</div>
-<div class="hidden-md hidden-lg embed-responsive embed-responsive-4by3">
-	<div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=AGENDA&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
-</div>
-++++
-
 == Information
 
 === Course Staff
@@ -87,9 +71,6 @@ hold office hours but do not do any grading.
 
 === Times and Locations
 
-The <<calendar,online calendar>> contains up-to-date information about all
-course meetings and activities. Please check it regularly--changes do happen.
-
 . *Lecture*: MWF 2:00--2:50PM, Knox 104.
 
 . *Recitations*: T 4:00--4:50PM, NSC 222; and F 8:00--8:50AM, Knox 04.
@@ -107,25 +88,14 @@ the course staff. Don't wait until you have a problem to come!
 
 An ungraded pre-term exam will be given in class on Wednesday 1/27/2016. The
 50-minute midterm will be given in class Wednesday 3/23/2016. A 3-hour final
-exam will be Monday 5/9/2016 from 3:30--6:30PM in Knox 104. All dates are on
-the <<calendar>>. *Please contact the course staff as soon as possible if you
-cannot attend a scheduled exam for any reason.*
+exam will be Monday 5/9/2016 from 3:30--6:30PM in Knox 104. *Please contact
+the course staff as soon as possible if you cannot attend a scheduled exam
+for any reason.*
 
 === Undergraduate Prerequisites
 
 http://www.cse.buffalo.edu/shared/course.php?e=CSE&n=250&t=DATA+STRUCTURES[CSE
 250: Data Structures, role='hidden_print'].
-
-[.hidden-print]
---
-=== Other Important Dates
-
-(Also on the <<calendar>>.)
-
-* *Last Day to Drop Add*: 2/1/2016
-* *Last Day to Resign*: 4/15/2016
-* *Last Day of Class*: 5/9/2016
---
 
 == Description
 
@@ -390,12 +360,9 @@ assignments.
 5%. If you do not, your midterm and final exam scores are scaled to fill in
 the missing 5%.
 ** 15% Midterm Exam, 30% Final Exam
-* 50% Programming
-** 5% link:/asst/1/[ASST1,role='hidden_print'], 15%
-link:/asst/2/[ASST2,role='hidden_print'], 30% link:/asst/3/[ASST3,role='hidden_print']
+* *50% Programming*
+** 5% link:/asst/1/[ASST1,role='hidden_print'], 15% link:/asst/2/[ASST2,role='hidden_print'], 30% link:/asst/3/[ASST3,role='hidden_print']
 
-[.hidden-print]
---
 ==== Extra credit
 
 This year we will provide up to 5% extra credit to students that help us
@@ -411,7 +378,6 @@ course staff in a way that makes them straightforward to incorporate. Do not
 email us, or post in the forum. Clone our repository, fix the problem, and send
 us a pull request. If you are curious about how much credit a particular change
 will earn you, post it as an issue on GitHub first and we'll discuss.
---
 
 === Incomplete Grades
 

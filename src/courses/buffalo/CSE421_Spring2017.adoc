@@ -48,7 +48,6 @@ introduce the idea of hardware virtualization.
 Programming assignments provide hands-on experience with implementing core
 operating system components in a realistic development environment.
 
-////
 [[calendar]]
 == Calendar
 
@@ -60,13 +59,12 @@ calendaring program.
 
 ++++
 <div class="hidden-xs hidden-sm embed-responsive embed-responsive-4by3">
-	<div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
+	<div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=l3ahiffhktcd2l6p4dm9gqkau0%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
 </div>
 <div class="hidden-md hidden-lg embed-responsive embed-responsive-4by3">
-	<div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=AGENDA&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=5psetkcpgh152b9a8qd052831c%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
+	<div class="lazy-iframe" data-src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=AGENDA&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=l3ahiffhktcd2l6p4dm9gqkau0%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></div>
 </div>
 ++++
-////
 
 == Information
 
@@ -461,12 +459,9 @@ assignments.
 5%. If you do not, your midterm and final exam scores are scaled to fill in
 the missing 5%.
 ** 15% Midterm Exam, 30% Final Exam
-* 50% Programming
-** 5% link:/asst/1/[ASST1,role='hidden_print'], 15%
-link:/asst/2/[ASST2,role='hidden_print'], 30% link:/asst/3/[ASST3,role='hidden_print']
+* *50% Programming*
+** 5% link:/asst/1/[ASST1,role='hidden_print'], 15% link:/asst/2/[ASST2,role='hidden_print'], 30% link:/asst/3/[ASST3,role='hidden_print']
 
-[.hidden-print]
---
 ==== Extra credit
 
 This year we will provide up to 5% extra credit to students that help us
@@ -489,8 +484,6 @@ Clone our repository, fix the problem, and send us a pull request.
 //
 If you are curious about how much credit a particular change will earn you,
 post it as an issue on GitHub first and we'll discuss.
-//
---
 
 === Incomplete Grades
 

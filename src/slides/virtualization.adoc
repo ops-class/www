@@ -81,7 +81,7 @@ program_ we weren't kidding!
 
 == Meme
 [.background]
-image:http://qph.is.quoracdn.net/main-qimg-7fbf5d6ce580e75dc50dcc254d2e3ace?convert_to_webp=true[]
+image:https://i.ytimg.com/vi/ZKpFFD7aX3c/maxresdefault.jpg[]
 
 [.meme-top]
 This is not
