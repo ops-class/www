@@ -51,7 +51,7 @@ operating system components in a realistic development environment.
 [[calendar]]
 == Calendar
 
-We suggest that you add our https://goo.gl/9KR1PT[shared calendar] to your
+We suggest that you add our https://goo.gl/DCVaqv[shared calendar] to your
 calendaring program.
 //
 If you are not using a calendaring program, we suggest that you start using a
