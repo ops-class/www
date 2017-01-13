@@ -10,8 +10,8 @@
 :os161: pass:normal[http://os161.eecs.harvard.edu[OS/161,role='hidden-print']]
 :system161: pass:normal[http://os161.eecs.harvard.edu[System/161,role='hidden-print']]
 :os161-link: http://os161.eecs.harvard.edu
-:ppa-link: https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain/
-:ppa: pass:normal[https://launchpad.net/~geoffrey-challen/+archive/ubuntu/os161-toolchain/[PPA,role='hidden-print']]
+:ppa-link: https://launchpad.net/~ops-class/+archive/ubuntu/os161-toolchain/
+:ppa: pass:normal[https://launchpad.net/~ops-class/+archive/ubuntu/os161-toolchain/[PPA,role='hidden-print']]
 :github-link: https://github.com/ops-class/
 
 {{{ contents }}}

@@ -14,41 +14,43 @@ changefreq: monthly
 
 [.lead]
 //
-Programming assignments are the heart of the {ops-class} experience.
+The best way to learn about operating systems is to implement one.
 //
-The most effective way to learn operating systems concepts is to build one
-yourself.
+So programming assignments are the heart of {ops-class}.
 
 {ops-class} assignments use the excellent {os161} instructional operating
 system.
 //
 {os161} was developed at Harvard University by
+//
 http://www.hcs.harvard.edu/~dholland/[David Holland],
-https://www.eecs.harvard.edu/margo/[Margo Seltzer], and others.
+//
+https://www.eecs.harvard.edu/margo/[Margo Seltzer], and
+//
+https://github.com/ops-class/os161/blob/master/CHANGES[others].
 //
 It provides some of the realism of large operating systems like
-https://www.linux.com[Linux]).
+https://www.linux.com[Linux].
 //
 But it remains compact enough to give you a chance to implement large OS
 subsystems&mdash;like link:/asst/3/[virtual memory]&mdash;yourself.
 //
-http://dl.acm.org/citation.cfm?id=563383[This paper] provides an excellent
+http://dl.acm.org/citation.cfm?id=563383[This paper] provides a good
 overview of OS/161.
 
 The assignments also provide a variety of different programming challenges.
 //
-Consider {asst1} a warmup.
+{asst1} is just a warmup.
 //
-Next, {asst2} challenges you to connect two existing interfaces.
+{asst2} challenges you to connect two existing interfaces.
 //
-In contrast, {asst3} provides the opportunity to implement a large piece of
-functionality and design several internal interfaces.
+{asst3} provides the opportunity to implement a large piece of functionality
+and design several internal interfaces.
 //
-These challenges map well onto common programming tasks you will face in
-industry.
+These challenges are similar to those that you will face in industry or when
+building large software systems.
 //
-And all the assignments require you to understand a large and complex code
-base.
+And all the assignments require understanding a large and complex code base.
 
 ////
 and {asst4} requires you to make a small set of important changes to an
@@ -77,7 +79,7 @@ simulator, the GNU debugger (GDB), and the Git revision control system.
 
 Your first real taste of kernel programming.
 //
-Implement critical kernel synchronization primivites&mdash;locks, condition
+Implement critical kernel synchronization primitives&mdash;locks, condition
 variables and reader-writer locks.
 //
 Next, use them to solve a few simple toy synchronization problems.
@@ -100,8 +102,7 @@ design.
 Implement virtual memory, including address translation, TLB management, page
 replacement and swapping.
 //
-When you are done, your kernel can run forever without running out of memory,
-and you will have completed the course.
+When you are done, your kernel can run forever without running out of memory.
 
 ////
 == {asst4}

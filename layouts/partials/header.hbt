@@ -109,7 +109,7 @@
 											<li><a href="/asst/2/">ASST2</a></li>
 											<li><a href="/asst/3/">ASST3</a></li>
 											<li role="separator" class="divider"></li>
-											<li><a href="/asst/toolchain/">Toolchain</a></li>
+											<li><a href="/asst/setup/">Setup</a></li>
 										</ul>
 									</li>
 									<li><a id="menu-discuss"

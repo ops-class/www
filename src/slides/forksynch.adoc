@@ -167,7 +167,7 @@ image::figures/pipes-example-3.svg[image,width="100%",role='vcenter']
 
 == IPC Using `fork()` and `pipe()`
 
-[.smaller.spelling_exception,source,c]
+[source,c,role='smaller spelling_exception']
 ----
 # pipeEnds[0] gets the read end; pipeEnds[1] gets the write end.
 int pipeEnds[2];
