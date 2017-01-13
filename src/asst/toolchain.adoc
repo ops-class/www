@@ -26,16 +26,14 @@ describes how to install the toolchain.
 {os161} is maintained by http://www.hcs.harvard.edu/~dholland/[David Holland]
 at Harvard University.
 //
-We maintain a https://github.com/ops-class/os161[fork of OS/161 on GitHub]
-that includes many {ops-class}-specific changes, particularly related to
-testing automation using {test161}.
+We maintain a https://github.com/ops-class/os161[fork of OS/161] that
+includes {ops-class}-specific changes, particularly integration with
+{test161}.
 
 === Current Version
 
-https://github.com/ops-class/os161/tree/master[2.0.1] based on
-http://os161.eecs.harvard.edu/download/[upstream version 2.0.1].
-//
-(Latest upstream is 2.0.2. We will incorporate these changes soon.)
+https://github.com/ops-class/os161/tree/master[2.0.2] based on
+http://os161.eecs.harvard.edu/download/[upstream version 2.0.2].
 
 === Installation
 
@@ -71,12 +69,13 @@ git pull staff master
 == Vagrant Virtual Machine
 
 We maintain a https://github.com/ops-class/vagrant[Vagrant configuration]
-based on http://releases.ubuntu.com/14.04/[Ubuntu 14.04 LTS "Trusty Tahr"].
+that loads a pre-built Virtualbox virtual machine based on
+http://releases.ubuntu.com/16.04/[Ubuntu 16.04 LTS "Trusty Tahr"].
 //
-This simplifies the process of installing the rest of the toolchain:
-including `sys161`, the OS/161 cross-compilers, and `test161`.
+It contains the rest of the toolchain, including `sys161`, the OS/161
+cross-compilers, and `test161`.
 //
-*This is the recommended way to install the rest of the toolchain.*
+*This is the recommended way to install the toolchain.*
 
 === Current Version
 
