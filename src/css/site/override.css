@@ -145,7 +145,7 @@ thead {
 td {
 	padding: 0px 10px;
 }
-table {
+table.exams {
 	width: 100%;
 }
 table.exams td {

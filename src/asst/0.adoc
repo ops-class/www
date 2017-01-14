@@ -2,9 +2,6 @@
 title: "Introduction to OS/161"
 spelling_exceptions:
   - vfs
-  - LTS
-  - EC2
-  - VMware
 description: >
   ASST0 introduces you to the OS/161 source code and tools that you will use
   throughout the rest of the assignments.
@@ -14,30 +11,39 @@ changefreq: monthly
 :sectnums:
 
 [.visible-print]
+//
 --
+//
 WARNING: This assignment is available online at
+//
 link:https://www.ops-class.org/asst/0/[`https://www.ops-class.org/asst/0/`, role='hidden_print'].
 //
-The online version is easier to read and includes helpful links, embedded video
-walkthroughs, and other useful resources.
+The online version is easier to read and includes helpful links, embedded
+video walkthroughs, and other useful resources.
+//
 --
 
 == Introduction
 
 [.lead]
-This assignment introduces you to the {os161} source code and tools that you
-will use throughout the rest of the {ops-class} assignments.
+//
+This assignment introduces you to the {os161} source code and toolchain that
+you will use throughout the rest of the assignments.
 
 It is unlikely that you have used OS/161 before, but some of the
 other tools may be familiar to you:
 
-* *{os161}*: OS/161 includes both
+* *{os161}* includes both
+//
 . the sources of the the operating system you will be designing,
 implementing, running and debugging, and
+//
 . a toolchain for cross compiling and running your kernel, including a
 machine simulator called `sys161` footnote:[Also known as System/161].
+//
 * https://git-scm.com/[*Git*]: a distributed source control tools that
 tracks your changes to OS/161 and enables effective collaboration.
+//
 * https://www.gnu.org/software/gdb/[*GDB*]: the GNU debugger which allows you
 to control and inspect your running system.
 
@@ -46,28 +52,27 @@ to control and inspect your running system.
 After completing ASST0 you should:
 
 . Have set up your OS/161 development environment.
+//
 . Understand the source code structure of OS/161.
+//
 . Be comfortable navigating the OS/161 sources to determine where and how
 things are done.
+//
 . Have been introduced to Git and GDB.
+//
 . Be able to, modify, build and run your first OS/161 kernel.
 
 === A Note on Cut-and-Paste
 
-Another assignment objective is to get you up to speed working efficiently in
-a Linux development environment using standard command-line development
-tools. Earlier versions of this assignment had come to contain a lot of
-cut-and-paste snippets that students could run from the command line. While
-students found this helpful, we have decided to remove many of these
-instructions and provide direction in English text instead. This is for the
-simple reason that too many students were simply skimming the assignment text
-while cutting and pasting the relevant sections into their terminal.
-
-Unlike many of the things you will find online ASST0 is _not a tutorial._ You
-will go slower, but you will learn a lot more from figuring out how to:
+Another assignment objective is to get you working efficiently in a Linux
+development environment using standard command-line development tools.
+//
+Unlike many of the things you will find online ASST0 is _not a tutorial._
+//
+You will go slower, but you will learn a lot more from figuring out how to:
 "Run the first OS/161 thread test and then shut down your kernel" than how
 to:
-[source,bash]
+//
 ----
 trinity@zion:~$ sys161 kernel "tt1;q"
 ----
@@ -78,35 +83,43 @@ interact with other OS/161 hackers in person and in the online forum.
 === A Note on Learning Git
 
 Another objective of this course is to help you learn to use common
-development tools, particularly Git. However, like most programming tools the
-best way to get started with and continue to learn Git is through the
+development tools, particularly Git.
+//
+However, like most programming tools the best way to learn Git is through the
 extensive online documentation and multiple good online tutorials
 (https://www.atlassian.com/git/tutorials/[1],
 https://try.github.io/levels/1/challenges/1[2],
 https://www.google.com/search?ie=UTF-8&q=git%20tutorial[etc.]).
 
-As a result, we have removed Git guides from the `ops-class.org`
-documentation. Not only is any documentation we could provide much less
-likely to be complete and up-to-date, but this will provide you with good
-practice in online learning. Feel free to ask your course staff or other
-students for help, either in person or using the online forum. Chances are
-many of them use Git or something similar on a daily basis. When you become a
-professional hacker, you will too.
+As a result, we have removed Git coverage from this introduction.
+//
+Any documentation we could provide is unlikely to be complete and up-to-date,
+and this will also provide you with good practice in online learning.
+//
+Feel free to ask your course staff or other students for help, either in
+person or using the forum.
+//
+Chances are many of them use Git on a daily basis.
 
-Like anything else, learning Git takes practice and patience. But here's one
-simple tip: *read the output and error messages generated by Git commands.*
+Like anything else, learning Git takes practice, more practice, and patience.
+//
+But here's one tip: *read the output generated by Git commands.*
+//
 Git produces remarkably useful output, particularly when an error occurs or
-when it hasn't accomplished what you asked. Frequently the output tells you
-_exactly_ what to do to address whatever issue you are facing, down to the
-commands that you should type.
+when it didn't accomplished what you wanted.
+//
+Frequently the output tells you _exactly_ what to do to fix the problem--down
+to the commands that you should type.
 
 === Collaboration Guidelines
 
-ASST0 focuses on getting your environment set up and asking you to begin
-familiarizing yourself with the OS/161 source you will be modifying. There is
-a small amount of coding involved, but not too much. While the assignment is
-ungraded, here are the guidelines for how to work together and work with your
-partner (if you have one):
+ASST0 focuses on getting your environment set up and familiarizing you with
+the source code you will be modifying.
+//
+There is a small amount of coding involved, but not too much.
+//
+Here are guidelines for how to work with your partner--if you have one--and
+with other students:
 
 TIP: Working side-by-side with your partner is *strongly
 encouraged*.
@@ -138,142 +151,19 @@ explicit permission footnote:[Which you are extremely unlikely to get.].
 ++++
 
 [.lead]
-Developing for OS/161 requires a specialized set of tools, including the
-`sys161` simulator along with a GCC cross-compiler allowing you to create
-MIPS r3000 binaries that `sys161` can execute.
+//
+Developing for OS/161 requires specialized tools.
+//
+These comprise the `test161` testing framework, the `sys161` system
+simulator, and cross-compilers to create `sys161` executables.
 
-We support three options allowing you to access the OS/161 toolchain. You
-can:
-
-. install the toolchain natively on your own Ubuntu machine,
-. run a Ubuntu virtual machine that has the toolchain installed as a guest on
-a Windows or Mac host,
-. or use a toolchain that has been pre-installed on a shared machine accessible
-via SSH.
-
-Each option is described in more detail below. However, #1 requires access to
-a computer running Ubuntu Linux, which you may or may not have. If you run
-Mac or Windows, #2 or #3 are your best options. And if your course staff has
-set up a shared machine for you, #3 is a very straightforward choice. That
-said, there are other tradeoffs to each choice, so we suggest that you read
-through your options carefully before making a decision.
-
-=== Ubuntu Host
-
-If you have a computer running Ubuntu Linux, we have packaged the OS/161
-toolchain for the last two Ubuntu [.spelling_exception]#LTS# releases (12.04
-Precise and 14.04 Trusty) in a {ppa-link}[Launchpad PPA]. Installation is
-simple:
-
-[source,bash]
-----
-sudo add-apt-repository ppa:geoffrey-challen/os161-toolchain
-sudo apt-get update
-sudo apt-get install os161-toolchain
-----
-
-If you'd like to use a different version of Ubuntu you'll need to modify the
-APT configuration generated above to use whichever LTS version most
-immediately precedes yours.
-https://help.ubuntu.com/community/Repositories/CommandLine[This help page]
-should get you started.
-
-If you don't have a computer running Linux, and you have a spare computer
-around, you may want to give http://www.ubuntu.com[Ubuntu] a try. Maintaining
-your own Linux machine is a great way to learn more about system
-administration and, to some degree, about operating systems as well.
-
-=== Ubuntu Guest Using Vagrant
-
-If you'd prefer to develop on your own machine but don't run Ubuntu Linux, we
-have a Vagrant configuration allowing you to easily fire up a
-https://www.virtualbox.org/[VirtualBox] guest virtual machine on your Windows
-or Mac host footnote:[We'll talk a lot more about virtualization in class,
-but here's one example of how useful it can be.].
-
-The first step is to install https://www.vagrantup.com/[Vagrant], which
-happily comes with installers for most common operating systems. Next you
-need to {github-link}vagrant[get our `Vagrantfile`] which describes how to
-provision and configure your virtual machine. You'll need
-https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git installed]
-to complete this next step.  Pick or create an empty directory to use for
-your {os161} sources. Then clone our Vagrant repository into that directory.
-
-Once that's done, you should be able to run `vagrant up` from the directory
-containing our `Vagrantfile`. Note that `vagrant up` will take a few minutes
-to complete the first time, and you need to be online so that Vagrant can
-download various external resources:
-
-[source,bash]
-----
-vagrant up # This may take a few minutes
-----
-
-Assuming `vagrant up` completes successfully, you should be able to log in to
-your running virtual machine and run the OS/161 tools:
-
-[source,bash]
-----
-$ vagrant ssh
-trinity@zion:~$ sys161
-sys161: System/161 release 2.0.6, compiled Dec 23 2015 21:58:13
-sys161: Usage: sys161 [sys161 options] kernel [kernel args...]
-...
-----
-
-By default our configuration shares the `src` subdirectory of the directory
-where you installed our `Vagrantfile` with the virtual machine, meaning that
-you can edit your OS/161 source code either inside or outside of the virtual
-machine. Given that by default our VM does not have a GUI, if you prefer a
-graphical source code editor you may want to edit your code using tools
-installed on the host. However, you need to be logged in to your VM to
-compile and run your OS/161 kernel.
-
-If you are having trouble, make sure that all Vagrant commands (`vagrant up`,
-`vagrant ssh`, etc.) are run from the same directory as the `Vagrantfile` you
-created previously. That's just how Vagrant works.
-
-==== Notes for Windows users
-
-The README on our {github-link}vagrant[OS/161 Vagrant repository GitHub
-repository] describes some potential pitfalls for Windows users with the
-Vagrant installation and initial VM creation. However, another problem is
-known to exist where Windows hosts will not allow the guest to create
-symbolic links in shared folders. Because OS/161 generates symbolic links
-during `bmake depend` step, this problem will cause that step to fail.
-
-There are several workarounds. The first is to make sure that you run all of
-your `vagrant` commands as a Windows administrator, which will provide the
-guest with the required permissions to create symbolic links. Note that this
-includes both `vagrant up` and `vagrant ssh`. The second workaround is to not
-share your OS/161 source folder with the host, but of course this will
-prevent you from directly editing your sources from the host.
-
-=== Preexisting External Installation
-
-You may have access to a shared machine with the OS/161 toolchain installed,
-allowing you to work remotely over SSH. While this is by far the easiest
-option, it does limit your ability to work offline and may affect your choice
-of source code editor.
-
-=== Do-It-Yourself Installation on Other Flavors of UNIX
-
-We don't support this option, but if you'd like to try instructions are
-available at the {os161-link}[OS/161 website]. You will need to download,
-configure, compile and install from the OS/161 toolchain sources. Linux and
-other UNIX variants are likely to work. Superheroes have gotten things to
-work on OSX. Please use the most recent version of the cross-compilation
-toolchain and System/161.
-
-=== Other Virtualization Options
-
-Virtualization is hot these days and so you have a lot of options, including
-the https://aws.amazon.com/[Amazon EC2] https://aws.amazon.com/free/[free
-tier] to create an Ubuntu VM in the cloud and
-https://www.virtualbox.org/[VirtualBox] or http://www.vmware.com/[VMware] to
-create an Ubuntu VM locally, preferably one of the LTS versions (12.04,
-14.04) supported by our PPA. Once you've done that you can use the
-instructions above for installing the software on native Ubuntu.
+Instructions for obtaining the OS/161 toolchain and source code are available
+on the link:/asst/setup[setup page].
+//
+Please follow those instructions carefully and return when have the toolchain
+set up.
+//
+We'll download the sources below.
 
 == Configuring, Building, and Running a Kernel
 
@@ -290,10 +180,11 @@ building and booting your first OS/161 kernel.
 
 === Download the OS/161 Source Code
 
-We distribute the {github-link}os161[{`ops-class.org` OS/161 source code] using
-Git. Starting with a clone of our repository makes it easy for us to
-distribute updates, bug fixes, and new OS/161 releases, which can be merged
-easily into your repository.
+We distribute the {github-link}os161[`ops-class.org` OS/161 source code]
+using Git.
+//
+Starting with a clone of our repository makes it easy for us to distribute
+updates, which can be merged easily into your repository.
 
 First, choose a directory to work in:
 

@@ -11,6 +11,8 @@ spelling_exceptions:
   - Xenial Xerus
   - Bento
   - Vagrantfile
+  - EC2
+  - VMware
 ---
 
 [.lead]
@@ -32,14 +34,24 @@ link:#vagrant[Vagrantfile] to boot a Ubuntu virtual machine.
 If you are using Ubuntu, you can add our link:#ppa[`ops-class` PPA]
 and use it to install the toolchain natively.
 
+If you don't have a computer running Linux, and you have a spare computer
+around, you may want to give http://www.ubuntu.com[Ubuntu] a try.
+//
+Maintaining your own Linux machine is a great way to learn more about system
+administration and, to some degree, about operating systems as well.
+
 [[vagrant]]
 === Vagrant Virtual Machine
 
 We maintain an {ops-class} https://github.com/ops-class/vagrant[Vagrant
 configuration].
 //
-It loads a pre-built VirtualBox virtual machine based on the
-minimal
+It loads a pre-built VirtualBox virtual machine
+//
+footnote:[We'll talk a lot more about virtualization in class, but here's one
+example of how useful it can be.].
+//
+based on the minimal
 //
 https://github.com/chef/bento[Bento]
 //
@@ -64,18 +76,63 @@ https://github.com/ops-class/vagrant/tree/v1.2[1.2] is the current version.
 
 ==== Installation
 
-https://www.vagrantup.com/[Install Vagrant]. Then:
+
+https://www.vagrantup.com/[Install Vagrant].
+//
+Then https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[install
+Git].
+//
+Then:
 
 ----
 git clone https://github.com/ops-class/vagrant
 cd vagrant && vagrant up
 ----
 
-If you are having trouble, please look at the
+The `vagrant up` may take a few minutes.
+
+Assuming `vagrant up` completes successfully, you should be able to log in to
+the virtual machine and run the OS/161 tools:
+
+[source,bash]
+----
+$ vagrant ssh
+trinity@zion:~$ sys161
+sys161: System/161 release ...
+sys161: Usage: sys161 [sys161 options] kernel [kernel args...]
+...
+----
+
+If you are having trouble, make sure that all Vagrant commands (`vagrant up`,
+`vagrant ssh`, etc.) are run from the same directory as your `Vagrantfile`.
 //
-https://github.com/ops-class/vagrant/[README].
+That's just how Vagrant works.
+
+==== Notes for Windows users
+
+The https://github.com/ops-class/vagrant/[README]
 //
-There are some known issues on Windows hosts.
+on our {github-link}vagrant[OS/161 Vagrant repository GitHub
+repository] describes some potential pitfalls for Windows users.
+//
+Some concern initialization.
+
+Another know problem that where Windows hosts will not allow the guest to create
+symbolic links in shared folders.
+//
+If you try to download your OS/161 sources into a shared folder, the build
+will fail because it tries to create links in the compilation directory.
+
+There are several workarounds.
+//
+The first is to run all of your `vagrant` commands as a Windows
+administrator: `vagrant up`, `vagrant ssh`, etc.
+//
+This provides provide the guest with the required permissions to create
+symbolic links.
+//
+The second workaround is to not share your source folder only edit your code
+inside the virtual machine using a terminal-based editor.
 
 ==== Upgrading the toolchain
 
@@ -112,6 +169,9 @@ If you have 16.04 installed, you can install these packages directly.
 If you are using a slightly earlier or later Ubuntu release, the Xenial
 packages will probably work.
 //
+https://help.ubuntu.com/community/Repositories/CommandLine[This help page]
+should get you started.
+//
 If you are using a much earlier Ubuntu release, you should upgrade.
 
 ==== Installation
@@ -128,6 +188,35 @@ sudo apt-get update ; sudo apt-get install os161-toolchain
 ----
 
 '''
+
+=== Other Virtualization Options
+
+You can also create an Ubuntu 16.04 virtual machine using other
+virtualization tools:
+//
+https://aws.amazon.com/[Amazon EC2],
+//
+http://www.vmware.com/[VMware]
+//
+and of course https://www.virtualbox.org/[VirtualBox].
+//
+Once you've done that you can use the instructions above for installing the
+software on native Ubuntu.
+
+=== Do-It-Yourself Installation on Other Flavors of UNIX
+
+We don't support this option, but if you'd like to try instructions are
+available at the {os161-link}[OS/161 website].
+//
+You will need to download, configure, compile and install from the OS/161
+toolchain sources.
+//
+Linux and other UNIX variants are likely to work. Superheroes have gotten
+things to work on OSX.
+//
+Please use the most recent version of the cross-compilation toolchain and
+System/161.
+
 
 [[os161]]
 == Source

@@ -38,6 +38,7 @@
   "/et al\\.?/": true,
   "/e\\.g\\./": true,
   "Edsger Dykstra": true,
+	"/executables?/": true,
   "Facebook": true,
   "FFS": true,
   "FTW": true,
