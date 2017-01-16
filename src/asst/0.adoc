@@ -338,7 +338,7 @@ own configuration script. Change into `kern/conf` and look around. You should
 notice a configuration script, a base configuration file (`conf.kern`), and
 four configurations that include `conf.kern`.
 
-You should take a look at `kern.conf` and one of the configurations to get a
+You should take a look at `conf.kern` and one of the configurations to get a
 sense of the format. But for now, the only thing we're concerned about is
 ensuring that we enable `dumbvm` for this assignment. You're going to write a
 full-fledged virtual memory (VM) system in {asst3}, but for the first few
