@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "6.9.4"
+dist: trusty
+sudo: false
+
+# vim: ts=2:sw=2:et
