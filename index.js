@@ -39,7 +39,10 @@ var handlebars = require('handlebars'),
     fs = require('fs'),
     common = require('./lib/common.js');
 
-var argv = require('minimist')(process.argv.slice(2));
+var argv = require('minimist')(process.argv.slice(2)),
+    segfault_handler = require('segfault-handler');
+segfault_handler.registerHandler(".crash.log");
+var quiet = (argv['quiet'] == true);
 
 handlebars.registerPartial('header', fs.readFileSync('layouts/partials/header.hbt').toString());
 handlebars.registerPartial('footer', fs.readFileSync('layouts/partials/footer.hbt').toString());
@@ -156,8 +159,7 @@ metalsmith(__dirname)
   .use(outline())
   .use(sections())
   .use(inplace({
-    pattern: '**/*.hbs',
-    rename: true
+    pattern: '**/*.html.hbs',
   }))
   .use(failmeta())
   .use(layouts({
@@ -170,23 +172,22 @@ metalsmith(__dirname)
   .use(highlight())
   .use(hacks())
   .use(inplace({
-    pattern: 'sitemap.xml'
+    pattern: '**/*.hbs',
   }))
-  .use(inplace({
-    pattern: 'slides/feed.xml'
-  }))
-  .use(msif((argv['check'] == true), internalize()))
+  .use(msif((argv['check'] == true), internalize({
+    verbose: !quiet
+  })))
   .use(msif((argv['check'] == true),
     spellcheck({ dicFile: 'dicts/en_US.dic',
                  affFile: 'dicts/en_US.aff',
                  exceptionFile: 'dicts/spelling_exceptions.json',
                  checkedPart: "div#content",
                  failErrors: false,
-                 verbose: true})))
+                 verbose: !quiet})))
   .use(msif((argv['check'] == true),
-    formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false })))
+    formatcheck({ verbose: !quiet , checkedPart: "div#content", failWithoutNetwork: false })))
   .use(msif((argv['check'] == true),
-    linkcheck({ verbose: true , failWithoutNetwork: false })))
+    linkcheck({ verbose: !quiet , failWithoutNetwork: false })))
   .use(msif((argv['deploy'] == true), clean_css({ files: 'css/*.css' })))
   .use(msif((argv['deploy'] == true), uglify()))
   .use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
