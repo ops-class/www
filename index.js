@@ -156,7 +156,6 @@ metalsmith(__dirname)
   .use(outline())
   .use(sections())
   .use(inplace({
-    engine: 'handlebars',
     pattern: '**/*.hbs',
     rename: true
   }))
@@ -171,17 +170,11 @@ metalsmith(__dirname)
   .use(highlight())
   .use(hacks())
   .use(inplace({
-    engine: 'handlebars',
     pattern: 'sitemap.xml'
   }))
   .use(inplace({
-    engine: 'handlebars',
     pattern: 'slides/feed.xml'
   }))
-  .use(msif((argv['deploy'] == true), clean_css({ files: 'css/*.css' })))
-  .use(msif((argv['deploy'] == true), uglify()))
-  .use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
-	.use(msif((argv['deploy'] == true), beautify({'indent_size': 2, 'css': false, 'js': false})))
   .use(msif((argv['check'] == true), internalize()))
   .use(msif((argv['check'] == true),
     spellcheck({ dicFile: 'dicts/en_US.dic',
@@ -194,6 +187,10 @@ metalsmith(__dirname)
     formatcheck({ verbose: true , checkedPart: "div#content", failWithoutNetwork: false })))
   .use(msif((argv['check'] == true),
     linkcheck({ verbose: true , failWithoutNetwork: false })))
+  .use(msif((argv['deploy'] == true), clean_css({ files: 'css/*.css' })))
+  .use(msif((argv['deploy'] == true), uglify()))
+  .use(msif((argv['deploy'] == true), rename([[/\.min\.js$/, ".js"]])))
+	.use(msif((argv['deploy'] == true), beautify({'indent_size': 2, 'css': false, 'js': false})))
   .clean(true)
   .build(function throwErr (err) {
     if (err) {

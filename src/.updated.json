@@ -1,0 +1,404 @@
+{
+    "index.html": {
+        "filename": "index.html",
+        "hash": "09630b8011e05bad7082e68c5f1d3af1",
+        "created": "2016-01-29T18:55:20.203Z",
+        "updated": "2016-02-28T15:36:59.683Z"
+    },
+    "asst/old/0.html": {
+        "filename": "asst/old/0.html",
+        "hash": "2779f60e9609ddf1d3c5aaaf397fb88f",
+        "created": "2016-01-29T18:55:20.203Z",
+        "updated": "2016-01-30T20:57:30.319Z"
+    },
+    "slides/intro.html": {
+        "filename": "slides/intro.html",
+        "hash": "0de5102a27785932022f4e56b391d5b6",
+        "created": "2016-01-29T18:55:20.203Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/processes.html": {
+        "filename": "slides/processes.html",
+        "hash": "979636c04106165e519aad55620357fd",
+        "created": "2016-01-29T18:55:20.203Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "asst/0.html": {
+        "filename": "asst/0.html",
+        "hash": "095e41fa95e1b3da8a851829c82614c8",
+        "created": "2016-01-29T18:55:20.203Z",
+        "updated": "2017-01-14T01:23:06.132Z"
+    },
+    "slides/processlifecycle.html": {
+        "filename": "slides/processlifecycle.html",
+        "hash": "7ec845fed0b8e30c102c3e8f6ba90307",
+        "created": "2016-02-01T18:52:20.199Z",
+        "updated": "2016-02-02T15:23:55.237Z"
+    },
+    "courses/index.html": {
+        "filename": "courses/index.html",
+        "hash": "dda6c713283d60c3093a39466cfbb15c",
+        "created": "2016-02-03T18:52:04.677Z",
+        "updated": "2016-02-04T12:58:39.582Z"
+    },
+    "slides/forksynch.html": {
+        "filename": "slides/forksynch.html",
+        "hash": "a8495939631be678946b158f1cb7a3e7",
+        "created": "2016-02-03T18:52:04.677Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "courses/UB_CSE421_Spring2016.html": {
+        "filename": "courses/UB_CSE421_Spring2016.html",
+        "hash": "dda6c713283d60c3093a39466cfbb15c",
+        "created": "2016-02-04T13:05:23.821Z",
+        "updated": "2016-02-04T13:05:23.821Z"
+    },
+    "courses/buffalo/CSE421_Spring2016.html": {
+        "filename": "courses/buffalo/CSE421_Spring2016.html",
+        "hash": "af5e93fa3e29d60aafd10d2715822b45",
+        "created": "2016-02-04T13:08:12.458Z",
+        "updated": "2016-12-30T14:30:30.109Z"
+    },
+    "exams/index.html": {
+        "filename": "exams/index.html",
+        "hash": "d4e34117b1e5f88edbc08078bbe905ea",
+        "created": "2016-02-04T17:23:08.527Z",
+        "updated": "2016-02-26T23:07:50.574Z"
+    },
+    "slides/index.html": {
+        "filename": "slides/index.html",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e",
+        "created": "2016-02-04T20:19:38.941Z",
+        "updated": "2016-02-04T20:29:03.286Z"
+    },
+    "slides/forkandfilehandles.html": {
+        "filename": "slides/forkandfilehandles.html",
+        "hash": "d7c329e21f3e2ba1bbe59f442db82e45",
+        "created": "2016-02-05T00:52:42.523Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/synchprimitives.html": {
+        "filename": "slides/synchprimitives.html",
+        "hash": "c9c669ed54769129bf15feb374205efd",
+        "created": "2016-02-05T02:31:57.756Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "asst/old/1.html": {
+        "filename": "asst/old/1.html",
+        "hash": "2b14d466f64768e8aab921845fb6d4e9",
+        "created": "2016-02-05T12:04:24.927Z",
+        "updated": "2016-02-05T16:24:20.771Z"
+    },
+    "asst/1.html": {
+        "filename": "asst/1.html",
+        "hash": "aacd9ef8d606ac7c4d7af995865234d0",
+        "created": "2016-02-05T12:04:24.927Z",
+        "updated": "2016-08-02T13:41:21.362Z"
+    },
+    "js/site/imakewebthings-waypoints-0944e15/test/fixtures/infinite.html": {
+        "filename": "js/site/imakewebthings-waypoints-0944e15/test/fixtures/infinite.html",
+        "hash": "ed2b0047d18e6a69632086fe8c9da0a3",
+        "created": "2016-02-06T14:17:38.426Z",
+        "updated": "2016-02-06T14:17:38.426Z"
+    },
+    "js/site/imakewebthings-waypoints-0944e15/test/fixtures/standard.html": {
+        "filename": "js/site/imakewebthings-waypoints-0944e15/test/fixtures/standard.html",
+        "hash": "b09c5e07ccaa7883958d38b9f832ff24",
+        "created": "2016-02-06T14:17:38.426Z",
+        "updated": "2016-02-06T14:17:38.426Z"
+    },
+    "js/site/imakewebthings-waypoints-0944e15/test/fixtures/sticky.html": {
+        "filename": "js/site/imakewebthings-waypoints-0944e15/test/fixtures/sticky.html",
+        "hash": "71b4026b5dfe882c350a62221bd85c91",
+        "created": "2016-02-06T14:17:38.426Z",
+        "updated": "2016-02-06T14:17:38.426Z"
+    },
+    "slides/synchproblems.html": {
+        "filename": "slides/synchproblems.html",
+        "hash": "44919e0fadfbd5cb88b16457ea1f797b",
+        "created": "2016-02-08T15:50:47.028Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "asst/old/2.html": {
+        "filename": "asst/old/2.html",
+        "hash": "1025fc6fa5fb1c2506a0e337c2f81209",
+        "created": "2016-02-08T18:15:12.515Z",
+        "updated": "2016-02-08T18:39:25.544Z"
+    },
+    "asst/2.html": {
+        "filename": "asst/2.html",
+        "hash": "370487b87b6cf8580db3043ec411d679",
+        "created": "2016-02-08T18:15:31.746Z",
+        "updated": "2016-08-02T14:03:22.293Z"
+    },
+    "slides/execwait.html": {
+        "filename": "slides/execwait.html",
+        "hash": "4d5cbe444738a82a7844f8a0b04f86db",
+        "created": "2016-02-09T13:05:54.006Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/interrupts.html": {
+        "filename": "slides/interrupts.html",
+        "hash": "3b165a28dfee60c1e110f652c2f49f6e",
+        "created": "2016-02-10T22:56:18.202Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "courses/buffalo/CSE421_Spring2015.html": {
+        "filename": "courses/buffalo/CSE421_Spring2015.html",
+        "hash": "bdcefb435a977f1cbb723c8ee20c9aaa",
+        "created": "2016-02-12T02:34:47.524Z",
+        "updated": "2016-02-13T14:36:44.300Z"
+    },
+    "courses/buffalo/CSE421_Spring2012.html": {
+        "filename": "courses/buffalo/CSE421_Spring2012.html",
+        "hash": "345cf2564e27edc09439015480df9009",
+        "created": "2016-02-12T02:37:06.347Z",
+        "updated": "2016-02-13T14:27:33.305Z"
+    },
+    "courses/buffalo/CSE421_Spring2013.html": {
+        "filename": "courses/buffalo/CSE421_Spring2013.html",
+        "hash": "71621bb1d507b78c0ccfbe2ad18ec096",
+        "created": "2016-02-12T02:37:06.347Z",
+        "updated": "2016-02-13T14:27:33.305Z"
+    },
+    "courses/buffalo/CSE421_Spring2014.html": {
+        "filename": "courses/buffalo/CSE421_Spring2014.html",
+        "hash": "e114c36197a685f47c3510736d3efe38",
+        "created": "2016-02-12T02:37:06.347Z",
+        "updated": "2016-02-13T14:36:44.300Z"
+    },
+    "404.html": {
+        "filename": "404.html",
+        "hash": "e058cb64a21f0e71a3fa7e7484c682ec",
+        "created": "2016-02-12T14:25:38.225Z",
+        "updated": "2016-02-12T14:47:46.371Z"
+    },
+    "test.html": {
+        "filename": "test.html",
+        "hash": "e058cb64a21f0e71a3fa7e7484c682ec",
+        "created": "2016-02-12T14:56:41.545Z",
+        "updated": "2016-02-12T14:56:41.545Z"
+    },
+    "403.html": {
+        "filename": "403.html",
+        "hash": "da00fb72979b08c756216a144e1e6042",
+        "created": "2016-02-12T15:02:47.610Z",
+        "updated": "2016-02-12T15:02:47.610Z"
+    },
+    "slides/multiprocessing.html": {
+        "filename": "slides/multiprocessing.html",
+        "hash": "2da2af11d3b4c6d5707d36a7904e6336",
+        "created": "2016-02-15T20:17:45.387Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "asst/test161.html": {
+        "filename": "asst/test161.html",
+        "hash": "12a44f92c3aea36840f9decedd3e2a87",
+        "created": "2016-02-16T20:12:16.592Z",
+        "updated": "2016-02-21T23:18:38.666Z"
+    },
+    "slides/contextswitching.html": {
+        "filename": "slides/contextswitching.html",
+        "hash": "7ba1e4640ce74d8f0442787d9e38da0f",
+        "created": "2016-02-18T22:11:02.261Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/schedulingintro.html": {
+        "filename": "slides/schedulingintro.html",
+        "hash": "2b3d6ab141d29e496867409a40047c6d",
+        "created": "2016-02-20T14:40:52.598Z",
+        "updated": "2016-02-20T15:30:13.194Z"
+    },
+    "slides/threading.html": {
+        "filename": "slides/threading.html",
+        "hash": "b1a0519e94bf326253293397f59f2c1d",
+        "created": "2016-02-20T14:40:52.598Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "asst/overview.html": {
+        "filename": "asst/overview.html",
+        "hash": "ddbc5e50dfe982a1a0422fa65403d4c0",
+        "created": "2016-02-25T21:58:39.034Z",
+        "updated": "2017-01-13T20:50:53.441Z"
+    },
+    "slides/schedulingstory.html": {
+        "filename": "slides/schedulingstory.html",
+        "hash": "81f367c08ef20ee27e7298cce2829769",
+        "created": "2016-02-26T23:07:50.574Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/simpleschedulers.html": {
+        "filename": "slides/simpleschedulers.html",
+        "hash": "ea646894ad9c2fe6f5deee35653a751c",
+        "created": "2016-02-26T23:07:50.574Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "asst/3.html": {
+        "filename": "asst/3.html",
+        "hash": "205e4f3f415a124a21c085aaa628accf",
+        "created": "2016-02-27T21:26:29.787Z",
+        "updated": "2016-08-02T13:41:21.362Z"
+    },
+    "slides/addressspaces.html": {
+        "filename": "slides/addressspaces.html",
+        "hash": "545e9a1f9db9acfa8db1c0b6bd102af7",
+        "created": "2016-03-01T21:46:12.984Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/virtualaddresses.html": {
+        "filename": "slides/virtualaddresses.html",
+        "hash": "8275a64a0d5f433efb1d1923a556d91d",
+        "created": "2016-03-02T20:07:31.421Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "asst/toolchain.html": {
+        "filename": "asst/toolchain.html",
+        "hash": "6dbd5fc1d55e23ba7eac20fd63fcf60a",
+        "created": "2016-03-05T15:18:22.063Z",
+        "updated": "2017-01-13T20:54:43.318Z"
+    },
+    "slides/addresstranslation.html": {
+        "filename": "slides/addresstranslation.html",
+        "hash": "cc48e77b1a7490ad93c404d92fb86ade",
+        "created": "2016-03-07T18:38:49.556Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/paging.html": {
+        "filename": "slides/paging.html",
+        "hash": "c2d85ea497b88cfebdd120a095fa5fd1",
+        "created": "2016-03-08T18:47:03.672Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/pagetranslation.html": {
+        "filename": "slides/pagetranslation.html",
+        "hash": "5b9a760c0a66a0e86685482df7231075",
+        "created": "2016-03-08T19:02:10.591Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/swapping.html": {
+        "filename": "slides/swapping.html",
+        "hash": "e6af6fb0b50be7278d40dde8d14c4578",
+        "created": "2016-03-21T19:58:32.334Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/pagereplacement.html": {
+        "filename": "slides/pagereplacement.html",
+        "hash": "f3fbb66e549ed3db309eb0f2c810bcd9",
+        "created": "2016-03-26T15:50:58.686Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/disks.html": {
+        "filename": "slides/disks.html",
+        "hash": "647148aabed220ddcded3efd2b21c0cb",
+        "created": "2016-04-01T17:03:40.044Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/files.html": {
+        "filename": "slides/files.html",
+        "hash": "d64218004dc22dfa78f5703ad32c4d0b",
+        "created": "2016-04-01T17:03:40.044Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/filesystems.html": {
+        "filename": "slides/filesystems.html",
+        "hash": "e508c9083fe8a7f340cf0f0ab4f15e89",
+        "created": "2016-04-03T11:47:27.312Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/filesystemstructures.html": {
+        "filename": "slides/filesystemstructures.html",
+        "hash": "b952aa1ea00be030006f222c5558df79",
+        "created": "2016-04-06T17:56:48.205Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/filesystemcaching.html": {
+        "filename": "slides/filesystemcaching.html",
+        "hash": "0809f11e6d5e59a82ac41255b37df3d9",
+        "created": "2016-04-08T16:31:37.557Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/ffslfs.html": {
+        "filename": "slides/ffslfs.html",
+        "hash": "692675c5679bb2382c10bc4f5e4b0d4e",
+        "created": "2016-04-09T12:58:48.823Z",
+        "updated": "2016-04-11T17:38:51.555Z"
+    },
+    "slides/ffs.html": {
+        "filename": "slides/ffs.html",
+        "hash": "01654572728fe5e7fceb4edcca034216",
+        "created": "2016-04-11T19:14:18.508Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/lfs.html": {
+        "filename": "slides/lfs.html",
+        "hash": "b5bf8078531eb6272d5d27e4e796eccb",
+        "created": "2016-04-11T19:14:18.508Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/raid.html": {
+        "filename": "slides/raid.html",
+        "hash": "2dcc29b20fa65d3c99ffa0d03d9a893c",
+        "created": "2016-04-14T12:22:45.148Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/virtualization.html": {
+        "filename": "slides/virtualization.html",
+        "hash": "3a03edce5d11eecf379b6c53fa9b169c",
+        "created": "2016-04-18T15:10:22.318Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/xen.html": {
+        "filename": "slides/xen.html",
+        "hash": "7809059082c6ed5c0f3f16d3fb054488",
+        "created": "2016-04-18T15:22:01.296Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/atlantis.html": {
+        "filename": "slides/atlantis.html",
+        "hash": "16706d53c6de26ae2ce486d6a6268106",
+        "created": "2016-04-21T17:52:07.473Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/performance.html": {
+        "filename": "slides/performance.html",
+        "hash": "51e566a465dceb74fdd4422fe8ee17b9",
+        "created": "2016-04-25T16:18:31.959Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/hints.html": {
+        "filename": "slides/hints.html",
+        "hash": "64c84c8c248264167bf672226a473f70",
+        "created": "2016-04-25T16:35:59.570Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/scaling.html": {
+        "filename": "slides/scaling.html",
+        "hash": "29bef99339ec2909a9f1ccbb93c298c9",
+        "created": "2016-04-25T16:35:59.570Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/cells.html": {
+        "filename": "slides/cells.html",
+        "hash": "e042a7630ac1a4cf7f4b6cfd43aac5a3",
+        "created": "2016-05-02T17:05:45.654Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "slides/exam.html": {
+        "filename": "slides/exam.html",
+        "hash": "064164623bd4c3720d9822d076c65a72",
+        "created": "2016-05-06T17:20:41.988Z",
+        "updated": "2017-01-29T21:30:42.554Z"
+    },
+    "courses/buffalo/CSE421_Spring2017.html": {
+        "filename": "courses/buffalo/CSE421_Spring2017.html",
+        "hash": "c97e6ec0ada3b925c69f4e4ebcd0f6db",
+        "created": "2016-11-30T17:29:58.401Z",
+        "updated": "2016-12-30T15:26:23.768Z"
+    },
+    "asst/setup.html": {
+        "filename": "asst/setup.html",
+        "hash": "5ec5447dc5e8a1630d99f95c7977bb1d",
+        "created": "2017-01-13T22:20:22.039Z",
+        "updated": "2017-01-17T17:42:38.054Z"
+    }
+}
