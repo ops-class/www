@@ -3,5 +3,12 @@ node_js:
   - "6.9.4"
 dist: trusty
 sudo: false
+notifications:
+  webhooks:
+    urls:
+      - https://www.ops-class.org/notifications
+    on_start: never
+    on_success: always
+    on_failure: never
 
 # vim: ts=2:sw=2:et
