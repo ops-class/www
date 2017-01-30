@@ -13,8 +13,8 @@ It also provides the behavior that copies the current "notes" to a "notes-target
 (function($, deck, undefined) {
     var $d = $(document);
     var clones = new Array();
-        
-    $.extend(true, $[deck].defaults, {	
+
+    $.extend(true, $[deck].defaults, {
         selectors: {
             clonepointer: '.clonepointer',
             cloneNotes: '.notes',
@@ -89,7 +89,7 @@ It also provides the behavior that copies the current "notes" to a "notes-target
         var pointers = $(opts.selectors.clonepointer);
         pointers.removeClass(opts.classes.pointerClick);
     });
-    
+
     var isClone = false;
     var parentDeck = null;
     /*
@@ -98,7 +98,7 @@ It also provides the behavior that copies the current "notes" to a "notes-target
     $d.bind('deck.init', function() {
         var opts = $[deck]('getOptions');
         var container = $[deck]('getContainer');
-        
+
         if (opts.snippets.clone) {
             var d = function() {return $('<div/>');}
             d().addClass("clonepointer scale-on-click").append(
@@ -160,7 +160,7 @@ It also provides the behavior that copies the current "notes" to a "notes-target
             $.each(clones, function(index, clone) {
                 clone.deck('go', to);
             });
-            
+
             var opts = $[deck]('getOptions');
             var currentTopLevel = $[deck]('getToplevelSlideOf', $[deck]('getSlide', to)).node;
             var notes = $(opts.selectors.cloneNotes, currentTopLevel).html();
@@ -198,7 +198,7 @@ It also provides the behavior that copies the current "notes" to a "notes-target
             clone.deck('pointerUp');
         });
     });
-    
+
     /*
         Simple Clone manager (must be improved, by for instance adding cloning
         option e.g. propagate change, etc.)

@@ -1,13 +1,12 @@
 ---
 title: "Introduction to CSE 421/521"
-date: 2017-01-30
+date: 2016-01-25
 author: Geoffrey Challen
 description: >
   Introduction to an introduction to operating systems, the course staff, and
   course policies.
 spelling_exceptions:
   - TA'd
-  - Bon Iver
 video: rEmxpc9C198
 ---
 [.nooutline]
@@ -18,15 +17,7 @@ video: rEmxpc9C198
 * Introduction to course content
 * Overview of course policies
 
-
-[.h4.center]
-icon:music[] https://boniver.org/["10 d E A T h b R E a s T ⚄ ⚄" by Bon Iver]
-
-[.h4.center]
-icon:music[] http://thebandjoseph.com/["(Burn the) White Flag" by Joseph]
-
-video::HNy7VtSsmu8[youtube,width=0,height=0]
-video::x3kXDMPwfMc[youtube,width=0,height=0]
+video::9L8yEDcZ-QI[youtube,width=320,height=180]
 
 == Why I'm Here
 

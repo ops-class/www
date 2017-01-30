@@ -15,7 +15,7 @@
     $w = $(window),
     timer, // Timeout id for debouncing
     rootSlides,
-    
+
     /*
       Internal function to do all the dirty work of scaling the slides.
     */
@@ -64,38 +64,38 @@
                 }
             });
         });
-        
+
     }
-    
+
     /*
       Extends defaults/options.
-      
+
       options.designWidth
       Defaults to 800. You may instead specify a width as a number
       of px and all slides will be scaled in the same way, considering their
       size is the provided one.
-      
+
       options.designHeight
       Defaults to 600. You may instead specify a height as a number
       of px and all slides will be scaled in the same way, considering their
       size is the provided one.
-      
+
       options.fitMode
       How to adapt the slide to the container.
       Only the following combinations are available for now:
       "center middle", "top left", "bottom right", "stretched"
-    
+
       options.fitMarginX
       options.fitMarginY
       Defaults to 5. Adds some margin in design space units.
       E.g., if the designe width is 800 and the margin is 5, the slide will be
       810 pixel wide before rescaling.
-    
+
       options.scaleDebounce
       Scaling on the browser resize event is debounced. This number is the
       threshold in milliseconds. You can learn more about debouncing here:
       http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
-      
+
     */
     $.extend(true, $[deck].defaults, {
         classes: {
@@ -104,7 +104,7 @@
         keys: {
             scale: 83 // s
         },
-        
+
         designWidth: 800,
         designHeight: 600,
         fitMode: "center middle",
@@ -112,30 +112,30 @@
         fitMarginY: 0,
         scaleDebounce: 200
     });
-    
+
     /*
       jQuery.deck('disableScale')
-      
+
       Disables scaling and removes the scale class from the deck container.
     */
     $[deck]('extend', 'disableScale', function() {
         $[deck]('getContainer').removeClass($[deck]('getOptions').classes.globalscale);
         scaleDeck();
     });
-    
+
     /*
       jQuery.deck('enableScale')
-      
+
       Enables scaling and adds the scale class to the deck container.
     */
     $[deck]('extend', 'enableScale', function() {
         $[deck]('getContainer').addClass($[deck]('getOptions').classes.globalscale);
         scaleDeck();
     });
-    
+
     /*
       jQuery.deck('toggleScale')
-      
+
       Toggles between enabling and disabling scaling.
     */
     $[deck]('extend', 'toggleScale', function() {
@@ -143,10 +143,10 @@
         $[deck]($c.hasClass($[deck]('getOptions').classes.globalscale) ?
                 'disableScale' : 'enableScale');
     });
-    
+
     $d.bind('deck.init', function() {
         var opts = $[deck]('getOptions');
-        
+
         // Debounce the resize scaling
         $w.unbind('resize.deckscale').bind('resize.deckscale', function() {
             window.clearTimeout(timer);
@@ -154,7 +154,7 @@
         })
         // Scale once on load, in case images or something change layout
             .unbind('load.deckscale').bind('load.deckscale', scaleDeck);
-        
+
         // Bind key events
         $d.unbind('keydown.deckscale').bind('keydown.deckscale', function(e) {
             if (e.which === opts.keys.scale || $.inArray(e.which, opts.keys.scale) > -1) {
@@ -162,7 +162,7 @@
                 e.preventDefault();
             }
         });
-        
+
         // Enable scale on init
         $[deck]('enableScale');
     });

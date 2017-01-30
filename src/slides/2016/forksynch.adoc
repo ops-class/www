@@ -185,10 +185,10 @@ if (returnCode == 0) {
   char data[14];
   read(pipeEnds[0], data, 16);
 } else {
-  
+
   # Don't need a loopback.
   close(pipeEnds[0]);
-  
+
   # Write some data to the pipe.
   write(pipeEnds[1], "Hello, sweet child!\n", 14);
 }
@@ -339,7 +339,7 @@ void giveGWATheMoolah(account_t account, int largeAmount) {
 
 | {nbsp}
 | {nbsp}
-| $1000 
+| $1000
 
 a|
 [source,c,role='smallest slide']
@@ -374,7 +374,7 @@ put_balance(account, gwaHas);
 
 | {nbsp}
 | {nbsp}
-| $1000 
+| $1000
 
 a|
 [source,c,role='smallest slide']
@@ -424,7 +424,7 @@ put_balance(account, gwaHas);
 
 | {nbsp}
 | {nbsp}
-| $1000 
+| $1000
 
 a|
 [source,c,role='smallest slide']

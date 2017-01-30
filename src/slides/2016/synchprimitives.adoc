@@ -28,7 +28,7 @@ icon:music[] {song}
 
 video::jq3-wZs64n4[youtube,width=0,height=0]
 video::{music}[youtube,width=0,height=0]
-  
+
 [.nooutline]
 == Today
 
@@ -93,7 +93,7 @@ void giveGWATheMoolah(account_t account, int largeAmount) {
 
 | {nbsp}
 | {nbsp}
-| $1000 
+| $1000
 
 a|
 [source,c,role='smallest slide']
@@ -129,7 +129,7 @@ put_balance(account, gwaHas);
 
 | {nbsp}
 | {nbsp}
-| $1000 
+| $1000
 
 a|
 [source,c,role='smallest slide']
@@ -180,7 +180,7 @@ put_balance(account, gwaHas);
 
 | {nbsp}
 | {nbsp}
-| $1000 
+| $1000
 
 a|
 [source,c,role='smallest slide']
@@ -478,13 +478,13 @@ void giveGWATheMoolah(account_t account, int largeAmount) {
 
 | {nbsp}
 | {nbsp}
-| $1000 
+| $1000
 
 a|
 [source,c,role='smallest slide']
 ----
 while (testAndSet(&payGWA, 1));
-int gwaHas = get_balance(account); 
+int gwaHas = get_balance(account);
 ----
 | {nbsp} | {nbsp}
 
@@ -510,7 +510,7 @@ while (testAndSet(&payGWA, 1));
 while (testAndSet(&payGWA, 1));
 while (testAndSet(&payGWA, 1));
 ----
-| {nbsp} 
+| {nbsp}
 
 |===
 

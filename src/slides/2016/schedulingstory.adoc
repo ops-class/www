@@ -643,7 +643,7 @@ nice  19 1111111111111111111111111111111111111110
 ----
 
 == Achieving Interactivity
-           
+
 [quote, Con Kolivas, role='spelling_exception']
 ____
 This design relies on the fact that interactive tasks, by their nature, sleep

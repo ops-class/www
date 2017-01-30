@@ -73,7 +73,7 @@ It also overrides the defaults keybinding and countNested value (so it is better
             toGo = $[deck]('getToplevelSlideOfIndex', toGo-1).index;
         }
         $[deck]('go', toGo);
-        
+
     });
     $[deck]('extend', 'nextTopLevelSlide', function() {
         /* Find the real next parent */
@@ -101,7 +101,7 @@ It also overrides the defaults keybinding and countNested value (so it is better
             }
         }
         if (icur == $[deck]('getSlides').length) {
-            $[deck]('go', icur-1);            
+            $[deck]('go', icur-1);
         }
     });
     $[deck]('extend', 'previousEndOfTopLevelSlide', function() {

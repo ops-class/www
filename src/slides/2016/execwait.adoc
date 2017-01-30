@@ -9,6 +9,8 @@ song:
   name: "Queen of Peace"
   author: "Florence and the Machine"
   youtube: 8crbgYBrgNU
+spelling_exceptions:
+  - Linkable
 video: a7l2Zj8pQ90
 ---
 [.nooutline.spelling_exception]

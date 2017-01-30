@@ -58,7 +58,7 @@
 			var pFull = n/fullTotal;
 			detail.p = detail.n/detail.N;
 			detail.pFull = detail.n/detail.fullTotal;
-			// 
+			//
 			progresses.each(function(i, el) {
 				var spe = {
 					bottom: function(fontSize, botByRatio, botFixed) {

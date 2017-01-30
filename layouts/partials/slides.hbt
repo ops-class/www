@@ -1,0 +1,29 @@
+<a class="anchor" id="_{{ slug }}"></a>
+<div class="row" style="margin-bottom:10px;">
+	<div class="col-xs-12 hidden-xs hidden-sm col-md-2">
+		{{#if video}}
+		<a href="/{{ path }}" title="{{ description }}">
+			<img style="width:100%" src="//i.ytimg.com/vi/{{ video }}/mqdefault.jpg"
+													 alt="YouTube thumbnail" />
+		</a>
+		{{/if}}
+	</div>
+	<div class="col-xs-12 col-md-10">
+		<span class="h3">
+			<a href="/{{ path }}">{{ format_date date "normal"}}. {{{ title }}}</a>
+		</span>
+		<br/>
+		<ul class="list-inline dash-list">
+			<li><a href="/{{ path }}">Notes</a></li>
+			<li><a class="external" target="_blank" href="/{{ path }}deck.html">Slides</a></li>
+			{{#if video}}
+			<li><a href="https://www.youtube.com/watch?v={{ video }}">YouTube</a></li>
+			{{/if}}
+		</ul>
+		<p class="lead">{{{ description }}}</p>
+	</div>
+</div>
+
+<!--
+  vim: ts=2:sw=2:et:ft=html
+-->

@@ -4,7 +4,7 @@
       $next = $[deck]('getSlide', to+1),
       $oldprev = $[deck]('getSlide', from-1),
       $oldnext = $[deck]('getSlide', from+1);
-      
+
       var direction = "forward";
       if(from > to){
         direction = "reverse";

@@ -45,11 +45,11 @@
 
             var requestFrame = (function(){
               var r = 'RequestAnimationFrame';
-              return window.requestAnimationFrame || 
-                window['webkit'+r] || 
-                window['moz'+r] || 
-                window['o'+r] || 
-                window['ms'+r] || 
+              return window.requestAnimationFrame ||
+                window['webkit'+r] ||
+                window['moz'+r] ||
+                window['o'+r] ||
+                window['ms'+r] ||
                 function( callback ) {
                   window.setTimeout(callback, 1000 / 60);
                 };
@@ -307,7 +307,7 @@
 
             // copy the amount of lines into steps
             this.step = o.lines;
-            
+
             // double-up for retina screens
             if (!!window.devicePixelRatio) {
                 // lock element into desired end size

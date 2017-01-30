@@ -46,6 +46,7 @@ var quiet = (argv['quiet'] == true);
 
 handlebars.registerPartial('header', fs.readFileSync('layouts/partials/header.hbt').toString());
 handlebars.registerPartial('footer', fs.readFileSync('layouts/partials/footer.hbt').toString());
+handlebars.registerPartial('slides', fs.readFileSync('layouts/partials/slides.hbt').toString());
 handlebars.registerHelper('format_date', common.format_date);
 
 var slides_pattern = 'slides/**/*.adoc';

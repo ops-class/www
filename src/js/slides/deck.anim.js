@@ -80,7 +80,7 @@ https://github.com/imakewebthings/deck.js/blob/master/MIT-license.txt
                 });
             });
         };
-        
+
         // here come the real animations
         classical(o.selectors.animShow, {
             init: function(c) {c.all().animate({'opacity': 0.}, 0)},
@@ -98,13 +98,13 @@ https://github.com/imakewebthings/deck.js/blob/master/MIT-license.txt
             init: function(c) {c.all().each(function() { this.classList.remove(c.classs()) })},
             undo: function(c) {c.all().each(function() { this.classList.remove(c.classs()) })},
             doit: function(c) {c.all().each(function() { this.classList.add(c.classs()) })},
-            fast: function(c) {c.all().each(function() { this.classList.add(c.classs()) })} 
+            fast: function(c) {c.all().each(function() { this.classList.add(c.classs()) })}
         });
         classical(o.selectors.animRemoveClass, {
             init: function(c) {c.all().each(function() { this.classList.add(c.classs()) })},
             undo: function(c) {c.all().each(function() { this.classList.add(c.classs()) })},
             doit: function(c) {c.all().each(function() { this.classList.remove(c.classs()) })},
-            fast: function(c) {c.all().each(function() { this.classList.remove(c.classs()) })} 
+            fast: function(c) {c.all().each(function() { this.classList.remove(c.classs()) })}
         });
         function svgRealAttrName(a) {
             if (startsWith(a, "svg")) {
@@ -286,7 +286,7 @@ https://github.com/imakewebthings/deck.js/blob/master/MIT-license.txt
         var current = $[deck]('getSlide')
         var icur = 0
         for (; icur < $[deck]('getSlides').length; icur++) {
-            if ($[deck]('getSlides')[icur] == current) break;                
+            if ($[deck]('getSlides')[icur] == current) break;
         }
 	$d.trigger("deck.change", [icur, 0]);
 	$d.trigger("deck.change", [0, icur]);
@@ -297,6 +297,6 @@ https://github.com/imakewebthings/deck.js/blob/master/MIT-license.txt
     $(document).bind('deck.init', function() {
         doInit();
     });
-        
+
 })(jQuery, 'deck');
 

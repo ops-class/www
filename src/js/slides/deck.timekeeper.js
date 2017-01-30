@@ -13,7 +13,7 @@ It also injects some default html for it if none is found (and styles it for the
 (function($, deck, undefined) {
     var $d = $(document);
 
-    $.extend(true, $[deck].defaults, {	
+    $.extend(true, $[deck].defaults, {
         selectors: {
             timekeeper: ".timekeeper", /* inject if this is not present */ // TODO inject
             timekeeperTime: ".timekeeper-time",
@@ -143,7 +143,7 @@ It also injects some default html for it if none is found (and styles it for the
             var dbtime = formatTime(now - localBase);
             var dcbtime = formatTime(now - base);
             var log = time.replace(/GMT.*/, "") + " " + what + " " + dcb + " " + db + " " + dcbtime + " " + dbtime;
-            
+
             var data = localStorage.getItem(opts.localStorage.timekeeperLogs);
             data = log + "\n" + data;
             localStorage.setItem(opts.localStorage.timekeeperLogs, data);
@@ -156,7 +156,7 @@ It also injects some default html for it if none is found (and styles it for the
             log(from + " " + to);
             saveCurrent = to;
         });
-        
+
         // Bind key event to add a marker in the logs
         var $d = $(document);
         var doBang = function() {
@@ -204,7 +204,7 @@ It also injects some default html for it if none is found (and styles it for the
                 $(opts.selectors.timekeeperLocalRelativeTime).html(time);
             }
         }, period);
-    
+
     });
 
 })(jQuery, 'deck');

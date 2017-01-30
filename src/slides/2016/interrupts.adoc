@@ -8,7 +8,7 @@ description: >
 song:
   name: "Friday I'm In Love"
   author: "The Cure"
-  youtube: wa2nLEhUcZ0 
+  youtube: wa2nLEhUcZ0
 spelling_exceptions:
   - IRQ
   - ISR

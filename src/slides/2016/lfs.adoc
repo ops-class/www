@@ -7,6 +7,7 @@ description: >
 spelling_exceptions:
   - John Ousterhout
   - Mendel Rosenblum
+  - reimplementation
 song:
   name: "Righteous Path"
   author: "Drive By Truckers"
@@ -60,7 +61,7 @@ OK, so what's different about *disks*?
 * Disk *bandwidth* is improving rapidly, meaning the operating system
 can stream reads or writes to the disk _faster_.
 * Computers have *more memory*. Up to _128 MB_! (Whoa.)
-* And, alas, disk seek times are ... [.slide]#still dog slow!#
+* And, alas, disk seek times are &hellip; [.slide]#still dog slow!#
 
 == Using What We Got
 
@@ -87,7 +88,7 @@ that be useful?
 * With a large cache, we should be able to avoid doing almost any disk
 *reads*.
 * But we will still have to do disk *writes*, but the cache will still
-help collect small writes in memory until we can do one larger write..
+help collect small writes in memory until we can do one larger write.
 
 [.slide]
 --

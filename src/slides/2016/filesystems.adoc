@@ -65,7 +65,7 @@ Each file has to have a unique name. No problem!
 [.slide]
 --
 Flat name spaces were actually used by some early file systems but
-naming gets gross fast...
+naming gets gross fast&hellip;
 --
 
 == Hierarchical Implications
@@ -131,7 +131,7 @@ image:figures/disks/treefilesystem.svg[image,width="35%"]
 Trees produce a *single* canonical name for each file on the system as
 well as an infinite number of *relative* names:
 
-[.slider]
+[.slider.spelling_exception]
 * *Canonical name:* /you/used/to/love/well
 * *Relative name:* /you/used/to/love/me/../well
 * *Relative name:* love/me/../../love/me/../well
@@ -139,7 +139,7 @@ well as an infinite number of *relative* names:
 [.spelling_exception.nooutline]
 == Sestina, by Clara Shuttleworth
 
-[quote,Clara Shuttleworth,role='small']
+[quote,Clara Shuttleworth,role='small spelling_exception']
 ____
 You used to love me well. +
 Well, you— me— used love to... +

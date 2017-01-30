@@ -13,9 +13,9 @@
     },
     "slides/intro.html": {
         "filename": "slides/intro.html",
-        "hash": "0de5102a27785932022f4e56b391d5b6",
+        "hash": "051000a2c76a3f131df240c2fcd1cf0d",
         "created": "2016-01-29T18:55:20.203Z",
-        "updated": "2017-01-29T21:30:42.554Z"
+        "updated": "2017-01-30T05:39:44.145Z"
     },
     "slides/processes.html": {
         "filename": "slides/processes.html",
@@ -301,9 +301,9 @@
     },
     "slides/filesystems.html": {
         "filename": "slides/filesystems.html",
-        "hash": "e508c9083fe8a7f340cf0f0ab4f15e89",
+        "hash": "0e2cb6d2077fed5712d2629f6a8b01f0",
         "created": "2016-04-03T11:47:27.312Z",
-        "updated": "2017-01-29T21:30:42.554Z"
+        "updated": "2017-01-30T05:31:39.429Z"
     },
     "slides/filesystemstructures.html": {
         "filename": "slides/filesystemstructures.html",
@@ -331,9 +331,9 @@
     },
     "slides/lfs.html": {
         "filename": "slides/lfs.html",
-        "hash": "b5bf8078531eb6272d5d27e4e796eccb",
+        "hash": "aa0bbacdface2a39d9917a02e94d3d9e",
         "created": "2016-04-11T19:14:18.508Z",
-        "updated": "2017-01-29T21:30:42.554Z"
+        "updated": "2017-01-30T05:25:35.469Z"
     },
     "slides/raid.html": {
         "filename": "slides/raid.html",
@@ -400,5 +400,227 @@
         "hash": "b1e4e5e14eba281b824da53c5f716577",
         "created": "2017-01-13T22:20:22.039Z",
         "updated": "2017-01-30T04:24:26.239Z"
+    },
+    "slides/2016/addressspaces.html": {
+        "filename": "slides/2016/addressspaces.html",
+        "hash": "545e9a1f9db9acfa8db1c0b6bd102af7",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/addresstranslation.html": {
+        "filename": "slides/2016/addresstranslation.html",
+        "hash": "cc48e77b1a7490ad93c404d92fb86ade",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/cells.html": {
+        "filename": "slides/2016/cells.html",
+        "hash": "e042a7630ac1a4cf7f4b6cfd43aac5a3",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/atlantis.html": {
+        "filename": "slides/2016/atlantis.html",
+        "hash": "16706d53c6de26ae2ce486d6a6268106",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/contextswitching.html": {
+        "filename": "slides/2016/contextswitching.html",
+        "hash": "7ba1e4640ce74d8f0442787d9e38da0f",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/disks.html": {
+        "filename": "slides/2016/disks.html",
+        "hash": "647148aabed220ddcded3efd2b21c0cb",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/exam.html": {
+        "filename": "slides/2016/exam.html",
+        "hash": "064164623bd4c3720d9822d076c65a72",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/execwait.html": {
+        "filename": "slides/2016/execwait.html",
+        "hash": "4d5cbe444738a82a7844f8a0b04f86db",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/ffs.html": {
+        "filename": "slides/2016/ffs.html",
+        "hash": "01654572728fe5e7fceb4edcca034216",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/files.html": {
+        "filename": "slides/2016/files.html",
+        "hash": "d64218004dc22dfa78f5703ad32c4d0b",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/filesystemcaching.html": {
+        "filename": "slides/2016/filesystemcaching.html",
+        "hash": "0809f11e6d5e59a82ac41255b37df3d9",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/filesystems.html": {
+        "filename": "slides/2016/filesystems.html",
+        "hash": "0e2cb6d2077fed5712d2629f6a8b01f0",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/filesystemstructures.html": {
+        "filename": "slides/2016/filesystemstructures.html",
+        "hash": "b952aa1ea00be030006f222c5558df79",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/forkandfilehandles.html": {
+        "filename": "slides/2016/forkandfilehandles.html",
+        "hash": "d7c329e21f3e2ba1bbe59f442db82e45",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/forksynch.html": {
+        "filename": "slides/2016/forksynch.html",
+        "hash": "a8495939631be678946b158f1cb7a3e7",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/hints.html": {
+        "filename": "slides/2016/hints.html",
+        "hash": "64c84c8c248264167bf672226a473f70",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/interrupts.html": {
+        "filename": "slides/2016/interrupts.html",
+        "hash": "3b165a28dfee60c1e110f652c2f49f6e",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/intro.html": {
+        "filename": "slides/2016/intro.html",
+        "hash": "2336ca550bda9b11a439ab469bdfcb7e",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/lfs.html": {
+        "filename": "slides/2016/lfs.html",
+        "hash": "aa0bbacdface2a39d9917a02e94d3d9e",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/multiprocessing.html": {
+        "filename": "slides/2016/multiprocessing.html",
+        "hash": "2da2af11d3b4c6d5707d36a7904e6336",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/pagereplacement.html": {
+        "filename": "slides/2016/pagereplacement.html",
+        "hash": "f3fbb66e549ed3db309eb0f2c810bcd9",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/pagetranslation.html": {
+        "filename": "slides/2016/pagetranslation.html",
+        "hash": "5b9a760c0a66a0e86685482df7231075",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/paging.html": {
+        "filename": "slides/2016/paging.html",
+        "hash": "c2d85ea497b88cfebdd120a095fa5fd1",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/performance.html": {
+        "filename": "slides/2016/performance.html",
+        "hash": "51e566a465dceb74fdd4422fe8ee17b9",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/processes.html": {
+        "filename": "slides/2016/processes.html",
+        "hash": "979636c04106165e519aad55620357fd",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/raid.html": {
+        "filename": "slides/2016/raid.html",
+        "hash": "2dcc29b20fa65d3c99ffa0d03d9a893c",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/scaling.html": {
+        "filename": "slides/2016/scaling.html",
+        "hash": "29bef99339ec2909a9f1ccbb93c298c9",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/schedulingintro.html": {
+        "filename": "slides/2016/schedulingintro.html",
+        "hash": "2b3d6ab141d29e496867409a40047c6d",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/schedulingstory.html": {
+        "filename": "slides/2016/schedulingstory.html",
+        "hash": "81f367c08ef20ee27e7298cce2829769",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/simpleschedulers.html": {
+        "filename": "slides/2016/simpleschedulers.html",
+        "hash": "ea646894ad9c2fe6f5deee35653a751c",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/swapping.html": {
+        "filename": "slides/2016/swapping.html",
+        "hash": "e6af6fb0b50be7278d40dde8d14c4578",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/synchprimitives.html": {
+        "filename": "slides/2016/synchprimitives.html",
+        "hash": "c9c669ed54769129bf15feb374205efd",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/synchproblems.html": {
+        "filename": "slides/2016/synchproblems.html",
+        "hash": "44919e0fadfbd5cb88b16457ea1f797b",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/threading.html": {
+        "filename": "slides/2016/threading.html",
+        "hash": "b1a0519e94bf326253293397f59f2c1d",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/virtualaddresses.html": {
+        "filename": "slides/2016/virtualaddresses.html",
+        "hash": "8275a64a0d5f433efb1d1923a556d91d",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/virtualization.html": {
+        "filename": "slides/2016/virtualization.html",
+        "hash": "3a03edce5d11eecf379b6c53fa9b169c",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
+    },
+    "slides/2016/xen.html": {
+        "filename": "slides/2016/xen.html",
+        "hash": "7809059082c6ed5c0f3f16d3fb054488",
+        "created": "2017-01-30T05:39:44.145Z",
+        "updated": "2017-01-30T05:39:44.145Z"
     }
 }
