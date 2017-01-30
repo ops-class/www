@@ -37,11 +37,11 @@ var metalsmith = require('metalsmith'),
 
 var handlebars = require('handlebars'),
     fs = require('fs'),
-    common = require('./lib/common.js');
+    common = require('./lib/common.js'),
+    _ = require('underscore');
 
-var argv = require('minimist')(process.argv.slice(2)),
-    segfault_handler = require('segfault-handler');
-segfault_handler.registerHandler(".crash.log");
+var argv = require('minimist')(process.argv.slice(2));
+
 var quiet = (argv['quiet'] == true);
 
 handlebars.registerPartial('header', fs.readFileSync('layouts/partials/header.hbt').toString());
@@ -129,6 +129,18 @@ metalsmith(__dirname)
         reverse: true
       }
     }))
+    .use(function (files, metalsmith, done) {
+      var metadata = metalsmith.metadata();
+      var slides = metadata.collections.slides;
+      _.each(slides, function (s) {
+        var year = s.date.getFullYear();
+        if (!(year in slides)) {
+          slides[year] = [];
+        }
+        slides[year].push(s);
+      });
+      done();
+    })
   )
   .use(github())
   .use(asciidoc())

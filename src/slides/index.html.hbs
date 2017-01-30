@@ -14,7 +14,7 @@ changefreq: weekly
 		<a class="anchor" id="_top"></a>
 
 		<p class="lead">
-		Below find lecture slides and videos for 2016 as well as videos for
+		Below find lecture slides and videos for 2017 and 2016 along with videos for
 		previous years.
 		</p>
 
@@ -28,6 +28,20 @@ changefreq: weekly
 			YouTube channel</a>.
 		</p>
 
+		<h2>2017</h2>
+		<ul class="list-inline dash-list h5">
+			<li>
+			<a href="/courses/buffalo/CSE421_Spring2017/">
+				Course Page
+			</a>
+			</li>
+		</ul>
+		<hr />
+		{{#each collections.slides.[2017]}}
+		{{> slides }}
+		{{/each}}
+
+		<a class="anchor" id="_2016"></a>
 		<h2>2016</h2>
 		<ul class="list-inline dash-list h5">
 			<li>
@@ -52,7 +66,7 @@ changefreq: weekly
 			</li>
 		</ul>
 		<hr />
-		{{#each collections.slides}}
+		{{#each collections.slides.[2016]}}
 		{{> slides }}
 		{{/each}}
 		<div class="row hidden-md hidden-lg" style="margin-bottom:10px;">
@@ -151,9 +165,16 @@ changefreq: weekly
 					Subscribe
 				</a>
 			</li>
-			<li class="h5"><a href="#_top">2016</a>
+			<li class="h5"><a href="#_top">2017</a>
 			<ul class="nav">
-				{{#each collections.slides}}
+				{{#each collections.slides.[2017]}}
+				<li class="h5"><a href="#_{{ slug }}">{{ title }}</a></li>
+				{{/each}}
+			</ul>
+			</li>
+			<li class="h5"><a href="#_2016">2016</a>
+			<ul class="nav">
+				{{#each collections.slides.[2016]}}
 				<li class="h5"><a href="#_{{ slug }}">{{ title }}</a></li>
 				{{/each}}
 			</ul>
