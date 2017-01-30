@@ -13,7 +13,7 @@
   },
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node index.js . --check --quiet"
   },
   "keywords": [
     "Operating systems",
@@ -56,7 +56,7 @@
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-register-partials": "^1.0.2",
     "metalsmith-rename": "^1.0.0",
-    "metalsmith-spellcheck": "^0.2.4",
+    "metalsmith-spellcheck": "^0.2.5",
     "metalsmith-uglify": "^1.5.1",
     "metalsmith-updated": "^0.1.6",
     "minimatch": "^3.0.3",
@@ -69,6 +69,7 @@
   },
   "devDependencies": {
     "git-json-merge": "^0.4.0",
+    "git-rev-sync": "^1.8.0",
     "segfault-handler": "^1.0.0"
   }
 }
