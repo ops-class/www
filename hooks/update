@@ -1,59 +1,54 @@
 #!/usr/bin/env bash
 
-LOCKFILE="/home/git/www/www.ops-class.org/deploy.lock"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
+LOCKFILE=$DIR/deploy.lock
 LOCKFD=99
 
-_lock()             { flock -$1 $LOCKFD; }
-_no_more_locking()  { _lock u; _lock xn && rm -f $LOCKFILE; }
-_prepare_locking()  { eval "exec $LOCKFD>\"$LOCKFILE\""; trap _no_more_locking EXIT; }
+_lock() {
+  flock -$1 $LOCKFD
+}
+_no_more_locking() {
+  _lock u
+  _lock xn && rm -f $LOCKFILE && popd > /dev/null 2>&1
+}
+_prepare_locking() {
+  eval "exec $LOCKFD>\"$LOCKFILE\""
+  trap _no_more_locking EXIT
+}
+exlock_now() {
+  _lock xn
+}
 
-_prepare_locking
+{
+  _prepare_locking
+  exlock_now || exit 0
 
-exlock_now()        { _lock xn; }
+  pushd $DIR > /dev/null 2>&1
+  git fetch origin
+  if ! [ -z "$1" ]; then
+    git reset --hard $1
+    if [ -z "$2" ]; then
+      cp $2 .build.json
+      rm -f $2
+    fi
+  else
+    rm -f .build.json
+  fi
+  git clean -df
+  if make install; then
+    sudo mkdir -p /mnt/ramdisk/www.ops-class.org/
+    sudo chown challen:challen /mnt/ramdisk/www.ops-class.org/
+    rsync -crlpgoDq --delete .build/* /mnt/ramdisk/www.ops-class.org/
+    sudo touch /mnt/ramdisk/nginx/pagespeed_cache/cache.flush
+    rm -rf .build
+  else
+    FAILED=1
+  fi
+} > $DIR/.build.output 2>&1
 
-if ! [ -z "$1" ] && ! [ "refs/heads/master" == "$1" ]; then
-  exit 0
-fi
-
-exlock_now || exit 0
-
-export HOME="/home/git/"
-WORKING_DIR=$HOME/www/www.ops-class.org/
-PATCH_FILE=/tmp/ops-patch
-
-if ! [ -z "$3" ]; then
-	git diff --binary $2 $3 > $PATCH_FILE
-  unset GIT_DIR
-  cd $WORKING_DIR
-	git clean -df > /dev/null
-  git fetch origin > /dev/null
-  git reset --hard $2 > /dev/null
-	if [ -f $PATCH_FILE ]; then
-		git apply $PATCH_FILE > /dev/null >> /dev/null
-		rm -f $PATCH_FILE
-	else
-		echo "Warning: patch file is empty"
-	fi
-else
-  cd $WORKING_DIR
-	git clean -df > /dev/null
-  git fetch origin > /dev/null
-  git reset --hard origin/master > /dev/null
-fi
-
-echo "Building www.ops-class.org..."
-
-NVM_DIR="/home/git/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-npm install
-if node index.js --check --deploy; then
-  rsync -crlpgoDi --delete .build/* /mnt/ramdisk/www.ops-class.org/www/ | while read unused filename; do
-    curl --request PURGE 'http://127.0.0.1/$filename' > /dev/null 2> /dev/null
-    echo "Updated $filename"
-  done
-  echo "Success. Thanks for updating the website."
-else
-  echo "Failed. Please try again."
+if [ ! -z "$FAILED" ]; then
+  echo "Build failed"
   exit 1
 fi
+
+# vim: ts=2:sw=2:et:tw=0
