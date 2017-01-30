@@ -696,9 +696,11 @@ all the kernel threads that are created.  This process is created by calling
 `proc_bootstrap`. Try to track down when and where this happens.
 
 == Scheduling
-Although implementing a scheduler is not part of the assignments, the scheduler
-is a critical components of most operating system. Your OS/161 code
-also implements a scheduler.
+
+Although implementing a scheduler is not part of the assignment, the scheduler
+is a critical components of most operating system.
+//
+Your OS/161 code already implements a scheduler:
 
 ++++
 <div class="col-md-12">

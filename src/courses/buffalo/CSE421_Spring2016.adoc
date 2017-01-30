@@ -44,6 +44,37 @@ performance and introduce the idea of hardware virtualization. Programming
 assignments provide hands-on experience with implementing core operating
 system components in a realistic development environment.
 
+== Evaluations
+
+[cols="60,^40"]
+|===
+
+| Enrollment | 114
+| Response Rate (%) | 94
+| Instructor Rating (out of 5)| 4.37
+| Course Rating (out of 5) | 3.97
+
+|===
+
+Full evaluation results are available
+//
+link:/courses/buffalo/CSE421_Spring2016_Evaluations.pdf[here].
+//
+Note that this year we rolled out the new
+https://test161.ops-class.org[`test161`] OS/161 automated testing framework.
+//
+This had the result of making the assignments more challenging, particularly
+for the undergraduates enrolled in the course.
+//
+We plan to address this issue in future years.
+//
+However, due to ongoing curriculum revisions we anticipate that operating
+systems will no longer be a required course for undergraduates within a few
+years.
+//
+At that point the difficult level may prove appropriate for a self-selected
+group of students.
+
 == Information
 
 === Course Staff

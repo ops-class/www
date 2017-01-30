@@ -7,6 +7,29 @@ priority: 0.6
 changefreq: never
 ---
 
+== Evaluations
+
+[cols="60,^40"]
+|===
+
+| Enrollment | 133
+| Response Rate (%) | 94
+| Instructor Rating (out of 5)| 4.65
+| Course Rating (out of 5) | 4.24
+
+|===
+
+Full evaluation results are available
+//
+link:/courses/buffalo/CSE421_Spring2015_Evaluations.pdf[here].
+//
+Note that beginning in 2014&ndash;2015, when the University at Buffalo adopted
+a new course evaluation system provided by
+//
+http://www.campuslabs.com/[Campus Labs],
+//
+results from 421 and 521 cohorts were no longer available separately.
+
 == Videos
 
 === Lectures

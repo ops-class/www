@@ -13,9 +13,9 @@
     },
     "slides/intro.html": {
         "filename": "slides/intro.html",
-        "hash": "051000a2c76a3f131df240c2fcd1cf0d",
+        "hash": "21f99a336bb9ee45bb56ba2e5977536c",
         "created": "2016-01-29T18:55:20.203Z",
-        "updated": "2017-01-30T05:39:44.145Z"
+        "updated": "2017-01-30T18:30:20.482Z"
     },
     "slides/processes.html": {
         "filename": "slides/processes.html",
@@ -55,9 +55,9 @@
     },
     "courses/buffalo/CSE421_Spring2016.html": {
         "filename": "courses/buffalo/CSE421_Spring2016.html",
-        "hash": "af5e93fa3e29d60aafd10d2715822b45",
+        "hash": "6de2f634f36d1dc9993f008806958ce5",
         "created": "2016-02-04T13:08:12.458Z",
-        "updated": "2016-12-30T14:30:30.109Z"
+        "updated": "2017-01-30T17:36:39.369Z"
     },
     "exams/index.html": {
         "filename": "exams/index.html",
@@ -127,9 +127,9 @@
     },
     "asst/2.html": {
         "filename": "asst/2.html",
-        "hash": "370487b87b6cf8580db3043ec411d679",
+        "hash": "6bc94fadd658fbd0431d066b229dd704",
         "created": "2016-02-08T18:15:31.746Z",
-        "updated": "2016-08-02T14:03:22.293Z"
+        "updated": "2017-01-30T15:39:31.707Z"
     },
     "slides/execwait.html": {
         "filename": "slides/execwait.html",
@@ -145,9 +145,9 @@
     },
     "courses/buffalo/CSE421_Spring2015.html": {
         "filename": "courses/buffalo/CSE421_Spring2015.html",
-        "hash": "bdcefb435a977f1cbb723c8ee20c9aaa",
+        "hash": "172f01ac9edbec43d49ba99635def2bc",
         "created": "2016-02-12T02:34:47.524Z",
-        "updated": "2016-02-13T14:36:44.300Z"
+        "updated": "2017-01-30T17:34:22.382Z"
     },
     "courses/buffalo/CSE421_Spring2012.html": {
         "filename": "courses/buffalo/CSE421_Spring2012.html",
@@ -391,9 +391,9 @@
     },
     "courses/buffalo/CSE421_Spring2017.html": {
         "filename": "courses/buffalo/CSE421_Spring2017.html",
-        "hash": "c97e6ec0ada3b925c69f4e4ebcd0f6db",
+        "hash": "7fcf960f0b3f877df3dee2dd90464132",
         "created": "2016-11-30T17:29:58.401Z",
-        "updated": "2016-12-30T15:26:23.768Z"
+        "updated": "2017-01-30T18:11:07.711Z"
     },
     "asst/setup.html": {
         "filename": "asst/setup.html",

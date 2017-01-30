@@ -7,10 +7,11 @@ description: >
   course policies.
 spelling_exceptions:
   - TA'd
-  - Bon Iver
-video: rEmxpc9C198
+  - RateMyProfessor
 ---
+
 [.nooutline]
+//
 == Welcome to CSE 421/521
 
 .Today:
@@ -20,12 +21,8 @@ video: rEmxpc9C198
 
 
 [.h4.center]
-icon:music[] https://boniver.org/["10 d E A T h b R E a s T ⚄ ⚄" by Bon Iver]
-
-[.h4.center]
 icon:music[] http://thebandjoseph.com/["(Burn the) White Flag" by Joseph]
 
-video::HNy7VtSsmu8[youtube,width=0,height=0]
 video::x3kXDMPwfMc[youtube,width=0,height=0]
 
 == Why I'm Here
@@ -68,10 +65,21 @@ Took this class
 [.meme-bottom]
 Became a professor
 
+== !
+
+[.background]
+image:http://laschoolreport.com/wp-content/uploads/2013/08/Sad-Teacher.jpg[]
+
+[.meme-top]
+Spent time and energy on this class
+
+[.meme-bottom.slide]
+Got fired
+
 [.nooutline]
 == Why Are You Here?
 
-== Introducing the 2015 Course Staff
+== Introducing the 2017 Course Staff
 
 == !
 
@@ -85,7 +93,7 @@ Meet
 Your new best friends
 
 [.nooutline]
-== Introducing the 2015 Course Staff
+== Introducing the 2017 Course Staff
 
 We probably have the *best* course staff ever this year: a mixture of new
 TAs, veteran volunteers, and a large group of "ninjas"&mdash;students returning
@@ -93,48 +101,62 @@ from last year to help out.
 
 .Official Teaching Assistants
 [.slider]
-. *Jerry Ajay*
-. *Ali Ben Ali*
-. *Xu Zhen*
+. *Ali Ben Ali* (returning from last year)
+. *Carl Nuessle* (returning from forever)
+. *Vicky Zheng* (took the class last year)
 
 [.slide]
 --
-Ali and Jerry will teach recitations, and all three TAs will mark all graded
-work.
+We're still working out roles, but you'll probably see all three TAs in
+recitation and office hours.
+//
+They will also work together to mark all human-graded work.
+--
+
+<<<
+
+.Ninjas:
+[.slider.small]
+. *Brijesh Rakholia*
+. *Grant Wrazen*
+. *Rob Rymarczyk*
+. *Zach Wieand*
+. *William Burgin*
+. *Meg Arnold*
+. *Matthew McGovern*
+. *Sriram Shantharam*
+. *Adhish Chugh*
+. *Ben Rueda*
+. *Timothy Elinger*
+
+[.slide]
+//
+--
+//
+Our ninjas are all (excellent) returning 2016 students.
+//
+Some will do local office hours, some remote, and some may help out on the
+forums.
+//
 --
 
 <<<
 
 .Unofficial Teaching Assistants
 [.slider]
-. *Yihong Chen*
-. *Scott Haseley*
-. *Carl Nuessle*
-. *Guru Prasad*
-. *Jinghao Shi*
+. *Scott Haseley* (`test161` maintainer)
+. *Guru Prasad* (the official OS/161 Guru)
+. *Jinghao Shi* (ultimate Tier 3 support)
 
 [.slide]
+//
 --
+//
 These https://blue.cse.buffalo.edu[blue] group graduate students will help
-with office hours and work on tool development. All are former 421/521
-students!
---
-
-<<<
-
-.Ninjas:
-[.slider]
-. *Dan Conway*
-. *Gela Malek Pour*
-. *Isaac Reath*
-. *Benjamin Rueda*
-. *Mark Simpson*
-. *Yousuf Zubairi*
-
-[.slide]
---
-Our ninjas are all (excellent) returning 2015 undergraduates. You'll see them
-in office hours and they are also helping develop course infrastructure.
+with office hours and work on tool development.
+//
+All are former 421/521 students!
+//
 --
 
 == Operating Systems Briefly Defined
@@ -171,6 +193,7 @@ or implementing new capabilities.
 * How many of you have participated in OS development?
 * How many of you regularly program in languages that use operating system
 abstractions directly?
+* And C is a dead language--rightfully so!
 * So why study operating systems? Why is this class even offered? *Why is it
 required?*
 
@@ -317,13 +340,14 @@ You will be tested for mastery by each programming assignment.
 *All due dates Friday @ 5PM EST.*
 
 [.slide]
-* ASST0: Introduction to OS/161--Due Friday 2/12 @ 5PM.
+* ASST0: Introduction to OS/161&mdash;"Due" Friday 1/3/2017 @ 5PM.
 ** Become comfortable using standard UNIX development tools.
 ** Learn to navigate the OS/161 source tree.
 ** Configuring, building and running your first kernel.
+** Nothing really to submit for this one.
 
 [.slide]
-* ASST1: Synchronization Primitives--Due Friday 2/12 @ 5PM.
+* ASST1: Synchronization Primitives&mdash;Due Friday 1/17/2017 @ 5PM.
 ** Design and implement locks and condition variables.
 ** Use them to solve several toy synchronization problems.
 
@@ -348,43 +372,64 @@ Then noticed ASST3
 *All due dates Friday @ 5PM EST.*
 
 [.small]
+//
 --
+//
 [.slide]
-* ASST2: System Calls and Process Support--due Friday March 11th @ 5PM.
-** The file system system calls: `open()`, `close()`, `read()`, `write()`, `lseek()`, `dup2()`, `chdir()`, and `getcwd()`. does this work
-** The process-related system calls: `fork()`, `execv()`, `waitpid()`, `\_exit()`.
-** Several process scheduling algorithms.
+//
+* ASST2: System Calls and Process Support
+//
+** ASST2.1 (2/24/2017): ASST2 setup and first steps.
+//
+** ASST2.2 (3/17/2017): Finish the job: implement file system system calls
+(`open()`, `close()`, `read()`, `write()`, `lseek()`, `dup2()`, `chdir()`, and
+`getcwd()`) and the process-related system calls (`fork()`, `execv()`,
+`waitpid()`, `\_exit()`).
 
 [.slide]
-* ASST3: Virtual Memory--due Friday May 13th @ 5PM.
-
-** TLB fault handling
-** Paging to disk
-** Several TLB entry and page replacement algorithms
-** `sbrk()`
+//
+* ASST3: Virtual Memory
+//
+** ASST3.1 (4/7/2017): Kernel memory management.
+//
+** ASST3.2 (4/21/2017): TLB fault handling and `sbrk()`.
+//
+** ASST3.3 (5/5/2017): Paging to disk
+//
 --
 
 == OS/161
 
 * OS/161 is an instructional operating system developed by David Holland at
 Harvard University.
+//
 * It attempts to strike a balance between Linux and other extremely-mature
 systems--too difficult to hack on--and existing instructional operating
 systems frameworks--not realistic enough.
-* Your OS/161 kernel runs in an emulator, `sys161`, which emulates an MIPS r2000/
-r3000 instruction set architecture (ISA).
+//
+* Your OS/161 kernel runs in an emulator, `sys161`, which emulates an MIPS
+r2000/r3000 instruction set architecture (ISA).
+//
 * Using `sys161` allows us to simplify debugging and hardware support.
 
 == 10,000 Hours
 
 [.slider]
-* While many operating systems concepts are elegantly simple, implementing them
-is not.
+//
+* While many operating systems concepts are elegantly simple, implementing
+them is not.
+//
 * Therefor, this class is not easy:
-** [red]#3.52 (-0.57)# and [red]#4.03 (-0.06)# on "Appropriate Workload"
-score in 2013 course evaluations for 421 and 521 respectively (90%+ response rate).
+//
+** [red]#2.87# on "Appropriate Workload" score in the
+//
+link:/courses/buffalo/CSE421_Spring2016_Evaluations.pdf[2016 course evaluations]
+//
+(93%+ response rate).
+//
 * However, this class is also worthwhile:
-** [green]#4.14 (+0.31)# and [green]#4.59 (+0.76)# overall rating (2013).
+//
+** [green]#3.97# overall rating (2016).
 
 == !
 
@@ -398,95 +443,146 @@ Sorry
 Learning is hard
 
 [.nooutline]
-== 2013 Student Feedback
+== 2016 Positive Student Feedback
 
-[.smaller]
+[.smaller.spelling_exception]
+//
 --
-* "This has been without a doubt the best class I have taken at UB."
-* "Prof. Challen holds the most engaging, thoughtful, and useful lectures I have experienced at UB."
-* "My favorite computer science course ever!"
-* "I would really recommend this class to anyone who values a true challenge and professionalism."
-* "This is the best class and best instructor i ever had."
-* "Very good teacher. Engages the entire class. Love it."
-* "This was easily the best course I have taken at UB."
-* "Learned the most from this course out of all my courses, regardless of the fact that the course is pretty hard."
-* "...I think I learned more in this from the projects in any other course ever."
-* "One of the most beneficial courses I have taken at UB."
-* "Definitely the best CS course at UB in my opinion."
-* "AWESOME course!!"
-* "The best course I have taken in UB so far!"
-* "Probably the best course offered in Computer Science Dept."
-* "This was the best courses I took at UB, in fact the best course i have taken so far ever."
-* "The best course I have attended so far"
-* "One of the best classes I've ever come across"
+//
+* I liked the lectures/videos/notes, the course website and assignment
+submission/feedback system is stellar, and Geoff is very enthusiastic about
+the course.
+//
+* The OS161 project and the amount of of hours provided for it was
+incredibly challenging but manageable. The heavy weight on exams allowed good
+leniency so the project wasn't one make or break grade.
+//
+* The projects were really good. I learnt a lot from them. TAs were really
+helpful.
+//
+* The work is very hard, but incredibly engaging. This course is definitely a
+real-world prep course and goes beyond the classroom, teaching time
+management, problem solving and different types of thinking. The lectures were
+very interesting and the course website is fantastic!
+//
+* Geoff is easily one of the best professors I've ever had. You can tell he is
+passionate about what he teaches
+//
+* Everything... The professor goes out of his way let everyone learn what he
+wants to teach.
+//
+* The efforts put forth by professor and TAs is really good. They have
+designed the course structure and timeline very well. Also, one thing which I
+felt in love with was `test161`. It is the test suite I have never seen
+before. They have worked very hard for that
+//
 --
+
+[.nooutline]
+== 2016 Negative Student Feedback
+
+Of course, not everyone is happy.
+
+[.smaller.spelling_exception]
+//
+--
+//
+* There are 2 sides to Geoff either he is in a great mood or he is in a bad
+mood. I think that he is generally a really nice guy but you do not what to
+get on his bad side.
+//
+* He made students feel very unwelcome during office hours, he seemed hostile
+and rude at times to students who were struggling but nice to others who had a
+better understanding. I was personally scared of interacting with him due to
+the way he treated students during office hours.
+//
+* Professor Challen is a sadistic being.
+//
+* Failed at being a developer at Microsoft and in turn came back to haunt the
+halls of the CSE department.
+//
+* Still keeps sending emails to all CSE students more than any other
+in the department. Better to stop doing that.
+//
+--
+
+So make up your own mind about which are the "alternative facts".
+//
+Full course reviews for
+//
+link:/courses/buffalo/CSE421_Spring2015_Evaluations.pdf[2015]
+//
+and
+//
+link:/courses/buffalo/CSE421_Spring2016_Evaluations.pdf[2016]
+//
+are available online.
+//
+Or visit my
+http://www.ratemyprofessors.com/ShowRatings.jsp?tid=1626392[RateMyProfessor]
+page.
+
+*I want you to make the right decision about this course and whether it is
+right for you.*
 
 [.nooutline]
 == Questions about Content?
 
 == ops-class.org Website
 
-[.slider]
-* It's not ready... but should be soon.
-
-* We're in the process of making a lot of improvements this year, so please
-bear with us...
-
-* If it interferes with the deadlines we'll adjust them. ASST0 should be
-posted by the end of the week and you will be provided access to the
-resources you need to complete it.
+. Everything you need to get started should be online.
+//
+. We will be updating things as we go.
+//
+. link:/slides/[Lecture slides and notes] are online in case you want to
+follow along in class.
 
 == Grading
 
 [.small]
 --
 [.slider]
-* Conceptual--(50%)
-** 5%--Preterm Exam (Wednesday)
+* Conceptual&mdash;(50%)
 ** 15%--Midterm Exam
-** 30%--Final Exam
-* Programming--(50%)
+** 35%--Final Exam
+* Programming&mdash;(50%)
 ** 5%--ASST0
 ** 10%--ASST1
 ** 15%--ASST2
 ** 20%--ASST3
 --
 
-[.slide]
---
-The preterm exam is free points: 5% for showing up and doing your best.
-If you do not take the preterm your midterm and final exam scores will be
-scaled appropriately.
---
-
 == Continuous Choose-Your-Own Grade Programming Evaluations
 
 [.slider]
-* Almost all assignment grading in CSE421/521 is automated.
+* All assignment grading in CSE421/521 is automated.
 * Therefore... you can have your code graded repeatedly whenever you like.
 * Therefore... you can stop each assignment whenever you are satisfied with
 your grade.
-* We are still deciding how to handle the hand-graded parts of the
-assignments... stay tuned.
 
 == Continuous Choose-Your-Own Grade Details and Caveats
 
 [.slider]
+//
 * Assignments are done in pairs, so find a partner who is interested in
 achieving the same grade as you are.
+//
 * Note that we do not allow students to work alone except in extremely
-unusual
-circumstances.
-** "I want to work alone" does not represent one of these
-situations!
+unusual circumstances.
+//
+** "I want to work alone" does not represent one of these situations!
+//
 * Assignments are cumulative and we will not distribute solution sets without
 a significant penalty.
+//
+* Late submissions will also be penalized.
 
 == Communication
 
 * We will sign you all up for a mass email list.
-* We also have a Discourse forum linked off the website which is the best way to
-get help quickly.
+//
+* We also have a Discourse forum linked off the website which is the best way
+to get help quickly.
 
 == Using Email
 
@@ -507,11 +603,11 @@ the less time we have available to help you with real problems.
 
 == Getting Help: Recitations
 
-* Ali and Jerry will be holding recitations. Unfortunately recitations this
-year are for undergraduates only and one is at 8AM.
 * Recitations this year will cover a mix of conceptual and assignment-driven
 material.
-* We will also try to post some screencasts this year!
+//
+* There are also screen casts on the website for each assignment. We may
+update them as we go along.
 
 == Getting Help: Office Hours
 
@@ -612,24 +708,24 @@ I'll be mad
 == !
 
 [.background]
-image:http://i2.cdn.turner.com/cnnnext/dam/assets/150212130357-buzzfeed-obama-exlarge-169.jpeg[]
+image:http://az616578.vo.msecnd.net/files/2016/07/23/6360489455192162291563850737_Trump.jpg[]
 
 [.meme-top]
 Cheated in 421/521
 
 [.meme-bottom.slide]
-Got an F
+Got an F. Sad!
 
 == !
 
 [.background]
-image:http://www.jewishjournal.com/images/articles/dos-equis-guy.JPG[]
+image:http://twt-thumbs.washtimes.com/media/image/2016/03/09/DE_c0-27-655-408_s885x516.jpg?4d2c82b3c0ac3af48243f5b09ef24df672814935[]
 
 [.meme-top]
-Cheated in 421/521
+I don't always cheat...
 
 [.meme-bottom.slide]
-Got an F
+But when I cheat in 421/521, I get an F!
 
 == !
 
@@ -648,10 +744,10 @@ Got an F
 image:http://s1.totalprosports.com/wp-content/uploads/2015/01/Tom-Brady-trolls-Colts.jpg[]
 
 [.meme-top]
-Didn't deflate footballs
+February: Won 5th Super Bowl
 
 [.meme-bottom.slide]
-Got an F for copying code in 421/521
+March: Got an F for copying code in 421/521
 
 == !
 
@@ -683,44 +779,37 @@ Runs own business!
 * If Buffalo Public Schools are closed, we will not have class.
 * If the University at Buffalo is closed, we will not have class.
 
-== !
-
-[.background]
-image:memes/yihong-snow.jpg[]
-
-[.meme-bottom]
-Must do office hours!
-
 == Questions About Course Policies?
 
 [.nooutline]
 == Errata
 
 [.slider]
+//
 * *Pre-class music*: if you have suggestions, please stop by my office hours.
 One request per student per semester and requests must be made in person.
-* Does UB think your name is "., foo bar", *and it isn't actually "., foo
-bar"*? Please let us know (staff@ops-class.org).
-
-== !
-
-[.background]
-image:http://1.bp.blogspot.com/_oOBwed426Vs/TEniVVa0ILI/AAAAAAAAAI8/D5xQBxhF7UI/s1600/\'David\'+Mr+Opportunity+Honda.jpg[]
-
-[.meme-top]
-Sorry
-
-[.meme-bottom]
-I don't speak foreign!
+//
+* *Travel*: I will probably be traveling a bit more than usual this semester.
+//
+Either one of the TAs will fill in for me while I'm gone, or we'll show videos
+from last year.
 
 [.nooutline]
 == Next Steps
 
-. Sit tight for more details to appear online.
+. Start link:/asst/setup/[setting up your environment] and
+link:/asst/0/[ASST0]
+//
 . Find a partner!
+//
+. Wednesday we will go through ASST0 together in class
+//
+** *Please* at least get your `vagrant` environment set up before coming to
+class, since it requires a large download. More on the forum soon.
+//
+. We will schedule one-time office hours on Wednesday, Thursday, and Friday
+for those struggling to get started.
+//
+. Recitations and regular office hours will start next week.
 
-* I will hold office hours Wednesday 1/27 from 11AM to 1PM if you have
-questions about the course and want to chat in person.
-* Recitations and office hours will start next week.
-* The preterm exam will be Wednesday. Please bring a pen or pencil and your UB
-ID card.
+Questions?

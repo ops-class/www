@@ -455,10 +455,7 @@ Grading is evenly divided between conceptual material and programming
 assignments.
 
 * *50% Conceptual*
-** 5% Preterm Exam. If you take the preterm exam, you receive
-5%. If you do not, your midterm and final exam scores are scaled to fill in
-the missing 5%.
-** 15% Midterm Exam, 30% Final Exam
+** 15% Midterm Exam, 35% Final Exam
 * *50% Programming*
 ** 5% link:/asst/1/[ASST1,role='hidden_print'], 15% link:/asst/2/[ASST2,role='hidden_print'], 30% link:/asst/3/[ASST3,role='hidden_print']
 
