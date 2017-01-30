@@ -2,13 +2,13 @@ all: build | silent
 
 build: node_modules
 	@node index.js $(DEPLOY) $(CHECK)
-	@while [ -n "$(find .build -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
+	@while [ -n "$$(find .build -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
 	@rsync -rlpgoDc --delete .build/ build
 	@rm -rf .build
 
 install: node_modules
-	node index.js . --check --deploy --quiet
-	while [ -n "$(find .build -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
+	@node index.js . --check --deploy --quiet
+	@while [ -n "$$(find .build -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
 
 deploy: DEPLOY = --deploy
 deploy: check build
