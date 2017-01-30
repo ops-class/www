@@ -8,6 +8,7 @@ priority: 0.8
 changefreq: monthly
 spelling_exceptions:
   - LTS
+  - Trusty Tahr
   - Xenial Xerus
   - Bento
   - Vagrantfile
@@ -121,9 +122,9 @@ W: mdadm: /etc/mdadm/mdadm.conf defines no arrays.`
 
 [role='red']
 ----
-==> default: mesg: 
+==> default: mesg:
 ==> default: ttyname failed
-==> default: : 
+==> default: :
 ==> default: Inappropriate ioctl for device
 ==> default: dpkg-preconfigure: unable to re-open stdin: No such file or directory
 ----
@@ -193,7 +194,11 @@ The {ops-class} {ppa} includes all toolchain components packaged for
 //
 http://releases.ubuntu.com/16.04/[Ubuntu 16.04 LTS "Xenial Xerus"].
 //
-If you have 16.04 installed, you can install these packages directly.
+and
+//
+http://releases.ubuntu.com/14.04/[Ubuntu 14.04 LTS "Trusty Tahr"].
+//
+If you have 16.04 or 14.04 installed, you can install these packages directly.
 //
 If you are using a slightly earlier or later Ubuntu release, the Xenial
 packages will probably work:
