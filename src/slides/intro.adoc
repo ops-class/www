@@ -690,6 +690,21 @@ Harvard, etc.
 ** I have a _huge_ repository of old assignments now. If you can find it, I've
 already got it.
 
+== Keep Your Code Private
+
+[.slider]
+//
+* You will need a private Git repository that you and your partner can use.
+//
+* Lots of options here:
+//
+** GitHub has limited private repos for students.
+//
+** GitLab and other Git providers also provide private repositories.
+//
+* It does need to support deployment keys so that we can clone your repository
+during testing.
+
 == !
 
 [.background]

@@ -124,6 +124,7 @@
   "realtime": true,
   "rebalance": true,
   "refactor": true,
+	"/repos?/": true,
   "reprovision": true,
   "repurpose": true,
 	"Rob Rymarczyk": true,
