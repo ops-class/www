@@ -7,6 +7,8 @@
   "/\\d*\\s*kB/": true,
   "/\\d+K/": true,
   "/0x[\\da-fA-F]+/": true,
+	"/\\d+\\.\\d+/": true,
+	"\\d+\\.\\d+\\.\\d+": true,
   "301B": true,
   "a priori": true,
   "/ABIs?/": true,
