@@ -17,7 +17,7 @@ check: CHECK = --check
 check: build
 
 node_modules: package.json
-	@npm install
+	@npm install --progress=false
 
 silent:
 	@:
