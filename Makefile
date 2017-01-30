@@ -7,7 +7,7 @@ build: node_modules
 	@rm -rf .build
 
 install: node_modules
-	node ./lib/index.js . --check --deploy --quiet
+	node index.js . --check --deploy --quiet
 	while [ -n "$(find .build -depth -type d -empty -print -exec rmdir {} +)" ]; do :; done
 
 deploy: DEPLOY = --deploy
