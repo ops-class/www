@@ -786,29 +786,6 @@ Didn't cheat in 421/521
 [.meme-bottom.slide]
 Runs own business!
 
-== Questions About Collaboration?
-
-[.nooutline]
-== Inclement Weather
-
-* If Buffalo Public Schools are closed, we will not have class.
-* If the University at Buffalo is closed, we will not have class.
-
-== Questions About Course Policies?
-
-[.nooutline]
-== Errata
-
-[.slider]
-//
-* *Pre-class music*: if you have suggestions, please stop by my office hours.
-One request per student per semester and requests must be made in person.
-//
-* *Travel*: I will probably be traveling a bit more than usual this semester.
-//
-Either one of the TAs will fill in for me while I'm gone, or we'll show videos
-from last year.
-
 [.nooutline]
 == Next Steps
 

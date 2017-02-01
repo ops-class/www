@@ -18,7 +18,7 @@
         "courses/UB_CSE421_Spring2016/index.html": "1d69f64d144f0d8bc7ff1b8bd0cd6c3a",
         "courses/buffalo/CSE421_Spring2016/index.html": "0b7ba275dc35a2aa9f043feb2244d935",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "9cb1b327112837dc2c808141eb9ae9f6",
+        "slides/index.html": "a7f26aa144c22d331ec291cd144171eb",
         "slides/2016-02-03-forksynch/index.html": "bb0df009ef8e2f52ef5f7c4283a7c96a",
         "slides/2016-01-25-intro/index.html": "ab29eeb02e048a215ad96ad577f7b442",
         "slides/2016-01-30-processes/index.html": "d08e11494a6e82eabdb5469c63ac79b0",
@@ -121,9 +121,11 @@
         "slides/2016-05-06-exam/deck.html": "03e386bca5f9749473d6fbc6592bad23",
         "courses/buffalo/CSE421_Spring2017/index.html": "382ab74315a00743a98b03fcd9545a24",
         "asst/setup/index.html": "4423d7e950f3bcb2573e2c0cb85f93f6",
-        "slides/2017-01-30-intro/index.html": "2b58eb2f3280862f7f9dfcbf3c693847",
-        "slides/2017-01-30-intro/deck.html": "eab9403299fb5e24daff2816f90d5dc5",
-        "slides/2016/index.html": "4c8ea2acce27859075cce24995ce6d32"
+        "slides/2017-01-30-intro/index.html": "71f498d2b2f4e70465fef163d4d3f76a",
+        "slides/2017-01-30-intro/deck.html": "e35f423dd9bb1e4827ef7d69b12c681e",
+        "slides/2016/index.html": "4c8ea2acce27859075cce24995ce6d32",
+        "slides/2017-02-01-setup/index.html": "5d5fb62da47b97963d4bc2993252dcf9",
+        "slides/2017-02-01-setup/deck.html": "c3ee72a12be83fb9592e5bb992828b2d"
     },
     "exceptions": {
         "index.html": "35de75129825d3f143096a5a1b7c42cd39346651",
@@ -247,6 +249,8 @@
         "asst/setup/index.html": "8bd17852eba6ea55d5579e4481f07fb7f5601e5a",
         "slides/2017-01-30-intro/index.html": "718b3e9ffa3ea1605f756995f8ed9091a39412ad",
         "slides/2017-01-30-intro/deck.html": "718b3e9ffa3ea1605f756995f8ed9091a39412ad",
-        "slides/2016/index.html": "99d281f22c83167160dd50249df14a690a91e64e"
+        "slides/2016/index.html": "99d281f22c83167160dd50249df14a690a91e64e",
+        "slides/2017-02-01-setup/index.html": "95ce568e0a8f80882e065e0478387c7f310dabbb",
+        "slides/2017-02-01-setup/deck.html": "95ce568e0a8f80882e065e0478387c7f310dabbb"
     }
 }

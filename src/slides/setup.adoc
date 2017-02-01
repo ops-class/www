@@ -1,0 +1,90 @@
+---
+title: "Introduction to CSE 421/521"
+date: 2017-02-01
+author: Geoffrey Challen
+description: >
+  Getting starting with ASST0 and setting up the toolchain.
+spelling_exceptions:
+  - Quickstart
+---
+
+[.nooutline]
+//
+== ASST0 Quickstart
+
+.Today:
+* Getting started with ASST0
+
+[.h4.center.spelling_exception]
+icon:music[] https://www.facebook.com/dagnymusic/["Backbeat" by Dagny]
+
+video::7K0y1RT6M68[youtube,width=480,height=270]
+
+== Questions About Collaboration?
+
+[.nooutline]
+== Inclement Weather
+
+* If Buffalo Public Schools are closed, we will not have class.
+* If the University at Buffalo is closed, we will not have class.
+
+== Questions About Course Policies?
+
+[.nooutline]
+== Errata
+
+[.slider]
+//
+* *Pre-class music*: if you have suggestions, please stop by my office hours.
+One request per student per semester and requests must be made in person.
+//
+* *Travel*: I will probably be traveling a bit more than usual this semester.
+//
+Either one of the TAs will fill in for me while I'm gone, or we'll show videos
+from last year.
+
+== ASST0 Setup
+
+* Today we're going to walk through getting started with link:/asst/0/[ASST0].
+
+* To the terminal!
+
+== How to Survive This Class
+
+I want this class to be as enjoyable as possible.
+//
+*That's the best way to learn.*
+//
+But here's how to avoid dark and desperate moments.
+
+[.slider]
+//
+* *Learn to type.* If you don't know how, it will slow down _everything else_.
+//
+** https://10fastfingers.com/typing-test/english[Here's a test.] (My best
+score is in the 100 words-per-minute range.)
+//
+* Start assignments early.
+//
+* Work frequently and often.
+//
+* Schedule time to attend office hours with your partner. I'd suggest at least
+4 hours per week, but more is better.
+
+<<<
+
+[.slider]
+//
+* Pair program with your partner:
+//
+** One person hacking, the other observing.
+//
+** You *do not* want to introduce bugs into your kernel.
+//
+* Liberally use `KASSERT`.
+//
+* Write tests.
+//
+* Find a way to iterate quickly and limit the number of untested lines.
+//
+* Break your code into small, easily tested functions.
