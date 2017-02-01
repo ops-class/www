@@ -86,6 +86,16 @@ and
 //
 https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Git].
 //
+Note that Ubuntu packages very old versions of Vagrant for `apt-get`.
+//
+You'll have better luck following the instructions on the
+//
+https://www.vagrantup.com/[Vagrant website].
+//
+(This is also true for Git. You may want to add the
+//
+https://launchpad.net/~git-core/+archive/ubuntu/ppa[Git maintainers PPA].)
+
 Then:
 
 ----
