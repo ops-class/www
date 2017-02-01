@@ -20,6 +20,15 @@ icon:music[] https://www.facebook.com/dagnymusic/["Backbeat" by Dagny]
 
 video::7K0y1RT6M68[youtube,width=480,height=270]
 
+== Reminders
+
+* One-time office hours today and Friday. Check the
+link:/courses/buffalo/CSE421_Spring2017/#calendar[calendar].
+
+++++
+<iframe style="width:960px; height:400px" src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=1200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=l3ahiffhktcd2l6p4dm9gqkau0%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FNew_York"></iframe>
+++++
+
 == Questions About Collaboration?
 
 [.nooutline]
@@ -88,3 +97,8 @@ score is in the 100 words-per-minute range.)
 * Find a way to iterate quickly and limit the number of untested lines.
 //
 * Break your code into small, easily tested functions.
+
+[.nooutline]
+== Next Time
+
+* Meet the operating system.
