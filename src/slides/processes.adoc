@@ -22,7 +22,7 @@ image::women/011.jpg[width="100%", title="Augusta Ada Lovelace King", link="http
 [.center.h2]
 icon:music[] link:http://www.alessiacara.com/[{song}]
 
-video::{music}[youtube,width=480,height=270]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == $ ps -aux # Processes
@@ -393,7 +393,7 @@ image::figures/lsof.svg[width="100%"]
 
 == !
 [.background]
-image:https://imgflip.com/readImage?iid=7920973[]
+image:https://i.ytimg.com/vi/7erl9k01C2M/hqdefault.jpg[]
 
 [.meme-top]
 bashrc not open
