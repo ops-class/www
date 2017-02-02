@@ -8,6 +8,7 @@ description: >
 spelling_exceptions:
   - TA'd
   - RateMyProfessor
+video: s5juP-2G42I
 ---
 
 [.nooutline]

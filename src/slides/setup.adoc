@@ -6,6 +6,7 @@ description: >
   Getting starting with ASST0 and setting up the toolchain.
 spelling_exceptions:
   - Quickstart
+video: TdYWlQUmLEY
 ---
 
 [.nooutline]
