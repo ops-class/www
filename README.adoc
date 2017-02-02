@@ -1,24 +1,108 @@
-= https://www.ops-class.org[`ops-class.org`] Website Sources
+= `ops-class.org` Website Sources
 
-https://www.ops-class.org[`ops-class.org`] is a website intended to let
-students learn operating system concepts online at their own pace. It
-includes lecture slides and assignments that use the OS/161 instructional
-operating system.
+== Installing and Building
 
-== Install
+. Install https://nodejs.org/en/[`node.js`] and `npm`, the node package
+manager.
+//
+** I suggest you use https://github.com/creationix/nvm[`nvm`] (the node
+version manager) or install `node.js` from source.
+//
+The `apt-get` packages are fairly old.
+//
+. Join the https://github.com/ops-class[`ops-class`] group
+on GitHub and add an SSH key.
+//
+. `git clone git@github.com:ops-class/www.git`.
+//
+If this doesn’t work, you probably don’t have a key installed. Return to Step
+2.
+//
+. `cd www; make install`
+//
+** The first time this will take some time since `npm install` is running and
+performing some local compilation.
+//
+Note that you also need ImageMagick installed locally to build the node
+packages.
+//
+`sudo apt-get install libmagick++-dev` does the trick on Ubuntu 14.04.
+//
+. `make run`, then open `localhost:8080` in your browser.
+//
+. When you edit, rerun `make` and the site will be rebuilt. `make check` will
+build and check the site.
+//
+. I suggest a three terminal environment using `tmux`:
+//
+.. An editing window.
+//
+.. A window to run `make` or `make check`.
+//
+.. A window to run `make run` to serve the sources.
 
-You'll need https://nodejs.org/[`node`] and https://www.npmjs.com/[`npm`],
-the node package manager. I suggest installing
-https://github.com/creationix/nvm[`nvm`], the node version manager. Once you
-have those `npm install` in this directory will install
-http://www.metalsmith.io/[Metalsmith] and the build pipeline dependencies.
+== Deploying
 
-== Build Process
+. `make check` runs several sets of build-time checks:
+//
+** Broken links by
+//
+http://npmjs.com/package/metalsmith-linkcheck[`metalsmith-linkcheck`].
+//
+Broken external links will not fail the build but will generate a warning
+//
+Broken internal links will.
+//
+** Formatting checks by
+//
+https://www.npmjs.com/package/metalsmith-formatcheck[`metalsmith-formatcheck`].
+//
+*Format failures will fail the build*, but I doubt you'll be changing the
+format much.
+//
+** Spelling checks by
+//
+https://www.npmjs.com/package/metalsmith-spellcheck[`metalsmith-spellcheck`].
+//
+*Spelling failures will halt the build.*
+//
+** I maintain all three of these http://www.metalsmith.io/[Metalsmith]
+plugins, so if you find bugs let me know.
 
-* `make` will do a quick build of the site without link, format, or spell
-checking, and without minifying JavaScript or CSS files.
-* `make check` will build and run the link, format, and spell checker.
-* `make deploy` will run the link, format, and spell checker, minify all
-JavaScript and CSS files for deployment, and beautify the HTML.
-
-== Trigger Rebuild
+. If the build doesn’t complete, fix the problems and rerun make.
+//
+*Don’t push until the build completes.*
+//
+. Please check the `links_failed.json` file if it complains.
+//
+Sometimes external broken links are a transient problem, but at least check to
+make sure that you understand what is failing.
+//
+. To add spelling exceptions see the documentation for
+//
+https://www.npmjs.com/package/metalsmith-spellcheck[`metalsmith-spellcheck`].
+//
+There are a bunch of ways to do this depending on the word that is being
+marked as misspelled.
+//
+. Commit your changes to `master`.
+//
+. Push to `master`.
+//
+This triggers remote testing on https://travis-ci.org/[Travis CI].
+//
+It runs `npm test`, which in our case runs `make check`.
+//
+If that does not fail, the sources on
+//
+https://www.ops-class.org[`www.ops-class.org`]
+//
+will be updated.
+//
+This sometimes takes a few minutes.
+//
+. *If the build fails you should receive an email.*
+//
+The main site will not update.
+//
+Please fix the problem and push again.
