@@ -117,17 +117,38 @@ They will also work together to mark all human-graded work.
 
 .Ninjas:
 [.slider.small]
-. *Brijesh Rakholia*
-. *Grant Wrazen*
-. *Rob Rymarczyk*
-. *Zach Wieand*
-. *William Burgin*
-. *Meg Arnold*
-. *Matthew McGovern*
-. *Sriram Shantharam*
-. *Adhish Chugh*
-. *Ben Rueda*
-. *Timothy Elinger*
+//
+. https://www.linkedin.com/in/adhishchugh[Adhish Chugh]
+//
+. https://www.linkedin.com/in/benjamin-rueda-b5b186b2[Ben Rueda]
+//
+. https://www.bluegroup.systems/people/brijeshr/[Brijesh Rakholia]
+//
+. https://www.bluegroup.systems/people/grantwra/[Grant Wrazen]
+//
+. https://www.bluegroup.systems/people/gurupras/[Guru Prasad]
+//
+. https://james.droste.im/[James Droste]
+//
+. https://www.bluegroup.systems/people/jinghaos/[Jinghao Shi]
+//
+. https://www.linkedin.com/in/matthew-mcgovern-410168107[Matthew McGovern]
+//
+. https://www.linkedin.com/in/robert-rymarczyk-752b9a107[Rob Rymarczyk]
+//
+. https://www.bluegroup.systems/people/shaseley/[Scott Haseley]
+//
+. https://www.bluegroup.systems/people/sriramsh/[Sriram Shantharam]
+//
+. https://www.linkedin.com/in/bassman5001[Steve Bass]
+//
+. https://www.linkedin.com/in/timothy-eilinger-ii-a658bab9[Timothy Eilinger]
+//
+. William Burgin
+//
+. https://www.facebook.com/public/Yousuf-Zubairi[Yousuf Zubairi]
+//
+. https://www.acsu.buffalo.edu/~zmwieand/DMS221-Project1/[Zach Wieand]
 
 [.slide]
 //

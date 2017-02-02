@@ -1,5 +1,5 @@
 ---
-title: "Introduction to CSE 421/521"
+title: "ASST0 Setup"
 date: 2017-02-01
 author: Geoffrey Challen
 description: >

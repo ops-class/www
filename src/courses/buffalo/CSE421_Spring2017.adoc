@@ -5,7 +5,6 @@ spelling_exceptions:
   - GWA
   - MWF
   - exo
-  - "/ASST3\\.\\d/"
 description: >
   Course materials for CSE 421/521 at the University at Buffalo in Spring
   2017.
@@ -17,8 +16,7 @@ changefreq: monthly
 
 [.visible-print]
 --
-WARNING: This syllabus is available online at +
-link:https://www.ops-class.org/courses/buffalo/CSE421_Spring2017/[`https://www.ops-class.org/courses/buffalo/CSE421_Spring2017/`, role='hidden_print'].
+WARNING: This syllabus is available online at link:https://www.ops-class.org/courses/buffalo/CSE421_Spring2017/[`https://www.ops-class.org/courses/buffalo/CSE421_Spring2017/`, role='hidden_print'].
 //
 The online version is easier to read and includes helpful links, embedded
 videos, and other useful resources.
@@ -82,68 +80,127 @@ Instead, 99% of the time use the https://discourse.ops-class.org[Discourse
 forum] or 1% of the time contact the entire staff at
 mailto:staff@ops-class.org[`staff@ops-class.org`].
 
-////
-. *Teaching Assistants*: Ali Ben Ali and Xu Zhen are your
-fantastic and hard-working teaching assistants this semester. They will be
-teaching recitation, holding office hours, and grading exams.  Please do not
-email them directly--instead, use https://discourse.ops-class.org[Discourse]
-or email mailto:staff@ops-class.org[`staff@ops-class.org`] for a faster
-reply.
+. *Teaching Assistants*:
+//
+https://www.bluegroup.systems/people/alijmabe/[Ali Ben Ali],
+//
+https://www.bluegroup.systems/people/carlnues/[Carl Nuessle],
+//
+and
+//
+https://www.linkedin.com/in/vzheng[Vicky Zheng],
+//
+are your fantastic and hard-working teaching assistants this semester.
+//
+They will be teaching recitation, holding office hours, and grading exams.
+//
+Please do not email them directly--instead, use
+//
+https://discourse.ops-class.org[the Discourse forum].
 
-. *Ninjas*: In addition to the official TAs, we have a number of volunteers
-from my research group https://blue.cse.buffalo.edu[blue] as well as returning
-421 Spring 2015 students. This year's ninjas are Yihong Chen, Dan Conway,
-Scott Haseley, Carl Nuessle, Gela Malek Pour, Guru Prasad, Isaac Reath,
-Benjamin Rueda, Jinghao Shi, Mark Simpson, and Yousuf Zubairi. Ninjas will
-hold office hours but do not do any grading.
-////
+. *Ninjas*: In addition to the official TAs, we have a number of volunteers we
+call _ninjas_.
+//
+Some are members of
+//
+https://www.bluegroup.systems[my research group].
+//
+Others are 421/521 students from previous years.
+//
+This year's ninjas are
+//
+https://www.linkedin.com/in/adhishchugh[Adhish Chugh],
+//
+https://www.linkedin.com/in/benjamin-rueda-b5b186b2[Ben Rueda],
+//
+https://www.bluegroup.systems/people/brijeshr/[Brijesh Rakholia],
+//
+https://www.bluegroup.systems/people/grantwra/[Grant Wrazen],
+//
+https://www.bluegroup.systems/people/gurupras/[Guru Prasad],
+//
+https://james.droste.im/[James Droste],
+//
+https://www.bluegroup.systems/people/jinghaos/[Jinghao Shi],
+//
+https://www.linkedin.com/in/matthew-mcgovern-410168107[Matthew McGovern],
+//
+https://www.linkedin.com/in/robert-rymarczyk-752b9a107[Rob Rymarczyk],
+//
+https://www.bluegroup.systems/people/shaseley/[Scott Haseley],
+//
+https://www.bluegroup.systems/people/sriramsh/[Sriram Shantharam],
+//
+https://www.linkedin.com/in/bassman5001[Steve Bass],
+//
+https://www.linkedin.com/in/timothy-eilinger-ii-a658bab9[Timothy Eilinger],
+//
+William Burgin
+//
+https://www.facebook.com/public/Yousuf-Zubairi[Yousuf Zubairi],
+//
+and https://www.acsu.buffalo.edu/~zmwieand/DMS221-Project1/[Zach Wieand].
+//
+Ninjas will hold office hours but do not do any grading.
 
-////
 === Times and Locations
 
 The <<calendar,online calendar>> contains up-to-date information about all
 course meetings and activities. Please check it regularly--changes do happen.
 
-. *Lecture*: MWF 2:00--2:50PM, Knox 104.
+. *Lecture*: MWF 2:00--2:50PM, Cooke 121 footnote:[Sorry about the room--I hate it too.].
 
-. *Recitations*: T 4:00--4:50PM, NSC 222; and F 8:00--8:50AM, Knox 04.
-Recitations will be taught by Ali. Attendance is not mandatory, and
-you can attend either or both depending on what fits your schedule. *Graduate
-students may only attend recitations if there is space* footnote:[I suspect
-that there will regularly be space in the 8AM recitation...].
+. *Recitations*:
+//
+T 4:00&ndash;3:50PM, Knox 110; W 3:00&ndash;3:50PM, Fronczak 454; and F
+8:00--8:50AM, NSC 210.
+//
+Ali, Carl, and Vicky will rotate recitation responsibilities.
+//
+Attendance is not mandatory, and you can none, one, or many depending on what
+fits your schedule.
+//
+We will videotape recitations and add them to the recitation playlist.
+//
+*Graduate students may only attend recitations if there is space.*
+//
+However, both Knox 110 and NSC 210 are quite large rooms, so there will
+probably be space.
 
+////
 . *Office Hours*: We have 20 total and 41 person-hours of office hours
 scheduled this semester. Please come and join us in Davis 301B! Office hours
 are a fun place to do the assignments and just hang out with each other and
 the course staff. Don't wait until you have a problem to come!
+////
 
 === Exams
 
-An ungraded pre-term exam will be given in class on Wednesday 1/27/2016. The
-50-minute midterm will be given in class Wednesday 3/23/2016. A 3-hour final
-exam will be Monday 5/9/2016 from 3:30--6:30PM in Knox 104. All dates are on
-the <<calendar>>. *Please contact the course staff as soon as possible if you
-cannot attend a scheduled exam for any reason.*
+A 50-minute midterm will be given in class on Friday 3/31/2017.
+//
+A 3-hour final exam will be Monday 5/15/2017 from 3:30--6:30PM in Cooke 121.
+//
+All dates are on the <<calendar>>.
+//
+*Please contact the course staff as soon as possible if you cannot attend a
+scheduled exam for any reason.*
 
-////
 
 === Undergraduate Prerequisites
 
 http://www.cse.buffalo.edu/shared/course.php?e=CSE&n=250&t=DATA+STRUCTURES[CSE
 250: Data Structures, role='hidden_print'].
 
-////
 [.hidden-print]
 --
 === Other Important Dates
 
 (Also on the <<calendar>>.)
 
-* *Last Day to Drop Add*: 2/1/2016
-* *Last Day to Resign*: 4/15/2016
-* *Last Day of Class*: 5/9/2016
+* *Last Day to Drop Add*: 2/6/2017
+* *Last Day to Resign*: 4/21/2017
+* *Last Day of Class*: 5/12/2017
 --
-////
 
 == Description
 
@@ -356,13 +413,6 @@ You also use the website to submit your answers and view your grades.
 Assignments are graded automatically and you may submit them as often as you
 like, using the autograder output to improve your submission.
 
-////
-Questions that are graded by the course staff may be submitted twice, since
-they must be graded each time. Each question also has a rubric which
-indicates exactly how each portion of the question was evaluated and points
-assigned.
-////
-
 All programming assignments are done in pairs.
 //
 *Both students in each pair receive the same grade for each programming
@@ -371,11 +421,9 @@ assignment.*
 Each programming assignment also has specific collaboration guidelines that
 you must indicate you have followed each time you submit.
 
-////
 A description of each assignment along with due dates are listed below.
 //
 This year we expect these to be firm and *no extensions will be given.*
-////
 
 ==== link:/asst/0/[`ASST0`: Introduction to OS/161]
 
@@ -387,7 +435,7 @@ Consists of code reading questions and a very simple implementation task.
 
 ==== link:/asst/1/[`ASST1`: Synchronization]
 
-// *Deadline*: Monday 2/22/2016 @ 5PM.
+*Deadline*: Friday 2/17/2017 @ 5PM.
 
 Your first real taste of kernel programming.
 //
@@ -398,8 +446,6 @@ Next, you use them to solve a few simple toy synchronization problems.
 
 ==== link:/asst/2/[`ASST2`: System Calls and Process Support]
 
-// *Deadline*: Friday 3/11/2016 @ 11:59PM.
-
 The first big and complex assignment.
 //
 Start by completing a design that indicates you understand all of the moving
@@ -408,6 +454,14 @@ pieces and what to do.
 Next, implement the system call interface.
 //
 When you are finished, your kernel should be able to run user programs.
+
+We split the link:/asst/2/[ASST2,role='hidden_print'] deadlines into two parts:
+
+. *ASST2.1*: Setup and first steps. *Deadline*: Friday 2/24/2017 @ 5PM.
+. *ASST2.2*: Finish the job: implement the file system system calls
+(`open()`, `close()`, `read()`, `write()`, `lseek()`, `dup2()`, `chdir()`, and
+`getcwd()`) and the process-related system calls (`fork()`, `execv()`,
+`waitpid()`, `\_exit()`). *Deadline*: Friday 3/17/2017 @ 5PM.
 
 ==== link:/asst/3/[`ASST3`: Virtual Memory]
 
@@ -423,13 +477,11 @@ page replacement and swapping.
 When you are finished, your kernel should be able to run forever without
 running out of memory, and you will have completed the course.
 
-////
-This year we are splitting the link:/asst/3/[ASST3,role='hidden_print'] deadlines into three parts:
+We split the link:/asst/3/[ASST3,role='hidden_print'] deadlines into three parts:
 
-. *ASST3.1*: working core map. *Deadline*: Friday 4/8/2016 @ 5PM.
-. *ASST3.2*: user paging. *Deadline*: Friday 4/22/2016 @ 5PM.
-. *ASST3.3*: swapping. *Deadline*: Friday 5/6/2016 @ 5PM.
-////
+. *ASST3.1*: working core map. *Deadline*: Friday 4/7/2017 @ 5PM.
+. *ASST3.2*: user paging. *Deadline*: Friday 4/21/2017 @ 5PM.
+. *ASST3.3*: swapping. *Deadline*: Friday 5/5/2017 @ 5PM.
 
 === Textbook
 
@@ -565,21 +617,21 @@ videos, and other useful information.
 
 === Videos
 
-////
 We try to tape all
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[lectures,role='hidden_print']
+//
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_z8pkiuvHo7Vz-eQEKsk-I[lectures,role='hidden_print'],
+//
 and
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF[recitation,role='hidden_print'].
+//
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9fbHf9b1kl8TiVYIg9uq-Y[recitations,role='hidden_print'].
+//
 A playlist of the music played before class is also
-https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_hjJpG9tqicpEgI6C3aaAE[available,role='hidden_print'].
+//
+https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9hMbxGwJketoIzKNLGxaOw[available,role='hidden_print'].
+//
 Finally, we are experimenting with screencasts which are embedded into the
 assignments and also available in a
 https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9PC8fyzc2meL4XvrVSyP8O[playlist,role='hidden_print'].
-////
-
-We will try to tape all lectures and recitations.
-//
-A series of screencast are embedded into the assignments.
 
 [.hidden-print]
 --
@@ -604,24 +656,29 @@ https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-qxcxaYtTf5zQXdcfzrW_r[Lecture
 https://www.youtube.com/playlist?list=PLE6LEE8y2Jp8tllE40n3tHfWXqxFeyFuY[Lectures].
 --
 
-////
 === Forum
 
 We are using a https://discourse.ops-class.org[Discourse forum] this semester
-for all class-related communications. Please update your profile on it and use
-it for all lecture- and assignment-related Q&A.
+for all class-related communications.
+//
+Please update your profile on it and use it for all lecture- and
+assignment-related Q&A.
 
-Before we got tired of it and it's strange approach to pedagogy we used
-Piazza in past years. Unfortunately, there seems to be no way to make the
-previous forums contents public footnote:[Yet another thing to dislike about
-Piazza...].
+Before we got tired of it and it's strange approach to pedagogy we used Piazza
+in past years.
+//
+Unfortunately, there seems to be no way to make the previous forums contents
+public footnote:[Yet another thing to dislike about Piazza...].
 
 === Mailing List
 
 All enrolled students will be added to a mailing list which we will use for
-course communication. *You are responsible for email messages sent to this
-list.* If you are not enrolled and would like to be added to the list, you can
-sign up https://www.ops-class.org/mailman/listinfo/ub[here].
+course communication.
+//
+*You are responsible for email messages sent to this list.*
+//
+If you are not enrolled and would like to be added to the list, you can sign
+up https://www.ops-class.org/mailman/listinfo/ub[here].
 
 [.hidden-print]
 == Videos
@@ -629,12 +686,11 @@ sign up https://www.ops-class.org/mailman/listinfo/ub[here].
 ++++
 <h3>Lectures</h3>
 <div class="embed-responsive embed-responsive-16by9">
-	<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3&amp;showinfo=1"></div>
+	<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp_z8pkiuvHo7Vz-eQEKsk-I&amp;showinfo=1"></div>
 </div>
 
 <h3>Recitations</h3>
 <div class="embed-responsive embed-responsive-16by9">
-	<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF&amp;showinfo=1"></div>
+	<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp9fbHf9b1kl8TiVYIg9uq-Y&amp;showinfo=1"></div>
 </div>
 ++++
-////

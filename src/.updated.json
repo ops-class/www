@@ -13,9 +13,9 @@
     },
     "slides/intro.html": {
         "filename": "slides/intro.html",
-        "hash": "897550cce4f73eec4ffc7c3a92c51e5b",
+        "hash": "886fa4a9feabd6bada2ce2f29d57ebc6",
         "created": "2016-01-29T18:55:20.203Z",
-        "updated": "2017-02-01T16:55:57.948Z"
+        "updated": "2017-02-02T17:41:37.646Z"
     },
     "slides/processes.html": {
         "filename": "slides/processes.html",
@@ -55,9 +55,9 @@
     },
     "courses/buffalo/CSE421_Spring2016.html": {
         "filename": "courses/buffalo/CSE421_Spring2016.html",
-        "hash": "6de2f634f36d1dc9993f008806958ce5",
+        "hash": "a0816193fb402bd32a02e85c2cd09db2",
         "created": "2016-02-04T13:08:12.458Z",
-        "updated": "2017-01-30T17:36:39.369Z"
+        "updated": "2017-02-02T19:01:03.322Z"
     },
     "exams/index.html": {
         "filename": "exams/index.html",
@@ -391,9 +391,9 @@
     },
     "courses/buffalo/CSE421_Spring2017.html": {
         "filename": "courses/buffalo/CSE421_Spring2017.html",
-        "hash": "7fcf960f0b3f877df3dee2dd90464132",
+        "hash": "c356152331784239e99c191eced1e903",
         "created": "2016-11-30T17:29:58.401Z",
-        "updated": "2017-01-30T18:11:07.711Z"
+        "updated": "2017-02-02T19:01:03.322Z"
     },
     "asst/setup.html": {
         "filename": "asst/setup.html",

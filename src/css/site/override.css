@@ -358,3 +358,6 @@ div#content a.external:after {
 .jumbotron p {
 	font-weight: inherit;
 }
+h4, .h4 {
+	font-weight: bold;
+}

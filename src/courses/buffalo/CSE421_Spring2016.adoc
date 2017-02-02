@@ -5,7 +5,6 @@ spelling_exceptions:
   - GWA
   - MWF
   - exo
-  - "/ASST3\\.\\d/"
 description: >
   Course materials for CSE 421/521 at the University at Buffalo in Spring
   2016.
@@ -17,8 +16,7 @@ changefreq: monthly
 
 [.visible-print]
 --
-WARNING: This syllabus is available online at +
-link:https://www.ops-class.org/courses/buffalo/CSE421_Spring2016/[`https://www.ops-class.org/courses/buffalo/CSE421_Spring2016/`, role='hidden_print'].
+WARNING: This syllabus is available online at link:https://www.ops-class.org/courses/buffalo/CSE421_Spring2016/[`https://www.ops-class.org/courses/buffalo/CSE421_Spring2016/`, role='hidden_print'].
 //
 The online version is easier to read and includes helpful links, embedded
 videos, and other useful resources.
@@ -102,13 +100,19 @@ hold office hours but do not do any grading.
 
 === Times and Locations
 
-. *Lecture*: MWF 2:00--2:50PM, Knox 104.
+. *Lecture*: MWF 2:00&ndash;2:50PM, Knox 104.
 
-. *Recitations*: T 4:00--4:50PM, NSC 222; and F 8:00--8:50AM, Knox 04.
-Recitations will be taught by Ali. Attendance is not mandatory, and
-you can attend either or both depending on what fits your schedule. *Graduate
-students may only attend recitations if there is space* footnote:[I suspect
-that there will regularly be space in the 8AM recitation...].
+. *Recitations*:
+//
+T 4:00&ndash;4:50PM, NSC 222; and F 8:00&ndash;8:50AM, Knox 04.
+//
+Recitations will be taught by Ali.
+//
+Attendance is not mandatory, and you can attend either or both depending on
+what fits your schedule.
+//
+*Graduate students may only attend recitations if there is space* footnote:[I
+suspect that there will regularly be space in the 8AM recitation...].
 
 . *Office Hours*: We have 20 total and 41 person-hours of office hours
 scheduled this semester. Please come and join us in Davis 301B! Office hours
@@ -494,13 +498,20 @@ videos, and other useful information.
 === Videos
 
 We try to tape all
+//
 https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3[lectures,role='hidden_print']
+//
 and
+//
 https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF[recitations,role='hidden_print'].
+//
 A playlist of the music played before class is also
+//
 https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_hjJpG9tqicpEgI6C3aaAE[available,role='hidden_print'].
+//
 Finally, we are experimenting with screencasts which are embedded into the
 assignments and also available in a
+//
 https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9PC8fyzc2meL4XvrVSyP8O[playlist,role='hidden_print'].
 
 [.hidden-print]
