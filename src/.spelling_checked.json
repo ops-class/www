@@ -18,7 +18,7 @@
         "courses/UB_CSE421_Spring2016/index.html": "1d69f64d144f0d8bc7ff1b8bd0cd6c3a",
         "courses/buffalo/CSE421_Spring2016/index.html": "9fec882b6ec5e0bf1e4d72d644c0c54f",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "38e14e5209ba63fef01cc3156fca0cfe",
+        "slides/index.html": "43fd99e9fabc31b133a3ab40dcf9620e",
         "slides/2016-02-03-forksynch/index.html": "bb0df009ef8e2f52ef5f7c4283a7c96a",
         "slides/2016-01-25-intro/index.html": "ab29eeb02e048a215ad96ad577f7b442",
         "slides/2016-01-30-processes/index.html": "d08e11494a6e82eabdb5469c63ac79b0",
@@ -122,10 +122,12 @@
         "courses/buffalo/CSE421_Spring2017/index.html": "a524a6ecdd0d422b7ace69c4d33e855d",
         "asst/setup/index.html": "4423d7e950f3bcb2573e2c0cb85f93f6",
         "slides/2017-01-30-intro/index.html": "c91b4e66730dbf0538ff4c3295ed3945",
-        "slides/2017-01-30-intro/deck.html": "4487296d0939ae69a7fb6d30c8e6b3a9",
+        "slides/2017-01-30-intro/deck.html": "4833d81cdea2257164866a69cbb014a6",
         "slides/2016/index.html": "4c8ea2acce27859075cce24995ce6d32",
-        "slides/2017-02-01-setup/index.html": "9924d76b8aa701cd094c2a5da30cddcd",
-        "slides/2017-02-01-setup/deck.html": "6f5427ff0ba6065e969d7d10a2c9f138"
+        "slides/2017-02-01-setup/index.html": "b888bb3201705d875f42679e3f7a1382",
+        "slides/2017-02-01-setup/deck.html": "6f5427ff0ba6065e969d7d10a2c9f138",
+        "slides/2017-02-03-processes/index.html": "9dfea375153e2d83f1177feecb75db8c",
+        "slides/2017-02-03-processes/deck.html": "324ad94ee889a9167b7ce4f9db916867"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -251,6 +253,8 @@
         "slides/2017-01-30-intro/deck.html": "b1ab6b20f8e747729c9139421517b011a638fe90",
         "slides/2016/index.html": "99d281f22c83167160dd50249df14a690a91e64e",
         "slides/2017-02-01-setup/index.html": "2c8ceaf1d001a1b87bd4eda5009cd8e31819654e",
-        "slides/2017-02-01-setup/deck.html": "2c8ceaf1d001a1b87bd4eda5009cd8e31819654e"
+        "slides/2017-02-01-setup/deck.html": "2c8ceaf1d001a1b87bd4eda5009cd8e31819654e",
+        "slides/2017-02-03-processes/index.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
+        "slides/2017-02-03-processes/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd"
     }
 }

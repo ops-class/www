@@ -5,9 +5,14 @@ author: Geoffrey Challen
 description:
   Introduction to the process abstraction and standard UNIX utilities.
 song:
-  name: "Wild Things"
-  author: "Alessia Cara"
-  youtube: g5vUBQBykJ4
+  name: "Gypsy"
+  author: "Fleetwood Mac"
+  youtube: EX8tFvInN3Y
+spelling_exceptions:
+  - pmap
+  - lsof
+  - bashrc
+  - proc
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -17,7 +22,7 @@ image::women/011.jpg[width="100%", title="Augusta Ada Lovelace King", link="http
 [.center.h2]
 icon:music[] link:http://www.alessiacara.com/[{song}]
 
-video::{music}[youtube,width=0,height=0]
+video::{music}[youtube,width=480,height=270]
 
 [.nooutline]
 == $ ps -aux # Processes
@@ -369,6 +374,60 @@ image::figures/process-bash-2.svg[width="100%"]
 
 image::figures/ps-threads.svg[width="90%", role="expand"]
 
+== $ pmap # memory mappings
+
+image::figures/pmap.svg[width="100%"]
+
+== bash
+
+image::figures/process-bash-1.svg[width="100%"]
+
+== $ lsof # open files
+
+image::figures/lsof.svg[width="100%"]
+
+[.slider]
+.True confessions: I cheated here.
+* `/home/challen/.bashrc` was not actually open when I ran this command.
+* `bash` didn't have any interesting files open and I was embarrassed.
+
+== !
+[.background]
+image:https://imgflip.com/readImage?iid=7920973[]
+
+[.meme-top]
+bashrc not open
+
+[.meme-bottom,.small]
+Professor resorts to lying
+
+== $ lsof # open files
+
+image::figures/lsof.svg[width="100%"]
+
+.True confessions: I cheated here.
+* `/home/challen/.bashrc` was not actually open when I ran this command.
+* `bash` didn't have any interesting files open and I was embarrassed.
+
+[.slider]
+--
+Let's imagine we caught bash during startup when it is reading its
+configuration parameters.
+--
+
+== bash
+
+image::figures/process-bash.svg[width="100%"]
+
+== Aside: the /proc/ file system
+
+[.slider]
+* How do `top`, `ps`, `pmap`, `lsof`, and other process examination utilities
+gather information?
+* Linux reuses the *file* abstraction for this purpose.
+
+image::figures/procfilesystem.svg[width="100%",role='slide']
+
 [.nooutline]
 == Next Time
 
@@ -379,3 +438,5 @@ image::figures/ps-threads.svg[width="90%", role="expand"]
 * *death* (`exit()`), and
 * *seance* (`wait()`).
 * Seance?
+
+// vim: ts=2:sw=2:et

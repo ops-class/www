@@ -103,3 +103,5 @@ score is in the 100 words-per-minute range.)
 == Next Time
 
 * Meet the operating system.
+
+// vim: ts=2:sw=2:et

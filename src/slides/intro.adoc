@@ -826,4 +826,4 @@ for those struggling to get started.
 //
 . Recitations and regular office hours will start next week.
 
-Questions?
+// vim: ts=2:sw=2:et
