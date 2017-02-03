@@ -18,7 +18,7 @@
         "courses/UB_CSE421_Spring2016/index.html": "1d69f64d144f0d8bc7ff1b8bd0cd6c3a",
         "courses/buffalo/CSE421_Spring2016/index.html": "9fec882b6ec5e0bf1e4d72d644c0c54f",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "43fd99e9fabc31b133a3ab40dcf9620e",
+        "slides/index.html": "56131940369aa2cb19695417129dcf72",
         "slides/2016-02-03-forksynch/index.html": "bb0df009ef8e2f52ef5f7c4283a7c96a",
         "slides/2016-01-25-intro/index.html": "ab29eeb02e048a215ad96ad577f7b442",
         "slides/2016-01-30-processes/index.html": "d08e11494a6e82eabdb5469c63ac79b0",
@@ -126,8 +126,10 @@
         "slides/2016/index.html": "4c8ea2acce27859075cce24995ce6d32",
         "slides/2017-02-01-setup/index.html": "b888bb3201705d875f42679e3f7a1382",
         "slides/2017-02-01-setup/deck.html": "6f5427ff0ba6065e969d7d10a2c9f138",
-        "slides/2017-02-03-processes/index.html": "4d784e0e7f125668859a334037e719eb",
-        "slides/2017-02-03-processes/deck.html": "81927a3d13bf13065c7d557082953c23"
+        "slides/2017-02-03-processes/index.html": "74f83f5902e79c1e413352e398f0d46d",
+        "slides/2017-02-03-processes/deck.html": "e9bcaf9f4181d508e2c2e8bb57c592de",
+        "slides/2017-02-06-forkandfilehandles/index.html": "a5bfc260e04400448e83cfa41d34a6e3",
+        "slides/2017-02-06-forkandfilehandles/deck.html": "92fff29e6b5bc3600b4ed56407ad3568"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -255,6 +257,8 @@
         "slides/2017-02-01-setup/index.html": "2c8ceaf1d001a1b87bd4eda5009cd8e31819654e",
         "slides/2017-02-01-setup/deck.html": "2c8ceaf1d001a1b87bd4eda5009cd8e31819654e",
         "slides/2017-02-03-processes/index.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
-        "slides/2017-02-03-processes/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd"
+        "slides/2017-02-03-processes/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
+        "slides/2017-02-06-forkandfilehandles/index.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
+        "slides/2017-02-06-forkandfilehandles/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd"
     }
 }
