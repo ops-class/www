@@ -20,7 +20,7 @@ spelling_exceptions:
 image::women/011.jpg[width="100%", title="Augusta Ada Lovelace King", link="http://en.wikipedia.org/wiki/Ada_Lovelace"]
 
 [.center.h2]
-icon:music[] link:http://www.alessiacara.com/[{song}]
+icon:music[] http://www.fleetwoodmac.com/[{song}]
 
 video::{music}[youtube,width=0,height=0]
 
@@ -36,20 +36,29 @@ video::{music}[youtube,width=0,height=0]
 == $ cat announce.txt
 
 [.slider]
+//
 * If you are enrolled in the class you should be receiving course emails. If
 you would like to sign up for the email list, here is the link:
+//
 [.spelling_exception]#https://www.ops-class.org/mailman/listinfo/ub#
-* Syllabus is online and updated.
-* Videos are up. (Sorry they're blurry--we'll fix that starting today.)
+//
+* Syllabus is link:/courses/buffalo/CSE421_Spring2017/[online and updated].
+//
+* link:/slides/[Videos] are up. (Sorry they're blurry--we'll fix that starting
+* today.)
+//
 * Recitations will start next week.
+//
 * The add/drop deadline is *next Monday February 6th.*
-** You still have time to examine the assignments and
-decide if this course is right for you right now.
+//
+** You still have time to examine the assignments and decide if this course is
+right for you right now.
 
 [.nooutline]
 == ASST0
 
 [.slider]
+//
 * link:/asst/0/[ASST0] is "due" today.
 //
 * If you are not done, please come by office hours this afternoon to finish
@@ -58,67 +67,108 @@ up.
 * Recitations next week will cover link:/asst/1/[ASST1].
 
 [.nooutline]
+== Office Hours Scheduling
+
+[.slider]
+//
+* A preliminary schedule will be up this evening.
+//
+* Here's the algorithm we're going to use:
+//
+** If you can attend at least four office hours, then stop.
+//
+** If not, determine some extra hours that you would like to attend.
+//
+** We will distribute a form for suggesting extra office hours.
+//
+** Based on your suggestions we will add extra office hours.
+
+[.nooutline]
 == Office Hours Protocol
 
 [.slider]
+//
 * *Location*&mdash;we're going to try and use the first floor lounge this
 year.
 //
 We'll see how that goes.
 //
 * Please be respectful of the TAs and ninjas:
+//
 [.slider]
+//
 ** Bother them relentlessly _during_ office hours...
+//
 ** and leave them alone _outside of_ office hours.
 
 [.nooutline]
 == Cold Calling
 
 [.slider]
+//
 * I will cold call students during class, possibly using a tool integrate with
 the slides.
+//
 * Cold calling is *not* designed to make anyone uncomfortable! Feel free to
 pass or say "I don't know."
 
 == Operating System Abstractions
 
 .Abstractions _simplify application design_ by:
+//
 [.slider]
+//
 * *hiding undesirable properties*,
+//
 * *adding new capabilities*, and
+//
 * *organizing information*.
 
 [.slide]
 --
 Abstractions provide an [.slide]*interface* to application programmers that
-separates [.slide]*policy* -- what the interface commits to accomplishing--from
-[.slide]*mechanism* -- how the interface is implemented.
+separates [.slide]*policy*&mdash;what the interface commits to accomplishing--from
+[.slide]*mechanism*&mdash;how the interface is implemented.
 --
 
 == Example Abstraction: File
 
-.What *undesirable properties* do files hide?
+.What *undesirable properties* do file systems hide?
+//
 [.slider]
+//
 * Disks are slow!
+//
 * Chunks of storage are actually distributed all over the disk.
+//
 * Disk storage may fail!
 
 .What *new capabilities* do files add?
+//
 [.slider]
+//
 * Growth and shrinking.
+//
 * Organization into directories.
 
 .What *information* do files help organize?
+//
 [.slider]
+//
 * Ownership and permissions.
+//
 * Access time, modification time, type, etc.
 
 == Preview of Coming Abstractions
 
 [.slider]
+//
 * *Threads* abstract the CPU.
+//
 * *Address spaces* abstract memory.
+//
 * *Files* abstract the disk.
+//
 * We will return to these abstractions. We are starting with an
 organizing principle.
 
