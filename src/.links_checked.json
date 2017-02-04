@@ -130,9 +130,9 @@
     "https://github.com/ops-class/www/commits/master/src/slides/intro.adoc": "2017-02-03T17:42:47.414Z",
     "https://github.com/ops-class/www/blob/master/src/slides/multiprocessing.adoc": "2017-01-29T21:36:24.214Z",
     "https://github.com/ops-class/www/blob/master/src/slides/intro.adoc": "2017-02-03T17:42:47.414Z",
-    "https://github.com/ops-class/www/commits/master/src/slides/processes.adoc": "2017-02-02T21:23:18.636Z",
+    "https://github.com/ops-class/www/commits/master/src/slides/processes.adoc": "2017-02-04T13:48:04.439Z",
     "https://github.com/ops-class/www/commits/master/src/slides/schedulingintro.adoc": "2017-01-29T21:36:24.214Z",
-    "https://github.com/ops-class/www/blob/master/src/slides/processes.adoc": "2017-02-02T21:23:18.636Z",
+    "https://github.com/ops-class/www/blob/master/src/slides/processes.adoc": "2017-02-04T13:48:04.439Z",
     "https://github.com/ops-class/www/blob/master/src/slides/schedulingintro.adoc": "2017-01-29T21:36:24.214Z",
     "https://github.com/ops-class/www/commits/master/src/slides/multiprocessing.adoc": "2017-01-29T21:36:24.214Z",
     "https://github.com/ops-class/www/commits/master/src/slides/synchprimitives.adoc": "2017-01-29T21:36:24.214Z",
@@ -565,5 +565,8 @@
     "https://github.com/ops-class/www/commit/b2471827838be3d7b7889be8a75b57611eade02a": "2017-02-02T20:21:22.492Z",
     "https://github.com/ops-class/www/commit/23627e0b1faf6d092584c0ff3359b5239049fcc8": "2017-02-02T21:23:18.636Z",
     "https://github.com/ops-class/www/commit/e28f30fc7174d1eaf313db220a4fa9e3a46fc7f1": "2017-02-03T17:42:47.414Z",
-    "https://github.com/ops-class/www/commit/a3c2edf4f6fc25e63d3e055b680970fe0209c584": "2017-02-03T18:51:42.694Z"
+    "https://github.com/ops-class/www/commit/a3c2edf4f6fc25e63d3e055b680970fe0209c584": "2017-02-03T18:51:42.694Z",
+    "https://github.com/ops-class/www/blob/master/src/slides/forkandfilehandles.adoc": "2017-02-04T13:48:04.439Z",
+    "https://github.com/ops-class/www/commit/eb07a7a9672c4fade7862cd3986b3311d342f49b": "2017-02-04T13:48:04.439Z",
+    "https://www.youtube.com/watch?v=Z0obNjaVpXg": "2017-02-04T13:48:04.439Z"
 }
