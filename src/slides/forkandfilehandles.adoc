@@ -5,6 +5,10 @@ author: Geoffrey Challen
 description: >
   Continuation of a discussion of the process abstraction and introduction to
   file handles and file descriptors.
+song:
+  name: "Three Packs a Day"
+  author: Courtney Barnett
+  youtube: OQw2qj2utOg
 spelling_exceptions:
   - pmap
   - lsof
@@ -16,9 +20,9 @@ spelling_exceptions:
 
 image::women/001.jpg[width="100%",title="Jean Bartik",link="https://en.wikipedia.org/wiki/Jean_Bartik"]
 
-// icon:music[] link:http://courtneybarnett.com.au/[{song}]
+icon:music[] link:http://courtneybarnett.com.au/[{song}]
 
-// video::{music}[youtube,width=0,height=0]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -529,3 +533,5 @@ fork()
 * *heaven* (`wait()`).
 * Heaven?
 * Write the code for our simple shell.
+
+// vim: ts=2:sw=2:et

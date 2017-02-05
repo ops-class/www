@@ -15,6 +15,7 @@ spelling_exceptions:
   - EC2
   - VMware
 ---
+:sectnums:
 
 [.lead]
 //
@@ -23,32 +24,97 @@ and require a special toolchain to compile, run, debug, and test.
 //
 This page describes how to get the sources and install the toolchain.
 
-'''
-
 == Toolchain
 
-There are two ways to install the toolchain.
-//
-If you are developing on a non-Ubuntu host, you probably want to use our
-link:#vagrant[Vagrantfile] to boot a Ubuntu virtual machine with the
-toolchain already installed.
-//
-If you are using Ubuntu, you can add our link:#ppa[`ops-class` PPA] and use
-it to install the toolchain natively.
+Your options for installing the toolchain depend on the operating system
+running on the computer that you are going to develop on:
 
-If you don't have a computer running Linux, you may want to give
-http://www.ubuntu.com[Ubuntu] a try.
+. *Windows*:
 //
-Maintaining your own Linux machine is a great way to learn more about system
-administration and, to some degree, about operating systems as well.
+** Perform a link:#gui[full installation of Ubuntu including a GUI] and then
+install the toolchain by adding our link:#ppa[`ops-class.org` PPA].
+//
+** Use our link:#vagrant[Vagrantfile] to boot a headless Ubuntu virtual
+machine with the toolchain installed.
+//
+** If you are running a version of Windows (10+) that supports the
+https://msdn.microsoft.com/en-us/commandline/wsl/install_guide[Windows
+Subsystem for Linux], you may be able to install and run the toolchain
+directly on Windows by adding our link:#ppa[`ops-class.org` PPA].
+//
+. *Mac OS*:
+//
+** Perform a link:#gui[full installation of Ubuntu including a GUI] and then
+install the toolchain by adding our link:#ppa[`ops-class.org` PPA].
+//
+** Use our link:#vagrant[Vagrantfile] to boot a headless Ubuntu virtual
+machine with the toolchain installed.
+//
+** Run natively by link:#source[installing from source].
+//
+. *Ubuntu* (or other Linux distributions that support Debian packaging):
+//
+** Install the toolchain natively by adding our link:#ppa[`ops-class.org`
+PPA].
+//
+. *Other UNIX systems*:
+//
+** Run natively by link:#source[installing from source].
+
+You'll note that most of these options boil down to getting Ubuntu installed
+somehow--either with or without a GUI--and then using our packages.
+//
+The only exceptions are Windows installations that can use the packages
+natively, or those that want to install from source for some reason.
+
+We review the main options below.
+
+[[gui]]
+=== Virtual Machine with GUI
+
+Consider this option if:
+
+* your computer is beefy enough to run a full GUI-based virtual machine (many
+are), and
+//
+* you prefer editing source code using a graphical editor like
+//
+https://atom.io/[Atom],
+//
+https://www.sublimetext.com/[Sublime],
+//
+https://eclipse.org/[Eclipse], etc.
+
+There are many tutorials on how to install Ubuntu using VirtualBox
+footnote:[Or VMware, or Parallels, etc...]&mdash;http://www.beopensource.com/2016/05/how-to-install-Ubuntu-1604-LTS-in-Virtual-Box-VmWare.html[here's
+one]&mdash;so we aren't going to maintain one here.
+//
+We would suggest choosing http://releases.ubuntu.com/16.04/[Ubuntu 16.04 LTS
+"Xenial Xerus"], the latest LTS (Long Term Support) version.
+//
+We have packages ready for it as well as
+//
+http://releases.ubuntu.com/14.04/[Ubuntu 14.04 LTS "Trusty Tahr"].
+
+One you have Ubuntu installed and running to your satisfaction, continue by
+installing the toolchain using the link:#ppa[`ops-class.org` PPA].
 
 [[vagrant]]
-=== Vagrant Virtual Machine
+=== Headless Virtual Machine (No GUI)
+
+Consider this option if:
+
+* you'd prefer a more lightweight virtual machine, and
+//
+* if you are using Windows, you are comfortable editing files in a text-based
+editor like
+//
+http://www.vim.org/[Vim] or https://www.gnu.org/software/emacs/[Emacs].
 
 We maintain an {ops-class} https://github.com/ops-class/vagrant[Vagrant
 configuration].
 //
-It loads a pre-built VirtualBox virtual machine
+It loads a pre-built headless (no GUI) VirtualBox virtual machine
 //
 footnote:[We'll talk a lot more about virtualization in class, but here's one
 example of how useful it can be.]
@@ -69,8 +135,6 @@ http://releases.ubuntu.com/16.04/[Ubuntu 16.04 LTS "Xenial Xerus"].
 //
 It contains the rest of the toolchain, including link:#sys161[`sys161`],
 link:#compilers[the OS/161 cross-compilers], and link:#test161[`test161`].
-//
-*This is the recommended way to install the toolchain.*
 
 ==== Current version
 
@@ -169,11 +233,6 @@ symbolic links.
 . Don't share your source folder and edit your code inside the virtual
 machine using a terminal-based editor.
 
-If you want a graphical editor, you can install a more complete Ubuntu
-virtual machine with a graphical interface.
-//
-Then install the toolchain using our link:#ppa[PPA] as described below.
-
 ==== Upgrading the toolchain
 
 ----
@@ -194,8 +253,6 @@ vagrant up --provision
 But it may be easier to simply destroy the old VM and create a new one.
 //
 *Be sure to preserve your OS/161 sources!*
-
-'''
 
 [[ppa]]
 === {ops-class} PPA
@@ -218,6 +275,13 @@ should get you started.
 //
 If you are using a much earlier Ubuntu release, you should upgrade.
 
+As of early 2017 we have evidence that the Xenial packages also seem to work
+on Windows 10 under the Windows Subsystem for Linux.
+//
+So this is another option for Windows users.
+//
+This is a new option for us, and we'll update this document as we know more.
+
 ==== Installation
 
 ----
@@ -233,38 +297,27 @@ sudo apt-get update
 sudo apt-get install os161-toolchain
 ----
 
-'''
-
-=== Other Virtualization Options
-
-You can also create an Ubuntu 16.04 virtual machine using other
-virtualization tools:
-//
-https://aws.amazon.com/[Amazon EC2],
-//
-http://www.vmware.com/[VMware]
-//
-and of course https://www.virtualbox.org/[VirtualBox].
-//
-Once you've done that you can use the instructions above for installing the
-software on native Ubuntu.
-
-=== Do-It-Yourself Installation on Other Flavors of UNIX
+[[source]]
+=== Install from Source
 
 We don't support this option, but if you'd like to try instructions are
 available at the {os161-link}[OS/161 website].
 //
-You will need to download, configure, compile and install the OS/161
-toolchain using the modified sources.
+You will need to download, configure, compile and install the OS/161 toolchain
+using the modified sources.
 //
 Follow the online directions.
 //
+*However, rather that using David's tarballs we would suggest that you use the
+official `ops-class.org` sources* which are available on GitHub for
+link:#test161[`test161`], link:#sys161[`sys161`], and link:#compilers[the
+cross compilers].
+
 Linux and other UNIX variants are likely to work.
 //
-Superheroes have gotten things to work on OSX.
+OSX may require patches.
 //
-Please use the most recent version of the cross-compilation toolchain and
-System/161.
+Keep reading for more instructions.
 
 [[os161]]
 == Source
@@ -321,8 +374,6 @@ fix any merge conflicts.
 ----
 git pull staff master
 ----
-
-'''
 
 == Toolchain Components
 
