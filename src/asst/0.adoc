@@ -814,3 +814,5 @@ functions that initialize various subsystems.
 * Put a breakpoint on the kernel exception handler and step through it when
 it fires. Use it to determine what generates exceptions when your kernel is
 sitting idly at the menu.
+
+// vim: ts=2:sw=2:et

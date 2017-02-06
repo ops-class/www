@@ -20,6 +20,7 @@ spelling_exceptions:
 
 image::women/001.jpg[width="100%",title="Jean Bartik",link="https://en.wikipedia.org/wiki/Jean_Bartik"]
 
+[.center.h2]
 icon:music[] link:http://courtneybarnett.com.au/[{song}]
 
 video::{music}[youtube,width=0,height=0]
@@ -28,7 +29,6 @@ video::{music}[youtube,width=0,height=0]
 == Today
 
 . Finish IPC.
-. Review.
 . File handles.
 . Process life cycle:
 ** *Birth:* `fork()`
@@ -42,6 +42,24 @@ video::{music}[youtube,width=0,height=0]
 [.slider]
 * *Today is the add/drop deadline!*
 * Recitations start this week and office hours continue.
+* link:/asst/1/[ASST1] is due in _less than two weeks_.
+* We will release changes to `test161` later this week and restart the
+submission server.
+
+[.nooutline]
+== A Note on Partnering
+
+[.slider]
+* Both partners should be working together on each assignment.
+* Working effectively with others is a life skill. It involves a degree of
+patience and commitment by both parties:
+** *Patience*: not getting too far ahead of your partner and doing all the
+work
+** *Commitment*: not getting too far behind your partner and dropping the ball
+* Take ASST1 as your chance to test drive your partnership.
+** Feel free to approach the course staff for help if needed.
+* *We do not let students form new partnerships.* However, if you are really
+struggling then we can let you work alone on ASST2 and ASST3.
 
 [.nooutline]
 == A Note on Grading
@@ -259,7 +277,7 @@ image::figures/process-bash.svg[width="100%"]
 
 == Aside: the /proc/ file system
 
-[.slider]
+[.slider.small]
 * How do `top`, `ps`, `pmap`, `lsof`, and other process examination utilities
 gather information?
 * Linux reuses the *file* abstraction for this purpose.
@@ -312,17 +330,6 @@ a single thing that the computer is "doing."
 ** one or more *threads*,
 ** an *address space*, and
 ** zero or more open *file handles*.
-
-[.nooutline]
-== [.small]#Review: Inter-Process Communication (IPC)#
-
-[.slider]
-.IPC mechanisms include:
-* files,
-* return codes,
-* pipes,
-* shared memory,
-* and signals.
 
 [.nooutline]
 == Review: Protection
@@ -492,7 +499,7 @@ if (returnCode == 0) {
 }
 ----
 
-[.small.slider]
+[.smaller.slider]
 * The child thread returns executing at the exact same point that its
 parent called `fork()`.
 ** With one exception: `fork()` returns *twice*, the PID to the parent and

@@ -128,8 +128,9 @@
         "slides/2017-02-01-setup/deck.html": "6f5427ff0ba6065e969d7d10a2c9f138",
         "slides/2017-02-03-processes/index.html": "24a7319042671ed3add7163ea21fe0ec",
         "slides/2017-02-03-processes/deck.html": "e9bcaf9f4181d508e2c2e8bb57c592de",
-        "slides/2017-02-06-forkandfilehandles/index.html": "a5bfc260e04400448e83cfa41d34a6e3",
-        "slides/2017-02-06-forkandfilehandles/deck.html": "e985d52c75b00ba269dafbce111bd7c0"
+        "slides/2017-02-06-forkandfilehandles/index.html": "1bc1d7f786a9163d3c55e8e709ddb477",
+        "slides/2017-02-06-forkandfilehandles/deck.html": "8b43fe586ca272efbcb16b2cea2ac062",
+        "asst/repos/index.html": "9029bf8160ee1b63a633b87d442e22d0"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -259,6 +260,7 @@
         "slides/2017-02-03-processes/index.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
         "slides/2017-02-03-processes/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
         "slides/2017-02-06-forkandfilehandles/index.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
-        "slides/2017-02-06-forkandfilehandles/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd"
+        "slides/2017-02-06-forkandfilehandles/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
+        "asst/repos/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
     }
 }

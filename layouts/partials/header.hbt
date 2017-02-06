@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
 		<title>ops-class.org | {{ title }}</title>
 		{{#if author }}
 		<meta content="{{ author }}" name="author">
@@ -102,14 +102,13 @@
 											data-toggle="dropdown" role="button"
 											aria-haspopup="true" aria-expanded="false">assignments</a>
 										<ul class="dropdown-menu">
-											<li><a href="/asst/overview/">Overview</a></li>
-											<li role="separator" class="divider"></li>
+											<li><a href="/asst/setup/">Setup</a></li>
 											<li><a href="/asst/0/">ASST0</a></li>
 											<li><a href="/asst/1/">ASST1</a></li>
 											<li><a href="/asst/2/">ASST2</a></li>
 											<li><a href="/asst/3/">ASST3</a></li>
 											<li role="separator" class="divider"></li>
-											<li><a href="/asst/setup/">Setup</a></li>
+											<li><a href="/asst/overview/">Overview</a></li>
 										</ul>
 									</li>
 									<li><a id="menu-discuss"

@@ -1,0 +1,101 @@
+---
+title: "<code>ops-class.org</code> Repositories"
+omitTop: true
+description:
+  Reference page describing various ops-class.org repositories.
+priority: 0.8
+changefreq: monthly
+---
+
+[.lead]
+//
+Below we describe various {ops-class} source code repositories.
+//
+This serves primarily as a reference for course staff, but may also be useful
+for students that want to contribute to {ops-class} by submitting pull
+requests.
+
+== Website
+
+The sources used to build this website are
+//
+https://github.com/ops-class/www[published on GitHub]
+//
+and maintained by
+//
+https://www.bluegroup.systems/people/gwa/[Geoffrey Challen].
+//
+Continuous integration is done using
+//
+https://www.bluegroup.systems/people/gwa/[Travis CI].
+//
+Pull requests that pass integration tests are welcome.
+
+== Private OS/161 Sources and Solution Sets
+
+In addition to our
+//
+https://github.com/ops-class/os161[public OS/161 sources]
+//
+we also maintain private OS/161 repositories.
+//
+We use these for testing changes to the base system before pushing to GitHub,
+and for maintaining solution sets.
+//
+If you are course staff for a class using {ops-class}, please contact your
+instruction to gain access to these repositories.
+
+=== Solution Maintenance Scripts
+
+Changes to the base system and any solution set must be migrated to downstream
+sources.
+//
+For example, all changes to the base system must be pushed to the ASST1,
+ASST2, and ASST3 solution set repositories; any changes to the ASST2 solution
+set should be migrated to ASST3; etc.
+//
+We have a set of tools available for doing this correctly.
+//
+If you are a course staff member, contact us to get a copy of these tools.
+
+== Toolchain
+
+The rest of the toolchain--including `test161`, `sys161`, and the
+cross-compilers--are described on the link:/asst/setup/[setup page]:
+
+* link:/asst/setup/#test161[`test161`]
+//
+* link:/asst/setup/#sys161[`sys161`]
+//
+* link:/asst/setup/#compilers[cross compilers].
+
+== Miscellaneous
+
+Below we describe a few miscellaneous bits and pieces that we maintain in
+private repositories.
+
+=== `test161` Overlays
+
+To perform trusted server-side testing, {test161} uses a set of _overlays_.
+//
+These contain assignment-specific files that are copied over the submitted
+code to ensure that the build and testing environment is secure.
+//
+Because some overlays including partial solutions or extra tests that are not
+released to students, we maintain these in a private repository.
+
+
+=== `test161` Packaging
+
+We maintain a private repository for the purpose of packaging {test161} for
+our {ppa}.
+//
+Our approach to crafting LaunchPad source packages that can build Go binaries
+involves including sources for all of the required libraries.
+//
+So while this repository contains all publicly-available code, it
+also contains a lot of code that we do not maintain.
+//
+As a result, we keep in private.
+
+// vim: ts=2:sw=2:et
