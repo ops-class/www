@@ -73,9 +73,9 @@
     },
     "slides/forkandfilehandles.html": {
         "filename": "slides/forkandfilehandles.html",
-        "hash": "1f139ec013f44b7be45a0c9e4e5b0a2a",
+        "hash": "2c5516bc7b0da7626b6b68e254712f34",
         "created": "2016-02-05T00:52:42.523Z",
-        "updated": "2017-02-06T18:31:37.688Z"
+        "updated": "2017-02-06T20:59:27.276Z"
     },
     "slides/synchprimitives.html": {
         "filename": "slides/synchprimitives.html",
@@ -634,5 +634,11 @@
         "hash": "8abd8682e52ff828506b516b48abe347",
         "created": "2017-02-05T21:30:32.169Z",
         "updated": "2017-02-05T21:30:32.169Z"
+    },
+    "slides/moreprocesses.html": {
+        "filename": "slides/moreprocesses.html",
+        "hash": "5525f783e45df200e500919ab67ab3cc",
+        "created": "2017-02-06T20:59:27.276Z",
+        "updated": "2017-02-06T21:03:15.043Z"
     }
 }

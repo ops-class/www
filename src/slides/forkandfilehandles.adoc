@@ -1,14 +1,14 @@
 ---
 title: "Processes and File Handles"
-date: 2017-02-06
+date: 2017-02-08
 author: Geoffrey Challen
 description: >
-  Continuation of a discussion of the process abstraction and introduction to
-  file handles and file descriptors.
+  Introduction to file handles and file descriptors and the process life
+  cycle.
 song:
-  name: "Three Packs a Day"
-  author: Courtney Barnett
-  youtube: OQw2qj2utOg
+  name: "Killer in the Street"
+  author: The Raveonettes
+  youtube: V93GmEBL3YY
 spelling_exceptions:
   - pmap
   - lsof
@@ -21,14 +21,13 @@ spelling_exceptions:
 image::women/001.jpg[width="100%",title="Jean Bartik",link="https://en.wikipedia.org/wiki/Jean_Bartik"]
 
 [.center.h2]
-icon:music[] link:http://courtneybarnett.com.au/[{song}]
+icon:music[] http://www.theraveonettes.com/[{song}]
 
 video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
 
-. Finish IPC.
 . File handles.
 . Process life cycle:
 ** *Birth:* `fork()`
@@ -36,199 +35,10 @@ video::{music}[youtube,width=0,height=0]
 ** *Death:* `exit()`
 ** *The Afterlife:* `wait()`
 
+////
 [.nooutline]
 == $ cat announce.txt
-
-[.slider]
-* *Today is the add/drop deadline!*
-* Recitations start this week and office hours continue.
-* link:/asst/1/[ASST1] is due in _less than two weeks_.
-* We will release changes to `test161` later this week and restart the
-submission server.
-
-[.nooutline]
-== A Note on Partnering
-
-[.slider]
-* Both partners should be working together on each assignment.
-* Working effectively with others is a life skill. It involves a degree of
-patience and commitment by both parties:
-** *Patience*: not getting too far ahead of your partner and doing all the
-work
-** *Commitment*: not getting too far behind your partner and dropping the ball
-* Take ASST1 as your chance to test drive your partnership.
-** Feel free to approach the course staff for help if needed.
-* *We do not let students form new partnerships.* However, if you are really
-struggling then we can let you work alone on ASST2 and ASST3.
-
-[.nooutline]
-== A Note on Grading
-
-[.slider]
-* My goal is to help everyone "make an A."
-* If you are confused about anything, or have any doubts, email
-`staff@ops-class.org` and we will reply promptly.
-
-[.nooutline]
-== A Note on Assignment Grading
-
-[.slider]
-* This year we have removed many of the free points from the
-assignments--particularly the code reading questions.
-* The goal is not to demoralize anyone. The goal is to ensure that you are
-working on the parts of the assignments that are important.
-* However, we *strongly* advise you to complete the recommended questions and
-exercises.
-
-[.nooutline]
-== Last Time
-
-[.slider]
-.We discussed the *process* abstraction.
-* Unfortunately at this point we are discussing an abstraction
-(processes) built on other abstractions (threads, address spaces, files)
-that we haven't discussed yet!
-* There is a certain circularity to operating system design but we had
-to break through at some point.
-* Bear with me--we will get there and we will also keep returning to the
-examples we've already introduced.
-* Questions about material presented Friday?
-
-== [.spelling_exception]#$ kill -9 ubshuttle # IPC: signals#
-
-image:figures/signals.svg[width="100%"]
-
-[.small.slider]
-* Signals are a limited form of asynchronous communication between
-processes.
-* Processes can register a *signal handler* to run when a signal is
-received.
-* Users can send signals to processes owned by them; the super-user can
-send a signal to any process.
-* Processes can ignore most signals.
-** `SIGKILL` is a notable exception; used for non-graceful termination.
-** `SIGTERM` is used for graceful shutdown and sent by Control-C.
-
-== !
-
-[.background]
-image:http://media.ossblog.it/s/sud/sudo.jpg[]
-
-== We Will Return to IPC
-
-[.slider]
-* *return codes* -- we will discuss again when we learn about `wait()` and
-`_exit()`.
-** You will implement return codes for ASST2.
-* *pipes* -- we will discuss again when we learn about `fork()`.
-* *signals* -- are difficult to use and implement and not something we will
-return to.
-* *shared memory* -- we will discuss again when we learn about address
-spaces and virtual memory.
-
-== Processes v. Threads
-
-[.small.slider]
-* Potential confusing due to overlapping terminology--we can describe
-both a *process* and a *thread* as running.
-* Terminology can be helpful for remembering the distinction:
-** A computing *process* requires multiple resources: the CPU, memory,
-files, etc.
-** A *thread* of execution abstracts CPU state.
-* Processes _contain_ threads; threads _belong_ to a process.
-** Only one exception: the kernel may have threads of execution not
-associated with any user process
-** (Except the kernel process, which is a process, remember?)
-* A process is considered to be running when one or more of its threads
-are running.
-* Different operating systems use different terminology, but share
-common ideas.
-
-== Process Example: Firefox
-
-[.small]
---
-[.slider]
-.*Firefox has multiple threads. What are they doing?*
-* Waiting for and processing interface events: mouse clicks, keyboard
-input, etc.
-* Redrawing the screen as necessary in response to user input, web page
-loading, etc.
-* Loading web pages--usually multiple parts _in parallel_ to speed
-things up.
-
-[.slider]
-.*Firefox is using memory. For what?*
-* Firefox.exe: the executable code of Firefox itself.
-* Shared libraries for web page parsing, security, etc.
-* Stacks storing local variables for running threads.
-* A heap storing dynamically-allocated memory.
-
-[.slider]
-.*Firefox has files open. Why?*
-* Configuration files.
-* Fonts.
---
-
-== $ top # more process information
-
-image::figures/top.svg[width="100%"]
-
-== Process Example: bash
-
-[.slider]
-* Let's do this for real using standard Linux system utilities.
-
-== Finding bash
-
-image::figures/finding-bash.svg[width="100%"]
-
-[.slider]
-* `ps aux` gives me all process, then `grep` for the one I'm after.
-* ...or, do it all in one shot using `pgrep`.
-* ...or, if I know it's running in my current session a bare `ps` will do.
-
-== bash
-
-image::figures/process-bash-3.svg[width="100%"]
-
-== [.spelling_exception]#$ ps -Lf # thread information#
-
-image::figures/threads-bash.svg[width="100%"]
-
-[.small.slider]
-.What are:
-* `UID`: user the process is running as.
-* `PID`: process ID.
-* `PPID`: parent process ID.
-* `PRI`: scheduling priority.
-* `SZ`: size of the core image of the process (kB).
-* `WCHAN`: if the process is not running, description of what it is
-waiting on.
-* `RSS`: total amount of resident memory is use by the process (kB).
-* `TIME`: measure of the amount of time that the process has spent
-running.
-
-== [.spelling_exception]#$ ps -Lf # thread information#
-
-image::figures/threads-bash.svg[width="100%"]
-
-[.slider]
-* If `bash` had multiple threads running this view would show them, so
-`bash` does not have multiple threads.
-
-== bash
-
-image::figures/process-bash-2.svg[width="100%"]
-
-== $ ps # process information
-
-[.slider]
-* I wish we could see a process with multiple threads...
-
-== [.spelling_exception]#$ ps -Lf # thread information#
-
-image::figures/ps-threads.svg[width="90%", role="expand"]
+////
 
 == $ pmap # memory mappings
 

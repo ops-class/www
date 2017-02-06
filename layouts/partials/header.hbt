@@ -109,6 +109,7 @@
 											<li><a href="/asst/3/">ASST3</a></li>
 											<li role="separator" class="divider"></li>
 											<li><a href="/asst/overview/">Overview</a></li>
+											<li><a href="/asst/repos/">Repositories</a></li>
 										</ul>
 									</li>
 									<li><a id="menu-discuss"
