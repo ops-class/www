@@ -13,6 +13,7 @@ spelling_exceptions:
   - lsof
   - bashrc
   - proc
+video: uMLf2hVkeFg
 ---
 [.nooutline.spelling_exception]
 == Technical Women
