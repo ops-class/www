@@ -107,7 +107,7 @@ https://www.bluegroup.systems[my research group].
 //
 Others are 421/521 students from previous years.
 //
-This year's ninjas are
+This year's 17 ninjas are
 //
 https://www.linkedin.com/in/adhishchugh[Adhish Chugh],
 //
@@ -135,7 +135,7 @@ https://www.linkedin.com/in/bassman5001[Steve Bass],
 //
 https://www.linkedin.com/in/timothy-eilinger-ii-a658bab9[Timothy Eilinger],
 //
-William Burgin
+William Burgin,
 //
 https://www.facebook.com/public/Yousuf-Zubairi[Yousuf Zubairi],
 //
@@ -694,3 +694,5 @@ up https://www.ops-class.org/mailman/listinfo/ub[here].
 	<div class="lazy-iframe" data-src="//www.youtube.com/embed/videoseries?list=PLE6LEE8y2Jp9fbHf9b1kl8TiVYIg9uq-Y&amp;showinfo=1"></div>
 </div>
 ++++
+
+// vim: ts=2:sw=2:et
