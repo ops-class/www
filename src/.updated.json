@@ -889,9 +889,9 @@
     },
     "man/libc/getcwd.html": {
         "filename": "man/libc/getcwd.html",
-        "hash": "a941793923f996279c4f904d1e4601e4",
+        "hash": "44a70c98241c52d0da005f8758e996e1",
         "created": "2017-02-08T17:18:25.626Z",
-        "updated": "2017-02-08T17:18:25.626Z"
+        "updated": "2017-02-08T18:30:00.631Z"
     },
     "man/libc/index.html": {
         "filename": "man/libc/index.html",
@@ -1411,9 +1411,9 @@
     },
     "man/testbin/malloctest.html": {
         "filename": "man/testbin/malloctest.html",
-        "hash": "e9bc4580e3f74da6c8d964c678ae36a7",
+        "hash": "6c5a4d0f94637fa91addb8574b182831",
         "created": "2017-02-08T17:18:25.626Z",
-        "updated": "2017-02-08T17:18:25.626Z"
+        "updated": "2017-02-08T18:27:51.617Z"
     },
     "man/testbin/matmult.html": {
         "filename": "man/testbin/matmult.html",
@@ -1543,9 +1543,9 @@
     },
     "man/testbin/multiexec.html": {
         "filename": "man/testbin/multiexec.html",
-        "hash": "e03401cd9add5f5be9356c00f8f2dd77",
+        "hash": "0c19544634cc56b9e6e9a364ba7a4a39",
         "created": "2017-02-08T17:41:04.492Z",
-        "updated": "2017-02-08T17:41:04.492Z"
+        "updated": "2017-02-08T18:27:51.617Z"
     },
     "man/testbin/parallelvm.html": {
         "filename": "man/testbin/parallelvm.html",
@@ -1591,9 +1591,9 @@
     },
     "man/testbin/sbrktest.html": {
         "filename": "man/testbin/sbrktest.html",
-        "hash": "f3d50de22c7709e598ce85a299215832",
+        "hash": "cc3a3bc247d5fd4235ac486c60fdfbe2",
         "created": "2017-02-08T17:41:04.492Z",
-        "updated": "2017-02-08T17:41:04.492Z"
+        "updated": "2017-02-08T18:30:00.631Z"
     },
     "man/testbin/schedpong.html": {
         "filename": "man/testbin/schedpong.html",
@@ -1618,5 +1618,41 @@
         "hash": "1a1ab5ebed9ffd42ef8a594d6b07a945",
         "created": "2017-02-08T17:41:04.492Z",
         "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/dev/ltrace.html": {
+        "filename": "man/dev/ltrace.html",
+        "hash": "8fbae1fecbb0248928ac7ee19a1ef2c8",
+        "created": "2017-02-08T18:25:47.501Z",
+        "updated": "2017-02-08T18:25:47.501Z"
+    },
+    "man/libc/execvp.html": {
+        "filename": "man/libc/execvp.html",
+        "hash": "4e872c7714afe5dd87405164315ff7ce",
+        "created": "2017-02-08T18:25:47.501Z",
+        "updated": "2017-02-08T18:31:17.486Z"
+    },
+    "man/libc/getenv.html": {
+        "filename": "man/libc/getenv.html",
+        "hash": "04de137ae28978241a3d6c85d4ee5acc",
+        "created": "2017-02-08T18:25:47.501Z",
+        "updated": "2017-02-08T18:25:47.501Z"
+    },
+    "man/libc/memcmp.html": {
+        "filename": "man/libc/memcmp.html",
+        "hash": "78a0f778e56ff63b08b3d72cb1f739c6",
+        "created": "2017-02-08T18:25:47.501Z",
+        "updated": "2017-02-08T18:25:47.501Z"
+    },
+    "man/misc/semfs.html": {
+        "filename": "man/misc/semfs.html",
+        "hash": "7ae369035281cc465f78312848946231",
+        "created": "2017-02-08T18:25:47.501Z",
+        "updated": "2017-02-08T18:25:47.501Z"
+    },
+    "man/sbin/sfsck.html": {
+        "filename": "man/sbin/sfsck.html",
+        "hash": "3e997a30d11812371454d6d9658aa403",
+        "created": "2017-02-08T18:25:47.501Z",
+        "updated": "2017-02-08T18:25:47.501Z"
     }
 }
