@@ -54,6 +54,7 @@ var outline_compiled_pattern = 'slides/**/index.html';
 var deck_compiled_pattern = 'slides/**/deck.html';
 var asst_pattern = 'asst/*.adoc';
 var course_pattern = 'courses/**/*.adoc';
+var man_pattern = 'man/**/*';
 
 var isSlides = function(filename, file, i) {
   return file.slides == true;
@@ -71,12 +72,20 @@ metalsmith(__dirname)
   .use(filemetadata([
     {pattern: slides_pattern,
       metadata: {
-        'slides': true,
-        'doGithub': true,
-        'layout': 'slides/slides.adoc'
+        slides: true,
+        doGithub: true,
+        layout: 'slides/slides.adoc'
       },
       preserve: true
     },
+    {pattern: man_pattern,
+      metadata: {
+        no_title: true,
+        no_description: true,
+        permalink: false
+      },
+      preserve: true
+    }
   ]))
   .use(branch(isSlides)
     .use(layouts({
@@ -86,8 +95,8 @@ metalsmith(__dirname)
   .use(filemetadata([
     {pattern: asst_pattern,
       metadata: {
-        'asst': true,
-        'layout': 'assts/asst.adoc'
+        asst: true,
+        layout: 'assts/asst.adoc'
       },
       preserve: true
     },
@@ -100,23 +109,23 @@ metalsmith(__dirname)
   .use(filemetadata([
     {pattern: asst_pattern,
       metadata: {
-        'layout': 'assts/asst.hbt'
+        layout: 'assts/asst.hbt'
       },
       preserve: false
     },
     {pattern: asst_pattern,
       metadata: {
-        'doSections': true,
-        'doGithub': true,
+        doSections: true,
+        doGithub: true,
       },
       preserve: true
     },
     {pattern: course_pattern,
       metadata: {
-        'course': true,
-        'doSections': true,
-        'doGithub': true,
-        'layout': 'courses/course.hbt'
+        course: true,
+        doSections: true,
+        doGithub: true,
+        layout: 'courses/course.hbt'
       },
       preserve: true
     }
