@@ -110,6 +110,7 @@
 											<li role="separator" class="divider"></li>
 											<li><a href="/asst/overview/">Overview</a></li>
 											<li><a href="/asst/repos/">Repositories</a></li>
+											<li><a href="/man/">OS/161 man Pages</a></li>
 										</ul>
 									</li>
 									<li><a id="menu-discuss"

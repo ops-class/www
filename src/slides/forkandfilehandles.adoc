@@ -35,10 +35,28 @@ video::{music}[youtube,width=0,height=0]
 ** *Death:* `exit()`
 ** *The Afterlife:* `wait()`
 
-////
 [.nooutline]
-== $ cat announce.txt
-////
+== link:/asst/1/[ASST1] Checkpoint
+
+[.slider]
+//
+.At this point:
+//
+* If you have not started, *you are behind.*
+//
+* If you don't understand semaphores, *you are behind.*
+//
+* If you have working locks, you're a bit behind.
+//
+* If you have working CVs, you're OK.
+//
+* Keep in mind: *you need working locks and CVs for future assignments.*
+//
+** (The rest of the assignment is for points and won't hurt you as much in the
+future.)
+
+[.nooutline]
+== Announcement Questions?
 
 == $ pmap # memory mappings
 
