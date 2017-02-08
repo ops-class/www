@@ -1498,5 +1498,125 @@
         "hash": "947f5ffdc12bedb284fa9c942fcabfe0",
         "created": "2017-02-08T17:18:25.626Z",
         "updated": "2017-02-08T17:18:25.626Z"
+    },
+    "man/testbin/bigexec.html": {
+        "filename": "man/testbin/bigexec.html",
+        "hash": "82905ca6d440f67d82d177e787626c9b",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/bigfork.html": {
+        "filename": "man/testbin/bigfork.html",
+        "hash": "3c99f66226a404934568fc583ad12305",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/bigseek.html": {
+        "filename": "man/testbin/bigseek.html",
+        "hash": "d9c96b14d70fa13371b1ea4e9355e327",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/bloat.html": {
+        "filename": "man/testbin/bloat.html",
+        "hash": "13f0e2c3b569e69a1410dcb69591d0f0",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/dirconc.html": {
+        "filename": "man/testbin/dirconc.html",
+        "hash": "3b4be22da9bd641ef58e5e37c88262d8",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/factorial.html": {
+        "filename": "man/testbin/factorial.html",
+        "hash": "8b8664e07549805bfceba2a5fc4a2d85",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/frack.html": {
+        "filename": "man/testbin/frack.html",
+        "hash": "ffda671c68ed7dcfc23251f6b2601aa4",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/multiexec.html": {
+        "filename": "man/testbin/multiexec.html",
+        "hash": "e03401cd9add5f5be9356c00f8f2dd77",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/parallelvm.html": {
+        "filename": "man/testbin/parallelvm.html",
+        "hash": "f49ca7f596934b4898a5ca911ab5274a",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/poisondisk.html": {
+        "filename": "man/testbin/poisondisk.html",
+        "hash": "ca003afaf3a92522f2f6a80323950745",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/psort.html": {
+        "filename": "man/testbin/psort.html",
+        "hash": "65c2bdfd3e171e6992269715d04b048f",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/quinthuge.html": {
+        "filename": "man/testbin/quinthuge.html",
+        "hash": "c324d45d6b88015396348ef7a9e42dbc",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/quintmat.html": {
+        "filename": "man/testbin/quintmat.html",
+        "hash": "68d660efb705a501b6fd3549a59554d2",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/quintsort.html": {
+        "filename": "man/testbin/quintsort.html",
+        "hash": "80432c09793aad15df9b157c7e794070",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/redirect.html": {
+        "filename": "man/testbin/redirect.html",
+        "hash": "1f99ad547e5a359d94d9c4eafaa85561",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/sbrktest.html": {
+        "filename": "man/testbin/sbrktest.html",
+        "hash": "f3d50de22c7709e598ce85a299215832",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/schedpong.html": {
+        "filename": "man/testbin/schedpong.html",
+        "hash": "89b7ad1b68dbfbd68889f7b59eddeb5a",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/sparsefile.html": {
+        "filename": "man/testbin/sparsefile.html",
+        "hash": "5e069ab1b15b116d1e26c8bb61e88540",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/usemtest.html": {
+        "filename": "man/testbin/usemtest.html",
+        "hash": "817d8e13944a0519c8e7fd8b3c2c16b6",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
+    },
+    "man/testbin/zero.html": {
+        "filename": "man/testbin/zero.html",
+        "hash": "1a1ab5ebed9ffd42ef8a594d6b07a945",
+        "created": "2017-02-08T17:41:04.492Z",
+        "updated": "2017-02-08T17:41:04.492Z"
     }
 }
