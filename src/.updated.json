@@ -43,9 +43,9 @@
     },
     "slides/forksynch.html": {
         "filename": "slides/forksynch.html",
-        "hash": "a8495939631be678946b158f1cb7a3e7",
+        "hash": "a9adc7a5df7b9b021c65e3f3ea2af31c",
         "created": "2016-02-03T18:52:04.677Z",
-        "updated": "2017-01-29T21:30:42.554Z"
+        "updated": "2017-02-08T21:10:54.843Z"
     },
     "courses/UB_CSE421_Spring2016.html": {
         "filename": "courses/UB_CSE421_Spring2016.html",
@@ -73,9 +73,9 @@
     },
     "slides/forkandfilehandles.html": {
         "filename": "slides/forkandfilehandles.html",
-        "hash": "2c5516bc7b0da7626b6b68e254712f34",
+        "hash": "8b653c8d5ca49d953479d1d09129628d",
         "created": "2016-02-05T00:52:42.523Z",
-        "updated": "2017-02-06T20:59:27.276Z"
+        "updated": "2017-02-08T21:12:38.451Z"
     },
     "slides/synchprimitives.html": {
         "filename": "slides/synchprimitives.html",
