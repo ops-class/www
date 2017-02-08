@@ -50,8 +50,8 @@
     "metalsmith-highlight": "^1.0.4",
     "metalsmith-if": "^0.1.1",
     "metalsmith-in-place": "^2.0.1",
-    "metalsmith-layouts": "^1.7.0",
-    "metalsmith-linkcheck": "^0.2.9",
+    "metalsmith-layouts": "^1.8.0",
+    "metalsmith-linkcheck": "^0.3.0",
     "metalsmith-metadata": "0.0.4",
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-register-partials": "^1.0.2",
@@ -68,7 +68,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "git-json-merge": "^0.4.0",
+    "git-json-merge": "^0.4.4",
     "git-rev-sync": "^1.8.0"
   }
 }
