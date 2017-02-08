@@ -603,3 +603,5 @@ you to track ownership: that is, if a thread tries to release a reader-writer
 lock that it does not hold that does not have to immediately panic. That
 said, it is possible and a good idea to do this both for readers and writers:
 take a look at `kern/include/array.h` for some help. We just don't test it.
+
+// vim: ts=2:sw=2:et
