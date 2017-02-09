@@ -322,7 +322,7 @@ To do this, you must
 
 === Setup
 
-Consult the ASST3 `config` file and notice that the `arch/mips/mips/dumbvm.c`
+Consult the ASST3 `config` file and notice that the `arch/mips/vm/dumbvm.c`
 file will be omitted from your kernel. You will undoubtedly need to add new
 files to the system for this assignment: `kern/vm/vm.c` or
 `kern/arch/mips/vm/mipsvm.c`. Be sure to update the file
