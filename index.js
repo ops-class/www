@@ -1,4 +1,5 @@
 var metalsmith = require('metalsmith'),
+    build_date = require('metalsmith-build-date'),
     drafts = require('metalsmith-drafts'),
     filemetadata = require('metalsmith-filemetadata'),
     metadata = require('metalsmith-metadata'),
@@ -65,6 +66,7 @@ var isASST = function(filename, file, i) {
 
 metalsmith(__dirname)
   .destination('.build')
+  .use(build_date())
   .use(drafts())
   .use(metadata({
     asst: 'asst/videos.yaml'

@@ -41,6 +41,7 @@
     "md5": "^2.2.1",
     "metalsmith": "^2.3.0",
     "metalsmith-branch": "0.0.5",
+    "metalsmith-build-date": "^0.2.0",
     "metalsmith-clean-css": "^5.0.1",
     "metalsmith-collections": "^0.9.0",
     "metalsmith-concat-convention": "^1.1.0",
