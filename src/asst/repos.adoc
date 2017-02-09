@@ -58,16 +58,42 @@ We have a set of tools available for doing this correctly.
 //
 If you are a course staff member, contact us to get a copy of these tools.
 
-== Toolchain
+== `test161`
 
-The rest of the toolchain--including `test161`, `sys161`, and the
-cross-compilers--are described on the link:/asst/setup/[setup page]:
+The {test161} client and server that control `sys161` to perform testing are
+described
+//
+link:/asst/setup/#test161[here]
+//
+on the
+//
+link:/asst/setup[setup page].
 
-* link:/asst/setup/#test161[`test161`]
+The web interface is built using
 //
-* link:/asst/setup/#sys161[`sys161`]
+https://www.meteor.com/[Meteor]
 //
-* link:/asst/setup/#compilers[cross compilers].
+and
+//
+https://facebook.github.io/react/[ReactJS].
+//
+Sources are available https://github.com/ops-class/test161-web-ui[here].
+//
+This entire project is in need of a complete overhaul.
+
+== Vagrant
+
+== OS/161 Toolchain
+
+The rest of the OS/161 toolchain--including
+//
+link:/asst/setup/#sys161[`sys161`]
+//
+and the
+//
+link:/asst/setup/#compilers[cross compilers]&mdash;
+//
+is described on the link:/asst/setup/[setup page].
 
 == Miscellaneous
 

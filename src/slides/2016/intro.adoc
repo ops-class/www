@@ -577,7 +577,7 @@ No matter how long it takes
 
 * We will use an online service to detect and investigating code similarity.
 [.slider]
-** It is very fast, so we can it on every submission.
+** It is very fast, so we can use it on every submission.
 ** It is very accurate.
 ** We will compare your assignment against everything we can think of: this
 years', last years', anything you can find online, assignments submitted at

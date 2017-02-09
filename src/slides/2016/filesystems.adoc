@@ -261,7 +261,7 @@ files are larger than 4K!
 
 [.slider]
 * *1* inode per file.
-* *256* bytes, so 2 per sector or 16 per block.
+* *256* bytes, so 1 per sector or 16 per block.
 
 [.slider]
 .Contains:

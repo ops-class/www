@@ -41,7 +41,7 @@ implementing, running and debugging, and
 . a toolchain for cross compiling and running your kernel, including a
 machine simulator called `sys161` footnote:[Also known as System/161].
 //
-* https://git-scm.com/[*Git*]: a distributed source control tools that
+* https://git-scm.com/[*Git*]: a distributed source control tool that
 tracks your changes to OS/161 and enables effective collaboration.
 //
 * https://www.gnu.org/software/gdb/[*GDB*]: the GNU debugger which allows you
