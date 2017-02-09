@@ -5,6 +5,9 @@ description:
   Reference page describing various ops-class.org repositories.
 priority: 0.8
 changefreq: monthly
+spelling_exceptions:
+  - ReactJS
+  - HashiCorp
 ---
 
 [.lead]
@@ -82,6 +85,15 @@ Sources are available https://github.com/ops-class/test161-web-ui[here].
 This entire project is in need of a complete overhaul.
 
 == Vagrant
+
+The `Vagrantfile` we use to create a headless OS/161 development environment
+is https://github.com/ops-class/vagrant[hosted on GitHub].
+//
+It uses base `ops-class` boxes https://atlas.hashicorp.com/ops-class[hosted by
+HashiCorp].
+//
+Those are built using scripts that live in a separate
+https://github.com/ops-class/box[GitHub repository].
 
 == OS/161 Toolchain
 

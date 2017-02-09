@@ -13,9 +13,9 @@
     },
     "slides/intro.html": {
         "filename": "slides/intro.html",
-        "hash": "cbfd462cbe94cb4da285f6883fd08b25",
+        "hash": "45b6e9bf0762f7c3d6012113ab2ec6f8",
         "created": "2016-01-29T18:55:20.203Z",
-        "updated": "2017-02-02T21:26:22.577Z"
+        "updated": "2017-02-09T16:58:13.317Z"
     },
     "slides/processes.html": {
         "filename": "slides/processes.html",
@@ -25,9 +25,9 @@
     },
     "asst/0.html": {
         "filename": "asst/0.html",
-        "hash": "095e41fa95e1b3da8a851829c82614c8",
+        "hash": "8f19ac11361882529201b6c0f6e68eaa",
         "created": "2016-01-29T18:55:20.203Z",
-        "updated": "2017-01-14T01:23:06.132Z"
+        "updated": "2017-02-09T16:58:13.317Z"
     },
     "slides/processlifecycle.html": {
         "filename": "slides/processlifecycle.html",
@@ -235,9 +235,9 @@
     },
     "asst/3.html": {
         "filename": "asst/3.html",
-        "hash": "205e4f3f415a124a21c085aaa628accf",
+        "hash": "1d24e4f457f8e1affeb53f9145e6f4f7",
         "created": "2016-02-27T21:26:29.787Z",
-        "updated": "2016-08-02T13:41:21.362Z"
+        "updated": "2017-02-09T16:58:13.317Z"
     },
     "slides/addressspaces.html": {
         "filename": "slides/addressspaces.html",
@@ -469,9 +469,9 @@
     },
     "slides/2016/filesystems.html": {
         "filename": "slides/2016/filesystems.html",
-        "hash": "0e2cb6d2077fed5712d2629f6a8b01f0",
+        "hash": "592e66d360ee02b06b55a0624cfc2e5f",
         "created": "2017-01-30T05:39:44.145Z",
-        "updated": "2017-01-30T05:39:44.145Z"
+        "updated": "2017-02-09T16:58:13.317Z"
     },
     "slides/2016/filesystemstructures.html": {
         "filename": "slides/2016/filesystemstructures.html",
@@ -505,9 +505,9 @@
     },
     "slides/2016/intro.html": {
         "filename": "slides/2016/intro.html",
-        "hash": "2336ca550bda9b11a439ab469bdfcb7e",
+        "hash": "330d315649ef25ef01b5c60951e48b2b",
         "created": "2017-01-30T05:39:44.145Z",
-        "updated": "2017-01-30T05:39:44.145Z"
+        "updated": "2017-02-09T16:58:13.317Z"
     },
     "slides/2016/lfs.html": {
         "filename": "slides/2016/lfs.html",
@@ -631,9 +631,9 @@
     },
     "asst/repos.html": {
         "filename": "asst/repos.html",
-        "hash": "7f6c4e153e35a3a0da7d493ac9311b3e",
+        "hash": "4ab73582547b40682de82c8b7bf463cc",
         "created": "2017-02-05T21:30:32.169Z",
-        "updated": "2017-02-09T16:20:08.813Z"
+        "updated": "2017-02-09T17:14:37.075Z"
     },
     "slides/moreprocesses.html": {
         "filename": "slides/moreprocesses.html",
