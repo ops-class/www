@@ -1,18 +1,24 @@
 ---
-title: "fork() and Synchronization"
+title: "fork() and pipe()"
 date: 2017-02-10
 author: Geoffrey Challen
 description: >
-  Completion of a discussion of fork including the use of pipes, and the
-  beginning of a unit on synchronization.
+  Completion of a discussion of fork including the use of pipes.
+song:
+  name: "Coming Back to Life"
+  author: Pink Floyd
+  youtube: uhV4me_k8Y8
+video: pnPsKKGbsO0
 ---
 [.nooutline]
-== Welcome
+== Technical Women
 
-// [.h3.center]
-// icon:music[] http://socialhub.courtneybarnett.com.au/[{song}]
+image::women/002.jpg[width="100%",title="Sophie Wilson",link="https://en.wikipedia.org/wiki/Sophie_Wilson"]
 
-// video::{music}[youtube,width=0,height=0]
+[.h3.center]
+icon:music[] http://www.pinkfloyd.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -20,6 +26,29 @@ description: >
 . Process life cycle:
 ** *Birth:* `fork()`
 . Introduction to synchronization
+
+[.nooutline]
+== link:/asst/1/[ASST1] Checkpoint
+
+[.slider]
+//
+.At this point:
+//
+* If you have not started, *you're behind.*
+//
+* If you don't understand semaphores, *you're behind.*
+//
+* If you only have working locks, *you're behind.*
+//
+* If you have working CVs, you're a bit behind.
+//
+* If you have solved one of the synchronization problems or have working
+reader, you're OK.
+//
+* Keep in mind: *you need working locks and CVs for future assignments.*
+//
+** (The rest of the assignment is for points and won't hurt you as much in the
+future.)
 
 [.nooutline]
 == Review: Updated Process Model
@@ -285,252 +314,12 @@ image::figures/pstree.svg[width="80%", role='slide expand']
 
 == Questions?
 
-== Fast Forward: Synchronization
-
-[.slider]
-.What you need to know
-* The OS creates the _illusion of concurrency_ by quickly switching the
-processor(s) between multiple threads
-** We will back up and discuss how this happens after discussion
-synchronization
-* *Threads* are used to abstract and multiplex the CPU
-
-== Pandora's Concurrency Box
-
-[.slider]
-.The illusion of concurrency is both *powerful* and *useful*:
-** It helps us think about how to structure our applications.
-** It hides latencies caused by slow hardware devices.
-
-[.slider]
-.Unfortunately, concurrency also creates *problems*:
-* *Coordination*: how do we enable efficient communication between the
-multiple threads involved in performing a single task?
-* *Correctness*: how do we ensure that shared state remains consistent
-when being accessed by multiple threads concurrently? How do we enforce
-time-based semantics?
-* We will focus on *correctness* today but return to *coordination*
-later.
-
-== Patient 0
-
-[.slider]
-.The *operating system* itself is one of the most difficult concurrent programs to write. Why?
-* It is multiplexing access to hardware resources and therefor sharing
-a great deal of state between multiple processes!
-* It frequently uses many threads to hide hardware delays while
-servicing devices and application requests.
-* *Lots of shared state* plus *lots of threads* equals a difficult
-synchronization problem.
-* Also, if the operating system gets synchronization wrong *bad things
-happen*.
-
-== Concurrency v. Parallelism
-
-The https://golang.org/[Go developers] have a great description of this
-distinction. http://blog.golang.org/concurrency-is-not-parallelism[According
-to them]:
-
-[.small]
---
-[quote]
-...when people hear the word concurrency they often think of parallelism, a
-related but quite distinct concept. In programming, concurrency is the
-composition of independently executing processes, while parallelism is the
-simultaneous execution of (possibly related) computations. Concurrency is
-about dealing with lots of things at once. Parallelism is about doing lots of
-things at once.
---
-
-https://vimeo.com/49718712[Watch the video] to find out more.
-
-== Unless Shown Otherwise...
-
-Concurrency forces us to relax any assumptions that we may want to make about how any particular thread executes.
-
-[.slider]
-.Unless explicitly synchronized, threads may:
-. Be run in *any order*,
-. Be stopped and restarted at *any time*,
-. Remain stopped for *arbitrary lengths of time*.
-
-[.slider]
-* Generally these are *good things*—the operating system is making
-choices about how to allocate resources.
-* When accessing shared data these are *challenges* that force us to
-program more carefully.
-
-== The Bank Example
-
-Consider the following code snippet.
-
-[source,c,linenums,role='smaller']
-----
-void giveGWATheMoolah(account_t account, int largeAmount) {
-  int gwaHas = get_balance(account);
-  gwaHas = gwaHas + largeAmount;
-  put_balance(account, gwaHas);
-  notifyGWAThatHeIsRich(gwaHas);
-  return;
-}
-----
-
-[.slider]
-.Assume I have *$1,000* and that *two* of you are trying to make deposits concurrently:
-* One of you is depositing *$1,000* (this person gets a B).
-* One of you is depositing *$2,000* (A- material).
-
-== Things Go Well
-
-[cols="2,2,^1",options='header']
-|===
-
-| A- Student
-| B Student
-| Balance
-
-| {nbsp}
-| {nbsp}
-| $1000
-
-a|
-[source,c,role='smallest slide']
-----
-int gwaHas = get_balance(account);
-gwaHas = gwaHas + $2000;
-put_balance(account, gwaHas);
-----
-| {nbsp}
-| [.slide]#$3000#
-
-| {nbsp}
-a|
-[source,c,role='smallest slide']
-----
-int gwaHas = get_balance(account);
-gwaHas = gwaHas + $1000;
-put_balance(account, gwaHas);
-----
-| [.slide]*$4000*
-
-|===
-
-== Things Go Less Well
-
-[cols="2,2,^1",options='header']
-|===
-
-| A- Student
-| B Student
-| Balance
-
-| {nbsp}
-| {nbsp}
-| $1000
-
-a|
-[source,c,role='smallest slide']
-----
-int gwaHas = get_balance(account);
-gwaHas = gwaHas + $2000;
-----
-| {nbsp}
-| {nbsp}
-
-| {nbsp}
-a|
-[source,c,role='smallest slide']
-----
-int gwaHas = get_balance(account);
-gwaHas = gwaHas + $1000;
-----
-| {nbsp}
-
-| {nbsp}
-a|
-[source,c,role='smallest slide']
-----
-put_balance(account, gwaHas);
-----
-| [.slide]#$2000#
-
-a|
-[source,c,role='smallest slide']
-----
-put_balance(account, gwaHas);
-----
-| {nbsp}
-| [.slide]*$3000*
-
-
-|===
-
-== Things Go Very Badly
-
-[cols="2,2,^1",options='header']
-|===
-
-| A- Student
-| B Student
-| Balance
-
-| {nbsp}
-| {nbsp}
-| $1000
-
-a|
-[source,c,role='smallest slide']
-----
-int gwaHas = get_balance(account);
-gwaHas = gwaHas + $2000;
-----
-| {nbsp}
-| {nbsp}
-
-| {nbsp}
-a|
-[source,c,role='smallest slide']
-----
-int gwaHas = get_balance(account);
-gwaHas = gwaHas + $1000;
-----
-| {nbsp}
-
-a|
-[source,c,role='smallest slide']
-----
-put_balance(account, gwaHas);
-----
-| {nbsp}
-| [.slide]#$3000#
-
-| {nbsp}
-a|
-[source,c,role='smallest slide']
-----
-put_balance(account, gwaHas);
-----
-| [.slide]*$2000*
-
-|===
-
-== Race Conditions
-
-A *race condition* is "when the output of a process is unexpectedly
-dependent on timing or other events."
-
-[.slider]
-.Note that the definition of a race depends on what we *expected* to happen:
-* We expected me to have *$4,000* after both deposits. (Otherwise we
-are not observing the Law of the Conversation of Money, probably
-important to banks except during bailouts.)
-
 [.nooutline]
 == Next Time
 
-[.slider]
-* How to synchronize: what to protect, how to protect it.
-* More more useful synchronization primitives: locks, semaphores.
-* Being _too_ synchronized, i.e. *deadlock*.
+.Synchronization Primitives
+** Critical sections
+** Spinlocks
+** Locks
 
 // vim: ts=2:sw=2:et

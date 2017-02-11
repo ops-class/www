@@ -15,7 +15,7 @@
     "courses/UB_CSE421_Spring2016/index.html": "1d69f64d144f0d8bc7ff1b8bd0cd6c3a",
     "courses/buffalo/CSE421_Spring2016/index.html": "e6707ef9118b7fa620d5cb224c41f1be",
     "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-    "slides/index.html": "5566548a61b725126fab3f804c69094c",
+    "slides/index.html": "531315130f3dc702f0ccf0fd466d2384",
     "slides/2016-01-30-processes/deck.html": "1f6aa52019864fef91e62ee609f2c562",
     "slides/2016-01-25-intro/deck.html": "cd6da49e6923ea6da0d687cfbda42229",
     "slides/2016-02-03-forksynch/deck.html": "65b090e700404e7b59400f62224f72d1",
@@ -127,10 +127,14 @@
     "slides/2017-02-06-forkandfilehandles/deck.html": "d74f13fd29010dbe69ef907592f3daf4",
     "slides/2017-02-06-forkandfilehandles/index.html": "21aff77447f3577a13aa69efc09cfa51",
     "asst/repos/index.html": "48543838d141481042606f1640d26ff3",
-    "slides/2017-02-08-forkandfilehandles/index.html": "25241db9de35e9a53d5c7204889fc513",
+    "slides/2017-02-08-forkandfilehandles/index.html": "7c388814a2007858ab60abcfb0704a48",
     "slides/2017-02-06-moreprocesses/index.html": "5121096403ac46a450e3ef794d8cc14e",
     "slides/2017-02-08-forkandfilehandles/deck.html": "e5fc221a04dd5058454e15ae0353bdf7",
     "slides/2017-02-06-moreprocesses/deck.html": "a9ce5d88fb142197cfe80a3483a9e384",
-    "slides/2017-02-10-forksynch/index.html": "38819c1eb870108c1566165d04be081a",
-    "slides/2017-02-10-forksynch/deck.html": "de6e7adcfe3a3e4f879aafd93da7434b"
+    "slides/2017-02-10-forksynch/index.html": "a97c5c06a09be0745c9ffaa7426e98b7",
+    "slides/2017-02-10-forksynch/deck.html": "97f9b1f200fac960cb71e544b7107134",
+    "slides/2016-02-13-synchprimitives/index.html": "4616d76afc1450b2c00e0306c67c62da",
+    "slides/2016-02-13-synchprimitives/deck.html": "a8a917cd9b6e382353156b51e52ff8bb",
+    "slides/2017-02-13-synchprimitives/index.html": "c8ad210aea720404535e12b6ae0623b4",
+    "slides/2017-02-13-synchprimitives/deck.html": "5db877c89780a0299c03c627f45fe55d"
 }

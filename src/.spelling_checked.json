@@ -18,7 +18,7 @@
         "courses/UB_CSE421_Spring2016/index.html": "1d69f64d144f0d8bc7ff1b8bd0cd6c3a",
         "courses/buffalo/CSE421_Spring2016/index.html": "9fec882b6ec5e0bf1e4d72d644c0c54f",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "024d4da4564918a4602641f41610b7c2",
+        "slides/index.html": "c113f9e6a9ca4ae9c247b40024f31eda",
         "slides/2016-02-03-forksynch/index.html": "bb0df009ef8e2f52ef5f7c4283a7c96a",
         "slides/2016-01-25-intro/index.html": "605dd0ad2497c81ba9b8f7ffbd5a6fc7",
         "slides/2016-01-30-processes/index.html": "d08e11494a6e82eabdb5469c63ac79b0",
@@ -131,12 +131,16 @@
         "slides/2017-02-06-forkandfilehandles/index.html": "1bc1d7f786a9163d3c55e8e709ddb477",
         "slides/2017-02-06-forkandfilehandles/deck.html": "8b43fe586ca272efbcb16b2cea2ac062",
         "asst/repos/index.html": "47224750d14280028d211c53c0fe68ea",
-        "slides/2017-02-08-forkandfilehandles/index.html": "6a4917f68f0a80e11849aa7da582b830",
+        "slides/2017-02-08-forkandfilehandles/index.html": "c94010507121ecf8e688d44ca74ac972",
         "slides/2017-02-06-moreprocesses/index.html": "e0156dfb00d5ce1b6d4f2718ef0ea95c",
         "slides/2017-02-08-forkandfilehandles/deck.html": "c5de6bc82e1f7002fde7cece237db726",
         "slides/2017-02-06-moreprocesses/deck.html": "e42ac94bb5c77fce4129c66b44ced362",
-        "slides/2017-02-10-forksynch/index.html": "b9bef9fa5cdc73b534272b5534ea5f5f",
-        "slides/2017-02-10-forksynch/deck.html": "da1edcb9ca1a3d8749738e21cabc08d6"
+        "slides/2017-02-10-forksynch/index.html": "263f7f862661f093b231394ef6c0f99c",
+        "slides/2017-02-10-forksynch/deck.html": "6f863f90af97c12effa40c72356b60e3",
+        "slides/2016-02-13-synchprimitives/index.html": "d58f934643a5118f4b71a5d27c58dfc0",
+        "slides/2016-02-13-synchprimitives/deck.html": "a8a917cd9b6e382353156b51e52ff8bb",
+        "slides/2017-02-13-synchprimitives/index.html": "afbc9a074b274d95abc4a218d9d387ba",
+        "slides/2017-02-13-synchprimitives/deck.html": "5db877c89780a0299c03c627f45fe55d"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -273,6 +277,10 @@
         "slides/2017-02-08-forkandfilehandles/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
         "slides/2017-02-06-moreprocesses/deck.html": "ad8d1d8bddc390c2bce0158a898c48e7993b72fd",
         "slides/2017-02-10-forksynch/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
-        "slides/2017-02-10-forksynch/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
+        "slides/2017-02-10-forksynch/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2016-02-13-synchprimitives/index.html": "284853888677626a9dc050d3b0846feea6210f63",
+        "slides/2016-02-13-synchprimitives/deck.html": "284853888677626a9dc050d3b0846feea6210f63",
+        "slides/2017-02-13-synchprimitives/index.html": "284853888677626a9dc050d3b0846feea6210f63",
+        "slides/2017-02-13-synchprimitives/deck.html": "284853888677626a9dc050d3b0846feea6210f63"
     }
 }
