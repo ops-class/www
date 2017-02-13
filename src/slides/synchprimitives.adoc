@@ -13,20 +13,15 @@ song:
   author: Middle Kids
   youtube: sUC7OFUbn6A
 ---
-[.nooutline]
+[.nooutline.spelling_exception]
 == Technical Women
 
-////
-image::women/033.jpg[width="100%"]
+image::women/003.jpg[width="100%",title="Kristina Johnson",link="https://en.wikipedia.org/wiki/Kristina_M._Johnson"]
 
 [.h4.center]
-icon:music[] https://www.ilovemetric.com["Gimme Sympathy" by Metric]
-
-[.h4.center]
-icon:music[] {song}
+icon:music[] https://www.facebook.com/middlekidsmusic/{song}
 
 video::{music}[youtube,width=0,height=0]
-////
 
 [.nooutline]
 == Today
@@ -35,6 +30,31 @@ video::{music}[youtube,width=0,height=0]
 ** Critical sections
 ** Spinlocks
 ** Locks
+
+[.nooutline]
+== link:/asst/1/[ASST1] Checkpoint
+
+[.slider]
+//
+.At this point:
+//
+* If you have not started, *you're way behind.*
+//
+* If you don't understand semaphores, *you're way behind.*
+//
+* If you only have working locks, *you're behind.*
+//
+* If you have working CVs, *you're behind.*
+//
+* If you have solved _only one_ of the synchronization problems or have working
+reader-writer locks, *you're a bit behind.*
+//
+* If you've solved two, you're OK.
+//
+* Keep in mind: *you need working locks and CVs for future assignments.*
+//
+** (The rest of the assignment is for points and won't hurt you as much in the
+future.)
 
 == Fast Forward: Synchronization
 
