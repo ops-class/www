@@ -43,7 +43,7 @@ video::{music}[youtube,width=0,height=0]
 * If you have working CVs, you're a bit behind.
 //
 * If you have solved one of the synchronization problems or have working
-reader, you're OK.
+reader-writer locks, you're OK.
 //
 * Keep in mind: *you need working locks and CVs for future assignments.*
 //

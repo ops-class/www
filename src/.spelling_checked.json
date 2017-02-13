@@ -18,7 +18,7 @@
         "courses/UB_CSE421_Spring2016/index.html": "1d69f64d144f0d8bc7ff1b8bd0cd6c3a",
         "courses/buffalo/CSE421_Spring2016/index.html": "9fec882b6ec5e0bf1e4d72d644c0c54f",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "c113f9e6a9ca4ae9c247b40024f31eda",
+        "slides/index.html": "97b86edafc6817ed813b013d6a38dbbe",
         "slides/2016-02-03-forksynch/index.html": "bb0df009ef8e2f52ef5f7c4283a7c96a",
         "slides/2016-01-25-intro/index.html": "605dd0ad2497c81ba9b8f7ffbd5a6fc7",
         "slides/2016-01-30-processes/index.html": "d08e11494a6e82eabdb5469c63ac79b0",
@@ -135,12 +135,14 @@
         "slides/2017-02-06-moreprocesses/index.html": "e0156dfb00d5ce1b6d4f2718ef0ea95c",
         "slides/2017-02-08-forkandfilehandles/deck.html": "c5de6bc82e1f7002fde7cece237db726",
         "slides/2017-02-06-moreprocesses/deck.html": "e42ac94bb5c77fce4129c66b44ced362",
-        "slides/2017-02-10-forksynch/index.html": "263f7f862661f093b231394ef6c0f99c",
-        "slides/2017-02-10-forksynch/deck.html": "6f863f90af97c12effa40c72356b60e3",
+        "slides/2017-02-10-forksynch/index.html": "93eb11357affdd9bd8fc382701c7408e",
+        "slides/2017-02-10-forksynch/deck.html": "ddb9132e6695bb84d1c60e52ada94337",
         "slides/2016-02-13-synchprimitives/index.html": "d58f934643a5118f4b71a5d27c58dfc0",
         "slides/2016-02-13-synchprimitives/deck.html": "a8a917cd9b6e382353156b51e52ff8bb",
-        "slides/2017-02-13-synchprimitives/index.html": "d1ec95d58dea13d84f5d9c329aa46046",
-        "slides/2017-02-13-synchprimitives/deck.html": "26a595aa9fec5b6969c1fb480b87c6e5"
+        "slides/2017-02-13-synchprimitives/index.html": "43dc370755691d91b2110fa5ea76ed13",
+        "slides/2017-02-13-synchprimitives/deck.html": "f1a73d252dc096be3869efb08da6eddb",
+        "slides/2017-02-15-synchproblems/index.html": "76004860d50c696153ed48559bd12251",
+        "slides/2017-02-15-synchproblems/deck.html": "37b03d065fc2c7e23dc3769affb4b636"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -281,6 +283,8 @@
         "slides/2016-02-13-synchprimitives/index.html": "284853888677626a9dc050d3b0846feea6210f63",
         "slides/2016-02-13-synchprimitives/deck.html": "284853888677626a9dc050d3b0846feea6210f63",
         "slides/2017-02-13-synchprimitives/index.html": "284853888677626a9dc050d3b0846feea6210f63",
-        "slides/2017-02-13-synchprimitives/deck.html": "284853888677626a9dc050d3b0846feea6210f63"
+        "slides/2017-02-13-synchprimitives/deck.html": "284853888677626a9dc050d3b0846feea6210f63",
+        "slides/2017-02-15-synchproblems/index.html": "284853888677626a9dc050d3b0846feea6210f63",
+        "slides/2017-02-15-synchproblems/deck.html": "284853888677626a9dc050d3b0846feea6210f63"
     }
 }
