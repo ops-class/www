@@ -12,6 +12,7 @@ song:
   name: "All Along the Watchtower"
   author: Jimi Hendrix
   youtube: TLV4_xaYynY
+video: DKxbK7_QDZ4
 ---
 [.nooutline.spelling_exception]
 == Technical Women
