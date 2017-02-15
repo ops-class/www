@@ -1,8 +1,8 @@
 ---
-title: "Synchronization Primitives and Problems"
+title: "Synchronization Primitives"
 date: 2017-02-15
 description: >
-  Spinlocks, locks, condition variables, and deadlock.
+  Spinlocks, locks, and condition variables.
 author: Geoffrey Challen
 spelling_exceptions:
   - TAS
@@ -488,152 +488,13 @@ a|
 
 |===
 
-== Locking Multiple Resources
-
-[.slider]
-* *Locks* protect access to shared resources.
-* Threads may need *multiple* shared resources to perform some
-operation.
-
-== Locking Multiple Resources
-
-Consider two threads A and B that both need *simultaneous* access to
-resources 1 and 2:
-
-[.slider]
-. *Thread A* runs, grabs the lock for *Resource 1*.
-. → CONTEXT SWITCH ←
-. *Thread B* runs, grabs the lock for *Resource 2*.
-. → CONTEXT SWITCH ←
-. *Thread A* runs, tries to acquire the lock for *Resource 2*.
-. → THREAD A SLEEPS ←
-. *Thread B* runs, tries to acquire the lock for *Resource 1*.
-. → THREAD B SLEEPS ←
-
-[.slider]
---
-*Now what?*
---
-
-== Deadlock
-
-*Deadlock* occurs when a thread or set of threads are waiting for each
-other to finish and thus nobody ever does.
-
-== Self Deadlock
-
-[.small]
---
-[.slider]
-.A *single thread* can deadlock. How?
-* Thread A acquires Resource 1. Thread A tries to reacquire Resource 1.
-
-[.slider]
-.This seems inane. Why would this happen?
-* `foo()` needs Resource 1. `bar()` needs Resource 1.
-While locking Resource 1 `foo()` calls `bar()`.
-
-[.slider]
-.Can we solve this problem?
-* *Yes!* Recursive locks. Allow a thread to reacquire a lock that it
-already holds, as long as calls to acquire are matched by calls to
-release.
-* This kind of problem is not uncommon. You may want to implement
-recursive locks for OS/161.
-* (But don't make the locks we gave you suddenly recursive...)
---
-
-== Conditions for Deadlock
-
-[.slider]
-.A deadlock *cannot occur* unless all of the following conditions are met:
-* *Protected access* to shared resources, which implies waiting.
-* *No resource preemption*, meaning that the system cannot forcibly
-take a resource from a thread holding it.
-* *Multiple independent requests*, meaning a thread can hold some
-resources while requesting others.
-* *Circular dependency graph*, meaning that Thread A is waiting for
-Thread B which is waiting for Thread C which is waiting for Thread D
-which is waiting for Thread A.
-
-== Dining Philosophers
-
-[.slider]
-* "Classic" synchronization problem which I feel obligated to discuss.
-* Illustrated below.
-
-[.slide.replace]
---
-image:figures/synch/philosophers.svg[width="50%", role='expand']
---
-
-[.slide.replace]
---
-image:figures/synch/philosophers-1.svg[width="50%", role='expand']
---
-
-[.slide.replace]
---
-image:figures/synch/philosophers-2.svg[width="50%", role='expand']
---
-
-[.slide.replace]
---
-image:figures/synch/philosophers-3.svg[width="50%", role='expand']
---
-
-[.slide.replace]
---
-image:figures/synch/philosophers-4.svg[width="50%", role='expand']
---
-
-[.slide.replace]
---
-image:figures/synch/philosophers-5.svg[width="50%", role='expand']
---
-
-[.slide.replace]
---
-image:figures/synch/philosophers-6.svg[width="50%", role='expand']
---
-
-== Feeding Philosophers
-
-[.slider]
-.Breaking deadlock conditions usually requires eliminating one of the *requirements* for deadlock.
-* *Don't wait*: don't sleep if you can't grab the second chopstick and
-put down the first.
-* *Break cycles*: usually by acquiring resources in a *well-defined
-order*. Number chopsticks 0–4, always grab the higher-numbered chopstick
-first.
-* *Break out*: detect the deadlock cycle and forcibly take away a
-resource from a thread to break it. (Requires a new mechanism.)
-* *Don't make multiple independent requests*: grab *both* chopsticks at
-once. (Requires a new mechanism.)
-
-== Deadlock v. Starvation
-
-[.slider]
-.*Starvation* is an equally-problematic condition in which one or more threads do not make progress.
-* Starvation differs from deadlock in that *some* threads make progress
-and it is, in fact, those threads that are preventing the "starving"
-threads from proceeding.
-
-== Deadlock v. Race Conditions
-
-What is better: a deadlock (perhaps from overly careful
-synchronization) or a race condition (perhaps from a lack of correct
-synchronization)?
-
-[.slide]
---
-I'll take the deadlock. *It's much easier to detect!*
---
-
-
 [.nooutline]
 == Next Time
 
-Return to the system calls: `exec`, `wait` and `exit`.
+[.slider]
+//
+* Deadlock.
+//
+* Return to the system calls: `exec`, `wait` and `exit`.
 
 // vim: ts=2:sw=2:et

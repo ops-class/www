@@ -115,9 +115,9 @@
     },
     "slides/synchproblems.html": {
         "filename": "slides/synchproblems.html",
-        "hash": "79ba2c939bd8b9cb72c8fe089c01a883",
+        "hash": "ec20e8ebc2c7191dc366a351bf7c1882",
         "created": "2016-02-08T15:50:47.028Z",
-        "updated": "2017-02-13T20:32:23.580Z"
+        "updated": "2017-02-15T20:16:56.037Z"
     },
     "asst/old/2.html": {
         "filename": "asst/old/2.html",
@@ -133,9 +133,9 @@
     },
     "slides/execwait.html": {
         "filename": "slides/execwait.html",
-        "hash": "4d5cbe444738a82a7844f8a0b04f86db",
+        "hash": "d2ec84139c5ba375553ea5128b682030",
         "created": "2016-02-09T13:05:54.006Z",
-        "updated": "2017-01-29T21:30:42.554Z"
+        "updated": "2017-02-15T20:16:56.037Z"
     },
     "slides/interrupts.html": {
         "filename": "slides/interrupts.html",
