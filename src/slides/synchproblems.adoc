@@ -24,6 +24,32 @@ icon:music[] https://jimihendrix.com/[{song}]
 video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
+== link:/asst/1/[ASST1] Checkpoint
+
+[.slider]
+//
+.At this point:
+//
+* If you have not started, *you're way, way behind.*
+//
+* If you don't understand semaphores, *you're way, way behind.*
+//
+* If you only have working locks, *you're way behind.*
+//
+* If you have working CVs, *you're way behind.*
+//
+* If you have solved _only one_ of the synchronization problems or have working
+reader-writer locks, *you're behind.*
+//
+* If you've solved two, you're OK.
+//
+* Keep in mind: *you need working locks and CVs for future assignments.* And
+ASST2.1 is due a week after ASST1.
+//
+** (The rest of the assignment is for points and won't hurt you as much in the
+future.)
+
+[.nooutline]
 == Today
 
 * Spinlocks, locks, and condition variables.
