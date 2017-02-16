@@ -1,0 +1,455 @@
+---
+title: "Deadlock, exec, wait and exit"
+date: 2017-02-17
+author: Geoffrey Challen
+description: >
+  Discussion of deadlock and completion of the process interface including a
+  discussion of exec, wait, and exit.
+song:
+  name: "Anteros"
+  author: "Anteros"
+  youtube: 5gn1wJeC9PI
+spelling_exceptions:
+  - Linkable
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/035.jpg[width="100%", title="Hessa Sulta Al Jaber", link="https://en.wikipedia.org/wiki/Hessa_Al_Jaber"]
+
+[.h3.center]
+icon:music[] https://www.facebook.com/anterosofficial/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+* Deadlock.
+* `exec()`
+* ``wait()``/``exit()``
+
+[.nooutline]
+== link:/asst/1/[ASST1] Checkpoint
+
+[.slider]
+//
+.At this point:
+//
+* If you are not done, *you have three hours left!*
+//
+* Keep in mind: *you need working locks and CVs for future assignments.*
+//
+** (The rest of the assignment is for points and won't hurt you as much in the
+future.)
+
+[.nooutline]
+== link:/asst/2/[ASST2] Checkpoint
+
+[.slider]
+//
+* Get started!
+//
+* We'll distribute new `test161` targets this weekend.
+//
+* Your first task is to complete `sys_write`.
+
+== Locking Multiple Resources
+
+[.slider]
+* *Locks* protect access to shared resources.
+* Threads may need *multiple* shared resources to perform some
+operation.
+
+== Locking Multiple Resources
+
+Consider two threads A and B that both need *simultaneous* access to
+resources 1 and 2:
+
+[.slider]
+. *Thread A* runs, grabs the lock for *Resource 1*.
+. → CONTEXT SWITCH ←
+. *Thread B* runs, grabs the lock for *Resource 2*.
+. → CONTEXT SWITCH ←
+. *Thread A* runs, tries to acquire the lock for *Resource 2*.
+. → THREAD A SLEEPS ←
+. *Thread B* runs, tries to acquire the lock for *Resource 1*.
+. → THREAD B SLEEPS ←
+
+[.slider]
+--
+*Now what?*
+--
+
+== Deadlock
+
+*Deadlock* occurs when a thread or set of threads are waiting for each
+other to finish and thus nobody ever does.
+
+== Self Deadlock
+
+[.small]
+--
+[.slider]
+.A *single thread* can deadlock. How?
+* Thread A acquires Resource 1. Thread A tries to reacquire Resource 1.
+
+[.slider]
+.This seems inane. Why would this happen?
+* `foo()` needs Resource 1. `bar()` needs Resource 1.
+While locking Resource 1 `foo()` calls `bar()`.
+
+[.slider]
+.Can we solve this problem?
+* *Yes!* Recursive locks. Allow a thread to reacquire a lock that it
+already holds, as long as calls to acquire are matched by calls to
+release.
+* This kind of problem is not uncommon. You may want to implement
+recursive locks for OS/161.
+* (But don't make the locks we gave you suddenly recursive...)
+--
+
+== Conditions for Deadlock
+
+[.slider]
+.A deadlock *cannot occur* unless all of the following conditions are met:
+* *Protected access* to shared resources, which implies waiting.
+* *No resource preemption*, meaning that the system cannot forcibly
+take a resource from a thread holding it.
+* *Multiple independent requests*, meaning a thread can hold some
+resources while requesting others.
+* *Circular dependency graph*, meaning that Thread A is waiting for
+Thread B which is waiting for Thread C which is waiting for Thread D
+which is waiting for Thread A.
+
+== Dining Philosophers
+
+[.slider]
+* "Classic" synchronization problem which I feel obligated to discuss.
+* Illustrated below.
+
+[.slide.replace]
+--
+image:figures/synch/philosophers.svg[width="50%", role='expand']
+--
+
+[.slide.replace]
+--
+image:figures/synch/philosophers-1.svg[width="50%", role='expand']
+--
+
+[.slide.replace]
+--
+image:figures/synch/philosophers-2.svg[width="50%", role='expand']
+--
+
+[.slide.replace]
+--
+image:figures/synch/philosophers-3.svg[width="50%", role='expand']
+--
+
+[.slide.replace]
+--
+image:figures/synch/philosophers-4.svg[width="50%", role='expand']
+--
+
+[.slide.replace]
+--
+image:figures/synch/philosophers-5.svg[width="50%", role='expand']
+--
+
+[.slide.replace]
+--
+image:figures/synch/philosophers-6.svg[width="50%", role='expand']
+--
+
+== Feeding Philosophers
+
+[.slider]
+.Breaking deadlock conditions usually requires eliminating one of the *requirements* for deadlock.
+* *Don't wait*: don't sleep if you can't grab the second chopstick and
+put down the first.
+* *Break cycles*: usually by acquiring resources in a *well-defined
+order*. Number chopsticks 0–4, always grab the higher-numbered chopstick
+first.
+* *Break out*: detect the deadlock cycle and forcibly take away a
+resource from a thread to break it. (Requires a new mechanism.)
+* *Don't make multiple independent requests*: grab *both* chopsticks at
+once. (Requires a new mechanism.)
+
+== Deadlock v. Starvation
+
+[.slider]
+.*Starvation* is an equally-problematic condition in which one or more threads do not make progress.
+* Starvation differs from deadlock in that *some* threads make progress
+and it is, in fact, those threads that are preventing the "starving"
+threads from proceeding.
+
+== Deadlock v. Race Conditions
+
+What is better: a deadlock (perhaps from overly careful
+synchronization) or a race condition (perhaps from a lack of correct
+synchronization)?
+
+[.slide]
+--
+I'll take the deadlock. *It's much easier to detect!*
+--
+
+== Using the Right Tool
+
+[.slider]
+* Most problems can be solved with a *variety* of synchronization
+primitives.
+* However, there is usually *one primitive* that is more appropriate
+than the others.
+* You will have a chance to practice picking synchronization primitives
+for ASST1, and throughout the class.
+
+== Approaching Synchronization Problems
+
+[.slider]
+. Identify the constraints.
+. Identify shared state.
+. Choose a primitive.
+. Pair waking and sleeping.
+. Look out for multiple resource allocations: can lead to deadlock.
+. Walk through simple examples and corner cases *before* beginning to code.
+
+[.nooutline]
+== Questions about Synchronization?
+
+[.slide]
+--
+Now back to the process-related system calls!
+--
+
+[.nooutline]
+== Review: After `fork()`
+
+[source,c,role='small']
+----
+returnCode = fork();
+if (returnCode == 0) {
+  # I am the child.
+} else {
+  # I am the parent.
+}
+----
+
+[.small.slider]
+* The child thread returns executing at the exact same point that its
+parent called `fork()`.
+** With one exception: `fork()` returns *twice*, the PID to the parent and
+0 to the child.
+* All contents of memory in the parent and child are identical.
+* Both child and parent have the same files open at the same position.
+** *But, since they are sharing file handles changes to the file
+offset made by the parent/child will be reflected in the child/parent!*
+
+[.nooutline]
+== Review: Issues with `fork()`
+
+[.slider]
+.Copying all that state is expensive!
+* Especially when the next thing that a process frequently does is
+start load a new binary which destroys most of the state `fork()` has
+carefully copied!
+
+[.slider]
+.Several solutions to this problem:
+* *Optimize existing semantics*: through copy-on-write, a clever
+memory-management optimization we will discuss in several weeks.
+* *Change the semantics*: `vfork()`, which will fail if the child does anything other than
+immediately load a new executable.
+** Does not copy the address space!
+
+[.nooutline]
+== Review: The Tree of Life
+
+[.slider]
+* `fork()` establishes a parent-child relationship between two process at
+the point when each one is created.
+* The `pstree` utility allows you to visualize these relationships.
+
+image::figures/pstree.svg[width="80%", role='slide expand']
+
+[.nooutline]
+== Let's Go On...
+
+* Questions about `fork()`?
+
+== $ wait %1 # Process lifecycle
+
+[.slider]
+* *Change:* `exec()`
+* *Death:* `exit()`
+* *The Afterlife:* `wait()`
+
+== Groundhog Day
+
+Is `fork()` enough?
+
+[.slide.replace]
+--
+image::figures/initfork-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/initfork-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/initfork-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/initfork-4.svg[width="100%"]
+--
+
+== Change: `exec()`
+
+[.slider]
+* The `exec()` family of system calls replaces the calling process with a
+new process loaded from a file.
+* The executable file must contain a complete *blueprint* indicating how
+the address space should look when `exec()` completes.
+** What should the contents of memory be?
+** Where should the first thread start executing?
+* Linux and other UNIX-like systems use *ELF* (Executable and Linkable
+Format) as the standard describing the information in the executable
+file is structured.
+
+== [.spelling_exception]#$ readelf # display ELF information#
+
+image::figures/readelf.svg[width="100%"]
+
+== [.spelling_exception]#$ /lib/ld-linux.so.2#
+
+image::figures/ldlinux.svg[width="100%"]
+
+== `exec()` Argument Passing
+
+[.slider]
+* The process calling `exec()` passes arguments to the process that will
+replace it *through the kernel.*
+** The kernel retrieves the arguments from the process after the call to
+`exec()` is made.
+** It then pushes them in to the memory of the process where the
+replacement process can find them when it starts executing.
+** This is where main gets `argc` and `argv`!
+* `exec()` also has an interesting return, almost the dual of `fork()`:
+`exec()` *never* returns!
+
+== $ `exec()`
+
+[.slide.replace]
+--
+image::figures/exec-1.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-2.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-3.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-4.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-5.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-6.svg[width="100%",role='vcenter']
+--
+
+[.slide.replace]
+--
+image::figures/exec-7.svg[width="100%",role='vcenter']
+--
+
+== `exec()` File Handle Semantics
+
+[.slider]
+* By convention exec does *not* modify the file table of the calling
+process! Why not?
+* Remember *pipes*?
+** Don't undo all the hard work that `fork()` put in to duplicating the
+file table!
+
+image::figures/pipes-example-3.svg[width="100%"]
+
+== Our Simple Shell
+
+Disclaimer: this is C-like pseudo-code. It will not compile or run!
+(But it's not far off.)
+
+[source,c]
+----
+while (1) {
+  input = readLine();
+  returnCode = fork();
+  if (returnCode == 0) {
+    exec(input);
+  }
+}
+----
+
+== `exec()` Challenges
+
+[.slider]
+* The most challenging part of `exec()` is making sure that, on failure,
+`exec()` can return to the calling process!
+** Can't make destructive changes to the parent's address space until we
+are _sure_ that things will success.
+** Of course, the process is just an abstraction anyway and that
+provides a lot of flexibility: can prepare a separate address space and
+just swap it in when we're done.
+
+== `exit()` # End of Life Issues
+
+[.slider]
+* What's missing here? *Death!*
+* Processes choose the moment of their own end by calling `exit()`.
+* As we discussed earlier a processes passes an *exit code* to the
+`exit()` function.
+* What happens to this exit code?
+
+== `wait()` # The Afterlife
+
+[.slider]
+* When a process calls `exit()` the kernel holds the *exit code*, which
+can be retrieved by the exiting child's *parent*.
+* The parent retrieves this exit code by calling `wait()`, the last of the
+primary process-related system calls.
+** And the one that stubbornly refuses to fit into my lifecycle
+metaphor.
+
+
+[.nooutline]
+== Next Time
+
+[.slider]
+* *Carl!*
+* At this point we will head from outside looking in—or at the top of
+the world looking down—and get deep inside the trenches to examine the
+*thread* abstraction.
+* Tentatively:
+** One week on interrupts, kernel privileges, context switching and
+threading.
+** One week on scheduling.
+
+// vim: ts=2:sw=2:et
