@@ -18,14 +18,14 @@
         "courses/buffalo/CSE421_Spring2015/index.html": "5eb2970e3e64d9f823b12492444f4f68",
         "courses/buffalo/CSE421_Spring2016/index.html": "9fec882b6ec5e0bf1e4d72d644c0c54f",
         "courses/buffalo/CSE421_Spring2017/index.html": "f621057b14c9df6cb0d55f5d78689fe8",
-        "slides/2017-02-17-execwait/index.html": "9f7d486258ffae10b5deb7c69ea45fa2",
+        "slides/2017-02-17-execwait/index.html": "4e8b3d5cf5c7acae6faaeec6f93f30c3",
         "slides/2017-02-08-forkandfilehandles/index.html": "c94010507121ecf8e688d44ca74ac972",
         "slides/2017-02-10-forksynch/index.html": "93eb11357affdd9bd8fc382701c7408e",
         "slides/2017-01-30-intro/index.html": "03ef38a3ad60140c51edc446271ebe44",
         "slides/2017-02-06-moreprocesses/index.html": "e0156dfb00d5ce1b6d4f2718ef0ea95c",
         "slides/2017-02-03-processes/index.html": "12fd049d4cdf1a6bda05e1e36cd728e8",
         "slides/2017-02-01-setup/index.html": "b888bb3201705d875f42679e3f7a1382",
-        "slides/2017-02-15-synchproblems/index.html": "aca54a2f60ecae481b3369a918661f11",
+        "slides/2017-02-15-synchproblems/index.html": "bf97b532d1751bc10ef315c0be460603",
         "slides/2017-02-13-synchprimitives/index.html": "1139afd117c2ce09c96ce498c71bcff5",
         "slides/2016-03-02-addressspaces/index.html": "818f37ff96d90e4d1dd62d17e3efb05c",
         "slides/2016-04-22-atlantis/index.html": "c08ba2970d13d1bb8e9302b3d9248c0d",
@@ -64,7 +64,7 @@
         "slides/2016-03-04-virtualaddresses/index.html": "7074a3ad948552561f852d67e2464356",
         "slides/2016-04-18-virtualization/index.html": "9ad6ff3b398b3f372a70721e675fba57",
         "slides/2016-04-20-xen/index.html": "6abe0aa023250488284192c3892b67e7",
-        "slides/2017-02-17-execwait/deck.html": "48f12bcb25fd3db8d75dbc106b353a47",
+        "slides/2017-02-17-execwait/deck.html": "6fd3b9d1af9e416c4bc741cd7a6ab1dd",
         "slides/2017-02-08-forkandfilehandles/deck.html": "c5de6bc82e1f7002fde7cece237db726",
         "slides/2017-02-10-forksynch/deck.html": "ddb9132e6695bb84d1c60e52ada94337",
         "slides/2017-01-30-intro/deck.html": "0e4a530fdbee4afc70cae20d2537380d",
@@ -111,7 +111,13 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "4b565e069fc73ea2de74a94dc9556de1"
+        "slides/index.html": "9d3f3389e6e5f538be1e10c4789b3ca2",
+        "slides/2017-02-22-contextswitching/index.html": "ad559ce8358333a8b9fba6488760ecc9",
+        "slides/2017-02-20-interrupts/index.html": "6695d7abdf35c73d1c68623474a956c3",
+        "slides/2017-02-24-threading/index.html": "a40105dacc41d6c9f146df55c905f5a4",
+        "slides/2017-02-22-contextswitching/deck.html": "80b4863f4ad4a06de014840c1483ab02",
+        "slides/2017-02-20-interrupts/deck.html": "579e94410291152d1ffd92a34b82525c",
+        "slides/2017-02-24-threading/deck.html": "d24a511d75ff3acb3b88e446f7c55dac"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -223,6 +229,12 @@
         "slides/2016-04-18-virtualization/deck.html": "17006725e7ad3a53764309b45f6684f03d66b3fa",
         "slides/2016-04-20-xen/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "exams/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
-        "slides/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
+        "slides/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-02-22-contextswitching/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-02-20-interrupts/index.html": "ff3309f5d5b42cb17e253f8efb08dadf29b33008",
+        "slides/2017-02-24-threading/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-02-22-contextswitching/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-02-20-interrupts/deck.html": "ff3309f5d5b42cb17e253f8efb08dadf29b33008",
+        "slides/2017-02-24-threading/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
     }
 }

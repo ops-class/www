@@ -1,0 +1,298 @@
+---
+title: "Context Switching"
+date: 2017-02-22
+author: Geoffrey Challen
+description: >
+  The how and why of context switching.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/038.jpg[title="Frances Allen",width="100%",link="https://en.wikipedia.org/wiki/Frances_E._Allen"]
+
+[.nooutline]
+== Today
+
+* CPU multiplexing: a historical perspective.
+* Preemption and context switching.
+
+[.nooutline]
+== Review: Interrupt Handling
+
+[.slider]
+.When an interrupt happens the CPU:
+. Enters privileged mode,
+. records state necessary to allow the operating system to process the
+interrupt
+. jumps to a fixed memory location and begins executing instructions.
+
+[.nooutline]
+== Review: Making System Calls
+
+To access the kernel system call interface an application:
+
+[.slider]
+. arranges arguments to the system call in an agreed-on place where the
+kernel can find them, typically in registers or on its stack,
+. loads a number identifying the system call it wants the kernel to
+perform into a pre-determined register, and
+. executes the `syscall` instruction.
+
+[.nooutline]
+== [.small]#Review: Software Exceptions v. Software Interrupts#
+
+[.slider]
+.*Interrupts* are *voluntary*.
+* Think of the CPU as saying to the kernel: "The `/bin/true` process
+would like your assistance."
+
+[.slider]
+.*Exceptions* are *non-voluntary*.
+* Think of the CPU as saying to the kernel: "I need some help with this
+`/bin/false` process. It just tried to divide by zero and I think it needs
+to be terminated."
+
+== [.small]#Now: Why Are We Doing All This Stuff?#
+
+* CPU multiplexing: a historical perspective.
+* Preemption and context switching.
+
+== CPU Limitations: Number
+
+[.slider]
+.(Historically) There is only one! Why?
+* Potentially the most *expensive* and *complex* component of the
+system!
+
+[.slider]
+.(Recently) You may have many. Why?
+* Multiple cores have emerged as a solution to *thermal- and
+energy-management issues* caused by transistor density.
+* But generally, even if you have more than one, there are *fewer* cores
+than *tasks* to be run.
+
+== CPU Limitations: Number
+
+image::figures/threads/multicore.svg[width="50%", role="expand"]
+
+== CPU Limitations
+
+[.slider]
+.How does the CPU compare to other parts of the system—memory, disks, etc.?
+* It is *way faster!*
+
+[.slider]
+* Faster than *memory*—usually addressed on the processor through
+out-of-order execution.
+* *Way faster* than *disk*—addressed by the operating system.
+* *Way faster* than *you!*—partially addressed by the operating system.
+(Nothing the operating system can _really_ do about your limitations.)
+
+== Human Perceptual Limitations
+
+Can you express these delays to a 1 GHz processor?
+
+[.slider]
+* 15 ms "rule of thumb": [.slide]#*15,000,000* clock cycles!#
+* 40 ms based on 25 frames-per-second for "smooth" video: [.slide]#*40,000,000*
+clock cycles!#
+* 100 ms was the rule for old telephone systems, the delay point after
+which human conversation patterns start to break down: [.slide]#*100,000,000*
+clock cycles!#
+
+== Ancient History
+
+The Harvard Mark I computer
+
+image::figures/threads/marki.svg[title="The Harvard Mark I computer", height="300"]
+
+== The Garden
+
+[.slider]
+* Long long ago, in a land before time, computers did not multitask.
+They did *one thing at a time*
+* That one thing had complete access to the machine in was running on.
+* The operating system--if there was one--was really just a library of
+routines to make programming easier. All *abstractions*, no
+*multiplexing*.
+
+== The Fall of Computing
+
+[.slider]
+* At some point *more people* wanted to use the computer. That was
+annoying, because the geeks didn't have it all to themselves anymore,
+but they just told people to form a line.
+
+image::figures/threads/peopleinline.svg[title="People in Line", height="300"]
+
+== The Further Fall of Computing
+
+[.slider]
+* At some point people wanted to *interact* with the computer, even
+multiple people interacting with the computer *at the same time*! Now
+what were the geeks to do?
+
+image::figures/threads/terminalroom.svg[title="Terminal Room", height="300"]
+
+== Give the Geeks Some Credit
+
+[.slider]
+* They solved these problems by building *operating systems*. Scheduling
+evolved to meet the needs of computer users.
+
+== The Rise of Multiprocessing
+
+image::figures/threads/computerevolution-single.svg[title="Schedule the Humans", height="300"]
+
+== The Rise of Multiprocessing
+
+image::figures/threads/computerevolution-batch.svg[title="Batch Scheduling", height="300"]
+
+== Problems with Batch Scheduling
+
+[.slider]
+.Recall one of the "problems" with the CPU
+* It is *faster* than other system components!
+
+[.slider]
+.What problem does this create for simple batch scheduling?
+* *Inefficiency!* Usage of slower parts of the system will cause the
+CPU to stall waiting for them to finish.
+
+== Solution: Context Switching
+
+image::figures/threads/computerevolution-cooperative.svg[title="Context Switching",height="300"]
+
+== Birth of the Operating System
+
+[.slider]
+* Operating systems emerged partly to *hide delays* caused by slow
+devices to *keep the processor active*.
+* Hiding processor delays requires only *cooperative* scheduling:
+threads only stop running when they require a long-latency operation.
+
+== [.small]#Supporting Multiple Interactive Users#
+
+[.slider]
+.Supporting multiple users requires the notion that multiple tasks are running *simultaneously* or *concurrently*, either:
+. One task per user for multiple users, or
+. multiple tasks for a single user, or
+. multiple tasks for multiple users.
+
+== [.small]#Supporting Multiple Interactive Users#
+
+image::figures/threads/computerevolution-multiple.svg[title="Multiple Jobs", width="100%"]
+
+== The Illusion of Concurrency
+
+[.slider]
+.*How is this accomplished?*
+* Remember human perceptual limits?
+
+[.slide.replace]
+--
+image:figures/threads/concurrency.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/threads/concurrency-1.svg[width="100%"]
+--
+
+[.slide.replace.end]
+--
+image:figures/threads/concurrency-2.svg[width="100%"]
+--
+
+[.slider]
+* The processors *rapidly switches between tasks* creating the notion of
+concurrency!
+* We refer to these transitions as *context switches*.
+
+== Implementing Context Switching
+
+[.slider]
+.First problem: *how does the operating system get control?*
+. Hardware interrupts.
+. Software interrupts.
+. Software exceptions.
+
+[.slide]
+--
+*But what if these things don't happen?*
+--
+
+== Timer Interrupts
+
+[.slider]
+* *Timer interrupts* generated by a timer device ensure that the
+operating system regains control of the system at regular intervals.
+* Timer interrupts are the basis of *preemptive* scheduling: the
+operating system doesn't wait for the thread to stop running, instead it
+*preempts* it.
+* Rest of interrupt handling is unchanged.
+
+== The Illusion of Concurrency
+
+[.slider]
+* Timer interrupts mean that a running thread may be stopped *at any
+time.*
+* When the thread restarts we want it to _appear_ that nothing has
+happened, that execution was not interrupted.
+** Of course other parts of the system might have changed, but the CPU
+state should be *identical*.
+* How do we do this?
+
+== Saving Thread State
+
+[.slider]
+.What does thread state consist of?
+* *Registers*
+* *Stack*
+
+[.slide]
+--
+We rely on memory protection to keep the stack unchanged until we
+restart the thread.
+--
+
+== OS/161 Example
+
+[.slider]
+* Saving thread state is the *first thing* that happens when the
+interrupt service routine is triggered. (Why?)
+* Saved state is sometimes known as a *trap frame*.
+
+== Saving Context: OS/161 Example
+
+`kern/arch/mips/locore/exception-mips1.S`
+
+image:figures/threads/contextswitch-assembly.svg[height="400"]
+
+== Trap Frame: OS/161 Example
+
+`kern/arch/mips/include/trapframe.h`
+
+image:figures/threads/trapframe.svg[height="400"]
+
+== Context Switching
+
+[.slider]
+.Threads switch to a separate kernel stack when executing in the kernel. Why?
+* The kernel doesn't *trust* (or want to *pollute*) the user thread's
+stack.
+
+[.slider]
+.Do you think that you can find the corresponding OS/161 code that returns from an exception? What does it do?
+* *Yes you can find that code.* All the code is belong to you.
+* Exception return reloads the saved register state and then calls the
+MIPS instructions `rfe`, or return from exception.
+
+[.nooutline]
+== Questions?
+
+[.nooutline]
+== Next Time
+
+* Thread states and state transitions.
+* Threading implementations: user v. kernel.

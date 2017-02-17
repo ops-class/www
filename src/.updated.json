@@ -1111,9 +1111,9 @@
     },
     "slides/execwait.html": {
         "filename": "slides/execwait.html",
-        "hash": "71f762a5a3b4632d7c2d22a36a5113d4",
+        "hash": "0046a9a9ca8aadc1e770b4057b83d40a",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-02-17T20:22:57.988Z"
     },
     "slides/forkandfilehandles.html": {
         "filename": "slides/forkandfilehandles.html",
@@ -1384,5 +1384,23 @@
         "hash": "7809059082c6ed5c0f3f16d3fb054488",
         "created": "2017-02-17T18:59:32.257Z",
         "updated": "2017-02-17T18:59:32.257Z"
+    },
+    "slides/contextswitching.html": {
+        "filename": "slides/contextswitching.html",
+        "hash": "4bfb29a6eee6595c4c44371d4a91b39a",
+        "created": "2017-02-17T20:22:57.988Z",
+        "updated": "2017-02-17T20:22:57.988Z"
+    },
+    "slides/interrupts.html": {
+        "filename": "slides/interrupts.html",
+        "hash": "119b582bb0f77069165f85f775112805",
+        "created": "2017-02-17T20:22:57.988Z",
+        "updated": "2017-02-17T20:32:38.825Z"
+    },
+    "slides/threading.html": {
+        "filename": "slides/threading.html",
+        "hash": "04ae295c6568115d44b112255b03e5a6",
+        "created": "2017-02-17T20:22:57.988Z",
+        "updated": "2017-02-17T20:22:57.988Z"
     }
 }

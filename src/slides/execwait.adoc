@@ -1,10 +1,10 @@
 ---
-title: "Deadlock, exec, wait and exit"
+title: "Deadlock and exec"
 date: 2017-02-17
 author: Geoffrey Challen
 description: >
   Discussion of deadlock and completion of the process interface including a
-  discussion of exec, wait, and exit.
+  discussion of exec.
 song:
   name: "Anteros"
   author: "Anteros"
@@ -391,53 +391,6 @@ process! Why not?
 file table!
 
 image::figures/pipes-example-3.svg[width="100%"]
-
-== Our Simple Shell
-
-Disclaimer: this is C-like pseudo-code. It will not compile or run!
-(But it's not far off.)
-
-[source,c]
-----
-while (1) {
-  input = readLine();
-  returnCode = fork();
-  if (returnCode == 0) {
-    exec(input);
-  }
-}
-----
-
-== `exec()` Challenges
-
-[.slider]
-* The most challenging part of `exec()` is making sure that, on failure,
-`exec()` can return to the calling process!
-** Can't make destructive changes to the parent's address space until we
-are _sure_ that things will success.
-** Of course, the process is just an abstraction anyway and that
-provides a lot of flexibility: can prepare a separate address space and
-just swap it in when we're done.
-
-== `exit()` # End of Life Issues
-
-[.slider]
-* What's missing here? *Death!*
-* Processes choose the moment of their own end by calling `exit()`.
-* As we discussed earlier a processes passes an *exit code* to the
-`exit()` function.
-* What happens to this exit code?
-
-== `wait()` # The Afterlife
-
-[.slider]
-* When a process calls `exit()` the kernel holds the *exit code*, which
-can be retrieved by the exiting child's *parent*.
-* The parent retrieves this exit code by calling `wait()`, the last of the
-primary process-related system calls.
-** And the one that stubbornly refuses to fit into my lifecycle
-metaphor.
-
 
 [.nooutline]
 == Next Time
