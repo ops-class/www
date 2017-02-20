@@ -11,6 +11,7 @@ song:
   youtube: 5gn1wJeC9PI
 spelling_exceptions:
   - Linkable
+video: 1lPU8Tw928Q
 ---
 [.nooutline.spelling_exception]
 == Technical Women
