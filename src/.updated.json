@@ -679,9 +679,9 @@
     },
     "man/syscall/write.html": {
         "filename": "man/syscall/write.html",
-        "hash": "2329f92a0758f7e8886793526be41558",
+        "hash": "ac120a3266f08ea5bcef768edb83452a",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-02-19T23:48:43.755Z"
     },
     "man/testbin/add.html": {
         "filename": "man/testbin/add.html",
