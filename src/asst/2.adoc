@@ -63,8 +63,6 @@ After completing ASST2 you should:
 operating system.
 . Understand how to implement system calls.
 
-[.hidden-print]
---
 === Collaboration Guidelines
 
 ASST2 is the first large {ops-class} assignment. Here are the guidelines
@@ -100,7 +98,6 @@ else and submitting them as your own is cheating.
 
 CAUTION: You may not refer to or incorporate any external sources without
 explicit permission footnote:[Which you are extremely unlikely to get.].
---
 
 == Assignment Organization
 
