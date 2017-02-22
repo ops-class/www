@@ -4,6 +4,7 @@ date: 2017-02-22
 author: Geoffrey Challen
 description: >
   The how and why of context switching.
+video: qYrUg4aXL6Q
 ---
 [.nooutline.spelling_exception]
 == Technical Women
