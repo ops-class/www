@@ -5,6 +5,7 @@ author: Geoffrey Challen
 description:
   Introduction to the thread abstraction and discussion of different
   threading implementations.
+video: Aspi0Sz2nyA
 ---
 [.nooutline.spelling_exception]
 == Technical Women
