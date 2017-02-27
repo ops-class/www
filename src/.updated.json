@@ -1402,5 +1402,11 @@
         "hash": "04ae295c6568115d44b112255b03e5a6",
         "created": "2017-02-17T20:22:57.988Z",
         "updated": "2017-02-17T20:22:57.988Z"
+    },
+    "slides/schedulingintro.html": {
+        "filename": "slides/schedulingintro.html",
+        "hash": "2b3d6ab141d29e496867409a40047c6d",
+        "created": "2017-02-27T16:12:14.500Z",
+        "updated": "2017-02-27T16:12:14.500Z"
     }
 }

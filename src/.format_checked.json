@@ -108,11 +108,13 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
     "slides/2016-04-20-xen/deck.html": "99c683a451d267d68318d2da4c450b59",
-    "slides/index.html": "63477122b60bec4c94d4527d470714ff",
+    "slides/index.html": "a269a45bbe8d1db5320086e3b42b408b",
     "slides/2017-02-22-contextswitching/index.html": "94a50c94529082ae54cc500071566727",
     "slides/2017-02-20-interrupts/index.html": "faff43c7297eff0570db03fe5b606581",
-    "slides/2017-02-24-threading/index.html": "a928bf9002cc9f1f902d1834a645070c",
+    "slides/2017-02-24-threading/index.html": "c3ca3f3b71d2ec94b2ad3c0c23f8622b",
     "slides/2017-02-22-contextswitching/deck.html": "1a49eb1b69b031af7bfd05d17ea8d86b",
     "slides/2017-02-20-interrupts/deck.html": "fbede55f920a74bb55aeeb028dfccd14",
-    "slides/2017-02-24-threading/deck.html": "0e312e44efc83de201717d221f5ebc16"
+    "slides/2017-02-24-threading/deck.html": "0e312e44efc83de201717d221f5ebc16",
+    "slides/2017-02-27-schedulingintro/index.html": "875abc6301dbc280dfb6c72f99d949a1",
+    "slides/2017-02-27-schedulingintro/deck.html": "d9e7d87482da3d3e6c85e17925285749"
 }
