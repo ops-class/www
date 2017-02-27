@@ -118,8 +118,8 @@
         "slides/2017-02-22-contextswitching/deck.html": "80b4863f4ad4a06de014840c1483ab02",
         "slides/2017-02-20-interrupts/deck.html": "579e94410291152d1ffd92a34b82525c",
         "slides/2017-02-24-threading/deck.html": "d24a511d75ff3acb3b88e446f7c55dac",
-        "slides/2017-02-27-schedulingintro/index.html": "b3e55066dbb65a7d0c115ca33de28fb0",
-        "slides/2017-02-27-schedulingintro/deck.html": "d9e7d87482da3d3e6c85e17925285749"
+        "slides/2017-02-27-schedulingintro/index.html": "649838417ee4f0b7a671c9bbbdb65f2a",
+        "slides/2017-02-27-schedulingintro/deck.html": "d80df39d81cdf6006d9b58358287074e"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",

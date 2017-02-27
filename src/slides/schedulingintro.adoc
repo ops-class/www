@@ -7,7 +7,21 @@ description: >
   what, when and how of thread scheduling.
 spelling_exceptions:
   - laggy
+song:
+  name: Leave a Trace
+  author: CHVRCHES
+  youtube: 4Eo84jDIMKI
 ---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/039.jpg[width="100%",title="Maria Klawe",link="https://www.hmc.edu/about-hmc/president-klawe/"]
+
+[.h4.center]
+icon:music[] http://www.chvrch.es/["Leave a Trace" by CHVRCHES]
+
+video::{music}[youtube,width=0,height=0]
+
 [.nooutline]
 == Today
 
@@ -17,6 +31,28 @@ spelling_exceptions:
 ** Continuity
 ** Throughput
 * Simple scheduling algorithms.
+
+[.nooutline]
+== Three Cheers for Carl!
+
+Many thanks to Carl for filling in last week.
+
+[.nooutline]
+== link:/asst/2/[`ASST2`] Checkpoint
+
+.At this point:
+//
+* If you have not finished `ASST2.1`, *you're behind.*
+//
+* If you're working on `sys_{write,open,close,lseek}...`, you're OK.
+
+[.nooutline]
+== Today's PSA
+
+* Nobody wants to work with a jerk--no matter how talented you are.
+
+[.nooutline]
+== Questions from Last Week?
 
 == Thread States
 
