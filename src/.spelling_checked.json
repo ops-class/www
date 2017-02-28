@@ -111,14 +111,14 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "eef439af50cfb767b9ec5211d421dadb",
+        "slides/index.html": "d26f5a15343b02f95ea87a905b8245ed",
         "slides/2017-02-22-contextswitching/index.html": "88f9b88c96a945bf09c36e295f816e10",
         "slides/2017-02-20-interrupts/index.html": "764d1bc8b4c7ef200631f229b18e4e1f",
         "slides/2017-02-24-threading/index.html": "3d798629ce2fb74023919f5aaaea1003",
         "slides/2017-02-22-contextswitching/deck.html": "80b4863f4ad4a06de014840c1483ab02",
         "slides/2017-02-20-interrupts/deck.html": "579e94410291152d1ffd92a34b82525c",
         "slides/2017-02-24-threading/deck.html": "d24a511d75ff3acb3b88e446f7c55dac",
-        "slides/2017-02-27-schedulingintro/index.html": "649838417ee4f0b7a671c9bbbdb65f2a",
+        "slides/2017-02-27-schedulingintro/index.html": "4e00614eaf03774ec81369ba2db7d4a0",
         "slides/2017-02-27-schedulingintro/deck.html": "d80df39d81cdf6006d9b58358287074e"
     },
     "exceptions": {
@@ -238,7 +238,7 @@
         "slides/2017-02-22-contextswitching/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "slides/2017-02-20-interrupts/deck.html": "ff3309f5d5b42cb17e253f8efb08dadf29b33008",
         "slides/2017-02-24-threading/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
-        "slides/2017-02-27-schedulingintro/index.html": "4682948956897b101dc45e8df2dac7079988205b",
-        "slides/2017-02-27-schedulingintro/deck.html": "4682948956897b101dc45e8df2dac7079988205b"
+        "slides/2017-02-27-schedulingintro/index.html": "e9c8538bcde44090b082ea55a8e02696cfc28f3a",
+        "slides/2017-02-27-schedulingintro/deck.html": "e9c8538bcde44090b082ea55a8e02696cfc28f3a"
     }
 }

@@ -7,10 +7,12 @@ description: >
   what, when and how of thread scheduling.
 spelling_exceptions:
   - laggy
+  - PSA
 song:
   name: Leave a Trace
   author: CHVRCHES
   youtube: 4Eo84jDIMKI
+video: 3AtAGHkARCk
 ---
 [.nooutline.spelling_exception]
 == Technical Women
