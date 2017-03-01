@@ -1411,8 +1411,14 @@
     },
     "slides/simpleschedulers.html": {
         "filename": "slides/simpleschedulers.html",
-        "hash": "7bde8905abedc8d60e6b8eca074c6026",
+        "hash": "3502ce89ca7add55a8f7f8a473634db5",
         "created": "2017-03-01T16:11:36.764Z",
-        "updated": "2017-03-01T16:11:36.764Z"
+        "updated": "2017-03-01T20:46:33.189Z"
+    },
+    "slides/schedulingstory.html": {
+        "filename": "slides/schedulingstory.html",
+        "hash": "a2f174705e6ca23067d4f7b0e5867e01",
+        "created": "2017-03-01T20:46:33.189Z",
+        "updated": "2017-03-01T20:46:33.189Z"
     }
 }

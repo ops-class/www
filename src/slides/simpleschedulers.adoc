@@ -464,6 +464,114 @@ image::figures/scheduling/waiting-18.svg[width="80%"]
 image::figures/scheduling/waiting-19.svg[width="80%"]
 --
 
+== Oracular Spectacular
+
+[.slider]
+.Normally we *cannot predict the future*
+* Control flow is unpredictable.
+* Users are unpredictable.
+
+[.slider]
+.Instead, *use the past to predict the future*.
+* What did the thread do recently? It will probably keep doing that.
+
+== Multi-Level Feedback Queues
+
+[.slider]
+* Choose a *scheduling quantum*. This is the maximum amount of time any
+thread will be able to run at one time.
+* Establish some number of queues; each represents a *level*.
+* Threads from the highest-level queues are chosen first.
+* Then:
+[.slider]
+..  Choose and run a thread from the highest-level non-empty queue.
+..  If the thread *blocks* or *yields*, promote it to a higher level
+queue.
+..  If the thread must be *preempted* at the end of a quantum, demote it
+to a lower level queue.
+
+== Multi-Level Feedback Queues
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-11.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-12.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-13.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-14.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-15.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/scheduling/mlfq-16.svg[width="80%"]
+--
+
 [.nooutline]
 == Monday: The Story of the Linux Completely Fair Scheduler
 

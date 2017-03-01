@@ -111,7 +111,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "d6126d3a03d3f1edb67650baf9ae3238",
+        "slides/index.html": "96f2b5967629d6e05132c3f2022e7399",
         "slides/2017-02-22-contextswitching/index.html": "88f9b88c96a945bf09c36e295f816e10",
         "slides/2017-02-20-interrupts/index.html": "764d1bc8b4c7ef200631f229b18e4e1f",
         "slides/2017-02-24-threading/index.html": "3d798629ce2fb74023919f5aaaea1003",
@@ -120,8 +120,10 @@
         "slides/2017-02-24-threading/deck.html": "d24a511d75ff3acb3b88e446f7c55dac",
         "slides/2017-02-27-schedulingintro/index.html": "55480d01900eb1c1874c554657f5fa71",
         "slides/2017-02-27-schedulingintro/deck.html": "d80df39d81cdf6006d9b58358287074e",
-        "slides/2017-03-01-simpleschedulers/index.html": "6e5070d510613c3344a19c5482192412",
-        "slides/2017-03-01-simpleschedulers/deck.html": "590bbd9bda7a8e6ea9b8b2c4b0e3d761"
+        "slides/2017-03-01-simpleschedulers/index.html": "c3dde93a8156f82e25da0e46435ac857",
+        "slides/2017-03-01-simpleschedulers/deck.html": "566ad133b07c1e12113ef2f6ddce8acb",
+        "slides/2017-03-03-schedulingstory/index.html": "975a5981b6f31657dca154c744566e9c",
+        "slides/2017-03-03-schedulingstory/deck.html": "ccec368315d0dd1b0d381dd6057ddd38"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -243,6 +245,8 @@
         "slides/2017-02-27-schedulingintro/index.html": "e9c8538bcde44090b082ea55a8e02696cfc28f3a",
         "slides/2017-02-27-schedulingintro/deck.html": "e9c8538bcde44090b082ea55a8e02696cfc28f3a",
         "slides/2017-03-01-simpleschedulers/index.html": "3431c910fd2df0b5b75f15ff133f4f09c5c137bd",
-        "slides/2017-03-01-simpleschedulers/deck.html": "3431c910fd2df0b5b75f15ff133f4f09c5c137bd"
+        "slides/2017-03-01-simpleschedulers/deck.html": "3431c910fd2df0b5b75f15ff133f4f09c5c137bd",
+        "slides/2017-03-03-schedulingstory/index.html": "dcdb9926758f4f630712061793b17b3e173416a6",
+        "slides/2017-03-03-schedulingstory/deck.html": "dcdb9926758f4f630712061793b17b3e173416a6"
     }
 }
