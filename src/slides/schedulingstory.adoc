@@ -10,18 +10,20 @@ spelling_exceptions:
   - Ingo Molnar
   - RSDL
   - BFS
+song:
+  name: "Black Steel"
+  author: "Tricky"
+  youtube: 9ZJTM03UByU
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/041.jpg[width="100%",link="https://en.wikipedia.org/wiki/Clarisse_de_Souza",title="Clarisse de Souza"]
 
-////
 [.h3.center]
-icon:music[] https://breakingbenjamin.com/[{song}]
+icon:music[] http://www.trickysite.com/[{song}]
 
 video::{music}[youtube,width=0,height=0]
-////
 
 [.nooutline]
 == Today: A Linux Scheduling Story
@@ -595,3 +597,5 @@ particular purpose. I don't want to use a steamroller to crack nuts
 == Monday
 
 Virtual memory: my *favorite* operating systems topic.
+
+// vim: ts=2:sw=2:et

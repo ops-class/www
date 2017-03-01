@@ -582,3 +582,5 @@ and then gave up.
 highlighting many aspects of large-scale community-driven operating
 systems development.
 * Including discussion of the BFS (Brain F*ck Scheduler).
+
+// vim: ts=2:sw=2:et
