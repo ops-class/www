@@ -6,7 +6,7 @@
     "asst/overview/index.html": "bfb819e2af35b68f212807de9496ec2b",
     "asst/3/index.html": "bd308b7e45960f273511fbc2b58d96aa",
     "asst/1/index.html": "b8da996666c69f9bb55c0ea22120854a",
-    "asst/2/index.html": "a8b1ca0aac73888bd763d16919d593b8",
+    "asst/2/index.html": "8b57cd7b333e06aa1ff9ef60b014bade",
     "asst/repos/index.html": "48543838d141481042606f1640d26ff3",
     "courses/buffalo/CSE421_Spring2012/index.html": "6b59de8c7c8507af21bc5562ab770564",
     "courses/buffalo/CSE421_Spring2013/index.html": "6b3383d84ccffcb95aa99b629f529d42",
@@ -108,7 +108,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
     "slides/2016-04-20-xen/deck.html": "99c683a451d267d68318d2da4c450b59",
-    "slides/index.html": "c1199c60dd67f30fc04177594eb56a41",
+    "slides/index.html": "44cd267045c1291b2293dbcbd51d7b15",
     "slides/2017-02-22-contextswitching/index.html": "94a50c94529082ae54cc500071566727",
     "slides/2017-02-20-interrupts/index.html": "faff43c7297eff0570db03fe5b606581",
     "slides/2017-02-24-threading/index.html": "c3ca3f3b71d2ec94b2ad3c0c23f8622b",
@@ -117,6 +117,6 @@
     "slides/2017-02-24-threading/deck.html": "0e312e44efc83de201717d221f5ebc16",
     "slides/2017-02-27-schedulingintro/index.html": "f3c736144c4fcf1301d4947a24fa1bc1",
     "slides/2017-02-27-schedulingintro/deck.html": "dee5c42fd33ebd97be3f16490850639f",
-    "slides/2017-03-01-simpleschedulers/index.html": "990072c61fb052db4ce6361936f1c44c",
+    "slides/2017-03-01-simpleschedulers/index.html": "6e180222e3f4d23fe52f680761c2f308",
     "slides/2017-03-01-simpleschedulers/deck.html": "6d09161b886b561aa968e3490ab50555"
 }

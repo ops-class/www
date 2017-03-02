@@ -13,6 +13,7 @@ song:
   name: "Bad Blood"
   author: "Taylor Swift"
   youtube: QcIy9NiNbmo
+video: R65MX-D3GVA
 ---
 [.nooutline.spelling_exception]
 == Technical Women

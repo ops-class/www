@@ -7,7 +7,7 @@
         "404/index.html": "f585da0dbb0143cc6acebf4dc9f86965",
         "asst/0/index.html": "9ac4f9eff6d2005942263a39eb7c1347",
         "asst/1/index.html": "e875d619bb1de8d6a7549ef202530380",
-        "asst/2/index.html": "175a9aa27e6e268036ca7cf8670cb609",
+        "asst/2/index.html": "f6dbec8bd7afad074863c928d6577742",
         "asst/3/index.html": "ce6a6b12ed338fbe201414420ee754bb",
         "asst/overview/index.html": "e65e8524aa6515dfce55cb0b3e094ae4",
         "asst/repos/index.html": "47224750d14280028d211c53c0fe68ea",
@@ -111,7 +111,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "d6126d3a03d3f1edb67650baf9ae3238",
+        "slides/index.html": "673af1fda06befd9739fab7434a0a496",
         "slides/2017-02-22-contextswitching/index.html": "88f9b88c96a945bf09c36e295f816e10",
         "slides/2017-02-20-interrupts/index.html": "764d1bc8b4c7ef200631f229b18e4e1f",
         "slides/2017-02-24-threading/index.html": "3d798629ce2fb74023919f5aaaea1003",
@@ -120,7 +120,7 @@
         "slides/2017-02-24-threading/deck.html": "d24a511d75ff3acb3b88e446f7c55dac",
         "slides/2017-02-27-schedulingintro/index.html": "55480d01900eb1c1874c554657f5fa71",
         "slides/2017-02-27-schedulingintro/deck.html": "d80df39d81cdf6006d9b58358287074e",
-        "slides/2017-03-01-simpleschedulers/index.html": "6e5070d510613c3344a19c5482192412",
+        "slides/2017-03-01-simpleschedulers/index.html": "4b2315cf79b9df858fae29a45bdfee65",
         "slides/2017-03-01-simpleschedulers/deck.html": "590bbd9bda7a8e6ea9b8b2c4b0e3d761"
     },
     "exceptions": {
