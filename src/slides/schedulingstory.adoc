@@ -10,6 +10,8 @@ spelling_exceptions:
   - Ingo Molnar
   - RSDL
   - BFS
+  - MW
+  - MF
 song:
   name: "Black Steel"
   author: "Tricky"
@@ -34,6 +36,26 @@ video::{music}[youtube,width=0,height=0]
 ** Who are Ingo Molnar and Con Kolivas?
 ** The Linux 2.6 O(1) scheduler
 ** The Rotating Staircase Deadline Scheduler (RSDL)
+
+[.nooutline]
+== link:/asst/2/[`ASST2`] Checkpoint
+
+.At this point:
+//
+* If you have not finished `ASST2.1`, *you're way behind.*
+//
+* If you have most of `sys_{open,close,lseek}...`, *you're a bit behind.*
+//
+* If you have started `fork` and `exec` you're OK.
+
+[.nooutline]
+== Away Next Two Weeks
+
+[.slider]
+//
+* I'll be gone MF next week and MW the week after.
+//
+* Carl will be in the house.
 
 == Multi-Level Feedback Queues
 
@@ -108,13 +130,42 @@ volunteers.
 == Linux By The Numbers
 
 [.slider]
-* *9.2 million* lines of code. (55% device drivers.)
-* *2,400* developers.
+* *12 million* lines of code in 3.13.
+* *7 million* in `/drivers` (58% device drivers)
+* *2 million* in `/arch` (17% architecture support)
+* Only *139K* in `/kernel` (1%!)
+* Much of the code is not required or used in any specific kernel build.
+
+(Read more
+//
+http://unix.stackexchange.com/questions/223746/why-is-the-linux-kernel-15-million-lines-of-code[here].
+//
+)
+
+<<<
+
+[.slider]
 * New kernel every *2.75* months.
+* 10,000 patches per release.
+* 7.14 changes _per hour_!
+* Around 1400 developers per release.
+* *11,800* developers from 2005&ndash;2015
+
+(Read more
+//
+https://www.linux.com/publications/linux-kernel-development-how-fast-it-going-who-doing-it-what-they-are-doing-and-who[here].
+//
+)
 
 == Linux Development Process
 
 *Big caveat*: I am not speaking from experience!
+//
+(But you can read a lot about this
+//
+http://www.aycinena.com/index2/index3/archive/andrew%20morton%20&%20the%20linux%20kernel.html[online].
+//
+)
 
 [.slider]
 * Each file has a maintainer.
@@ -129,6 +180,15 @@ volunteers.
 | image:figures/scheduling/linus.jpg[title="Linus Torvalds", width="50%"]
 
 |===
+
+== (Who Don't Always Get Along)
+
+[quote,Linus Torvalds,role='small']
+____
+"I'm really sorry I applied that last series from Andrew just before doing the
+4.8 release, because they cause problems, and now it is in 4.8 (and that buggy
+crap is marked for stable too)."
+____
 
 == Kernel Development
 
