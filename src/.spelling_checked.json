@@ -27,7 +27,7 @@
         "slides/2017-01-30-intro/index.html": "03ef38a3ad60140c51edc446271ebe44",
         "slides/2017-02-03-processes/index.html": "12fd049d4cdf1a6bda05e1e36cd728e8",
         "slides/2017-02-27-schedulingintro/index.html": "55480d01900eb1c1874c554657f5fa71",
-        "slides/2017-03-03-schedulingstory/index.html": "975a5981b6f31657dca154c744566e9c",
+        "slides/2017-03-03-schedulingstory/index.html": "35df002e3b2964d140de121199041863",
         "slides/2017-02-01-setup/index.html": "b888bb3201705d875f42679e3f7a1382",
         "slides/2017-03-01-simpleschedulers/index.html": "a1c2191dee3504d7ab7024fa49dcb095",
         "slides/2017-02-13-synchprimitives/index.html": "1139afd117c2ce09c96ce498c71bcff5",
@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "373a3c05b47de512955fd7810ce3a6c8"
+        "slides/index.html": "dd09d6e5ab77ecc8ef8d1ceeb7bed779"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
