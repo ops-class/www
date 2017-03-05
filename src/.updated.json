@@ -1420,5 +1420,11 @@
         "hash": "af69e82b8d17370fa29116f0d0c4b3b6",
         "created": "2017-03-01T20:46:33.189Z",
         "updated": "2017-03-03T17:21:00.633Z"
+    },
+    "slides/addressspaces.html": {
+        "filename": "slides/addressspaces.html",
+        "hash": "eb5a7298582f37e59f238104431e6e18",
+        "created": "2017-03-05T18:47:45.309Z",
+        "updated": "2017-03-05T18:47:45.309Z"
     }
 }

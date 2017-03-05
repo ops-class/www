@@ -25,7 +25,7 @@
     "slides/2017-02-03-processes/index.html": "dacaafa54d9fe8e58e9ac65f350f0ad9",
     "slides/2017-02-27-schedulingintro/index.html": "f3c736144c4fcf1301d4947a24fa1bc1",
     "slides/2017-02-01-setup/index.html": "7555a89e11205201f805dd128253b2ec",
-    "slides/2017-03-03-schedulingstory/index.html": "9c8ffae0a2496834263436be0100a2ba",
+    "slides/2017-03-03-schedulingstory/index.html": "ff74ef56d66feb2895eb304afb7e0781",
     "slides/2017-03-01-simpleschedulers/index.html": "e8e3a2e0afb885a584c4d6edef2ff8d0",
     "slides/2017-02-13-synchprimitives/index.html": "ac5262a4558243d3fed0b5a9b979ad1f",
     "slides/2017-02-24-threading/index.html": "c3ca3f3b71d2ec94b2ad3c0c23f8622b",
@@ -120,5 +120,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "99c683a451d267d68318d2da4c450b59",
     "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-    "slides/index.html": "8a3ea1852245fd30df5bc6c4a8f08021"
+    "slides/index.html": "3c0eabd1b477a9438418d6e51a4a92b3",
+    "slides/2017-03-06-addressspaces/index.html": "d73f834fa0e4c484b23ead2cd7811903",
+    "slides/2017-03-06-addressspaces/deck.html": "0c39aad2429d8370dd504c1a2c4678d4"
 }
