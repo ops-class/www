@@ -120,7 +120,9 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "99c683a451d267d68318d2da4c450b59",
     "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-    "slides/index.html": "3c0eabd1b477a9438418d6e51a4a92b3",
-    "slides/2017-03-06-addressspaces/index.html": "d73f834fa0e4c484b23ead2cd7811903",
-    "slides/2017-03-06-addressspaces/deck.html": "0c39aad2429d8370dd504c1a2c4678d4"
+    "slides/index.html": "79598e32f0474fe8d4e16092b3f57115",
+    "slides/2017-03-06-addressspaces/index.html": "912847eae3e753d452ebfd249fe55f52",
+    "slides/2017-03-06-addressspaces/deck.html": "0c39aad2429d8370dd504c1a2c4678d4",
+    "slides/2017-03-08-virtualaddresses/deck.html": "ea726c73925bffa02511660cd8ecd78c",
+    "slides/2017-03-08-virtualaddresses/index.html": "08f38db2b1edd14a057045435b7795c5"
 }

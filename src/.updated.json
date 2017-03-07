@@ -1426,5 +1426,11 @@
         "hash": "eb5a7298582f37e59f238104431e6e18",
         "created": "2017-03-05T18:47:45.309Z",
         "updated": "2017-03-05T18:47:45.309Z"
+    },
+    "slides/virtualaddresses.html": {
+        "filename": "slides/virtualaddresses.html",
+        "hash": "b9d8694cd3ba0d750135648512814778",
+        "created": "2017-03-07T16:51:10.607Z",
+        "updated": "2017-03-07T16:51:10.607Z"
     }
 }

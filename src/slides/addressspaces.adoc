@@ -8,6 +8,7 @@ description: >
 spelling_exceptions:
   - Ingo Molnar
   - RSDL
+video: zVe58hORk2U
 ---
 [.nooutline.spelling_exception]
 == Technical Women

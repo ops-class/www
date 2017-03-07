@@ -1,0 +1,510 @@
+---
+title: "Virtual Addresses"
+date: 2017-03-08
+author: Geoffrey Challen
+description: >
+  Discussion of creating and translating virtual addresses.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/044.jpg[width="50%",title="Qiheng Hu",link="http://internethalloffame.org/inductees/qiheng-hu"]
+
+////
+[.h4.center]
+icon:music[] https://en.wikipedia.org/wiki/Rickrolling[{song}]
+
+video::{music}[youtube,width=160,height=90]
+////
+
+[.nooutline]
+== Today: Address Translation
+
+* Levels of indirection.
+* Physical and virtual addresses.
+* Virtual address properties.
+
+[.nooutline]
+== link:/asst/2/[`ASST2`] Checkpoint
+
+.At this point:
+//
+* If you have not finished `ASST2.1`, *you're way, way behind.*
+//
+* If you have not finished the file system system calls `sys_{open,close,lseek}...`, *you're behind.*
+//
+* If you finished one of `sys_{fork,wait,exec,exit}`, you're OK.
+
+== Convention
+
+[.slider]
+* Process layout is specified by the Executable and Linker Format (ELF)
+file. (Remember ELF?)
+* Some layout is the function of *convention*.
+* Example: why not load the code at `0x0`?
+** To catch possibly the most common programmer error: `NULL` pointer
+problems!
+** Leaving a large portion of the process address space starting at `0x0`
+empty allows the kernel to catch these errors, including offsets against
+`NULL` caused by `NULL` structures:
+
+[source,c,role='smaller slide']
+----
+struct bar * foo = NULL;
+foo->bar = 10;
+----
+
+[canvas-image="http://laportecreative.com/blog/wp-content/uploads/2012/11/woman-mad-at-computer1.jpg"]
+== !
+
+[.background]
+image:http://laportecreative.com/blog/wp-content/uploads/2012/11/woman-mad-at-computer1.jpg[]
+
+[.meme-top]
+Segmentation fault
+
+[.meme-bottom]
+Core dumped
+
+[.nooutline]
+== Aside: ASST2
+
+[source,c,role='small']
+----
+int32_t sys_open(userptr_t pathname, ...) {
+  if (pathname == NULL) {
+    return EINVAL;
+  }
+  ...
+----
+
+This is also why *not* to check `userptr_t` types for `NULL` in ASST2:
+
+[.slider]
+* `0x0` can be a valid user address. ("Look, Mom, I did my own linking.")
+* There are `2^31` ways that address can be bogus...[.slide]#and you just
+checked _one_ of them.#
+
+== Destined To Ever Meet?
+
+[.slider]
+* The *stack* starts at the top of the address space and grows ↓.
+* The *heap* starts towards the bottom and grows ↑.
+* *Will they ever meet?*
+** *Probably not!* That would mean either the stack or probably the heap
+was _huge_.
+
+== Relocation
+
+[source,c,role='small']
+----
+int data[128];
+...
+data[5] = 8; // Where the heck is data[5]?
+...
+result = foo(data[5]); // Where the heck is foo?
+----
+
+So given our address space model, no more problems with locating
+things, right?
+
+[.slide]
+--
+*Not quite!* Dynamically-loaded libraries still need to be relocated at
+run time. Cool: but not something we'll cover in this course.
+--
+
+== !
+
+[.background]
+image:http://www.northfloridaahec.org/wp-content/uploads/2015/07/happy-computer-user.jpg[]
+
+[.meme-top]
+Sounds great
+
+[.meme-bottom]
+What's the catch?
+
+== Address Spaces: A Great Idea?
+
+[.slider]
+* The address space abstraction sounds powerful and useful. (It would be
+better if it cooked breakfast.)
+* *But can we implement it?*
+
+== !
+
+[.background]
+image:http://images.amcnetworks.com/ifc.com/wp-content/uploads/2012/04/042712-mission-impossible.jpg[]
+
+[.meme-top]
+Your mission
+
+[.meme-bottom]
+Implement address spaces
+
+== Implementing Address Spaces
+
+[.slider]
+.What's required?
+* *Address translation*: 0x10000 to Process 1 is not the same as 0x10000
+to Process 2 is not the same as...
+* *Protection*: address spaces are intended to provide a _private_ view
+of memory to each process.
+* *Memory management*: together one or several processes may have *more
+address space* allocated than physical memory on the machine.
+** In a way, we are _encouraging_ processes to spread out and let us
+handle the details.
+
+[.nooutline]
+== Guess What?
+
+[.slider]
+* Your entire (programming) life has been a *lie*.
+* You believe in things that are *not actually true*.
+* Today your view of the world will change forever.
+
+[canvas-image="http://www.mediamiser.com/wp-content/uploads/2013/12/santa-claus3.jpg"]
+== !
+
+[.background]
+image:http://www.mediamiser.com/wp-content/uploads/2013/12/santa-claus3.jpg[]
+
+[.meme-top]
+0x10000
+[.meme-bottom]
+Also not real
+
+== [.small]#Your Mission: Implement Address Spaces#
+
+* Clearly implementing address spaces requires *breaking* the direct
+connection between a memory address and physical memory.
+* Introducing another *level of indirection* is a _classic_ systems
+technique. We have seen it before. *Where?*
+[.slider]
+** *File handles!*
+
+== Translation is Control
+
+Forcing processes to *translate* a reference to gain access to the
+underlying object provides the kernel with a great deal of *control*.
+
+References can be [.slide]*revoked,* [.slide]*shared,* [.slide]*moved,*
+[.slide]#and *altered*.#
+
+[.slide.replace]
+--
+image::figures/memory/translation-1.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translation-2.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translation-3.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translation-4.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translation-5.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translation-6.svg[width="60%"]
+--
+
+== Memory Interface
+
+We don't usually think about memory as having an interface, but it
+does:
+
+[.slider]
+* `load(address)`: load data from the given address, usually into a
+register or possible into another memory location.
+* `store(address, value)`: store value to the given address, where value
+may be in a register or another memory location.
+
+== Virtual v. Physical Addresses
+
+[.slider]
+* The *address space* abstraction requires breaking the connection
+between a memory address and physical memory.
+* We refer to data accessed via the memory interface as using *virtual
+addresses*:
+** A *physical address* points to memory.
+** A *virtual address* points to something that _acts like_ memory.
+* Virtual addresses have much richer *semantics* than physical
+addresses, encapsulating *location*, *permanence* and *protection*.
+
+== !
+
+[.background]
+image:http://i2.kym-cdn.com/entries/icons/original/000/009/889/Morpheus2.jpg[]
+
+[.meme-top]
+Welcome
+[.meme-bottom]
+To the real world
+
+== Virtual Addresses: Location
+
+The data referenced by a virtual address might be:
+
+[.slide]
+--
+* *in memory*! (Duh.) [.slide]#But...the kernel may have moved it to the
+_disk_.#
+
+[.slide]#Virtual Address →# [.slide]#Physical Address#
+--
+
+[.slide]
+--
+* *on disk*, [.slide]#but...the kernel may be caching it in _memory_.#
+
+[.slide]#Virtual Address →# [.slide]#Disk, Block, Offset#
+--
+
+[.slide]
+--
+* in memory on *another machine*.
+
+Virtual Address → [.slide]#IP Address, Physical Address#
+--
+
+[.slide]
+--
+* a port on a *hardware device*.
+
+Virtual Address → Device, Port
+--
+
+== Virtual Addresses: Permanence
+
+Processes expect data written to virtual addresses that point to
+*physical memory* to store values [.slide]*transiently*.
+
+Processes expect data written to virtual addresses that point to
+*disk* to store values [.slide]*permanently*.
+
+[.slider]
+.What about virtual addresses that point to *device ports*?
+* Hardware may change its registers independently, so a read will not
+necessarily return the last value written.
+
+== Virtual Addresses: Permissions and Protection
+
+[.slider]
+* Some virtual addresses may only be used by the *kernel* while in
+kernel mode.
+* Virtual addresses may also be assigned *read*, *write* or *execute*
+permissions.
+[.slider]
+** *read/write*: [.slide]#a process can load/store to this address.#
+** *execute*: [.slide]#a process can load and execute instructions from this
+address.#
+
+== Creating Virtual Addresses: `exec()`
+
+[.slider]
+* `exec()` uses a *blueprint* from an ELF file to determine how the
+address space should look when `exec()` completes.
+* Specifically, `exec()` creates and initializes *virtual addresses* that
+(mainly) point to *memory*:
+[option='step']
+** *code*, usually marked _read-only_.
+** *data*, marked _read-write_, but not executable.
+** *heap*, an area used for _dynamic allocations_, marked read-write.
+** *stack* space for the _first_ thread.
+
+== $ `pmap` # memory mappings
+
+image:figures/pmap.svg[width="100%"]
+
+== Creating Virtual Addresses: `fork()`
+
+`fork()` *copies* the address space of the calling process.
+
+[.slide.replace]
+--
+image::figures/fork-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/fork-2.svg[width="100%"]
+--
+
+== Creating Virtual Addresses: `fork()`
+
+The child has the *same* virtual addresses as the parent but they
+point to *different* memory locations.
+
+[source,c,role='smaller slide replace']
+----
+int i = 2;
+ret = fork();
+if (ret != 0) {
+  printf("%x", &i); // prints virtual address 0x20010
+  i = 4;
+  printf("%d", i);
+} else {
+  printf("%x", &i);
+  i = 3;
+  printf("%d", i);
+}
+----
+
+[source,c,role='smaller slide replace']
+----
+int i = 2;
+ret = fork();
+if (ret != 0) {
+  printf("%x", &i); // prints virtual address 0x20010
+  i = 4;
+  printf("%d", i); // prints 4. virtual address points to private memory.
+} else {
+  printf("%x", &i);
+  i = 3;
+  printf("%d", i);
+}
+----
+
+[source,c,role='smaller slide replace']
+----
+int i = 2;
+ret = fork();
+if (ret != 0) {
+  printf("%x", &i); // prints virtual address 0x20010
+  i = 4;
+  printf("%d", i); // prints 4. virtual address points to private memory.
+} else {
+  printf("%x", &i); // prints virtual address 0x20010
+  i = 3;
+  printf("%d", i);
+}
+----
+
+[source,c,role='smaller slide replace']
+----
+int i = 2;
+ret = fork();
+if (ret != 0) {
+  printf("%x", &i); // prints virtual address 0x20010
+  i = 4;
+  printf("%d", i); // prints 4. virtual address points to private memory.
+} else {
+  printf("%x", &i); // prints virtual address 0x20010
+  i = 3;
+  printf("%d", i); // prints 3. virtual address points to private memory.
+}
+----
+
+== Issues with `fork()`
+
+Copying all that memory is expensive!
+
+[.slider]
+* Especially when the next thing that a process frequently does is start
+load a new binary which destroys most of the state `fork()` has carefully
+copied!
+* We will come back to this problem next week when we talk about *clever
+memory-management tricks*.
+
+== Creating Virtual Addresses: `sbrk()`
+
+[.slider]
+* Dynamic memory allocation is performed by the `sbrk()` system call.
+* `sbrk()` asks the kernel to move the *break point*, or the point at
+which the process heap ends.
+
+[.slide.replace]
+--
+image:figures/memory/sbrk-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/sbrk-2.svg[width="100%"]
+--
+
+== Creating Virtual Addresses: `mmap()`
+
+[.slider]
+* `mmap()` is a system call that creates virtual addresses that map to a
+portion of a *file*.
+
+== Example Machine Memory Layout: System/161
+
+* System/161 emulates a 32-bit MIPS architecture.
+* Addresses are 32-bits wide: from 0x0 to 0xFFFFFFFF.
+
+.This MIPS architecture defines *four* address regions:
+[.slider.small]
+* `0x0–0x7FFFFFFF`: *process virtual addresses*. Accessible to user
+processes, translated by the kernel. 2 GB.
+* `0x80000000–0x9FFFFFFF`: *kernel direct-mapped addresses*. Only
+accessible to the kernel, translated by subtracting 0x80000000. 512 MB.
+Cached.
+* `0xA0000000–0xBFFFFFFF`: *kernel direct-mapped addresses*. Only
+accessible to the kernel. 512 MB. Uncached.
+* `0xC0000000–0xFFFFFFFF`: *kernel virtual addresses*. Only accessible to
+the kernel, translated by the kernel. 1 GB.
+
+== Example Machine Memory Layout: System/161
+
+[.slide.replace]
+--
+image:figures/memory/mips-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/mips-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/mips-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/mips-4.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/mips-5.svg[width="100%"]
+--
+
+== Mechanism v. Policy
+
+* We will get to the details of virtual address *translation* next time.
+
+[.slider]
+.However, it is important to note that *both* hardware and software are involved:
+* The hardware *memory management unit* _speeds_ the process of
+translation once the kernel has told it how to translate an address or
+according to architectural conventions. The MMU is the *mechanism*.
+* The operating system memory management subsystem manages translation
+*policies* by telling the MMU what to do.
+
+[.slider]
+* Goal: system follows operating system established *policies* while
+involving the operating system directly as rarely as possible.
+
+[.nooutline]
+== Next Time: Address Translation
+
+* Multiple approaches to translating addresses.
+* How to do it fast.

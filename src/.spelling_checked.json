@@ -123,9 +123,11 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "7ace3aea553f0e39bb2a0acedcaf7be6",
-        "slides/2017-03-06-addressspaces/index.html": "62d55ad71c965c40f9a7d5a993e0cbe9",
-        "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16"
+        "slides/index.html": "b0fc9fd23c850c3e96fbf2429c212bfd",
+        "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
+        "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
+        "slides/2017-03-08-virtualaddresses/index.html": "aa81d2a35497bea6004fc7f18de5a749",
+        "slides/2017-03-08-virtualaddresses/deck.html": "d3a409399f13e15ea833e9d2e0239df6"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -251,6 +253,8 @@
         "exams/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "slides/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "slides/2017-03-06-addressspaces/index.html": "2c1b0a60a3a0ed70f1529b239107422f55307b67",
-        "slides/2017-03-06-addressspaces/deck.html": "2c1b0a60a3a0ed70f1529b239107422f55307b67"
+        "slides/2017-03-06-addressspaces/deck.html": "2c1b0a60a3a0ed70f1529b239107422f55307b67",
+        "slides/2017-03-08-virtualaddresses/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-03-08-virtualaddresses/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
     }
 }
