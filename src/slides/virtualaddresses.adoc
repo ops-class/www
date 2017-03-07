@@ -4,18 +4,20 @@ date: 2017-03-08
 author: Geoffrey Challen
 description: >
   Discussion of creating and translating virtual addresses.
+song:
+  name: "Rebel Girl"
+  author: "Bikini Kill"
+  youtube: mZxxhxjgnC0
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/044.jpg[width="50%",title="Qiheng Hu",link="http://internethalloffame.org/inductees/qiheng-hu"]
 
-////
-[.h4.center]
-icon:music[] https://en.wikipedia.org/wiki/Rickrolling[{song}]
+[.h3.center]
+icon:music[] http://bikinikill.com/[{song}]
 
 video::{music}[youtube,width=160,height=90]
-////
 
 [.nooutline]
 == Today: Address Translation
