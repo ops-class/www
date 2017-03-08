@@ -16,6 +16,7 @@ song:
   name: "Black Steel"
   author: "Tricky"
   youtube: 9ZJTM03UByU
+video: cZ0Alxl5KaE
 ---
 [.nooutline.spelling_exception]
 == Technical Women
