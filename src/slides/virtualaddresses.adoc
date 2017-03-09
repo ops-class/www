@@ -8,6 +8,7 @@ song:
   name: "Rebel Girl"
   author: "Bikini Kill"
   youtube: mZxxhxjgnC0
+video: NDP_Ti_rnj8
 ---
 [.nooutline.spelling_exception]
 == Technical Women
