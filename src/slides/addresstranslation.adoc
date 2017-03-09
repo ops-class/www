@@ -1,0 +1,496 @@
+---
+title: "Address Translation"
+date: 2017-03-10
+author: Geoffrey Challen
+description: >
+  Discussion of efficiently translating virtual addresses to physical
+  addresses.
+spelling_exceptions:
+  - V.A.
+  - KTHXBAI
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/045.jpg[width="100%",title="Anuradha Annaswamy",link="http://meche.mit.edu/people/faculty/aanna@mit.edu"]
+
+[.nooutline]
+== Today: Efficient Translation
+
+* Base and bounds.
+* Segmentation.
+* Paging.
+
+== Example Machine Memory Layout: System/161
+
+* System/161 emulates a 32-bit MIPS architecture.
+* Addresses are 32-bits wide: from 0x0 to 0xFFFFFFFF.
+
+.This MIPS architecture defines *four* address regions:
+[.slider.small]
+* `0x0–0x7FFFFFFF`: *process virtual addresses*. Accessible to user
+processes, translated by the kernel. 2 GB.
+* `0x80000000–0x9FFFFFFF`: *kernel direct-mapped addresses*. Only
+accessible to the kernel, translated by subtracting 0x80000000. 512 MB.
+Cached.
+* `0xA0000000–0xBFFFFFFF`: *kernel direct-mapped addresses*. Only
+accessible to the kernel. 512 MB. Uncached.
+* `0xC0000000–0xFFFFFFFF`: *kernel virtual addresses*. Only accessible to
+the kernel, translated by the kernel. 1 GB.
+
+== Example Machine Memory Layout: System/161
+
+[.slide.replace]
+--
+image:figures/memory/mips-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/mips-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/mips-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/mips-4.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image:figures/memory/mips-5.svg[width="100%"]
+--
+
+== Mechanism v. Policy
+
+* We continue with the details of virtual address *translation* today.
+
+[.slider]
+.However, it is important to note that *both* hardware and software are involved:
+* The hardware *memory management unit* _speeds_ the process of
+translation once the kernel has told it how to translate an address or
+according to architectural conventions. The MMU is the *mechanism*.
+* The operating system memory management subsystem manages translation
+*policies* by telling the MMU what to do.
+
+[.slider]
+* Goal: system follows operating system established *policies* while
+involving the operating system directly as rarely as possible.
+
+[.nooutline]
+== Virtual Addresses: Questions?
+
+== Efficient Translation
+
+*Goal*: almost _every_ virtual address translation should be able to
+proceed without kernel assistance.
+
+[.slider]
+.*Why?*
+* The kernel is *too slow*!
+
+[.slider]
+* Recall: kernel sets [.slide]*policy*, hardware provides the [.slide]*mechanism*.
+
+== Explicit Translation
+
+_Process:_ "Dear kernel, I'd like to use virtual address 0x10000. Please tell
+me what physical address this maps to. KTHXBAI!"
+
+[.slider]
+.Does this work?
+* *No!* Unsafe! We can't allow process to use physical addresses
+directly. [.slide]#All addresses must be translated.#
+
+== !
+[.background]
+image:http://i.ytimg.com/vi/xpA5juZxuNw/hqdefault.jpg[]
+
+[.meme-top]
+All your addresses
+
+[.meme-bottom]
+Are belong to us
+
+== Implicit Translation
+
+[.slider]
+* _Process:_ "Machine! Store to address 0x10000!"
+* _MMU:_ "Where the heck is virtual address 0x10000 supposed to map to?
+Kernel...help!"
+* (Exception.)
+* _Kernel:_ Machine, virtual address 0x10000 maps to physical address
+0x567400.
+* _MMU:_ Thanks! Process: store completed!
+* _Process:_ KTHXBAI.
+
+== Translation Example
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-4.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-5.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-6.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-7.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-8.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-9.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-10.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-11.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-12.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/translationexample-13.svg[width="100%"]
+--
+
+== [.spelling_exception]#K.I.S.S.: Base and Bound#
+
+*Simplest* virtual address mapping approach.
+
+[.slider]
+. Assign each process a *base* physical address and *bound*.
+. *Check:* Virtual Address is OK if Virtual Address < bound.
+. *Translate:* Physical Address = Virtual Address + base
+
+== Base and Bounds: Example
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-4.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-5.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-6.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-7.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-8.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-9.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandbounds-10.svg[width="100%"]
+--
+
+== Base and Bounds: Pros
+
+[.slider]
+* Pro: *simple*! Hardware only needs to know base and bounds.
+* Pro: *fast*!
+** Protection: *one* comparison.
+** Translation: *one* addition.
+
+== Base and Bounds: Cons
+
+[.slider]
+* Con: is this a good fit for our address space abstraction?
+[.slider]
+** *No!* Address spaces encourage discontiguous allocation. Base and
+bounds allocation must be mostly contiguous otherwise we will lose
+memory to _internal_ fragmentation.
+* Con: also significant chance of *external* fragmentation due to large
+contiguous allocations.
+
+[.slide.replace]
+--
+image::figures/memory/baseandboundscon-1.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandboundscon-2.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandboundscon-3.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/baseandboundscon-4.svg[width="60%"]
+--
+
+== [.spelling_exception]#K.I.Simplish.S.: Segmentation#
+
+*One* base and bounds isn't a good fit for the address space
+abstraction.
+
+[.slider]
+.But can we extend this idea?
+* *Yes!* Multiple bases and bounds per process. We call each a
+*segment*.
+
+[.slider]
+* We can assign each logical region of the address space—code, data,
+heap, stack—to its own *segment*.
+** Each can be a separate *size*.
+** Each can have separate *permissions*.
+
+== [.spelling_exception]#K.I.Simplish.S.: Segmentation#
+
+*Segmentation* works as follows:
+
+[.slider]
+. Each *segment* has a *start* virtual address, *base* physical
+address, and *bound*.
+. *Check:* Virtual Address is OK if it inside some segment, or for
+some segment: +
+Segment Start < V.A. < Segment Start + Segment Bound.
+. *Translate:* For the segment that contains this virtual address: +
+ Physical Address = (V.A. - Segment Start) + Segment Base
+
+== Segmentation: Example
+
+[.slide.replace]
+--
+image::figures/memory/segments-1.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-2.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-3.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-4.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-5.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-6.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-7.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-8.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-9.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-10.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-11.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-12.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-13.svg[width="100%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/segments-14.svg[width="100%"]
+--
+
+== !
+
+[.background]
+image:http://images.clipartpanda.com/mushroom-clipart-dirR5G5i9.jpeg[]
+
+[.meme-top]
+Segmentation fault
+
+[.meme-bottom]
+Core dumped
+
+== Segmentation: Pros
+
+Have we found our ideal solution to the address translation challenge?
+
+[.slider]
+* Pro: still _fairly_ simple:
+** Protection (Segment Exists): N comparisons for N segments.
+** Translation: *one* addition. (Once segment located.)
+* Pro: can *organize* and *protect* regions of memory appropriately.
+* Pro: better fit for *address spaces* leading to less internal
+fragmentation.
+
+== Segmentation: Cons
+
+[.slider]
+* Con: still requires *entire* segment be contiguous in memory!
+* Con: potential for external fragmentation due to segment contiguity.
+
+== !
+
+[.background]
+image:http://i68.photobucket.com/albums/i14/AUBURN_MYSTIQUE/Animals_Children/Squirrel_Nut.jpg[]
+
+[.meme-top]
+So close!
+
+[.meme-bottom]
+But not quite.
+
+== Let's Regroup
+
+[.slider]
+.Ideally, what would we like?
+* *Fast* mapping from _any_ virtual byte to _any_ physical byte.
+
+[.slider]
+* Operating system *cannot* do this. Can hardware help?
+
+== Translation Lookaside Buffer
+
+[.slider]
+* Common systems trick: when something is too slow, throw a *cache* at
+it.
+* Translation Lookaside Buffers—or TLBs—typically use
+_content-addressable memory_ or CAMs to quickly search for a cached
+virtual-physical translation.
+
+== TLB Example
+
+[.slide.replace]
+--
+image::figures/memory/tlb-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/tlb-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/tlb-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/tlb-4.svg[width="80%"]
+--
+
+== What's the Catch?
+
+[.slider]
+* CAMs are *limited* in size. We cannot make them arbitrarily large.
+
+[.slider]
+.So at this point:
+* *Segments* are too _large_ and lead to internal fragmentation.
+* Mapping individual *bytes* would mean that the TLB would not be able
+to cache many entries and performance would suffer.
+
+[.slider]
+* Is there a middle ground?
+
+[.nooutline]
+== Next Time
+
+Page translation and page management.

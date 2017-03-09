@@ -32,7 +32,7 @@
     "slides/2017-02-15-synchproblems/index.html": "df5d40fb72875d05737644f088be3c66",
     "slides/2016-03-02-addressspaces/index.html": "698d35fcfadaac0f6a603fc900063d89",
     "slides/2017-02-24-threading/index.html": "c3ca3f3b71d2ec94b2ad3c0c23f8622b",
-    "slides/2017-03-08-virtualaddresses/index.html": "08f38db2b1edd14a057045435b7795c5",
+    "slides/2017-03-08-virtualaddresses/index.html": "eee104a8281ab09353bf5656d7302f3c",
     "slides/2016-02-19-contextswitching/index.html": "14b5a17558b718791b32ac10f02503b9",
     "slides/2016-05-02-cells/index.html": "04c7a9bce15362dee7ad639841b93612",
     "slides/2016-04-22-atlantis/index.html": "632643acc5082e29de75cca5a43241cf",
@@ -124,5 +124,9 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "99c683a451d267d68318d2da4c450b59",
     "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-    "slides/index.html": "79598e32f0474fe8d4e16092b3f57115"
+    "slides/index.html": "fdfc1772b3d9130e80abb277d6cbe83c",
+    "slides/2017-03-09-addresstranslation/deck.html": "85e6d5d9ac557ea6fea56edf251428de",
+    "slides/2017-03-09-addresstranslation/index.html": "cffb44e2813ff8d0bdc4085b47e73c4d",
+    "slides/2017-03-10-addresstranslation/deck.html": "d49e723767eaaa3b007c4cb6b3592df1",
+    "slides/2017-03-10-addresstranslation/index.html": "cffb44e2813ff8d0bdc4085b47e73c4d"
 }

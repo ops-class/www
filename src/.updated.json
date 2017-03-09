@@ -1432,5 +1432,11 @@
         "hash": "d700ffc3cd3e95bd25e6447142b1b35d",
         "created": "2017-03-07T16:51:10.607Z",
         "updated": "2017-03-07T21:08:32.554Z"
+    },
+    "slides/addresstranslation.html": {
+        "filename": "slides/addresstranslation.html",
+        "hash": "c8b3a9a035134ffed5e63fb8c8e6be14",
+        "created": "2017-03-09T16:30:43.834Z",
+        "updated": "2017-03-09T16:30:43.834Z"
     }
 }
