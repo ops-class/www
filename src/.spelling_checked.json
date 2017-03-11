@@ -123,15 +123,17 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "d09f18b90e8ce2f031f8c0345b33dd5c",
+        "slides/index.html": "2ee5a34ef06f2dff6f625866eebdc66b",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
         "slides/2017-03-08-virtualaddresses/deck.html": "c688e2acc56957b880cdb85f2b7e56b1",
         "slides/2017-03-09-addresstranslation/index.html": "7b30c1d463f6381c40f7932f0d13faad",
         "slides/2017-03-09-addresstranslation/deck.html": "b821551cc764f684bdde96cd1e8aee4b",
-        "slides/2017-03-10-addresstranslation/index.html": "7b30c1d463f6381c40f7932f0d13faad",
-        "slides/2017-03-10-addresstranslation/deck.html": "b0d988d109f71ce26164d7772adfa137"
+        "slides/2017-03-10-addresstranslation/index.html": "a208dc3d936264380d98a1774062c8e3",
+        "slides/2017-03-10-addresstranslation/deck.html": "b0d988d109f71ce26164d7772adfa137",
+        "slides/2017-03-13-pagetranslation/index.html": "14b4b1b4cb1ec18e12b3678d101ff292",
+        "slides/2017-03-13-pagetranslation/deck.html": "22ac088ad8c3185a4c3baa5deb4bc324"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -263,6 +265,8 @@
         "slides/2017-03-09-addresstranslation/index.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74",
         "slides/2017-03-09-addresstranslation/deck.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74",
         "slides/2017-03-10-addresstranslation/index.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74",
-        "slides/2017-03-10-addresstranslation/deck.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74"
+        "slides/2017-03-10-addresstranslation/deck.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74",
+        "slides/2017-03-13-pagetranslation/index.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74",
+        "slides/2017-03-13-pagetranslation/deck.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74"
     }
 }

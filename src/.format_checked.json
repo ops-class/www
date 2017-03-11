@@ -15,7 +15,7 @@
     "asst/2/index.html": "d31676a15897b92bddc39b243d6e22d7",
     "courses/buffalo/CSE421_Spring2016/index.html": "e6707ef9118b7fa620d5cb224c41f1be",
     "slides/2017-02-22-contextswitching/index.html": "94a50c94529082ae54cc500071566727",
-    "slides/2017-03-10-addresstranslation/index.html": "cffb44e2813ff8d0bdc4085b47e73c4d",
+    "slides/2017-03-10-addresstranslation/index.html": "fa92faafd08d929edf805ac96146a447",
     "courses/buffalo/CSE421_Spring2017/index.html": "b8c7feb2eb31e3cc18df3f494ac31201",
     "slides/2017-03-06-addressspaces/index.html": "912847eae3e753d452ebfd249fe55f52",
     "slides/2017-02-17-execwait/index.html": "d7cb62ed302a61cb305728b3e033d51a",
@@ -126,5 +126,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "99c683a451d267d68318d2da4c450b59",
     "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-    "slides/index.html": "010d4fbd96643c26ba39b832aae4b063"
+    "slides/index.html": "fcfd35982b7045696161d1ca34b09d18",
+    "slides/2017-03-13-pagetranslation/index.html": "92fe45d5b9e705e51443dbb54c4b8f75",
+    "slides/2017-03-13-pagetranslation/deck.html": "c3b92cffadf8e7ab06298c4cef480cc4"
 }

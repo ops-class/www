@@ -1,0 +1,366 @@
+---
+title: "Page Translation"
+date: 2017-03-13
+author: Geoffrey Challen
+description: >
+  Discussion of page translation.
+spelling_exceptions:
+  - V.A.
+  - KTHXBAI
+song:
+  name: "Shaky Ground"
+  author: "Freedom Fry"
+  youtube: eKaVfQSy1OM
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/046.jpg[width="100%",link="https://en.wikipedia.org/wiki/Helen_Greiner",title="Helen Greiner"]
+
+[.h4.center]
+icon:music[] http://www.freedomfrymusic.com/[{song}]
+
+video::{music}[youtube,width=160,height=90]
+
+[.nooutline]
+== Today
+
+* Review address translation.
+* Page translation and the TLB.
+
+[.nooutline]
+== $ cat announce.txt
+
+[.slider]
+* This is it! The last week for ASST2!
+** A reminder: 421/521 assignments are cumulative and we do not distribute
+solution sets without penalty.
+* Midterm will cover everything through *Friday*.
+* ASST2 turn-in party Friday starting after class, in and around Davis 303.
+
+<<<
+
+* A leader board is coming! (And it includes privacy settings, obviously.)
+
+[.nooutline]
+== PS: ASST2 and ASST3 Are Hard
+
+[.slider]
+* Hopefully you've realized this by now.
+
+== !
+
+[.background]
+image:http://images.vcpost.com/data/images/full/17029/kill-bill-vol-2.jpg[]
+
+[.meme-top]
+Turns out ASST2
+
+[.meme-bottom]
+Is all of Vol 1
+
+[.nooutline]
+== Efficient Translation
+
+*Goal*: [.slide]#almost _every_ virtual address translation should be able to
+proceed without kernel assistance.#
+
+[.slider]
+.*Why?*
+* The kernel is *too slow*!
+
+[.slider]
+* Recall: kernel sets [.slide]*policy*, hardware provides the [.slide]*mechanism*.
+
+[.nooutline]
+== Implicit Translation
+
+[.slider]
+* _Process:_ "Machine! Store to address 0x10000!"
+* _MMU:_ "Where the heck is virtual address 0x10000 supposed to map to?
+Kernel...help!"
+* (Exception.)
+* _Kernel:_ Machine, virtual address 0x10000 maps to physical address
+0x567400.
+* _MMU:_ Thanks! Process: store completed!
+* _Process:_ KTHXBAI.
+
+[.nooutline]
+== [.spelling_exception]#K.I.S.S.: Base and Bound#
+
+*Simplest* virtual address mapping approach.
+
+[.slider]
+. Assign each process a *base* physical address and *bound*.
+. *Check:* Virtual Address is OK if Virtual Address < bound.
+. *Translate:* Physical Address = Virtual Address + base
+
+[.nooutline]
+== Base and Bounds: Cons
+
+[.slider]
+* Con: Not a good fit for our address space abstraction which encourages
+discontiguous allocation. Base and bounds allocation must be mostly
+contiguous otherwise we will lose
+memory to _internal_ fragmentation.
+* Con: also significant chance of *external* fragmentation due to large
+contiguous allocations.
+
+[.nooutline]
+== [.spelling_exception]#K.I.Simplish.S.: Segmentation#
+
+[.slider]
+* Multiple bases and bounds per process, each called a
+*segment*.
+
+[.slider]
+. Each *segment* has a *start* virtual address, *base* physical
+address, and *bound*.
+. *Check:* Virtual Address is OK if it inside some segment, or for
+some segment: +
+Segment Start < V.A. < Segment Start + Segment Bound.
+. *Translate:* For the segment that contains this virtual address: +
+ Physical Address = (V.A. - Segment Start) + Segment Base
+
+[.nooutline]
+== Segmentation: Cons
+
+[.slider]
+* Con: still requires *entire* segment be contiguous in memory!
+* Con: potential for external fragmentation due to segment contiguity.
+
+== Let's Regroup
+
+[.slider]
+.Ideally, what would we like?
+* *Fast* mapping from _any_ virtual byte to _any_ physical byte.
+
+[.slider]
+* Operating system *cannot* do this. Can hardware help?
+
+== Translation Lookaside Buffer
+
+[.slider]
+* Common systems trick: when something is too slow, throw a *cache* at
+it.
+
+== TLB Example
+
+[.slide.replace]
+--
+image::figures/memory/tlb-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/tlb-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/tlb-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/tlb-4.svg[width="80%"]
+--
+
+== What's the Catch?
+
+[.slider]
+* CAMs are *limited* in size. We cannot make them arbitrarily large.
+
+[.slider]
+.So at this point:
+* *Segments* are too _large_ and lead to internal fragmentation.
+* Mapping individual *bytes* would mean that the TLB would not be able
+to cache many entries and performance would suffer.
+
+[.slider]
+* Is there a middle ground?
+
+== Pages
+
+Modern solution is to choose a translation granularity that is [.slide]*small
+enough* to limit internal fragmentation but [.slide]*large* enough to allow the
+TLB to cache entries covering a significant amount of memory.
+
+[.slider]
+* Also limits the size of kernel data structures associated with memory
+management.
+
+[.slide]
+--
+Execution *locality* also helps here: processes memory accesses are typically
+highly spatially _clustered_, meaning that even a small cache can be very
+effective.
+--
+
+== Page Size
+
+[.slider]
+* 4K is a very common page size. 8K or larger pages are also sometimes used.
+* 4K pages and a 128-entry TLB allow caching translations for 1 MB of
+memory.
+* You can think of pages as *fixed size* segments, so the *bound* is the
+same for each.
+
+== Page Translation
+
+[.slider]
+* We refer to the portion of the virtual address that identifies the
+page as the *virtual page number (VPN)* and the remainder as the
+*offset*.
+* Virtual pages map to physical pages.
+* All addresses inside a single virtual page map to the *same* physical
+page.
+
+[.slider]
+. *Check:* for 4K pages, split 32-bit address into *virtual page number*
+(top 20 bits) and offset (bottom 12 bits). Check if a virtual page to
+physical page translation exists for this page.
+. *Translate:* Physical Address = Physical Page + offset.
+
+[.nooutline]
+== A Brief Interlude
+
+video::-3Rt2_9d7Jg[youtube,width=640,height=360]
+
+== TLB Example
+
+Assume we are using *4K* pages.
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-11.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-12.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/pagetranslation-13.svg[width="80%"]
+--
+
+== TLB Management
+
+[.slider]
+.Where do entries in the TLB come from?
+* The operating system loads them.
+
+[.slider]
+.What happens if a process tries to access an address that is *not* in the TLB?
+* The TLB asks the operating system for help via a *TLB exception*. The
+operating system must either load the mapping or figure out what to do
+with the process. (Maybe boom.)
+
+== Paging: Pros
+
+[.slider]
+* Maintains many of the pros of segmentation, which can be layered on
+top of paging.
+* Pro: can *organize* and *protect* regions of memory appropriately.
+* Pro: better fit for *address spaces*. Even less internal fragmentation
+than segmentation due to smaller allocation size.
+* Pro: *no* external fragmentation due to fixed allocation size!
+
+== Paging: Cons
+
+[.slider]
+* Con: requires per-page hardware translation. *Use hardware to help
+us.*
+* Con: requires per-page operating system state. *A lot of clever
+engineering here.*
+
+== Page State
+
+[.slider]
+.In order to keep the TLB up-to-date we need to be able to:
+* *Store* information about each virtual page.
+* *Locate* that information quickly.
+
+== Page Table Entries (PTEs)
+
+We refer to a single entry storing information about a single virtual
+page used by a single process a *page table entry (PTE)*.
+
+[.slider]
+* (We will see in a few slides why we call them *page table* entries.)
+* Can usually jam everything into one 32-bit machine word:
+** *Location*: 20 bits. (Physical Page Number or location on disk.)
+** *Permissions*: 3 bits. (Read, Write, Execute.)
+** *Valid*: 1 bits. Is the page located in memory?
+** *Referenced*: 1 bits. Has the page been read/written to recently?
+
+== Locating Page State
+
+[.slider]
+* _Process:_ "Machine! Store to address `0x10000`!"
+* _MMU:_ "Where the heck is virtual address `0x10000` supposed to map to?
+Kernel...help!"
+* (Exception.)
+* _Kernel_: Let's see... where did I put that page table entry for
+`0x10000`... just give me a minute... I know it's around here somewhere...
+I really should be more organized!
+
+[.nooutline]
+== Next Time
+
+[.slider]
+* Page table data structures.
+* How to allocate more memory than we have.
+* And how to make it not terrible.
