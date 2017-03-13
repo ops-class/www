@@ -20,7 +20,7 @@ image::women/046.jpg[width="100%",link="https://en.wikipedia.org/wiki/Helen_Grei
 [.h4.center]
 icon:music[] http://www.freedomfrymusic.com/[{song}]
 
-video::{music}[youtube,width=160,height=90]
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -29,18 +29,13 @@ video::{music}[youtube,width=160,height=90]
 * Page translation and the TLB.
 
 [.nooutline]
-== $ cat announce.txt
+== link:/asst/2/[`ASST2`] Checkpoint
 
-[.slider]
-* This is it! The last week for ASST2!
-** A reminder: 421/521 assignments are cumulative and we do not distribute
-solution sets without penalty.
-* Midterm will cover everything through *Friday*.
-* ASST2 turn-in party Friday starting after class, in and around Davis 303.
-
-<<<
-
-* A leader board is coming! (And it includes privacy settings, obviously.)
+.At this point:
+//
+* If you are not done with all of the system calls, *you're behind.*
+//
+* If you're handling errors and minor problems, you're OK.
 
 [.nooutline]
 == PS: ASST2 and ASST3 Are Hard
@@ -58,6 +53,14 @@ Turns out ASST2
 
 [.meme-bottom]
 Is all of Vol 1
+
+[.nooutline]
+== Please Don't Cheat
+
+[.slider]
+* When that last-minute freak out hits you...
+* *Don't cheat.*
+* We'll catch you and you'll fail the class.
 
 [.nooutline]
 == Efficient Translation
