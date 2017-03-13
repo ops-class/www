@@ -11,6 +11,7 @@ song:
   name: "Shaky Ground"
   author: "Freedom Fry"
   youtube: eKaVfQSy1OM
+video: pxqcRCWzlzs
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -329,41 +330,11 @@ us.*
 * Con: requires per-page operating system state. *A lot of clever
 engineering here.*
 
-== Page State
-
-[.slider]
-.In order to keep the TLB up-to-date we need to be able to:
-* *Store* information about each virtual page.
-* *Locate* that information quickly.
-
-== Page Table Entries (PTEs)
-
-We refer to a single entry storing information about a single virtual
-page used by a single process a *page table entry (PTE)*.
-
-[.slider]
-* (We will see in a few slides why we call them *page table* entries.)
-* Can usually jam everything into one 32-bit machine word:
-** *Location*: 20 bits. (Physical Page Number or location on disk.)
-** *Permissions*: 3 bits. (Read, Write, Execute.)
-** *Valid*: 1 bits. Is the page located in memory?
-** *Referenced*: 1 bits. Has the page been read/written to recently?
-
-== Locating Page State
-
-[.slider]
-* _Process:_ "Machine! Store to address `0x10000`!"
-* _MMU:_ "Where the heck is virtual address `0x10000` supposed to map to?
-Kernel...help!"
-* (Exception.)
-* _Kernel_: Let's see... where did I put that page table entry for
-`0x10000`... just give me a minute... I know it's around here somewhere...
-I really should be more organized!
-
 [.nooutline]
 == Next Time
 
 [.slider]
+* Storing page state.
 * Page table data structures.
 * How to allocate more memory than we have.
 * And how to make it not terrible.

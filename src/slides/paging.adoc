@@ -1,0 +1,342 @@
+---
+title: "Paging"
+date: 2017-03-15
+author: Geoffrey Challen
+description: >
+  Page table design and implementation.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/047.jpg[width="100%",link="https://en.wikipedia.org/wiki/Jean_E._Sammet",title="Jean Sammet"]
+
+[.nooutline]
+== Today
+
+* Locating page state.
+
+== Page State
+
+[.slider]
+.In order to keep the TLB up-to-date we need to be able to:
+* *Store* information about each virtual page.
+* *Locate* that information quickly.
+
+== Page Table Entries (PTEs)
+
+We refer to a single entry storing information about a single virtual
+page used by a single process a *page table entry (PTE)*.
+
+[.slider]
+* (We will see in a few slides why we call them *page table* entries.)
+* Can usually jam everything into one 32-bit machine word:
+** *Location*: 20 bits. (Physical Page Number or location on disk.)
+** *Permissions*: 3 bits. (Read, Write, Execute.)
+** *Valid*: 1 bits. Is the page located in memory?
+** *Referenced*: 1 bits. Has the page been read/written to recently?
+
+== Locating Page State
+
+[.slider]
+* _Process:_ "Machine! Store to address `0x10000`!"
+* _MMU:_ "Where the heck is virtual address `0x10000` supposed to map to?
+Kernel...help!"
+* (Exception.)
+* _Kernel_: Let's see... where did I put that page table entry for
+`0x10000`... just give me a minute... I know it's around here somewhere...
+I really should be more organized!
+
+[.slider]
+.What are the requirements for how we locate page information?
+* *Speed*: translation is a _hot path_ and should be as efficient as
+possible.
+* *Compactness*: data structures we use should not take up too much
+physical memory.
+
+== Page Tables
+
+The data structure used to quickly map a *virtual page number* to a *page
+table entry* is called a *page table*.
+
+[.slider]
+* Each process has a _separate_ page table.
+* *Why?* [.slide]#Virtual addresses are private to each process and
+translated differently for each.#
+
+== Flat Page Tables
+
+*Approach*: use one array to hold all page table entries for each process.
+Virtual page number is index into this array.
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-1.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-2.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-3.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-4.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-5.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-6.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/flatpagetable-7.svg[width="60%"]
+--
+
+== Flat Page Tables
+
+* *Approach*: use one array to hold all page table entries for each
+process. Virtual page number is index into this array.
+
+[.slider]
+* *Speed*: O(1). VPN is used directly as an index into the array.
+* *Compactness*: *4 MB* per process that may have to be *contiguous*!
+Most is *unused*!
+
+image:figures/memory/flatpagetable-7.svg[width="50%"]
+
+== Linked List Page Tables
+
+[.slider]
+* *Approach*: list of PTEs for each process, searched on each
+translation.
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-1.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-2.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-3.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-4.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-5.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-6.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-7.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-8.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/linkedlistpagetable-9.svg[width="60%"]
+--
+
+== Linked List Page Tables
+
+*Approach*: list of PTEs for each process, searched on each
+translation.
+
+[.slider]
+* *Speed*: O(n) for n valid virtual pages.
+* *Compactness*: *4 bytes * n* for n valid virtual pages. All entries
+are used!
+
+image:figures/memory/linkedlistpagetable-9.svg[width="50%"]
+
+[.nooutline]
+
+== [.spelling_exception]#An Early ASST3 K.I.S.S.:#
+
+Don't feel like you have to do something overly complicated for ASST3!
+First get it right, then optimize.
+
+== Multi-Level Page Tables
+
+*Approach*: build a tree-like data structure mapping VPN to PTE. Break
+VPN into multiple parts, each used as an index at a separate level of
+the tree.
+
+[.slider]
+* Example: with 4K pages VPN is *20* bits. Use *top 10* bits as index
+into *top-level* page table, *bottom 10 bits* as index into second-level
+page table.
+** Each page table is 2^10^ * 4 bytes = 4K. Convenient!
+
+== Multi-Level Page Tables
+
+[.slide.replace]
+--
+image::figures/memory/multilevelpagetable-1.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/multilevelpagetable-2.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/multilevelpagetable-3.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/multilevelpagetable-4.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/multilevelpagetable-5.svg[width="60%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/multilevelpagetable-6.svg[width="60%"]
+--
+
+== Multi-Level Page Tables
+
+Build a tree-like data structure mapping VPN to PTE. Break VPN into multiple
+parts, each used as an index at a separate level of the tree.
+
+[.slider]
+* *Speed*: O(c). Constant number of look ups per translation depending on
+tree depth.
+* *Compactness*: Depends on sparsity of address space, but better than
+flat and worse than linked list.
+
+== Out of Core
+
+So far we have been talking about cases where processes are able to use
+the physical memory available on the machine.
+
+[.slide]
+--
+But what happens when we *run out*?
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-1.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-2.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-3.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-4.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-5.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-6.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-7.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-8.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-9.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-10.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-11.svg[width="80%"]
+--
+
+[.slide.replace]
+--
+image::figures/memory/swapping-12.svg[width="80%"]
+--
+
+== Out of Core
+
+When we *run out*, there are two options:
+[.slider]
+. *Fail*, and either don't load the process (`exec()`), don't create a
+new process (`fork()`), refuse to allocate more heap (`sbrk()`), or kill the
+process if it is trying to allocate more stack.
+
+. *Create more space*, preserving the contents of memory for later use.
+
+== Virtually Sneaky
+
+Virtual address translation gives the kernel the ability to remove
+memory from a process *behind its back*.
+
+[.slider]
+.What are the requirements for doing this?
+* The _last time_ the process used the virtual address, it behaved like
+memory.
+* The _next time_ the process uses the virtual address, it behaves like
+memory.
+* In between, whatever data was stored at that address must be
+*preserved*.
+
+[.nooutline]
+== Next Time
+
+[.slider]
+* Swapping. How do we remove a page?
+* Page replacement algorithms. How do we choose a page to remove?

@@ -1441,8 +1441,14 @@
     },
     "slides/pagetranslation.html": {
         "filename": "slides/pagetranslation.html",
-        "hash": "23e782dcca7b010dbd61bc7d08e2a0e5",
+        "hash": "0d0eb7f2307d8894fd296de4dc9a5e83",
         "created": "2017-03-11T17:09:58.122Z",
-        "updated": "2017-03-13T17:41:24.891Z"
+        "updated": "2017-03-13T20:09:38.914Z"
+    },
+    "slides/paging.html": {
+        "filename": "slides/paging.html",
+        "hash": "d524e5abf3fcf7f13dd3af30af976239",
+        "created": "2017-03-13T20:09:38.914Z",
+        "updated": "2017-03-13T20:09:38.914Z"
     }
 }
