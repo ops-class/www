@@ -8,7 +8,7 @@
         "asst/0/index.html": "9ac4f9eff6d2005942263a39eb7c1347",
         "asst/1/index.html": "e875d619bb1de8d6a7549ef202530380",
         "asst/2/index.html": "b21ee100b3bc12fb0f0f987529a4714c",
-        "asst/3/index.html": "ce6a6b12ed338fbe201414420ee754bb",
+        "asst/3/index.html": "295c3d5b7113eda5ab1a4c4149e8c8f7",
         "asst/overview/index.html": "e65e8524aa6515dfce55cb0b3e094ae4",
         "asst/repos/index.html": "47224750d14280028d211c53c0fe68ea",
         "asst/setup/index.html": "8cc8238877dc0c2ce6f961f98319e374",
@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "4f59e429fe310f358bd6856b63ef3156",
+        "slides/index.html": "d444a75cf6685c6a327a4ab47633e035",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -134,7 +134,7 @@
         "slides/2017-03-10-addresstranslation/deck.html": "b0d988d109f71ce26164d7772adfa137",
         "slides/2017-03-13-pagetranslation/index.html": "4f55e7582c244c30dec00a3224c64845",
         "slides/2017-03-13-pagetranslation/deck.html": "13ee9b35772644cd91024281a2a9f187",
-        "slides/2017-03-15-paging/index.html": "2046c976cbc697aaf30f9fc0c023f1ee",
+        "slides/2017-03-15-paging/index.html": "046a8531f162ff559c8035358a287136",
         "slides/2017-03-15-paging/deck.html": "e72fc9181c7fae94bcad297111724387"
     },
     "exceptions": {

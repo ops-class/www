@@ -4,6 +4,7 @@ date: 2017-03-15
 author: Geoffrey Challen
 description: >
   Page table design and implementation.
+video: 31NdBdjpOTA
 ---
 [.nooutline.spelling_exception]
 == Technical Women
