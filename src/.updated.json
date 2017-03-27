@@ -493,9 +493,9 @@
     },
     "man/syscall/_exit.html": {
         "filename": "man/syscall/_exit.html",
-        "hash": "ca322e7cae8b16ffce39c9bf61028240",
+        "hash": "78852a28e30e6d8a428f1501ae60cef7",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-03-27T12:49:03.763Z"
     },
     "man/syscall/chdir.html": {
         "filename": "man/syscall/chdir.html",
@@ -1450,5 +1450,17 @@
         "hash": "d524e5abf3fcf7f13dd3af30af976239",
         "created": "2017-03-13T20:09:38.914Z",
         "updated": "2017-03-13T20:09:38.914Z"
+    },
+    "slides/swapping.html": {
+        "filename": "slides/swapping.html",
+        "hash": "d8c0a0843ca0ab5317b54774434b50c5",
+        "created": "2017-03-27T12:50:29.293Z",
+        "updated": "2017-03-27T12:50:29.293Z"
+    },
+    "slides/pagereplacement.html": {
+        "filename": "slides/pagereplacement.html",
+        "hash": "bf59dee7a3f2b9fb38a9478a9d37ef7c",
+        "created": "2017-03-27T12:57:25.461Z",
+        "updated": "2017-03-27T12:57:25.461Z"
     }
 }

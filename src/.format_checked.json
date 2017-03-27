@@ -126,9 +126,13 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "99c683a451d267d68318d2da4c450b59",
     "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-    "slides/index.html": "132b1fda7ee755864e5f38ad0e7b2437",
+    "slides/index.html": "04dce4ed8568b40fa57ee2a75d64e53d",
     "slides/2017-03-13-pagetranslation/index.html": "8f1e161def71342b08fb137cab43a5d7",
     "slides/2017-03-13-pagetranslation/deck.html": "9c549810b279574e222254982b46210c",
-    "slides/2017-03-15-paging/index.html": "bde891b924eff30632e058db5f45b3fd",
-    "slides/2017-03-15-paging/deck.html": "acae886d2e7452c2022d1ca2874b770d"
+    "slides/2017-03-15-paging/index.html": "cdfb367c188dc5a11b3e2ec0863ab372",
+    "slides/2017-03-15-paging/deck.html": "acae886d2e7452c2022d1ca2874b770d",
+    "slides/2017-03-27-swapping/deck.html": "202c31481464be94eaa7c6d86551dd29",
+    "slides/2017-03-27-swapping/index.html": "0dbbab5115b9a942941eada7c11721ed",
+    "slides/2017-03-29-pagereplacement/index.html": "b83bf823f57da35f6a33a05da165d8b7",
+    "slides/2017-03-29-pagereplacement/deck.html": "69eb13e45c99115eca2c7b7df99f0f04"
 }

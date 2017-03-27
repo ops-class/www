@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "d444a75cf6685c6a327a4ab47633e035",
+        "slides/index.html": "18599097b8138c4c18a6b282a5a92035",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -134,8 +134,12 @@
         "slides/2017-03-10-addresstranslation/deck.html": "b0d988d109f71ce26164d7772adfa137",
         "slides/2017-03-13-pagetranslation/index.html": "4f55e7582c244c30dec00a3224c64845",
         "slides/2017-03-13-pagetranslation/deck.html": "13ee9b35772644cd91024281a2a9f187",
-        "slides/2017-03-15-paging/index.html": "046a8531f162ff559c8035358a287136",
-        "slides/2017-03-15-paging/deck.html": "e72fc9181c7fae94bcad297111724387"
+        "slides/2017-03-15-paging/index.html": "3866e3b0a59b9accc580314ce7e7afdc",
+        "slides/2017-03-15-paging/deck.html": "e72fc9181c7fae94bcad297111724387",
+        "slides/2017-03-27-swapping/index.html": "78755b1a1eb60794c3ef406a02033eea",
+        "slides/2017-03-27-swapping/deck.html": "cd410624d93b55d368433755edd34192",
+        "slides/2017-03-29-pagereplacement/index.html": "105911f78ab6d52b3156357cc319ffd6",
+        "slides/2017-03-29-pagereplacement/deck.html": "1347a593b5dfb4502fce5e202ae27486"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -271,6 +275,10 @@
         "slides/2017-03-13-pagetranslation/index.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74",
         "slides/2017-03-13-pagetranslation/deck.html": "46a837708f6a628b6c96e43e487ed5c49bb3ec74",
         "slides/2017-03-15-paging/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
-        "slides/2017-03-15-paging/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
+        "slides/2017-03-15-paging/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-03-27-swapping/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-03-27-swapping/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-03-29-pagereplacement/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-03-29-pagereplacement/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
     }
 }
