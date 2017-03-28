@@ -8,6 +8,9 @@ spelling_exceptions:
   - coremap
   - subpage
   - userspace
+  - test161
+  - subtargets
+  - pagetables
 
 description: >
   In ASST3 you will add support for virtual memory to your OS/161 kernel.
@@ -48,7 +51,7 @@ to implement paging--the mechanism by which memory pages of an active process
 can be sent to disk when memory is needed, and restored to memory when
 required by the program. This permits many processes to share limited
 physical memory while providing each process with the abstraction of a very
-large virtual memory. Finally, you will correctly handle page reclamation,
+large amount of virtual memory. Finally, you will correctly handle page reclamation,
 allowing your system to reclaim memory when processes exit and run forever.
 
 ASST3 is harder than {asst2} in many ways. In particular, for a large portion
@@ -75,7 +78,7 @@ introduce you to simply because there is more to do. That said, we _strongly_
 suggest you look carefully at the `dumbvm` included in your source tree and
 included in your build for ASST0&ndash;2. While it is not a good starting
 point for your solution, It may at least give you an idea of some of what
-needs to be done.
+needs to be done--and how not to do it.
 
 === Objectives
 
@@ -423,14 +426,13 @@ requests are generated, so that your system will respond to them correctly.
 == Grading
 
 [.lead]
-ASST3 grading is divided into three incremental parts, with a cumulative
-`test161` target that tests different parts of your VM subsystem:
+ASST3 grading is divided into three incremental `test161` subtargets:
 
 . *Coremap*
 . *Virtual Address Spaces*
 . *Swapping*
 
-=== Coremap
+=== Coremap (Physical Page Allocator)
 
 The first part of ASST3 tests your VM subsystem's ability to allocate and track
 physical pages, which consists of your coremap data structure and related
@@ -459,7 +461,7 @@ pages being allocated early in boot that are not properly freed. We test for
 this in various places using `khu` footnote:[running `khu` before and after any
 test should report the same number of bytes. If not, you have a memory leak.].
 
-=== Virtual Address Spaces
+=== Pagetables (Virtual Address Spaces)
 
 The second part of ASST3 tests your VM subsystem's ability to maintain
 per-process virtual address spaces, and to multiplex physical memory between
