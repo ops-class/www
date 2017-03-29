@@ -25,6 +25,38 @@ video::{music}[youtube,width=0,height=0]
 * Page replacement policies.
 
 [.nooutline]
+== Midterm Procedures
+
+* We will use a randomized seating chart posted on Discourse (a few hours
+
+* Enter silently.
+* Bring your UB ID card, writing materials, and water (optional) to your seat.
+** Leave everything else at the front, back, or sides of the room: coats,
+bags, *smartphones*.
+* A customized exam will be waiting for you at your seat.
+* Find your exam and get to work.
+
+<<<
+
+[.slider]
+.Please note:
+* *No make up exams will be given.* Be here or get a zero.
+* *This is a small room.* Please come early so everyone can get seated.
+* *This is a 50 minute exam.* Please come early so we can get started.
+* *The exam room will be videotaped.*
+* *Smartphone use during the exam will result in immediate ejection and
+failure.*
+
+[.nooutline]
+== Midterm Questions?
+
+[.nooutline]
+== ASST3 Questions
+
+* link:/asst/3/[ASST3.1] is due _a week after the midterm_.
+* If you are working alone, please contact the course staff.
+
+[.nooutline]
 == Review: TLB v. Page Faults
 
 [.slider]
