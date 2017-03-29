@@ -4,6 +4,7 @@ date: 2017-03-27
 author: Geoffrey Challen
 description: >
   A discussion of how to swap in and out pages.
+video: zWOu20yM2yg
 ---
 [.nooutline.spelling_exception]
 == Technical Women

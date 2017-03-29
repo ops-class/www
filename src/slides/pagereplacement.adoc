@@ -2,6 +2,10 @@
 title: "Page Replacement"
 date: 2017-03-29
 author: Geoffrey Challen
+song:
+  name: "Nineteen"
+  author: "Tegan and Sara"
+  youtube: 3Yb7OoGAIEw
 description: >
   Discussion of page replacement policies.
 ---
@@ -9,6 +13,11 @@ description: >
 == Technical Women
 
 image::women/049.jpg[width="100%",title="Linda Betzold",link="https://cse.cs.ucsb.edu/"]
+
+[.h4.center]
+icon:music[] http://teganandsara.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Today
@@ -174,6 +183,19 @@ image::figures/memory/swapinexample-10.svg[width="80%"]
 --
 image::figures/memory/swapinexample-11.svg[width="80%"]
 --
+
+== Hardware-Managed TLBs
+
+[.slider]
+* On certain (common) architectures the MMU will search the page table *itself*
+to locate virtual-to-physical address translations missing from the TLB.
+** *Pro*: hardware is faster!
+** *Con*: operating system must set up the page tables in a fixed way
+that the hardware understands.
+* With a hardware-managed TLB, the kernel never sees TLB faults: they
+are handled in hardware.
+* Don't worry: System/161 has a *software-managed* TLB, so you get to do
+all of the hard work *and* design your own page table structures!
 
 [.nooutline]
 == Swapping: Questions?

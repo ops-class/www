@@ -558,7 +558,7 @@ grade of *I* shall be *U* and will be displayed on the UB record as
 
 Please review the http://www.cse.buffalo.edu/shared/policies/academic.php[CSE
 Department academic integrity policy] and the UB
-http://undergrad-catalog.buffalo.edu/policies/course/integrity.shtml[undergraduate]
+https://catalog.buffalo.edu/policies/integrity.html[undergraduate]
 or http://grad.buffalo.edu/study/progress/policies.html#preamble[graduate]
 academic integrity policy as appropriate to familiarize yourself with the
 relevant academic integrity policies and procedures. In general, the rule of

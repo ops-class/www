@@ -1051,9 +1051,9 @@
     },
     "asst/3.html": {
         "filename": "asst/3.html",
-        "hash": "1d24e4f457f8e1affeb53f9145e6f4f7",
+        "hash": "f897a5d6b21c0bc107de0f40b21ff347",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-03-29T10:32:56.237Z"
     },
     "asst/overview.html": {
         "filename": "asst/overview.html",
@@ -1099,15 +1099,15 @@
     },
     "courses/buffalo/CSE421_Spring2016.html": {
         "filename": "courses/buffalo/CSE421_Spring2016.html",
-        "hash": "a0816193fb402bd32a02e85c2cd09db2",
+        "hash": "0fbf635cfafe57ae1ca4eb707b13592f",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-03-29T10:42:23.610Z"
     },
     "courses/buffalo/CSE421_Spring2017.html": {
         "filename": "courses/buffalo/CSE421_Spring2017.html",
-        "hash": "d953d33c25d5d29e89cf6ce14ba2249f",
+        "hash": "830795af125d55e2dfb374e913eb9dfa",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-03-29T10:42:23.610Z"
     },
     "slides/execwait.html": {
         "filename": "slides/execwait.html",
@@ -1459,8 +1459,14 @@
     },
     "slides/pagereplacement.html": {
         "filename": "slides/pagereplacement.html",
-        "hash": "bf59dee7a3f2b9fb38a9478a9d37ef7c",
+        "hash": "9056a4f3db2e199ed33dc41286256a15",
         "created": "2017-03-27T12:57:25.461Z",
-        "updated": "2017-03-27T12:57:25.461Z"
+        "updated": "2017-03-29T16:21:55.840Z"
+    },
+    "slides/disks.html": {
+        "filename": "slides/disks.html",
+        "hash": "d8955939d74cb285fa6b54a6f86c34da",
+        "created": "2017-03-29T16:12:55.856Z",
+        "updated": "2017-03-29T16:19:44.146Z"
     }
 }

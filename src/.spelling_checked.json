@@ -8,7 +8,7 @@
         "asst/0/index.html": "9ac4f9eff6d2005942263a39eb7c1347",
         "asst/1/index.html": "e875d619bb1de8d6a7549ef202530380",
         "asst/2/index.html": "b21ee100b3bc12fb0f0f987529a4714c",
-        "asst/3/index.html": "9c4c17516963663468c32242992ac8b4",
+        "asst/3/index.html": "715896a854a19125da8ce12aea803d26",
         "asst/overview/index.html": "e65e8524aa6515dfce55cb0b3e094ae4",
         "asst/repos/index.html": "47224750d14280028d211c53c0fe68ea",
         "asst/setup/index.html": "8cc8238877dc0c2ce6f961f98319e374",
@@ -16,8 +16,8 @@
         "courses/buffalo/CSE421_Spring2013/index.html": "0bff6083b805d7e4bfb7d5c511102b04",
         "courses/buffalo/CSE421_Spring2014/index.html": "470172f6997fbceea5873e4254060949",
         "courses/buffalo/CSE421_Spring2015/index.html": "5eb2970e3e64d9f823b12492444f4f68",
-        "courses/buffalo/CSE421_Spring2016/index.html": "9fec882b6ec5e0bf1e4d72d644c0c54f",
-        "courses/buffalo/CSE421_Spring2017/index.html": "f621057b14c9df6cb0d55f5d78689fe8",
+        "courses/buffalo/CSE421_Spring2016/index.html": "945dd9f33d6f565db2444122bc3ab8a8",
+        "courses/buffalo/CSE421_Spring2017/index.html": "a7f6824e1c034457aff2d3ed9f025465",
         "slides/2017-02-22-contextswitching/index.html": "88f9b88c96a945bf09c36e295f816e10",
         "slides/2017-02-17-execwait/index.html": "ca3d73ed03e3bab674101b23fbb2e084",
         "slides/2017-02-08-forkandfilehandles/index.html": "c94010507121ecf8e688d44ca74ac972",
@@ -122,8 +122,8 @@
         "slides/2016-03-04-virtualaddresses/deck.html": "b36f3e5feba2b51b306bd7870b3f91b6",
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
-        "exams/index.html": "7bdd27144fa36ba97f9af030fcb86ad5",
-        "slides/index.html": "18599097b8138c4c18a6b282a5a92035",
+        "exams/index.html": "7f724cfe484bf512e6f9621724ca6deb",
+        "slides/index.html": "a85dccbe15d62f2a033dc644c0eb8c68",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -136,10 +136,12 @@
         "slides/2017-03-13-pagetranslation/deck.html": "13ee9b35772644cd91024281a2a9f187",
         "slides/2017-03-15-paging/index.html": "3866e3b0a59b9accc580314ce7e7afdc",
         "slides/2017-03-15-paging/deck.html": "e72fc9181c7fae94bcad297111724387",
-        "slides/2017-03-27-swapping/index.html": "78755b1a1eb60794c3ef406a02033eea",
+        "slides/2017-03-27-swapping/index.html": "c9e58c24bbd0541c6e5ebc809137d1c6",
         "slides/2017-03-27-swapping/deck.html": "cd410624d93b55d368433755edd34192",
-        "slides/2017-03-29-pagereplacement/index.html": "105911f78ab6d52b3156357cc319ffd6",
-        "slides/2017-03-29-pagereplacement/deck.html": "1347a593b5dfb4502fce5e202ae27486"
+        "slides/2017-03-29-pagereplacement/index.html": "6c71e4b185713547c4bb924740a4abaa",
+        "slides/2017-03-29-pagereplacement/deck.html": "a10eda5cfc48b78d96c88c0760f8c31b",
+        "slides/2017-04-03-disks/index.html": "8ac77657f034ff3f4e70d8272ef36d77",
+        "slides/2017-04-03-disks/deck.html": "54725690b4d5ac60837065e837509c31"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -148,7 +150,7 @@
         "asst/0/index.html": "b5aec4b03f34e9e99af7fab457b1c3ad6fcd48f8",
         "asst/1/index.html": "feb3c8a2acbdaf63f1e88933efcb362297986c48",
         "asst/2/index.html": "294b94081b8ec55dbdd6b267e14ac7bfe653064b",
-        "asst/3/index.html": "7d04831b4bad58368f47654bfc20e5b72fdc8165",
+        "asst/3/index.html": "cc17a47f28ee8246ab5928d863b8f73d4ba81374",
         "asst/overview/index.html": "d1df6dcd25531fca8e286189e465721ba4d16d08",
         "asst/repos/index.html": "01242d16cd5c96b9d7d7ae760d0d57cd6ec51ef2",
         "asst/setup/index.html": "0f80bc5b2d33a77206cc85b24e848c9dcfec599c",
@@ -279,6 +281,8 @@
         "slides/2017-03-27-swapping/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "slides/2017-03-27-swapping/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "slides/2017-03-29-pagereplacement/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
-        "slides/2017-03-29-pagereplacement/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
+        "slides/2017-03-29-pagereplacement/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-04-03-disks/index.html": "a473e95d900013527c59b5a7d7ee86e9b922f541",
+        "slides/2017-04-03-disks/deck.html": "a473e95d900013527c59b5a7d7ee86e9b922f541"
     }
 }
