@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "7f724cfe484bf512e6f9621724ca6deb",
-        "slides/index.html": "a85dccbe15d62f2a033dc644c0eb8c68",
+        "slides/index.html": "55a90dfaa1f85f040fe592a708ce0fce",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -138,7 +138,7 @@
         "slides/2017-03-15-paging/deck.html": "e72fc9181c7fae94bcad297111724387",
         "slides/2017-03-27-swapping/index.html": "c9e58c24bbd0541c6e5ebc809137d1c6",
         "slides/2017-03-27-swapping/deck.html": "cd410624d93b55d368433755edd34192",
-        "slides/2017-03-29-pagereplacement/index.html": "6d522fcf30f7fd5042ca1b1b284e9105",
+        "slides/2017-03-29-pagereplacement/index.html": "ff44dff731514516fe0fa3bbd4023bca",
         "slides/2017-03-29-pagereplacement/deck.html": "4ca2d72546a5f575d43254e1f8ace445",
         "slides/2017-04-03-disks/index.html": "8ac77657f034ff3f4e70d8272ef36d77",
         "slides/2017-04-03-disks/deck.html": "54725690b4d5ac60837065e837509c31"

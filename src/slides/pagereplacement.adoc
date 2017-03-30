@@ -8,6 +8,7 @@ song:
   youtube: 3Yb7OoGAIEw
 description: >
   Discussion of page replacement policies.
+video: E3Ln7dGt_Y4
 ---
 [.nooutline.spelling_exception]
 == Technical Women
