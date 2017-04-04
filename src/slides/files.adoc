@@ -1,0 +1,294 @@
+---
+title: "Files"
+date: 2017-04-05
+author: Geoffrey Challen
+description: >
+  Introduction to files, file metadata and UNIX file system semantics.
+spelling_exceptions:
+  - BeOS
+  - BFS
+  - Chuchu
+  - ID3
+  - IDE
+  - MP3
+  - NTFS
+  - SATA
+  - Suzanna
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/052.jpg[width="100%",title="Chieko Asakawa",link="http://researcher.watson.ibm.com/researcher/view.php?person=jp-CHIE"]
+
+[.nooutline]
+== Today
+
+* Just files.
+* File metadata.
+* UNIX file system semantics.
+* Hierarchical file systems.
+
+[.nooutline]
+== Disks: Questions?
+
+[.nooutline]
+== Disk Parts
+
+* *Platter:* [.slide]#a circular flat disk on which magnetic data is stored.
+Constructed of a rigid non-magnetic material coated with a _very thin_
+layer of magnetic material. Can have data written on both sides.#
+* *Spindle:* [.slide]#the drive shaft on which multiple *platters* are mounted
+and spun between 4200–15,000 RPM.#
+* *Head:* [.slide]#the actuator that reads and writes data onto the magnetic
+surface of the *platters* while rotating at tens of nanometers over the
+platter surface.#
+
+[.nooutline]
+== Disk Locations
+
+* *Track:* [.slide]#think of a lane on a race track running around the
+platter.#
+* *Sector:* [.slide]#resembles a slice of pie cut out of a single platter.#
+* *Cylinder:* [.slide]#imagine the intersection between a cylinder and the set of
+platters. Composed of a set of vertically-aligned tracks on all
+platters.#
+
+[.nooutline]
+== Spinning Disks Are Different
+
+Spinning disks are fundamentally different from the other system
+components we have discussed so far.
+
+* Difference in *kind*: [.slide]#disks *move*!#
+* Difference in *degree*: [.slide]#disks are *slow*!#
+* Difference in *integration*: [.slide]#disks are *devices*, and less
+tightly-coupled to the abstractions built on top of them.#
+
+[.nooutline]
+== Sources of Slowness
+
+Reading or writing from the disk requires a series of steps, each of
+which is a potential source of latency.
+
+. *Issue the command.* [.slide]#The operating system has to tell the device
+what to do, the command has to cross the device interconnect (IDE, SATA,
+etc.), and the drive has to select which head to use.#
+. *Seek time.* [.slide]#The drive has to move the heads to the appropriate
+track.#
+. *Settle time.* [.slide]#The heads have to stabilize on the (very narrow)
+track.#
+. *Rotation time.* [.slide]#The platters have to rotate to the position where
+the data is located.#
+. *Transfer time.* [.slide]#The data has to be read and transmitted back across
+the interconnect into system memory.#
+
+[.nooutline]
+== The I/O Crisis
+
+Disks are getting [.slide]*bigger* but not [.slide]*faster*.
+
+[.nooutline]
+== Disks: Questions?
+
+== File Systems To The Rescue
+
+[.slider]
+.Low-level disk interface is messy and very limited:
+* Requires reading and writing entire 512-byte blocks.
+* No notion of files, directories, etc.
+
+[.slide]
+--
+File systems take this limited block-level device and create the *file
+abstraction* almost _entirely in software_.
+--
+
+[.slider]
+* Compared to the CPU and memory that we have studied previously *more*
+of the file abstraction is implemented in software.
+* This explains the plethora of available file systems: [.spelling_exception]#ext2,3 and 4,
+reiserfs, NTFS, jfs, lfs, xfs#, etc.
+* This is probably why many systems people have a soft spot for file
+systems even if they seem a bit outdated these days.
+
+== What About Flash?
+
+No moving parts! Great! We can eliminate a lot of the complexity of
+modern file systems. Yippee!
+
+[.slider]
+.Except that...
+* Have to erase an entire large chunk before we can rewrite it.
+* And it wears out faster that magnetic drives, and can wear unevenly
+if we are not careful.
+
+[.slide]
+--
+Sigh... things are sounding complicated again.
+--
+
+== Clarifying the Concept of a File
+
+Most of us are familiar with files, but the semantics of file have a
+variety of sources what are worth separating:
+
+[.slider]
+* *Just a file:* the minimum it takes to be a file.
+* *About a file:* what other useful information do most file systems
+_typically_ store about files?
+* *Files and processes:* what additional properties does the UNIX file
+system interface introduce to allow user processes to manipulate files?
+* *Files together:* given _multiple_ files, how do we organize them in
+a useful way?
+
+== Just a File: The Minimum
+
+[.slider]
+.What does a file have to do to be useful?
+* *Reliably* store data. (Duh.)
+* Be located! Usually via a *name*.
+
+image::figures/disks/filebasic.svg[image]
+
+== Basic File Expectations
+
+[.slider]
+.At minimum we expect that
+* file contents _should not_ change unexpectedly.
+* file contents _should_ change when requested and as requested.
+
+<<<
+These requirements seem simple but many file systems *do not* meet them!
+
+[quote,role='small spelling_exception']
+____
+03 Mar 2012: Bug Report–Serious file system corruption and data loss
+caused to other NTFS drives by Windows 8 CP
+____
+
+== Basic File Expectations
+
+*Failures* such as power outages and sudden ejects make file system design difficult and
+exposed tradeoffs between durability and performance.
+
+* Memory: fast, transient. Disk: slow, stable.
+
+== About a File: File Metadata
+
+[.slider]
+.What else might we want to know about a file?
+* *When* was the file created, last accessed, or last modified?
+* *Who* is allowed to what to the file—read, write, rename, change
+other attributes, etc.
+* Other file attributes?
+
+== Where to Store File Metadata?
+
+An MP3 file contains audio data. But it also has attributes
+such as:
+
+[.slider]
+* title
+* artist
+* date
+
+[.slider]
+.Where should these attributes be stored?
+* In the file itself.
+* In another file.
+* In _attributes_ associated with the file and maintained by the
+file system.
+
+== Where to Store File Metadata?
+
+[.slider]
+.*In the file*:
+* Example: MP3 ID3 tag, a data container stored within an MP3 file in a
+prescribed format.
+
+[.slider]
+* *Pro:* travels along with the file from computer to computer.
+* *Con:* requires all programs that access the file to understand the
+format of the embedded metadata.
+
+<<<
+
+[.slider]
+.*In another file*:
+* Example: iTunes database.
+
+[.slider]
+* *Pro:* can be maintained separately by each application.
+* *Con:* does not move with the file and the separate file must be kept
+in sync when the files it stores information about change.
+
+<<<
+
+[.slider]
+.*In attributes*:
+* Example: attributes have been supported by a variety of file systems
+including prominently by BFS, the BeOS file system.
+
+[.slider]
+* *Pro:* maintained by the file system so can be queried and queried
+quickly.
+* *Con:* does not move with the file, and creates compatibility problems with
+other file systems.
+
+== Processes and Files: UNIX Semantics
+
+[.small]
+--
+Many file systems provide an interface for establishing a
+*relationship* between a process and a file.
+
+[.slider]
+* "I have the file open. I am using this file."
+* "I am finished using the file and will close it now."
+
+[.slider]
+.Why does the file system want to establish these process-file relationships?
+* Can improve *performance* if the OS knows what files are actively
+being used by using caching or read-ahead.
+* The file system may provide *guarantees* to processes based on this
+relationship, such as exclusive access.
+
+[.slider]
+* Some file systems, particularly _networked_ file systems, don't even
+bother to establish these relationships. (What happens if a networked
+client opens a file exclusively and then dies?)
+--
+
+== File Location: UNIX Semantics
+
+UNIX semantics simplify reads and writes to files by storing the file
+position for processes.
+
+[.slider]
+* This is a convenience, not a requirement: processes could be required
+to provide a position with every read and write.
+
+== UNIX File Interface
+
+[.slider]
+.Establishing relationships:
+* `open("foo")`: "I'd like to use the file named foo."
+* `close("foo")`: "I'm finished with foo."
+
+[.slider]
+.Reading and writing:
+* `read(2)`: "I'd like to perform a read from file handle 2 at the
+current position."
+* `write(2)`: "I'd like to perform a write from file handle 2 at the
+current position."
+
+[.slider]
+.Positioning:
+* `lseek(2, 100)`: "Please move my saved position for file handle 2 to position 100.
+
+[.nooutline]
+== Next Time
+
+* File system data structures and challenges.
+* Example path resolution.
+* How files grow and shrink.
