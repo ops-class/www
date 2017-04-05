@@ -38,6 +38,17 @@ video::{music}[youtube,width=0,height=0]
 * Hierarchical file systems.
 
 [.nooutline]
+== link:/asst/3/[`ASST3.1`] Checkpoint
+
+.At this point:
+//
+* If you have not started `ASST3.1`, *you're behind.*
+//
+* If your coremap allocator is mostly working, you're OK.
+
+*link:/asst/3/[`ASST3.1`] is due Friday at 5PM. No extensions.*
+
+[.nooutline]
 == Disks: Questions?
 
 [.nooutline]
@@ -294,6 +305,12 @@ current position."
 [.slider]
 .Positioning:
 * `lseek(2, 100)`: "Please move my saved position for file handle 2 to position 100.
+
+== Midterm Review
+
+++++
+<object data="https://www.ops-class.org/exams/2017_midterm_solution.pdf" type="application/pdf" width="100%" height="440px">
+++++
 
 [.nooutline]
 == Next Time
