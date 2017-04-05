@@ -14,6 +14,7 @@ spelling_exceptions:
   - NTFS
   - SATA
   - Suzanna
+  - coremap
 song:
   name: "Patient Zero"
   author: "Aimee Mann"
@@ -306,10 +307,11 @@ current position."
 .Positioning:
 * `lseek(2, 100)`: "Please move my saved position for file handle 2 to position 100.
 
+[.nooutline]
 == Midterm Review
 
 ++++
-<object data="https://www.ops-class.org/exams/2017_midterm_solution.pdf" type="application/pdf" width="100%" height="440px">
+<object data="https://www.ops-class.org/exams/2017_midterm_solution.pdf" type="application/pdf" width="760" height="440">
 ++++
 
 [.nooutline]
