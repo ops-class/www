@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "6d0f609f7c787698414d13acc9134a9a",
+        "slides/index.html": "8c680587d45da0e73d87cd661b75ef90",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -142,8 +142,12 @@
         "slides/2017-03-29-pagereplacement/deck.html": "4ca2d72546a5f575d43254e1f8ace445",
         "slides/2017-04-03-disks/index.html": "e3273279c90c55210b4547c18c6ca325",
         "slides/2017-04-03-disks/deck.html": "54725690b4d5ac60837065e837509c31",
-        "slides/2017-04-05-files/index.html": "efeecf11b872d2a559301d3dbdc014db",
-        "slides/2017-04-05-files/deck.html": "79ea217db7006c5fdcffc001feea3f20"
+        "slides/2017-04-05-files/index.html": "3234df7188ec9e7adba919362b977c7e",
+        "slides/2017-04-05-files/deck.html": "cfca012a34c8ada3d02bbeec3196c2bd",
+        "slides/2017-04-06-filesystems/index.html": "219dbf6d68de425a675e9465968dfb5b",
+        "slides/2017-04-06-filesystems/deck.html": "06688ff65504bfa84f6e8663d0a868a5",
+        "slides/2017-04-07-filesystems/index.html": "219dbf6d68de425a675e9465968dfb5b",
+        "slides/2017-04-07-filesystems/deck.html": "a4a94bb4e7d234166d0557e6c054adb9"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -287,6 +291,10 @@
         "slides/2017-04-03-disks/index.html": "a473e95d900013527c59b5a7d7ee86e9b922f541",
         "slides/2017-04-03-disks/deck.html": "a473e95d900013527c59b5a7d7ee86e9b922f541",
         "slides/2017-04-05-files/index.html": "09d9284fa505dc9611a99a7ac0cb9cbba18b70ac",
-        "slides/2017-04-05-files/deck.html": "09d9284fa505dc9611a99a7ac0cb9cbba18b70ac"
+        "slides/2017-04-05-files/deck.html": "09d9284fa505dc9611a99a7ac0cb9cbba18b70ac",
+        "slides/2017-04-06-filesystems/index.html": "eef6d7f2a268359ed0b1d3900c1ddd03272b2f38",
+        "slides/2017-04-06-filesystems/deck.html": "eef6d7f2a268359ed0b1d3900c1ddd03272b2f38",
+        "slides/2017-04-07-filesystems/index.html": "eef6d7f2a268359ed0b1d3900c1ddd03272b2f38",
+        "slides/2017-04-07-filesystems/deck.html": "eef6d7f2a268359ed0b1d3900c1ddd03272b2f38"
     }
 }

@@ -1,0 +1,351 @@
+---
+title: "Introduction to File Systems"
+date: 2017-04-07
+author: Geoffrey Challen
+description: >
+  Introduction to file system data structures and challenges.
+spelling_exceptions:
+  - Chuchu
+  - Suzanna
+song:
+  name: "Patient Zero"
+  author: "Aimee Mann"
+  youtube: en8HZ6X20Og
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/053.jpg[width="50%",title="Grace Hopper",link="https://en.wikipedia.org/wiki/Grace_Hopper"]
+
+[.h3.center]
+icon:music[] http://aimeemann.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+* Hierarchical file systems.
+* On-disk data structures.
+
+[.nooutline]
+== link:/asst/3/[`ASST3.1`] Checkpoint
+
+.At this point:
+//
+* If you have not finished `ASST3.1`, *you're behind.*
+
+*link:/asst/3/[`ASST3.1`] is due today at 5PM. No extensions.*
+
+== UNIX File Interface
+
+[.slider]
+.Establishing relationships:
+* `open("foo")`: "I'd like to use the file named foo."
+* `close("foo")`: "I'm finished with foo."
+
+[.slider]
+.Reading and writing:
+* `read(2)`: "I'd like to perform a read from file handle 2 at the
+current position."
+* `write(2)`: "I'd like to perform a write from file handle 2 at the
+current position."
+
+[.slider]
+.Positioning:
+* `lseek(2, 100)`: "Please move my saved position for file handle 2 to position 100.
+
+== What's Missing?
+
+[.slider]
+* `dup2` is really about manipulating a processes names for files and
+doesn't have much to do with the file system.
+
+== Files Together: File Organization
+
+Each file has to have a unique name. No problem!
+
+[.slider]
+* Letter to Mom: `LetterToMom.txt`
+* Letter to Suzanna: `LetterToSuzanna.txt`
+* Letter to Chuchu: `WoofWoofWagWag.txt`
+* Another letter to Suzanna: `AnotherLetterToSuzanna.txt`
+* A third letter to Suzanna: `LetterToSuzanna22Mar2012.txt`
+
+[.slide]
+--
+Flat name spaces were actually used by some early file systems but
+naming gets gross fast&hellip;
+--
+
+== Hierarchical Implications
+
+Big idea: don't look at *everything* all at *once*. Allows users to
+store and examine related files together.
+
+[.slider]
+* `letters/Mom/Letter.txt`
+* `letters/Chuchu/WoofWoofWagWag.txt`
+* `letters/Suzanna/Letters/1.txt`
+* `letters/Suzanna/Letters/2.txt`
+* `letters/Suzanna/Letters/2.txt`
+
+[.slide]
+--
+Each file should be stored in *one* place. (Although we'll discuss
+exceptions to this rule.)
+--
+
+== Location Implications
+
+[.slider]
+* Location requires navigation and _relative_ navigation is useful,
+meaning that locations (directories) can include pointers to other
+locations (other directories).
+* Finally, location is only meaningful if it is tied to a files *name*,
+so hierarchical file systems implement *name spaces*, which require that a
+file's name map to a single unique location within the file system.
+
+== Why Trees?
+
+File systems usually require that files be organized into an _acyclic_
+graph with a single _root_, also known as a _tree_.
+
+Why?
+
+[.slide.replace]
+--
+* What is the name of the file in the diagram below?
+
+image:figures/disks/circlefilesystem.svg[image,width="35%"]
+--
+
+[.slide.replace]
+--
+* OK, I picked a root. What is the name of the file now?
+
+image:figures/disks/cyclefilesystem.svg[image,width="35%"]
+--
+
+[.slide.replace]
+--
+* OK, I eliminated the cycles. What is the name of the file now?
+
+image:figures/disks/treefilesystem.svg[image,width="35%"]
+--
+
+== Tree Naming
+
+image:figures/disks/treefilesystem.svg[image,width="35%"]
+
+Trees produce a *single* canonical name for each file on the system as
+well as an infinite number of *relative* names:
+
+[.slider.spelling_exception]
+* *Canonical name:* /you/used/to/love/well
+* *Relative name:* /you/used/to/love/me/../well
+* *Relative name:* love/me/../../love/me/../well
+
+[.spelling_exception.nooutline]
+== Sestina, by Clara Shuttleworth
+
+[quote,Clara Shuttleworth,role='small spelling_exception']
+____
+You used to love me well. +
+Well, you— me— used love to... +
+to... well... love. You used me. +
+Me, too, used... well... you. Love, +
+love me. You, too well used, +
+used love well. Me, Too. You! +
+You used to love me well.
+____
+
+[.nooutline]
+== Files: Questions?
+
+== File System Design Goals
+
+[.slider]
+. Efficiently *translate* file _names_ to file _contents_.
+. Allow files to *move*, *grow*, *shrink* and otherwise *change*.
+. Optimize access to *single* files.
+. Optimize access to *multiple* files, particularly related files.
+. *Survive* failures and maintain a consistent view of file names and contents.
+
+== Three of These Things Are All Like Each Other
+
+The file systems we will discuss all support the following features:
+[.slider]
+* *Files*, including some number of file attributes and permissions.
+* *Names*, organized into a *hierarchical* name space.
+
+[.slide]
+--
+This is the file interface and feature set we are all used to. The
+difference lie in the implementations and what happens on disk.
+--
+
+== Implementing Hierarchical File Systems
+
+[.slider]
+.Broadly speaking, two types of disk blocks:
+* *Data blocks*: contain file data.
+* *Index nodes* (inodes): contain not file data.
+
+== One of These Things Is Not Like the Others
+
+[.slider]
+.What makes file systems different?
+* *On-disk layout.* How does the file system decide where to put data
+and metadata blocks in order to optimize file access?
+* *Data structures.* What data structures does the file system use to
+translate names and locate file data?
+* *Crash recovery.* How does the file system prepare for and recover
+from crashes?
+
+== File System Challenges
+
+[.slider]
+* File systems are really maintaining a large and complex *data
+structure* using disk blocks as storage.
+* This is hard because making changes potentially requires updating many
+different structures.
+
+== Example `write`
+
+Say a process wants to `write` data to the end of a file. What does
+the file system have to do?
+
+[.slider]
+. Find empty disk blocks to use and mark them as in use.
+. Associate those blocks with the file that is being written to.
+. Adjust the size of the file that is being written to.
+. Actually copy the data to the disk blocks being used.
+
+[.slider]
+* From the perspective of a process all of these things need to happen
+*synchronously*.
+* In reality, *many different asynchronous* operations are involved
+touching many different disk blocks. (Each operation above modifies at
+least one disk block.)
+* This creates both a consistency and a performance problem!
+
+== What Happens On Disk?
+
+Let's consider the *on-disk structures* used by modern file systems.
+
+[.slider]
+.Specifically we are going to investigate how file systems:
+* *translate* paths to file _index nodes_ or inodes.
+* *find* data blocks associated with a given inode (file).
+* *allocate and free* inodes and data blocks.
+
+[.slide]
+--
+We're going to try and keep this at a relatively high level, but
+examples are used for concreteness and drawn from the Linux `ext4`
+file system.
+--
+
+== Sectors, Blocks, Extents
+
+[.slider]
+* *Sector*: the smallest unit that the disk allows to be written,
+usually *256* bytes.
+* *Block*: the smallest unit that the file system actually writes,
+usually *4K* bytes.
+* *Extent*: a set of contiguous blocks used to hold part of a file.
+Described by a start and end block.
+
+[.slider]
+.Why would file systems not write chunks smaller than 4K?
+* Because contiguous writes are good for disk head scheduling and 4K is the
+page size which affects in-memory file caching.
+
+[.slider]
+.Why would file systems want to write file data in even larger chunks?
+* Because contiguous writes are good for disk head scheduling and many
+files are larger than 4K!
+
+== `ext4` inodes
+
+[.slider]
+* *1* inode per file.
+* *256* bytes, so 1 per sector or 16 per block.
+
+[.slider]
+.Contains:
+* *Location* of file data blocks (contents).
+* *Permissions* including user, read/write/execute bits, etc.
+* *Timestamps* including creation (`crtime`), access
+(`atime`), content modification (`mtime`), attribute modification (`ctime`)
+and delete (`dtime`) times.
+* Named and located by *number*.
+
+== `ext4` inodes
+
+image::figures/disks/debugfs-stat.svg[width="100%"]
+
+== Locating inodes
+
+[.slider]
+.How does the system translate an inode number into an inode structure?
+* All inodes are created at *format time* at well-known locations.
+
+[.slide]
+--
+image::figures/disks/inodelocations.svg[width="100%"]
+--
+
+<<<
+
+[.slider]
+.What are the consequences of this?
+* *inodes may not be located near file contents.* `ext4` creates multiple
+blocks of inodes within the drive to reduce seek times between inodes and
+data.
+* Fixed number of inodes for the file system. *Can run out of inodes before we
+run out of data blocks!* `ext4` creates approximately one inode per 16 KB of
+data blocks, but this can be configured at format time.
+
+== Directories
+
+Simply a *special file* the contents of which map inode numbers to relative
+names.
+
+image::figures/disks/lsid.svg[width="100%"]
+
+== File System Names are inode Numbers, Directories Are Files
+
+image::figures/disks/debugfs-stat.svg[width="100%"]
+
+== Using `debugfs`
+
+image::figures/disks/debugfs-show_super_stats1.svg[width="80%"]
+
+== Using `debugfs`
+
+image::figures/disks/debugfs-show_super_stats2.svg[width="80%"]
+
+== `open`: Path Name Translation
+
+`open("/etc/default/keyboard")` must translate [.slide]`"/etc/default/keyboard"`
+to an [.slide]*inode number.*
+
+[.slider]
+. Get inode number for *root directory*. This is usually a fixed
+agreed-on inode number, like *2*.
+. Open the directory with inode number 2. Look for `"etc"`. Find `"etc"`
+with inode number *393218*.
+. Open the directory with inode number 393218. Look for `"default"`.
+Find `"default"` with inode number *393247*.
+. Open the directory with inode number 393247. Look for `"keyboard"`.
+Find keyboard with inode number *394692*.
+. Open the file with inode number 394692.
+
+[.nooutline]
+== Next Time
+
+* File system structures.
+* File system operations.
+* Caching.
