@@ -36,6 +36,25 @@ video::{music}[youtube,width=0,height=0]
 
 == `ext4` inodes
 
+[.slider]
+* *1* inode per file.
+* *256* bytes, so 1 per sector or 16 per block.
+
+[.slider]
+.Contains:
+* *Location* of file data blocks (contents).
+* *Permissions* including user, read/write/execute bits, etc.
+* *Timestamps* including creation (`crtime`), access
+(`atime`), content modification (`mtime`), attribute modification (`ctime`)
+and delete (`dtime`) times.
+* Named and located by *number*.
+
+== `ext4` inodes
+
+image::figures/disks/debugfs-stat.svg[width="100%"]
+
+== `ext4` inodes
+
 image::figures/disks/debugfs-stat.svg[width="100%"]
 
 == Locating inodes

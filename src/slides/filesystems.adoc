@@ -11,6 +11,7 @@ song:
   name: "Chamber of Reflection"
   author: "Marc DeMarco"
   youtube: NY8IS0ssnXQ
+video: lC_xpM0tU4M
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -266,82 +267,6 @@ page size which affects in-memory file caching.
 .Why would file systems want to write file data in even larger chunks?
 * Because contiguous writes are good for disk head scheduling and many
 files are larger than 4K!
-
-== `ext4` inodes
-
-[.slider]
-* *1* inode per file.
-* *256* bytes, so 1 per sector or 16 per block.
-
-[.slider]
-.Contains:
-* *Location* of file data blocks (contents).
-* *Permissions* including user, read/write/execute bits, etc.
-* *Timestamps* including creation (`crtime`), access
-(`atime`), content modification (`mtime`), attribute modification (`ctime`)
-and delete (`dtime`) times.
-* Named and located by *number*.
-
-== `ext4` inodes
-
-image::figures/disks/debugfs-stat.svg[width="100%"]
-
-== Locating inodes
-
-[.slider]
-.How does the system translate an inode number into an inode structure?
-* All inodes are created at *format time* at well-known locations.
-
-[.slide]
---
-image::figures/disks/inodelocations.svg[width="100%"]
---
-
-<<<
-
-[.slider]
-.What are the consequences of this?
-* *inodes may not be located near file contents.* `ext4` creates multiple
-blocks of inodes within the drive to reduce seek times between inodes and
-data.
-* Fixed number of inodes for the file system. *Can run out of inodes before we
-run out of data blocks!* `ext4` creates approximately one inode per 16 KB of
-data blocks, but this can be configured at format time.
-
-== Directories
-
-Simply a *special file* the contents of which map inode numbers to relative
-names.
-
-image::figures/disks/lsid.svg[width="100%"]
-
-== File System Names are inode Numbers, Directories Are Files
-
-image::figures/disks/debugfs-stat.svg[width="100%"]
-
-== Using `debugfs`
-
-image::figures/disks/debugfs-show_super_stats1.svg[width="80%"]
-
-== Using `debugfs`
-
-image::figures/disks/debugfs-show_super_stats2.svg[width="80%"]
-
-== `open`: Path Name Translation
-
-`open("/etc/default/keyboard")` must translate [.slide]`"/etc/default/keyboard"`
-to an [.slide]*inode number.*
-
-[.slider]
-. Get inode number for *root directory*. This is usually a fixed
-agreed-on inode number, like *2*.
-. Open the directory with inode number 2. Look for `"etc"`. Find `"etc"`
-with inode number *393218*.
-. Open the directory with inode number 393218. Look for `"default"`.
-Find `"default"` with inode number *393247*.
-. Open the directory with inode number 393247. Look for `"keyboard"`.
-Find keyboard with inode number *394692*.
-. Open the file with inode number 394692.
 
 [.nooutline]
 == Next Time
