@@ -126,7 +126,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "99c683a451d267d68318d2da4c450b59",
     "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-    "slides/index.html": "adc6de20e0c83974e9d5f214d17e1922",
+    "slides/index.html": "ce37a396cea61b7c5a68defc04ab104e",
     "slides/2017-03-13-pagetranslation/index.html": "864ca495f902ac44af8e050f326f2473",
     "slides/2017-03-13-pagetranslation/deck.html": "5e0d2aa1cb56fb3ef5b433ffab36c058",
     "slides/2017-03-15-paging/index.html": "cdfb367c188dc5a11b3e2ec0863ab372",
@@ -141,6 +141,8 @@
     "slides/2017-04-05-files/deck.html": "f2d04936f9ab3704b7d18df594cd8947",
     "slides/2017-04-06-filesystems/deck.html": "b282a02711496b98ed77524622a28939",
     "slides/2017-04-06-filesystems/index.html": "bce19726ca2d9205843ed436d0602100",
-    "slides/2017-04-07-filesystems/index.html": "bce19726ca2d9205843ed436d0602100",
-    "slides/2017-04-07-filesystems/deck.html": "f68a0d0bf1fd63a179d6be381658fc24"
+    "slides/2017-04-07-filesystems/index.html": "7e24f29e2d7557362b487158afd74f4a",
+    "slides/2017-04-07-filesystems/deck.html": "e2a5cff90e31fb4b25ba883cd8219137",
+    "slides/2017-04-10-filesystemstructures/deck.html": "17b632da0dce76537649af263a0ca1c4",
+    "slides/2017-04-10-filesystemstructures/index.html": "5b0065123f065c1b7d658b19f6856939"
 }

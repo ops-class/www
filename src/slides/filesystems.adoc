@@ -8,17 +8,17 @@ spelling_exceptions:
   - Chuchu
   - Suzanna
 song:
-  name: "Patient Zero"
-  author: "Aimee Mann"
-  youtube: en8HZ6X20Og
+  name: "Chamber of Reflection"
+  author: "Marc DeMarco"
+  youtube: NY8IS0ssnXQ
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/053.jpg[width="50%",title="Grace Hopper",link="https://en.wikipedia.org/wiki/Grace_Hopper"]
+image::women/053.jpg[width="100%",title="Grace Hopper",link="https://en.wikipedia.org/wiki/Grace_Hopper"]
 
 [.h3.center]
-icon:music[] http://aimeemann.com/[{song}]
+icon:music[] https://macdemarco.bandcamp.com/[{song}]
 
 video::{music}[youtube,width=0,height=0]
 

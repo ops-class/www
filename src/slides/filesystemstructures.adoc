@@ -1,0 +1,168 @@
+---
+title: "File System Data Structures"
+date: 2017-04-10
+author: Geoffrey Challen
+description: >
+  Continuation of a discussion of file system data structures.
+song:
+  name: "Patient Zero"
+  author: "Aimee Mann"
+  youtube: en8HZ6X20Og
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/001.jpg[width="100%",title="Jean Bartik",link="https://en.wikipedia.org/wiki/Jean_Bartik"]
+
+[.h3.center]
+icon:music[] http://aimeemann.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+* Finding data blocks
+* Caching and consistency
+
+[.nooutline]
+== link:/asst/3/[`ASST3.2`] Checkpoint
+
+.At this point:
+//
+* If you have not started `ASST3.2`, *you're behind.*
+
+*link:/asst/3/[`ASST3.2`] is due in less than 2 weeks. Get started!*
+
+== `ext4` inodes
+
+image::figures/disks/debugfs-stat.svg[width="100%"]
+
+== Locating inodes
+
+[.slider]
+.How does the system translate an inode number into an inode structure?
+* All inodes are created at *format time* at well-known locations.
+
+[.slide]
+--
+image::figures/disks/inodelocations.svg[width="100%"]
+--
+
+<<<
+
+[.slider]
+.What are the consequences of this?
+* *inodes may not be located near file contents.* `ext4` creates multiple
+blocks of inodes within the drive to reduce seek times between inodes and
+data.
+* Fixed number of inodes for the file system. *Can run out of inodes before we
+run out of data blocks!* `ext4` creates approximately one inode per 16 KB of
+data blocks, but this can be configured at format time.
+
+== Directories
+
+Simply a *special file* the contents of which map inode numbers to relative
+names.
+
+image::figures/disks/lsid.svg[width="100%"]
+
+== File System Names are inode Numbers, Directories Are Files
+
+image::figures/disks/debugfs-stat.svg[width="100%"]
+
+== Using `debugfs`
+
+image::figures/disks/debugfs-show_super_stats1.svg[width="80%"]
+
+== Using `debugfs`
+
+image::figures/disks/debugfs-show_super_stats2.svg[width="80%"]
+
+== `open`: Path Name Translation
+
+`open("/etc/default/keyboard")` must translate [.slide]`"/etc/default/keyboard"`
+to an [.slide]*inode number.*
+
+[.slider]
+. Get inode number for *root directory*. This is usually a fixed
+agreed-on inode number, like *2*.
+. Open the directory with inode number 2. Look for `"etc"`. Find `"etc"`
+with inode number *393218*.
+. Open the directory with inode number 393218. Look for `"default"`.
+Find `"default"` with inode number *393247*.
+. Open the directory with inode number 393247. Look for `"keyboard"`.
+Find keyboard with inode number *394692*.
+. Open the file with inode number 394692.
+
+== `read`/`write`: Retrieving and Modifying Data Blocks
+
+[.slider]
+* `read/write(filehandle, 345)` must translate [.slide]#345# to a
+[.slide]#*data block* within the open file to determine what data block to
+modify.#
+* There are multiple ways of doing this.
+
+== Data Blocks: Linked List
+
+One solution: organize data blocks into a *linked list*.
+
+[.slider]
+* inode contains a pointer to the first data block.
+* Each data block contains a pointer to the previous and next data
+block.
+
+[.slider]
+.Pros:
+* Simple.
+* Small amount of information in inode.
+
+[.slider]
+.Cons:
+* Offset look ups are *slow*! O(n) in the size of the file.
+
+== Data Blocks: Flat Array
+
+A second solution: store all data blocks in the inode in a single
+array allocate at file creation time.
+
+[.slider]
+.Pros:
+* Also simple.
+* Offset look ups are fast, O(1).
+
+[.slider]
+.Cons:
+* Small file size fixed at startup time.
+* Large portion of array may be unused.
+
+== Data Blocks: Multilevel Index
+
+Observation: *most* files are small, but *some* can get very large.
+
+[.slider]
+.Have inode store:
+* some pointers to blocks, which we refer to as *direct* blocks.
+* some pointers to blocks containing pointers to blocks, which we refer
+to as *indirect* blocks.
+* some pointers to blocks containing pointers to blocks containing
+pointers to blocks, which we refer to as *doubly indirect* blocks.
+* etc...
+
+== Data Blocks: Multilevel Index
+
+image::figures/disks/multilevelindexblocks.svg[image]
+
+== Data Blocks: Multilevel Index
+
+[.slider]
+.Pros:
+* Index scales with the size of the file.
+* Offset look ups are still fairly fast.
+* Small files stay small, but big files can get extremely large.
+
+[.nooutline]
+== Next Time
+
+* Consistency and caching.
+* Journaling.
