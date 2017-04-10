@@ -121,9 +121,9 @@
         "slides/2016-02-22-threading/deck.html": "049ab7531c10e4a0e46f09389445490e",
         "slides/2016-03-04-virtualaddresses/deck.html": "b36f3e5feba2b51b306bd7870b3f91b6",
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
-        "slides/2016-04-20-xen/deck.html": "604725edc14c34c984ec91bd0b56483b",
+        "slides/2016-04-20-xen/deck.html": "10208850c463985b0379e48734f09888",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "400a249dd81fda80ee0875368dd69169",
+        "slides/index.html": "c54a14c7e7a39939e2155be6412e8546",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -148,8 +148,10 @@
         "slides/2017-04-06-filesystems/deck.html": "06688ff65504bfa84f6e8663d0a868a5",
         "slides/2017-04-07-filesystems/index.html": "f87308435158aedb953a606c955dd0a9",
         "slides/2017-04-07-filesystems/deck.html": "af431757ca20db8f6dd2c7360a2c10cc",
-        "slides/2017-04-10-filesystemstructures/index.html": "ff15869c29334e30f78b213e3c7fe952",
-        "slides/2017-04-10-filesystemstructures/deck.html": "773a18a54f234a2a9b10d6fd89423636"
+        "slides/2017-04-10-filesystemstructures/index.html": "604c1486c0f119297c742dcbb9a9dc5c",
+        "slides/2017-04-10-filesystemstructures/deck.html": "799ccdc3bb8a08f35254beeaa387c842",
+        "slides/2017-04-12-filesystemcaching/index.html": "c5b15fadfbf6cec66c1637106945a6c2",
+        "slides/2017-04-12-filesystemcaching/deck.html": "91dafdbaaf8b27a4379fbbdddb3b38cc"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -299,6 +301,8 @@
         "slides/2017-04-07-filesystems/index.html": "eef6d7f2a268359ed0b1d3900c1ddd03272b2f38",
         "slides/2017-04-07-filesystems/deck.html": "eef6d7f2a268359ed0b1d3900c1ddd03272b2f38",
         "slides/2017-04-10-filesystemstructures/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
-        "slides/2017-04-10-filesystemstructures/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
+        "slides/2017-04-10-filesystemstructures/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-04-12-filesystemcaching/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-04-12-filesystemcaching/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
     }
 }

@@ -1381,9 +1381,9 @@
     },
     "slides/2016/xen.html": {
         "filename": "slides/2016/xen.html",
-        "hash": "7809059082c6ed5c0f3f16d3fb054488",
+        "hash": "695087922faf8b8007f86f1fdc3507ec",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-04-10T13:55:32.112Z"
     },
     "slides/contextswitching.html": {
         "filename": "slides/contextswitching.html",
@@ -1483,8 +1483,14 @@
     },
     "slides/filesystemstructures.html": {
         "filename": "slides/filesystemstructures.html",
-        "hash": "ddf6e2d00ec5a741de966e946a72a542",
+        "hash": "39095106087660b8c7f6ddc4cea4fa4c",
         "created": "2017-04-07T17:15:39.555Z",
-        "updated": "2017-04-07T19:10:04.082Z"
+        "updated": "2017-04-10T13:51:37.456Z"
+    },
+    "slides/filesystemcaching.html": {
+        "filename": "slides/filesystemcaching.html",
+        "hash": "6827c44d00d4a4443ae37ffadd1a6540",
+        "created": "2017-04-10T13:51:37.456Z",
+        "updated": "2017-04-10T13:51:37.456Z"
     }
 }
