@@ -8,6 +8,7 @@ song:
   name: "Never Learn"
   author: "Lykke Li"
   youtube: 5SrEdAeGj6Y
+video: 6Dc5liBzwqw
 ---
 [.nooutline.spelling_exception]
 == Technical Women
