@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "10208850c463985b0379e48734f09888",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "72995c69cef20f24deab7b4ca07da09c",
+        "slides/index.html": "97e1ede812f0df10b6684f77489748ab",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -150,10 +150,12 @@
         "slides/2017-04-07-filesystems/deck.html": "af431757ca20db8f6dd2c7360a2c10cc",
         "slides/2017-04-10-filesystemstructures/index.html": "cadcf7acff5bfcbc9fe234d3342f5628",
         "slides/2017-04-10-filesystemstructures/deck.html": "799ccdc3bb8a08f35254beeaa387c842",
-        "slides/2017-04-12-filesystemcaching/index.html": "8dee7aed7ce03836ee7ba5e7ab434403",
+        "slides/2017-04-12-filesystemcaching/index.html": "8d78273f8fc15ef82ecb924fa04eafc7",
         "slides/2017-04-12-filesystemcaching/deck.html": "bf442f546546e527b7c513019523bfba",
-        "slides/2017-04-14-ffs/index.html": "99913a9c415b5cca26396442ceba797a",
-        "slides/2017-04-14-ffs/deck.html": "d03a7afd30d9824bf60b20e2eee2f1b6"
+        "slides/2017-04-14-ffs/index.html": "e17f584fc102e1d7adc0bf0e47e1e48c",
+        "slides/2017-04-14-ffs/deck.html": "4a1b66320a47ac26b40e32c561556c58",
+        "slides/2017-04-17-lfs/index.html": "4f7b766b58d5c8dc7898b0b54d0b5cad",
+        "slides/2017-04-17-lfs/deck.html": "fe561bcc4ce209f0bc883bdbd63ced80"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -307,6 +309,8 @@
         "slides/2017-04-12-filesystemcaching/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "slides/2017-04-12-filesystemcaching/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "slides/2017-04-14-ffs/index.html": "57d7208f98289fcc12517a530e6970050f94fe69",
-        "slides/2017-04-14-ffs/deck.html": "57d7208f98289fcc12517a530e6970050f94fe69"
+        "slides/2017-04-14-ffs/deck.html": "57d7208f98289fcc12517a530e6970050f94fe69",
+        "slides/2017-04-17-lfs/index.html": "9a95500e60b6c48232ef83b0bd86f88489105378",
+        "slides/2017-04-17-lfs/deck.html": "9a95500e60b6c48232ef83b0bd86f88489105378"
     }
 }

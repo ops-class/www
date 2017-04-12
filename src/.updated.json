@@ -1495,8 +1495,14 @@
     },
     "slides/ffs.html": {
         "filename": "slides/ffs.html",
-        "hash": "6880313447d3ebd58e7335f9234f2a51",
+        "hash": "4e3957c0309d44e215fec1e057f66d47",
         "created": "2017-04-12T17:43:22.530Z",
-        "updated": "2017-04-12T17:44:41.432Z"
+        "updated": "2017-04-12T19:23:07.444Z"
+    },
+    "slides/lfs.html": {
+        "filename": "slides/lfs.html",
+        "hash": "23892641c68643f47aa86b6a15e70ac4",
+        "created": "2017-04-12T19:23:07.444Z",
+        "updated": "2017-04-12T19:23:07.444Z"
     }
 }

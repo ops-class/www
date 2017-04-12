@@ -126,7 +126,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "763b8829e1c9adb59dae99fd0e65ec11",
     "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-    "slides/index.html": "4c36365f7ac78ddb8e4dfcc456f33a36",
+    "slides/index.html": "1028d07625b07b5a60a6e38f658ca635",
     "slides/2017-03-13-pagetranslation/index.html": "864ca495f902ac44af8e050f326f2473",
     "slides/2017-03-13-pagetranslation/deck.html": "5e0d2aa1cb56fb3ef5b433ffab36c058",
     "slides/2017-03-15-paging/index.html": "cdfb367c188dc5a11b3e2ec0863ab372",
@@ -145,8 +145,10 @@
     "slides/2017-04-07-filesystems/deck.html": "33a80126f2b1292117bf2c332ee37c70",
     "slides/2017-04-10-filesystemstructures/deck.html": "60e26f9cfc764330045d4b90107c02b0",
     "slides/2017-04-10-filesystemstructures/index.html": "a1d8e90964d6ef163e815ef39ee2912a",
-    "slides/2017-04-12-filesystemcaching/index.html": "83f1277812db990cdbebc8b15533241d",
+    "slides/2017-04-12-filesystemcaching/index.html": "1b85990a781fc8b5bbeb37dbc237d335",
     "slides/2017-04-12-filesystemcaching/deck.html": "b48b6909c53935c62937808a5fd17869",
-    "slides/2017-04-14-ffs/index.html": "c9d579029b027c8f6ec27932c2a22d27",
-    "slides/2017-04-14-ffs/deck.html": "f5ffd85b4f66390953623ab24848f6eb"
+    "slides/2017-04-14-ffs/index.html": "e88593e6c404feac74a012e208c0c104",
+    "slides/2017-04-14-ffs/deck.html": "0b98b76ee147818f15354143e66e583c",
+    "slides/2017-04-17-lfs/index.html": "8b138f7503ec2456f09f377f11e64c77",
+    "slides/2017-04-17-lfs/deck.html": "bb01b2f8285740a4d767236731c071fb"
 }
