@@ -5,9 +5,9 @@ author: Geoffrey Challen
 description: >
   Discussion of file system caching and its impacts on consistency.
 song:
-  name: "Patient Zero"
-  author: "Aimee Mann"
-  youtube: en8HZ6X20Og
+  name: "Die Young"
+  author: "Sylvan Esso"
+  youtube: h-_NNIX8cDA
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -15,12 +15,8 @@ song:
 image::women/002.jpg[width="100%",title="Sophie Wilson",link="https://en.wikipedia.org/wiki/Sophie_Wilson"]
 
 [.h4.center]
-icon:music[] http://www.tpau.co.uk/["Heart and Soul" by T'Pau]
+icon:music[] http://www.sylvanesso.com/[{song}]
 
-[.h4.center]
-icon:music[] https://en.wikipedia.org/wiki/Merle_Haggard[{song}]
-
-video::SwrYMWoqg5w[youtube,width=0,height=0]
 video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
@@ -279,11 +275,109 @@ File systems also give use processes some control through `sync` (sync
 the entire file system) and `fsync` (sync one file).
 --
 
+== Another Approach to Consistency
+
+[.slider]
+* What's _not_ atomic? [.slide]#Writing *multiple* disk blocks.#
+* What _is_ atomic? [.slide]#Writing *one* disk block.#
+
+== Journaling
+
+[.slider]
+* Track pending changes to the file system in a special area on disk
+called the *journal*.
+* Following a failure, *replay* the journal to bring the file system back
+to a consistent state.
+
+[.slide.small]
+--
+Creation example:
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  Allocate inode 567 for a new file.
+2.  Associate data blocks 5, 87, and 98 with inode 567.
+3.  Add inode 567 to the directory with inode 33.
+4.  That's it!
+____
+--
+
+== Journaling: Checkpoints
+
+[.slider]
+.What happens when we flush cached data to disk?
+* Update the journal!
+* This is called a *checkpoint*.
+
+[.slide.small]
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  [line-through]*Allocate inode 567 for a new file.*
+2.  [line-through]*Associate data blocks 5, 87, and 98 with inode 567.*
+3.  [line-through]*Add inode 567 to the directory with inode 33.*
+4.  [line-through]*That's it!*
+
+Dear Journal, I already did everything mentioned above! Checkpoint!
+____
+
+== Journaling: Recovery
+
+[.slider]
+.What happens on recovery?
+* Start at the *last checkpoint* and work forward, updating on-disk
+structures as needed.
+
+[.slide.small]
+____
+Dear Journal, I already did everything mentioned above! Checkpoint!
+
+Dear Journal, here's what I'm going to do today:
+
+1. Allocate inode 567 for a new file. [.slide]*Did this already!*
+2. Associate data blocks 5, 87, and 98 with inode 567. [.slide]*Didn't do
+this... OK, done!*
+3.  Add inode 567 to the directory with inode 33. [.slide]*Didn't do this
+either! OK, done.*
+4.  That's it! [.slide]*All caught up!*
+____
+
+== Journaling: Recovery
+
+[.slider]
+.What about incomplete journal entries?
+* These are *ignored* as they may leave the file system in an incomplete
+state.
+
+[.slide.small]
+--
+What would happen if we processed the following incomplete journal entry?
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  Allocate inode 567 for a new file.
+2.  Associate data blocks 5, 87, and 98 with inode 567.
+____
+--
+
+== Journaling: Implications
+
+Observation: *metadata* updates (allocate inode, free data block, add
+to directory, etc.) can be represented compactly and probably written to
+the journal *atomically*.
+
+[.slider]
+.What about data blocks themselves changed by write()?
+* We could *include them in the journal* meaning that each data block
+would potentially be written _twice_ (ugh).
+* We could *exclude them from the journal* meaning that file system
+structures are maintained but not file data.
+
 
 [.nooutline]
 == Next Time
 
-Journaling, and then two very different file system designs:
+Two very different file system designs:
 
 * The Berkeley Fast File System (FFS)
 * And log-structures file systems (LFS).

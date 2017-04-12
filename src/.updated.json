@@ -1489,8 +1489,14 @@
     },
     "slides/filesystemcaching.html": {
         "filename": "slides/filesystemcaching.html",
-        "hash": "6827c44d00d4a4443ae37ffadd1a6540",
+        "hash": "0a7fabbffb0ba109042ffbeffaa946db",
         "created": "2017-04-10T13:51:37.456Z",
-        "updated": "2017-04-10T13:51:37.456Z"
+        "updated": "2017-04-12T17:43:22.530Z"
+    },
+    "slides/ffs.html": {
+        "filename": "slides/ffs.html",
+        "hash": "6880313447d3ebd58e7335f9234f2a51",
+        "created": "2017-04-12T17:43:22.530Z",
+        "updated": "2017-04-12T17:44:41.432Z"
     }
 }

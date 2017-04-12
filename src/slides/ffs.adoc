@@ -1,0 +1,293 @@
+---
+title: "Journaling and FFS"
+date: 2017-04-14
+author: Geoffrey Challen
+description: >
+  Introduction to journaling and the UNIX Fast File System (FFS).
+spelling_exceptions:
+  - UFS
+  - Kirk McKusick
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/003.jpg[width="100%",title="Kristina Johnson",link="https://en.wikipedia.org/wiki/Kristina_M._Johnson"]
+
+[.nooutline]
+== Today
+
+* Journaling
+* The Berkeley Fast File System (FFS)
+* Log-structured file systems (LFS)
+
+== Another Approach to Consistency
+
+[.slider]
+* What's _not_ atomic? [.slide]#Writing *multiple* disk blocks.#
+* What _is_ atomic? [.slide]#Writing *one* disk block.#
+
+== Journaling
+
+[.slider]
+* Track pending changes to the file system in a special area on disk
+called the *journal*.
+* Following a failure, *replay* the journal to bring the file system back
+to a consistent state.
+
+[.slide.small]
+--
+Creation example:
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  Allocate inode 567 for a new file.
+2.  Associate data blocks 5, 87, and 98 with inode 567.
+3.  Add inode 567 to the directory with inode 33.
+4.  That's it!
+____
+--
+
+== Journaling: Checkpoints
+
+[.slider]
+.What happens when we flush cached data to disk?
+* Update the journal!
+* This is called a *checkpoint*.
+
+[.slide.small]
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  [line-through]*Allocate inode 567 for a new file.*
+2.  [line-through]*Associate data blocks 5, 87, and 98 with inode 567.*
+3.  [line-through]*Add inode 567 to the directory with inode 33.*
+4.  [line-through]*That's it!*
+
+Dear Journal, I already did everything mentioned above! Checkpoint!
+____
+
+== Journaling: Recovery
+
+[.slider]
+.What happens on recovery?
+* Start at the *last checkpoint* and work forward, updating on-disk
+structures as needed.
+
+[.slide.small]
+____
+Dear Journal, I already did everything mentioned above! Checkpoint!
+
+Dear Journal, here's what I'm going to do today:
+
+1. Allocate inode 567 for a new file. [.slide]*Did this already!*
+2. Associate data blocks 5, 87, and 98 with inode 567. [.slide]*Didn't do
+this... OK, done!*
+3.  Add inode 567 to the directory with inode 33. [.slide]*Didn't do this
+either! OK, done.*
+4.  That's it! [.slide]*All caught up!*
+____
+
+== Journaling: Recovery
+
+[.slider]
+.What about incomplete journal entries?
+* These are *ignored* as they may leave the file system in an incomplete
+state.
+
+[.slide.small]
+--
+What would happen if we processed the following incomplete journal entry?
+____
+Dear Journal, here's what I'm going to do today:
+
+1.  Allocate inode 567 for a new file.
+2.  Associate data blocks 5, 87, and 98 with inode 567.
+____
+--
+
+== Journaling: Implications
+
+Observation: *metadata* updates (allocate inode, free data block, add
+to directory, etc.) can be represented compactly and probably written to
+the journal *atomically*.
+
+[.slider]
+.What about data blocks themselves changed by write()?
+* We could *include them in the journal* meaning that each data block
+would potentially be written _twice_ (ugh).
+* We could *exclude them from the journal* meaning that file system
+structures are maintained but not file data.
+
+== Caching, Consistency: Questions?
+
+== The Berkeley Fast File System
+
+[.slider]
+* First included in the Berkeley Software Distribution (BSD) UNIX
+release in *August, 1982.*
+* Developed by Kirk McKusick. (*One guy!*)
+* FFS is the basis of the Unix File System (UFS), which is still in use
+and still developed by Kirk today.
+
+== Exploiting Geometry
+
+FFS made _many_ contributions to file system design. Some were lasting,
+others less so.
+
+[.slider]
+* The less lasting features had to do with tailoring file system
+performance to disk geometry.
+
+[.slider]
+.What are some geometry-related questions that file systems might try to address?
+* Where to put *inodes*?
+* Where to put *data blocks*, particularly where with respect to the
+inodes that they are linked to?
+* Where to put *related* files?
+* What files are *likely* to be related?
+
+[.small]
+== Introducing Standard File System Features
+
+FFS also responded to many problems with earlier file system implementations
+and introduced many common features we have already learned about.
+
+[.slider]
+.Early file systems had a *small block size* of 512 B.
+* FFS introduced larger *4K blocks*.
+
+[.slider]
+.Early file systems had no way to allocate *contiguous blocks* on disk.
+* FFS introduced an ordered free block list allowing contiguous or
+near-contiguous block allocation.
+
+[.slider]
+.Early file systems lacked many features.
+* FFS added *symbolic links*, *file
+locking*, unrestricted *file name lengths* and user *quotas*.
+
+== What's Close On Disk?
+
+[.slider]
+.Two enemies of closeness:
+. Lateral movement, or seek times. This is *major*.
+. Rotational movement or delay. This is *minor*.
+
+image::figures/disks/chs.svg[width="80%"]
+
+== Seek Planning: Cylinder Groups
+
+*Cylinder group:* All of the data that can be read on the disk without
+moving the head. Comes from *multiple platters*.
+
+[.slider]
+.On FFS each *cylinder group* has:
+* A (backup) copy of the superblock.
+* A cylinder-specific header with superblock-like statistics.
+* A number of inodes.
+* Data blocks.
+* It's almost like it's own mini file system!
+
+[.nooutline]
+== It's Own Mini File System!
+
+image::figures/disks/minime.jpg[width="40%"]
+
+== Groups!
+
+image::figures/disks/debugfs-show_super_stats2.svg[width="90%"]
+
+== Rotational Planning
+
+FFS superblock contained detailed disk geometry information allowing FFS to
+attempt to perform better block placement.
+
+[.slider]
+.Example:
+* Imagine that the speed at which the heads can read information off
+the disk is greater than the speed at which the disk can return data to
+the operating system.
+* So the disk *cannot* read consecutive blocks off of the disk. Can't
+read 0, 1, 2, 3, etc., because after I finish transferring Block 0 the
+heads are over a different block.
+* FFS will incorporate this delay and attempt to lay out consecutive
+blocks for a single file as 0, 3, 6, 9, etc.
+* *Wow/[.spelling_exception]#eww#!*
+
+== Back to the Future
+
+[.slider]
+* Does this stuff matter anymore?
+* If not, why not, and is it a good thing that it doesn't?
+
+== Hardware Weenies v. Software Weenies
+
+Continuing battle for the soul of your computer between the forces of light
+(us/them) and darkness (them/us).
+
+[.slider]
+.Who should be responsible for making the slow disk fast?
+* *Hardware:* *fixed* and *fast*.
+* *Software:* *flexible* and *slow*.
+
+== Put the OS in Control
+
+[.small]
+____
+*OS*—Put this block exactly where I tell you to right now, slave!
+
+*Disk*—Yes master.
+____
+
+[.slider]
+.*Pros:*
+* OS has better *visibility* into workloads, users, relationships,
+consistency requirements, etc. This information can improve performance.
+
+[.slider]
+.*Cons:*
+* Operating systems are slow and buggy.
+
+== Leave it to Hardware
+
+[.slide]
+____
+*OS*--Oh disk, you are so clever. Here's some data! I trust you'll do the
+right thing with it.
+
+*Disk*—I *am* so clever.
+____
+
+[.slider]
+.*Pros:*
+* The device knows much more about itself than the operating system can
+be expected to.
+* Device buffers and caches are closer to the disk.
+
+[.slider]
+.*Cons:*
+* Device opaqueness may violate guarantees that the operating system is
+trying to provide.
+
+== FFS Continues To Improve
+
+[.slider]
+.*Block sizing:* continues to respond to changes to average file sizes.
+* Small blocks: less internal fragmentation, more seeks.
+* Large blocks: more internal fragmentation, fewer seeks.
+
+[.slider]
+.Co-locating inodes and directories.
+* *Problem:* accessing directory contents is slow.
+* *Solution:* jam inodes for directory _into_ directory file itself.
+
+[.slide]
+--
+Separate solution to consistency called *soft updates*, which has
+recently been combined with journaling. (Worth its own lecture.)
+--
+
+[.nooutline]
+== Next Time
+
+* Log-structured file systems.
