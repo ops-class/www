@@ -126,7 +126,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "763b8829e1c9adb59dae99fd0e65ec11",
     "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-    "slides/index.html": "1028d07625b07b5a60a6e38f658ca635",
+    "slides/index.html": "58ca86447fcff1fa333ea632b69de491",
     "slides/2017-03-13-pagetranslation/index.html": "864ca495f902ac44af8e050f326f2473",
     "slides/2017-03-13-pagetranslation/deck.html": "5e0d2aa1cb56fb3ef5b433ffab36c058",
     "slides/2017-03-15-paging/index.html": "cdfb367c188dc5a11b3e2ec0863ab372",
@@ -147,8 +147,8 @@
     "slides/2017-04-10-filesystemstructures/index.html": "a1d8e90964d6ef163e815ef39ee2912a",
     "slides/2017-04-12-filesystemcaching/index.html": "1b85990a781fc8b5bbeb37dbc237d335",
     "slides/2017-04-12-filesystemcaching/deck.html": "b48b6909c53935c62937808a5fd17869",
-    "slides/2017-04-14-ffs/index.html": "e88593e6c404feac74a012e208c0c104",
-    "slides/2017-04-14-ffs/deck.html": "0b98b76ee147818f15354143e66e583c",
+    "slides/2017-04-14-ffs/index.html": "3cc9dab4208eaf14d78641f35a5e37b0",
+    "slides/2017-04-14-ffs/deck.html": "23e1d7b32029a53deeb96909461eaaa1",
     "slides/2017-04-17-lfs/index.html": "8b138f7503ec2456f09f377f11e64c77",
     "slides/2017-04-17-lfs/deck.html": "bb01b2f8285740a4d767236731c071fb"
 }

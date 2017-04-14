@@ -3,7 +3,7 @@ title: "Journaling and FFS"
 date: 2017-04-14
 author: Geoffrey Challen
 description: >
-  Introduction to journaling and the UNIX Fast File System (FFS).
+  The UNIX Fast File System (FFS).
 spelling_exceptions:
   - UFS
   - Kirk McKusick
@@ -27,7 +27,22 @@ video::{music}[youtube,width=0,height=0]
 
 * Journaling review
 * The Berkeley Fast File System (FFS)
-* Log-structured file systems (LFS)
+
+[.nooutline]
+== link:/asst/3/[`ASST3.2`] Checkpoint
+
+.At this point:
+//
+* If you have not started `ASST3.2`, *you're behind.*
+//
+* If you have basic address translation and TLB management working, you're OK.
+
+*link:/asst/3/[`ASST3.2`] is due in one week. Get started!*
+
+[.nooutline]
+== Midterm Return
+
+* Starting *Monday* during office hours.
 
 == Another Approach to Consistency
 
@@ -299,4 +314,5 @@ recently been combined with journaling. (Worth its own lecture.)
 [.nooutline]
 == Next Time
 
-* Log-structured file systems.
+* Log-structured file systems
+* How to read a paper
