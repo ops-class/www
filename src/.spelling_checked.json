@@ -154,8 +154,8 @@
         "slides/2017-04-12-filesystemcaching/deck.html": "bf442f546546e527b7c513019523bfba",
         "slides/2017-04-14-ffs/index.html": "60c88c36010f58171eab28933d9684f9",
         "slides/2017-04-14-ffs/deck.html": "b8b1245472e38201b5eea7341da77389",
-        "slides/2017-04-17-lfs/index.html": "4f7b766b58d5c8dc7898b0b54d0b5cad",
-        "slides/2017-04-17-lfs/deck.html": "fe561bcc4ce209f0bc883bdbd63ced80"
+        "slides/2017-04-17-lfs/index.html": "59d87d54b8f1899907d157ea89b91ec3",
+        "slides/2017-04-17-lfs/deck.html": "738d09187fb2649f69856e2f3ea0d482"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -310,7 +310,7 @@
         "slides/2017-04-12-filesystemcaching/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
         "slides/2017-04-14-ffs/index.html": "57d7208f98289fcc12517a530e6970050f94fe69",
         "slides/2017-04-14-ffs/deck.html": "57d7208f98289fcc12517a530e6970050f94fe69",
-        "slides/2017-04-17-lfs/index.html": "9a95500e60b6c48232ef83b0bd86f88489105378",
-        "slides/2017-04-17-lfs/deck.html": "9a95500e60b6c48232ef83b0bd86f88489105378"
+        "slides/2017-04-17-lfs/index.html": "1c30adf785ae14ed362ed9814df9fc490f7af655",
+        "slides/2017-04-17-lfs/deck.html": "1c30adf785ae14ed362ed9814df9fc490f7af655"
     }
 }

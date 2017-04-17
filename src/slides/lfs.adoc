@@ -8,6 +8,7 @@ spelling_exceptions:
   - John Ousterhout
   - Mendel Rosenblum
   - reimplementation
+  - Randy Katz
 song:
   name: "Deer Creek Canyon"
   author: "Sera Cahoone"
@@ -27,6 +28,29 @@ video::{music}[youtube,width=0,height=0]
 == Today
 
 * Log-structured file systems (LFS)
+
+[.nooutline]
+== link:/asst/3/[`ASST3.2`] Checkpoint
+
+.At this point:
+//
+* If you have not started `ASST3.2`, *you're way behind.*
+//
+* If you have most things working and are debugging corner cases, you're OK.
+
+*link:/asst/3/[`ASST3.2`] is due Friday. Good luck finishing!*
+
+[.nooutline]
+== For Wednesday
+
+RAID!
+
+.Please read:
+//
+* The https://en.wikipedia.org/wiki/RAID[RAID Wikipedia article]
+//
+* And http://web.eecs.umich.edu/~michjc/eecs584/Papers/katz-2010.pdf[this
+paper by Randy Katz]
 
 == FFS: Questions?
 
