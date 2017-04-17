@@ -11,6 +11,7 @@ song:
   name: "Patient Zero"
   author: "Aimee Mann"
   youtube: en8HZ6X20Og
+video: 4aKBzAcgZNM
 ---
 [.nooutline.spelling_exception]
 == Technical Women

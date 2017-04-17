@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "10208850c463985b0379e48734f09888",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "9b4986d92d6808199b873061d971ba89",
+        "slides/index.html": "0c65dc391704a08433fb0216ecd22f7e",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -152,7 +152,7 @@
         "slides/2017-04-10-filesystemstructures/deck.html": "799ccdc3bb8a08f35254beeaa387c842",
         "slides/2017-04-12-filesystemcaching/index.html": "8d78273f8fc15ef82ecb924fa04eafc7",
         "slides/2017-04-12-filesystemcaching/deck.html": "bf442f546546e527b7c513019523bfba",
-        "slides/2017-04-14-ffs/index.html": "2b783dce0aeb701a2e7c8dc07efdc317",
+        "slides/2017-04-14-ffs/index.html": "60c88c36010f58171eab28933d9684f9",
         "slides/2017-04-14-ffs/deck.html": "b8b1245472e38201b5eea7341da77389",
         "slides/2017-04-17-lfs/index.html": "4f7b766b58d5c8dc7898b0b54d0b5cad",
         "slides/2017-04-17-lfs/deck.html": "fe561bcc4ce209f0bc883bdbd63ced80"
