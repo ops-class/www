@@ -13,6 +13,7 @@ song:
   name: "Deer Creek Canyon"
   author: "Sera Cahoone"
   youtube: qu4SWhBmc3Q
+video: zCMi65f4cmM
 ---
 [.nooutline.spelling_exception]
 == Technical Women
