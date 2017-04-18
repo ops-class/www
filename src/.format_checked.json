@@ -126,7 +126,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "763b8829e1c9adb59dae99fd0e65ec11",
     "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-    "slides/index.html": "844dc4242193461b51a779e43be8b91e",
+    "slides/index.html": "3ad38629368c8f6ba09ce5f73dd651e5",
     "slides/2017-03-13-pagetranslation/index.html": "864ca495f902ac44af8e050f326f2473",
     "slides/2017-03-13-pagetranslation/deck.html": "5e0d2aa1cb56fb3ef5b433ffab36c058",
     "slides/2017-03-15-paging/index.html": "cdfb367c188dc5a11b3e2ec0863ab372",
@@ -149,6 +149,8 @@
     "slides/2017-04-12-filesystemcaching/deck.html": "b48b6909c53935c62937808a5fd17869",
     "slides/2017-04-14-ffs/index.html": "45c1fe4ed4223a4cbe343eb99188ce0d",
     "slides/2017-04-14-ffs/deck.html": "23e1d7b32029a53deeb96909461eaaa1",
-    "slides/2017-04-17-lfs/index.html": "7af874144ec88dc13d051c35db68a11b",
-    "slides/2017-04-17-lfs/deck.html": "2c0602a705182c9324ac81c1dccdb9f4"
+    "slides/2017-04-17-lfs/index.html": "39cabcbfee32df19b1b600ecc1edd6cf",
+    "slides/2017-04-17-lfs/deck.html": "117de77aa891a3e837f378db54bbcf59",
+    "slides/2017-04-19-raid/index.html": "0477a3eeba13ec1e70e2c907dafb1236",
+    "slides/2017-04-19-raid/deck.html": "ac8c67fc39ed0495ad8317e1d8de7c78"
 }

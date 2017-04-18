@@ -1,0 +1,270 @@
+---
+title: "RAID"
+date: 2017-04-19
+author: Geoffrey Challen
+description: >
+  Overview of Redundant Arrays of Inexpensive Disks (RAID).
+song:
+  name: "Gimme Sympathy"
+  author: "Metric"
+	youtube: jq3-wZs64n4
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/005.jpg[width="100%",title="Susan Landau",link="http://privacyink.org/"]
+
+[.h4.center]
+icon:music[] http://ilovemetric.com[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+* How to read a research paper.
+* Redundant Arrays of Inexpensive Disks (RAID).
+
+== How To Read A Research Paper
+
+[.slider]
+. Don't be afraid: *you're ready!*
+. Read good papers from the top conferences
+. _Skim_ to get the big picture, _read_ for the details.
+** Most systems papers have one or two big ideas and a lot of implementation.
+. Understand the _places where papers get published_
+. Understand the _kinds of papers_
+. Understand the _parts of a paper_
+
+[.small.spelling_exception]
+== Places Where Papers Get Published
+
+[.slider]
+. *Workshop papers*: _short_ (5-6 pages), usually containing only a
+provocative argument, system design, or very preliminary results.
+** Example:
+http://www.eecs.harvard.edu/margo/papers/hotos09/paper.pdf[Hierarchical
+Filesystems Are Dead], by Margo Seltzer and Nicholas Murphy. Published at
+https://www.usenix.org/conferences/byname/155[HotOS], a workshop on hot
+topics in operating systems.
+
+. *Conference papers*: _long_ (12-14 pages), enough space to describe and
+evaluate a complete novel system.
+** Example: http://pdos.csail.mit.edu/papers/commutativity:sosp13.pdf[The
+Scalable Commutativity Rule], by Austin Clements, M. Frans Kaashoek, Nickolai
+Zeldovich, Robert Morris and Eddie Kohler. Published at
+http://sosp.org/[SOSP], the top conference on computer systems.
+
+. *Journal papers*: _longer_ (than conference papers), usually a published
+conference paper with extra material (frequently all of the unneccesary
+results that they removed to make the conference page limit).
+** My advice: read the conference paper.
+
+[.smaller]
+== Kinds of Papers
+
+Clearly this is an incomplete list, but identifying the kind of paper can
+help you read it and understand its contributions.
+
+[.slider]
+. *(Big) idea papers*: presents a _new approach_ to an existing problem or a new
+idea about how to build systems. Should convince you that the solution is (1)
+new, (2) works, and (3) is useful.
+. *Problem papers*: presents a _new problem_ and, usually, some ideas about
+how to solve it. Should convince you that the problem is (1), (2) matters and
+(3) that there are some ways to solve it.
+. *Data papers*: present _novel analysis_ or _analysis of a novel data set_ that
+produces interesting insights. Should convince you that the results are
+useful to the design of future systems.
+. *New technology papers*: describe some new hardware capability or device
+feature and why it's interesting. Should convince you that the hardware can
+be used to build better systems.
+. *Wrong way papers*: argue that the community is solving an _existing
+problem incorrectly_. Frequently these are workshop-length papers and
+eventually lead to idea papers. Should be able to convince you that everyone
+else is confused and misguided. (Good luck!)
+
+[.slide]
+--
+We'll read examples of all of these kinds of papers.
+--
+
+[.small]
+== Parts of a Research Paper
+
+Not all of these are included in every paper, and they are not always called
+the same thing. Many variants exist but these are the common elements.
+
+[.slider]
+.The "why you should read this paper" parts:
+. *Abstract*: an overview of the paper and its contribution. Great place to
+get the _big picture_.
+. *Introduction*: an extension of the abstract. Usually contains:
+[.slider]
+** A problem and solution statement (if appropriate)
+** Persuasive arguments to keep you reading
+** A preview of the interesting results ahead
+** Navigational information to guide you through the rest of the paper
+. *Motivation*:
+** More arguments about why this is a problem, why people have been solving
+this problem the wrong way, or why this data is interesting--depending on the
+type of paper.
+
+<<<
+
+[.slider]
+.The "what we did" parts:
+. *Design*: presents the design of the system, usually at as high a level as
+possible.
+. *Implementation*: presents details of the implementation and any
+interesting implementation challenges.
+. *Related work*: put the work in context by comparing it to other systems.
+Important to establish _novelty_.
+. *Results*: for data analysis papers, most of the paper is spent analyzing
+the data set that was collected and evaluated. This usually replaces an
+typical evaluation since there may not be a new idea.
+
+<<<
+
+[.slider]
+.The "did it work" part:
+. *Evaluation*: measures things about the prototype system intended to
+demonstrate that it works.
+
+[.nooutline]
+== Questions About Approaching A Research Paper?
+
+== Redundant Arrays of Inexpensive Disks
+
+[.slider]
+.What kind of paper is this?
+* *Big idea* paper!
+* Spawned a commonly-used technology, an entire industry, and lots of similar
+approaches.
+
+[.slider]
+.What is the big idea? (Hint: it has nothing to do with disks...)
+* Several cheap things can be better than one expensive thing!
+
+[.slider]
+.Where else do we see this idea applied today?
+* Multicore processors.
+* Google.
+* Crowdsourcing.
+
+[.small]
+== RAID: Problems
+
+[.slider]
+.What is the problem that the RAID paper identifies?
+* Computer CPUs are getting faster...
+* Computer memory is getting faster...
+* Hard drives are not keeping up!
+
+[.slide]
+____
+While we can imagine improvements in software file systems via buffering for
+near term I/O demands, we need innovation to avoid an I/O crisis.
+____
+
+[.slider]
+.What is the problem with the RAID solution?
+* Many cheap things fail much more frequently than one expensive thing.
+* So need a plan to handle failures.
+
+[.small]
+== RAID 1
+
+image::http://upload.wikimedia.org/wikipedia/commons/b/b7/RAID_1.svg[height="200"]
+
+.RAID 1 (Mirroring)
+* Two duplicate disks.
+* Writes must go to both disks, reads can
+come from either.
+
+[.slider]
+* Performance: [.slide]*better for reads.*
+* Capacity: [.slide]*unchanged!*
+
+[.small]
+== RAID 2
+
+image::http://upload.wikimedia.org/wikipedia/commons/b/b5/RAID2_arch.svg[height="200"]
+
+.RAID 2
+* *Byte-level striping*, single error disk.
+* *Hamming codes* to detect failures and correct errors.
+* Most reads and writes require all disks.
+
+[.slider]
+* Capacity: [.slide]*improved.*
+
+[.small]
+== RAID 3
+
+image::http://upload.wikimedia.org/wikipedia/commons/f/f9/RAID_3.svg[height="200"]
+
+.RAID 3
+* *Only correct errors* since disks can detect when they fail.
+* Byte-level striping, single *parity* disk.
+* Most reads and writes require all disks.
+
+[.slider]
+* Capacity: [.slide]*improved.*
+
+[.small]
+== RAID 4
+
+image::http://upload.wikimedia.org/wikipedia/commons/a/ad/RAID_4.svg[height="200"]
+
+.RAID 4
+* *Block-level striping*, single parity disk.
+* Better distribution of reads between disks due to larger stripe size,
+* but all writes all must access the parity disk.
+
+[.slider]
+* Performance: [.slide]*improved for reads.*
+
+[.small]
+== RAID 5 (Full Victory)
+
+image::http://upload.wikimedia.org/wikipedia/commons/6/64/RAID_5.svg[height="200"]
+
+.RAID 5
+* Block-level striping
+* *Multiple parity disks*.
+* Better distribution of writes between disks.
+
+[.slider]
+* Performance: [.slide]*improved for writes.*
+
+== RAID 0 (Non-RAID)
+
+.RAID 0
+* Each disk stores half of the data.
+* No error correction or redundancy.
+
+[.slider]
+* Performance: [.slide]*fantastic!*
+* Capacity: [.slide]*fantastic!*
+* Redundancy: [.slide]*ZERO!*
+
+== RAID: Redundancy
+
+[.slider]
+* RAID arrays can tolerate the failure of one (or more) disks.
+* Once a (or several) fail, the array is vulnerable to data loss.
+* An administrator must replace the disk(s) and then rebuild the array.
+
+== The RAID Aftermath
+
+++++
+<object data="http://web.eecs.umich.edu/~michjc/eecs584/Papers/katz-2010.pdf" type="application/pdf" width="760" height="440">
+++++
+
+== RAID: Questions?
+
+[.nooutline]
+== Next Time
+
+* Full virtualization.

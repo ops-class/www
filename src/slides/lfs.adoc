@@ -52,8 +52,10 @@ RAID!
 * And http://web.eecs.umich.edu/~michjc/eecs584/Papers/katz-2010.pdf[this
 paper by Randy Katz]
 
+[.nooutline]
 == FFS: Questions?
 
+[.nooutline]
 == On To The '90s
 
 *FFS* circa 1982.

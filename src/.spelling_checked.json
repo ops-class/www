@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "10208850c463985b0379e48734f09888",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "0c65dc391704a08433fb0216ecd22f7e",
+        "slides/index.html": "b11825bb656837d375c165f2e862c4b0",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -154,8 +154,10 @@
         "slides/2017-04-12-filesystemcaching/deck.html": "bf442f546546e527b7c513019523bfba",
         "slides/2017-04-14-ffs/index.html": "60c88c36010f58171eab28933d9684f9",
         "slides/2017-04-14-ffs/deck.html": "b8b1245472e38201b5eea7341da77389",
-        "slides/2017-04-17-lfs/index.html": "59d87d54b8f1899907d157ea89b91ec3",
-        "slides/2017-04-17-lfs/deck.html": "738d09187fb2649f69856e2f3ea0d482"
+        "slides/2017-04-17-lfs/index.html": "d0f85f86a52b801e7a2e1bab7ef86836",
+        "slides/2017-04-17-lfs/deck.html": "0a1cffe21079ca3d07df65dc08bc5429",
+        "slides/2017-04-19-raid/index.html": "2eb1995ac9a1208fc094051d06b58099",
+        "slides/2017-04-19-raid/deck.html": "ace27dd7bd809d2aa357e7bb56306f5a"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -311,6 +313,8 @@
         "slides/2017-04-14-ffs/index.html": "57d7208f98289fcc12517a530e6970050f94fe69",
         "slides/2017-04-14-ffs/deck.html": "57d7208f98289fcc12517a530e6970050f94fe69",
         "slides/2017-04-17-lfs/index.html": "1c30adf785ae14ed362ed9814df9fc490f7af655",
-        "slides/2017-04-17-lfs/deck.html": "1c30adf785ae14ed362ed9814df9fc490f7af655"
+        "slides/2017-04-17-lfs/deck.html": "1c30adf785ae14ed362ed9814df9fc490f7af655",
+        "slides/2017-04-19-raid/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-04-19-raid/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
     }
 }
