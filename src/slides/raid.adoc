@@ -8,6 +8,9 @@ song:
   name: "Gimme Sympathy"
   author: "Metric"
   youtube: jq3-wZs64n4
+spelling_exceptions:
+  - Katz
+  - multibillion
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -24,6 +27,17 @@ video::{music}[youtube,width=0,height=0]
 
 * How to read a research paper.
 * Redundant Arrays of Inexpensive Disks (RAID).
+
+[.nooutline]
+== link:/asst/3/[`ASST3.2`] Checkpoint
+
+.At this point:
+//
+* If you have not started `ASST3.2`, *you're way behind.*
+//
+* If you have most things working and are debugging corner cases, you're OK.
+
+*link:/asst/3/[`ASST3.2`] is due Friday. Good luck finishing!*
 
 == How To Read A Research Paper
 
@@ -86,7 +100,7 @@ else is confused and misguided. (Good luck!)
 
 [.slide]
 --
-We'll read examples of all of these kinds of papers.
+We'll read examples of some of these kinds of papers.
 --
 
 [.small]
@@ -262,9 +276,24 @@ image::http://upload.wikimedia.org/wikipedia/commons/6/64/RAID_5.svg[height="200
 <object data="http://web.eecs.umich.edu/~michjc/eecs584/Papers/katz-2010.pdf" type="application/pdf" width="760" height="440">
 ++++
 
+== The RAID Aftermath
+
+[quote, Randy Katz]
+____
+But perhaps our most enduring contribution is
+our experience demonstrating how a common
+intellectual framework and terminology,
+developed by researchers outside of the pressures
+and positioning of the marketplace, can
+allow engineers and technical developers to
+talk with each other, exchange ideas, and ultimately
+accelerate the development of what became
+a multibillion dollar industry sector.
+____
+
 == RAID: Questions?
 
 [.nooutline]
-== Next Time
+== Next Week
 
-* Full virtualization.
+* Virtualization.
