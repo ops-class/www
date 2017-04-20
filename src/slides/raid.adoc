@@ -11,6 +11,7 @@ song:
 spelling_exceptions:
   - Katz
   - multibillion
+video: x5OtmM9p0IA
 ---
 [.nooutline.spelling_exception]
 == Technical Women
@@ -273,7 +274,7 @@ image::http://upload.wikimedia.org/wikipedia/commons/6/64/RAID_5.svg[height="200
 == The RAID Aftermath
 
 ++++
-<object data="http://web.eecs.umich.edu/~michjc/eecs584/Papers/katz-2010.pdf" type="application/pdf" width="760" height="440">
+<object data="//web.eecs.umich.edu/~michjc/eecs584/Papers/katz-2010.pdf" type="application/pdf" width="760" height="440">
 ++++
 
 == The RAID Aftermath
