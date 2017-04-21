@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "10208850c463985b0379e48734f09888",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "0fb0c0ad3506b5d27f2341e143b002a6",
+        "slides/index.html": "9a643edb341a2f8448c634d6902d0c5c",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -156,8 +156,10 @@
         "slides/2017-04-14-ffs/deck.html": "b8b1245472e38201b5eea7341da77389",
         "slides/2017-04-17-lfs/index.html": "3e56ef7d1aa34c1d0980e334216a7290",
         "slides/2017-04-17-lfs/deck.html": "0a1cffe21079ca3d07df65dc08bc5429",
-        "slides/2017-04-19-raid/index.html": "42738e9aabf78ed9147af8df89a79a3a",
-        "slides/2017-04-19-raid/deck.html": "cf292e33a52c80b815cee4886735a25c"
+        "slides/2017-04-19-raid/index.html": "c55ca6ca09c3d52a5aa2f590f3d84d46",
+        "slides/2017-04-19-raid/deck.html": "cf292e33a52c80b815cee4886735a25c",
+        "slides/2017-04-24-virtualization/index.html": "d8aaeae2736c0d3c2a0c5a4230a2b6cc",
+        "slides/2017-04-24-virtualization/deck.html": "a6c4f2ba7c7fd5bc56c2ea5bc1444209"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -315,6 +317,8 @@
         "slides/2017-04-17-lfs/index.html": "1c30adf785ae14ed362ed9814df9fc490f7af655",
         "slides/2017-04-17-lfs/deck.html": "1c30adf785ae14ed362ed9814df9fc490f7af655",
         "slides/2017-04-19-raid/index.html": "7b67cd595ae3f4bb5aff2f1e0f5fafdd40352848",
-        "slides/2017-04-19-raid/deck.html": "7b67cd595ae3f4bb5aff2f1e0f5fafdd40352848"
+        "slides/2017-04-19-raid/deck.html": "7b67cd595ae3f4bb5aff2f1e0f5fafdd40352848",
+        "slides/2017-04-24-virtualization/index.html": "17006725e7ad3a53764309b45f6684f03d66b3fa",
+        "slides/2017-04-24-virtualization/deck.html": "17006725e7ad3a53764309b45f6684f03d66b3fa"
     }
 }

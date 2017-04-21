@@ -1510,5 +1510,11 @@
         "hash": "4cfc4de143d43f789c3b96babb510012",
         "created": "2017-04-17T20:06:47.102Z",
         "updated": "2017-04-19T17:56:15.263Z"
+    },
+    "slides/virtualization.html": {
+        "filename": "slides/virtualization.html",
+        "hash": "b0b89cbd49034ec2e18b6c59456bbca0",
+        "created": "2017-04-20T20:27:14.897Z",
+        "updated": "2017-04-20T20:46:34.652Z"
     }
 }
