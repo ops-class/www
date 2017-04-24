@@ -6,6 +6,8 @@ description: >
   Introduction to virtualization.
 spelling_exceptions:
   - VMware
+  - EC2
+  - namespace
 song:
   name: "Video Games"
   author: "Lana Del Rey"
@@ -27,11 +29,15 @@ video::{music}[youtube,width=0,height=0]
 * Why virtualize?
 
 [.nooutline]
-== $ cat announce.txt
+== link:/asst/3/[`ASST3.3`] Checkpoint
 
-* link:/asst/3/[ASST3].2 is due Friday @ 5PM.
-* Schedule change today: virtualization is awesome!
-* Please suggest topics for later in the class...
+.At this point:
+//
+* If you have not started, you're behind.
+//
+* Get started!
+
+*link:/asst/3/[`ASST3.3`] is due Friday 5/5. Good luck finishing!*
 
 <<<
 
@@ -150,14 +156,20 @@ executed by the guest OS should be run directly on the underlying
 physical hardware.
 . *Safety:* the VMM should manage all hardware resources.
 
-== Two Approaches to Virtualization
+== Three Approaches to Virtualization
 
 [.slider]
+//
 * *Full virtualization*. Should be able to run an *unmodified* guest OS. We
-will discuss this today.
+will discuss this today. Example: VirtualBox.
+//
 * *Paravirtualization*. Includes small changes to the guest operating
 system to improve interaction with the virtual machine monitor. We will read
-this paper for Monday.
+this paper for Wednesday. Example: Xen, Amazon EC2.
+//
+* *Container virtualization*. Namespace and other isolation techniques
+performed _by the operating system_ to isolate sets of applications from each
+other. Example: Docker (with augmentations.)
 
 == Full Virtualization
 
