@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "10208850c463985b0379e48734f09888",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "9a643edb341a2f8448c634d6902d0c5c",
+        "slides/index.html": "33c735ff00d320f0e78cd654094d7031",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -158,8 +158,10 @@
         "slides/2017-04-17-lfs/deck.html": "0a1cffe21079ca3d07df65dc08bc5429",
         "slides/2017-04-19-raid/index.html": "c55ca6ca09c3d52a5aa2f590f3d84d46",
         "slides/2017-04-19-raid/deck.html": "cf292e33a52c80b815cee4886735a25c",
-        "slides/2017-04-24-virtualization/index.html": "1d43b78ca728be2b05496a3566d01ee0",
-        "slides/2017-04-24-virtualization/deck.html": "8d25efb6f9b9edcd4b706bb6f7fc33eb"
+        "slides/2017-04-24-virtualization/index.html": "9c8d8092a746782c4589ac820033d2e7",
+        "slides/2017-04-24-virtualization/deck.html": "8d25efb6f9b9edcd4b706bb6f7fc33eb",
+        "slides/2017-04-26-xen/index.html": "4d31dffb8304bf54dc3f70a1ef651f9e",
+        "slides/2017-04-26-xen/deck.html": "f4948519298c6d182091ef515b27f85e"
     },
     "exceptions": {
         "index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
@@ -319,6 +321,8 @@
         "slides/2017-04-19-raid/index.html": "7b67cd595ae3f4bb5aff2f1e0f5fafdd40352848",
         "slides/2017-04-19-raid/deck.html": "7b67cd595ae3f4bb5aff2f1e0f5fafdd40352848",
         "slides/2017-04-24-virtualization/index.html": "411413e831ba84761d4a3c7bf25255ccb85fabc9",
-        "slides/2017-04-24-virtualization/deck.html": "411413e831ba84761d4a3c7bf25255ccb85fabc9"
+        "slides/2017-04-24-virtualization/deck.html": "411413e831ba84761d4a3c7bf25255ccb85fabc9",
+        "slides/2017-04-26-xen/index.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30",
+        "slides/2017-04-26-xen/deck.html": "6a7ce9dc0e7b08cfee88fbc7cb7b3c44170aca30"
     }
 }

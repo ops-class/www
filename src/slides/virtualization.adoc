@@ -12,6 +12,7 @@ song:
   name: "Video Games"
   author: "Lana Del Rey"
   youtube: cE6wxDqdOV0
+video: fYH8A3RjPwY
 ---
 [.nooutline.spelling_exception]
 == Technical Women
