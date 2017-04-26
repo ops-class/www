@@ -4,11 +4,20 @@ date: 2017-04-26
 author: Geoffrey Challen
 description: >
   Discussion of the Xen approach to paravirtualization.
+song:
+  name: "Teenage Dream"
+  author: "Katy Perry"
+  youtube: 98WtmW-lfeE
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/007.jpg[width="100%",title="Valerie Taylor",link="https://engineering.tamu.edu/cse/people/vtaylor"]
+
+[.h4.center]
+icon:music[] http://www.katyperry.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
 
 [.spelling_exception]
 == Xen and the Art of Virtualization
