@@ -115,7 +115,7 @@
     "slides/2016-01-30-processes/deck.html": "1f6aa52019864fef91e62ee609f2c562",
     "slides/2016-04-29-scaling/deck.html": "253e9307072405f4f4dc7ea55b32fe98",
     "slides/2016-02-29-schedulingstory/deck.html": "02abc5318f1c172aa2092c8e0e30c006",
-    "slides/2016-04-15-raid/deck.html": "6b086fa5a55f30ecd748f3102fc399d5",
+    "slides/2016-04-15-raid/deck.html": "12504bff9e9bff5a28baab63c9cc4dc7",
     "slides/2016-02-26-simpleschedulers/deck.html": "5b24e7496d949b49970f60d2baec161a",
     "slides/2016-03-25-swapping/deck.html": "1365fc148a576f328435129c66da91e8",
     "slides/2016-02-24-schedulingintro/deck.html": "4d51ed5f57856eacb69760195ef73e64",
@@ -126,7 +126,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "763b8829e1c9adb59dae99fd0e65ec11",
     "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-    "slides/index.html": "0849a3151a5393f6a639288d2c800259",
+    "slides/index.html": "31045ce4abdbb1746b2b6556f7e88a1d",
     "slides/2017-03-13-pagetranslation/index.html": "864ca495f902ac44af8e050f326f2473",
     "slides/2017-03-13-pagetranslation/deck.html": "5e0d2aa1cb56fb3ef5b433ffab36c058",
     "slides/2017-03-15-paging/index.html": "cdfb367c188dc5a11b3e2ec0863ab372",
@@ -152,9 +152,9 @@
     "slides/2017-04-17-lfs/index.html": "ffc2ab705a9dd511a03f2704850713bd",
     "slides/2017-04-17-lfs/deck.html": "117de77aa891a3e837f378db54bbcf59",
     "slides/2017-04-19-raid/index.html": "e8e0b8f4f6acfce60749abc0c45cef08",
-    "slides/2017-04-19-raid/deck.html": "199531a7d10cc4c764d2d9c2b05f0512",
+    "slides/2017-04-19-raid/deck.html": "30c99e286d7b0a1391be505a25d910bd",
     "slides/2017-04-24-virtualization/deck.html": "6b8564b3ae5611a474a5ecfeb9ad5f57",
     "slides/2017-04-24-virtualization/index.html": "5f5511d5892ffcdeca99f3c18d74e5fd",
     "slides/2017-04-26-xen/deck.html": "8945b5f5e10e2814e8483735fbe7f3b1",
-    "slides/2017-04-26-xen/index.html": "0b4bd8c442db85e0bb6a667efca0af5d"
+    "slides/2017-04-26-xen/index.html": "25e14c4840858d95668abe9d43658334"
 }

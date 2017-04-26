@@ -16,7 +16,7 @@ video: x5OtmM9p0IA
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/005.jpg[width="100%",title="Susan Landau",link="http://privacyink.org/"]
+image::women/005.jpg[width="100%",title="Susan Landau"]
 
 [.h4.center]
 icon:music[] http://ilovemetric.com[{song}]

@@ -13,7 +13,7 @@ video: 96PJhAKMA3w
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/005.jpg[width="100%",title="Susan Landau",link="http://privacyink.org/"]
+image::women/005.jpg[width="100%",title="Susan Landau"]
 
 [.h4.center]
 icon:music[] http://www.chvrch.es/["Leave a Trace" by CHVRCHES]

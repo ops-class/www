@@ -1315,9 +1315,9 @@
     },
     "slides/2016/raid.html": {
         "filename": "slides/2016/raid.html",
-        "hash": "2dcc29b20fa65d3c99ffa0d03d9a893c",
+        "hash": "16639101ed0015a9a728b5eaefc09e25",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-04-26T20:58:42.325Z"
     },
     "slides/2016/scaling.html": {
         "filename": "slides/2016/scaling.html",
@@ -1507,9 +1507,9 @@
     },
     "slides/raid.html": {
         "filename": "slides/raid.html",
-        "hash": "4cfc4de143d43f789c3b96babb510012",
+        "hash": "88df0dd5c154c0346ec72df26ced948f",
         "created": "2017-04-17T20:06:47.102Z",
-        "updated": "2017-04-19T17:56:15.263Z"
+        "updated": "2017-04-26T20:54:12.753Z"
     },
     "slides/virtualization.html": {
         "filename": "slides/virtualization.html",

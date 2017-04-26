@@ -8,6 +8,7 @@ song:
   name: "Teenage Dream"
   author: "Katy Perry"
   youtube: 98WtmW-lfeE
+video: 2moUsgMOie4
 ---
 [.nooutline.spelling_exception]
 == Technical Women
