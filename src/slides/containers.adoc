@@ -1,0 +1,30 @@
+---
+title: "Container Virtualization"
+date: 2017-04-28
+author: Geoffrey Challen
+description: >
+  Discussion of container or operating-system virtualization.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/008.jpg[width="100%",title="Tova Milo",link="http://www.math.tau.ac.il/~milo/"]
+
+[.spelling_exception]
+== Container Virtualization
+
+[.nooutline]
+== link:/asst/3/[`ASST3.3`] Checkpoint
+
+.At this point:
+//
+* If you have not started, you're *way, way* behind.
+//
+* Get started!
+
+*link:/asst/3/[`ASST3.3`] is due Friday 5/5. Good luck finishing!*
+
+[.nooutline]
+== Next Time
+
+* Performance benchmarking and analysis!
