@@ -1522,5 +1522,17 @@
         "hash": "b93c6afdfa137b32350acf3a8217a93b",
         "created": "2017-04-24T19:22:12.679Z",
         "updated": "2017-04-26T15:16:15.910Z"
+    },
+    "slides/containers.html": {
+        "filename": "slides/containers.html",
+        "hash": "fb06b8b3e3affd4ade546c7427431169",
+        "created": "2017-04-28T13:26:15.039Z",
+        "updated": "2017-04-28T17:25:08.661Z"
+    },
+    "slides/performance.html": {
+        "filename": "slides/performance.html",
+        "hash": "c6335ed21abd4477081f4df156a5fee7",
+        "created": "2017-04-28T16:28:52.722Z",
+        "updated": "2017-04-28T16:28:52.722Z"
     }
 }

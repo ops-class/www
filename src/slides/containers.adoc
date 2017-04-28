@@ -4,14 +4,30 @@ date: 2017-04-28
 author: Geoffrey Challen
 description: >
   Discussion of container or operating-system virtualization.
+spelling_exceptions:
+  - Dockerfile
+  - UnionFS
+  - deprivilege
+  - containerization
+song:
+  name: "Hunger"
+  author: "Of Monsters and Men"
+  youtube: n106Qo0D948
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/008.jpg[width="100%",title="Tova Milo",link="http://www.math.tau.ac.il/~milo/"]
 
-[.spelling_exception]
-== Container Virtualization
+[.h4.center]
+icon:music[] http://www.ofmonstersandmen.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
+
+[.nooutline]
+== Today
+
+* OS virtualization and containers
 
 [.nooutline]
 == link:/asst/3/[`ASST3.3`] Checkpoint
@@ -23,6 +39,332 @@ image::women/008.jpg[width="100%",title="Tova Milo",link="http://www.math.tau.ac
 * Get started!
 
 *link:/asst/3/[`ASST3.3`] is due Friday 5/5. Good luck finishing!*
+
+[.nooutline]
+== Congrats on Finishing ASST3
+
+++++
+<iframe style="width:1024px; height:700px; max-width:1024px; transform: translate(-130px,-240px); transform-origin: 0 0; z-index:-1; position: relative" src="https://test161.ops-class.org/leaders#asst3"></iframe>
+++++
+
+== Review: Hardware Virtualization
+
+[.slider]
+//
+.How did we create a virtual machine (VM)?
+//
+* Start with a physical machine
+//
+* Create software (hypervisor) responsible for isolating the guest OS inside
+the VM
+//
+* VM resources (memory, disk, networking, etc.) are provided by the
+physical machine but visibility outside of the VM is limited
+
+<<<
+
+[.slider]
+//
+.What were the implications?
+//
+* VM and physical machine _share same instruction set_, so must the
+host and guest
+//
+* Guest OS can provide a _different application binary interface_ (ABI) inside
+the VM
+//
+* Lots of challenges in getting this to work because guest OS expects to have
+privileged hardware access
+
+== Operating System Virtualization
+
+[.slider]
+//
+.How do we create a virtual operating system (container)?
+//
+* Start with a [.slide]#real operating system#
+//
+* Create software responsible for isolating [.slide]#guest software# inside
+the container
+//
+** (That software seems to lack a canonical name--and today it's actually a
+bunch of different tools.)
+//
+* Container resources [.slide]#(processes, files, network
+sockets, etc.)# are provided by the real operating system but visibility
+outside the container is limited
+
+<<<
+
+[.slider]
+//
+.What are the implications?
+//
+* Container and real OS [.slide]_share same kernel_
+//
+* So applications inside and outside the kernel must [.slide]_share the same
+ABI_
+//
+* Challenges is getting this to work are due to [.slide]_shared OS namespaces_
+
+== Containers v. VMs
+
+[.slider]
+//
+.You can run Windows inside a container provided by Linux.
+//
+* *False.* Container shares the kernel with the host.
+
+[.slider]
+.You can run SUSE Linux inside an Ubuntu container.
+//
+* *True.* All long as both distributions use the same kernel, differences are
+confined to different binary tools and file locations.
+
+[.slider]
+//
+.Running `ps` inside the container will show all processes.
+//
+* *False.* Container process namespaces is isolated from the host.
+
+== Hypervisor v. Container Virtualization
+
+image:http://crishantha.com/wp/wp-content/uploads/2015/05/lxc.png[width="80%"]
+
+== Why Virtualize an OS?
+
+Shares many (but not all) of the benefits of hardware virtualization with much
+lower overhead.
+
+[.slider]
+//
+.Decoupling
+//
+. [line-through]#Cannot run multiple operating systems on the same machine.#
+//
+. Can transfer software setups to another machine as long as it has
+a identical or nearly identical [line-through]#hardware# kernel.
+//
+. Can adjust [line-through]#hardware# container resources to system needs.
+
+<<<
+
+[.slider]
+//
+.Isolation
+//
+. Container should not leak information inside and outside the container
+//
+. Can isolate all of the configuration and software packages a particular
+application needs to run
+
+== OS v. Hardware Overhead
+
+[.slider]
+//
+.Hardware virtualization system call path:
+//
+* Application inside the VM makes a system call
+//
+* Trap to the host OS (or hypervisor)
+//
+* Hand trap back to the guest OS
+
+[.slider]
+//
+.OS virtualization system call path:
+//
+* Application inside the container makes a system call
+//
+* Trap to the OS
+
+<<<
+
+[.slider]
+//
+* Remember all of the work we had to do to deprivilege the guest OS and deal
+with _uncooperative_ machine architectures like x86?
+//
+* OS virtualization *does not require any of this*: there is only one OS!
+
+== OS Virtualization is About Names
+
+[.slider]
+//
+.What kind of names must the container virtualize?
+//
+* *Process IDs*
+** `top` inside the container shows only processes running inside container
+** `top` outside the container may show processes inside the container, but
+with different process IDs
+//
+* *File names*
+** Processes inside the container may have a limited or different view of the
+mounted file system
+** File names may resolve to different names--and some file names outside the
+container may be removed
+
+<<<
+
+[.slider]
+//
+* *User names*:
+** Containers may have different users with different roles
+** `root` inside the container should not be root outside the container
+//
+* *Host name and IP address*
+** Processes inside the container may use a different host name and IP address
+when performing network operations
+
+== OS Virtualization is About Control
+
+The OS may want to ensure that the entire container--or _everything_ that
+runs inside it--cannot consume more than a certain amount of:
+
+[.slider]
+//
+* *CPU time*
+//
+* *memory*
+//
+* *disk or network* bandwidth
+
+== Not a New Idea
+
+Forms of OS virtualization go back to `chroot` from 1982:
+
+[source,bash]
+----
+chroot - run command or interactive shell with special root directory
+----
+
+[.slider]
+//
+.How is this done?
+//
+* Instead of starting path resolution at inode #2, start somewhere else.
+
+<<<
+
+Modern container management systems like https://www.docker.com[Docker]
+combine and build upon multiple lower-levels tools and services.
+
+== https://en.wikipedia.org/wiki/Linux_namespaces[Linux namespaces]
+
+Since 2002 Linux has provided namespace separation for a variety of resources
+that typically had unified namespaces
+
+[.slider]
+//
+* *Mount points*: allows different namespaces to see different views of the
+file system
+//
+* *Process IDs*: new processes are allocated IDs in their current namespace
+and all parent namespaces
+//
+* *Network*: namespaces can have private IP addresses and their own routing
+tables, and can communicate with other namespaces through virtual interfaces
+//
+* *Devices*: devices can be present or hidden in different namespaces
+
+== https://en.wikipedia.org/wiki/Cgroups[`cgroups`]
+
+____
+...a Linux kernel feature that limits, accounts for, and isolates the resource
+usage of a collection of processes.
+____
+
+[.slider]
+//
+* Processes and their children remain in the same `cgroup`
+//
+* `cgroups` may it possible to control the resources allocated to a set of
+processes
+
+== http://unionfs.filesystems.org/[UnionFS]
+
+A stackable unification file system.
+
+[.slider]
+//
+.Path name resolution:
+//
+* Does `/foo/bar` exist in the top layer? If yes, return its contents.
+//
+* Does `/foo/bar` exist in the next layer? If yes, return its contents.
+//
+* Etc.
+
+<<<
+
+[.slider]
+//
+.Can also hide parts of the lower file systems:
+//
+* Does `/foo/bar` exist in the top layer? If yes, return its contents.
+//
+* Access to `/foo` in the next layer is prohibited, so stop. (Even if
+`/foo/bar` exists.
+
+== COW File System
+
+Previous container libraries made a copy of the parent's entire file system.
+(Containers need a lot of it.)
+
+[.slider]
+//
+.What could we do instead?
+//
+* Copy on write!
+//
+* Only make modifications to the underlying file system when the container
+modifies files.
+//
+* Speeds start up and reduces storage usage.
+//
+** The container mainly needs read-only access to host files.
+
+== What is Docker?
+
+.Docker builds on previous technologies
+//
+* Provides a unified set of tools for container management on a variety of
+systems
+//
+* Layered file system images for easy updates
+//
+* Now involved in development of containerization libraries on Linux
+
+<<<
+
+image::https://upload.wikimedia.org/wikipedia/commons/0/09/Docker-linux-interfaces.svg[width="60%"]
+
+== Example Dockerfile
+
+[source,role='smaller']
+----
+FROM komljen/ubuntu
+MAINTAINER Alen Komljen <alen.komljen@live.com>
+
+ENV MONGO_VERSION 2.6.6
+
+RUN \
+  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
+  echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist
+10gen" \
+       > /etc/apt/sources.list.d/mongodb.list && \
+  apt-get update && \
+  apt-get -y install \
+          mongodb-org=${MONGO_VERSION} && \
+  rm -rf /var/lib/apt/lists/*
+
+VOLUME ["/data/db"]
+
+RUN rm /usr/sbin/policy-rc.d
+CMD ["/usr/bin/mongod"]
+
+EXPOSE 27017
+----
 
 [.nooutline]
 == Next Time
