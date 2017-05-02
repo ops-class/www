@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "10208850c463985b0379e48734f09888",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "bce968e4086bc4ccd95b026b1d18fb6c",
+        "slides/index.html": "a1ec90e8e004e326825136aa1e827d4b",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -162,9 +162,9 @@
         "slides/2017-04-24-virtualization/deck.html": "8d25efb6f9b9edcd4b706bb6f7fc33eb",
         "slides/2017-04-26-xen/index.html": "b61f2c3175f1929d71ff7a5413417dd5",
         "slides/2017-04-26-xen/deck.html": "ab3fe0ba6ee3aeba3ba7d8cbf64f49ea",
-        "slides/2017-04-28-containers/index.html": "e6ca3ac9443cfcd428a8ea84c3baa54a",
+        "slides/2017-04-28-containers/index.html": "42ff6b414e420110f930523fe8570f0e",
         "slides/2017-04-28-containers/deck.html": "ce47fd528c4fc2991425760aae459828",
-        "slides/2017-05-01-performance/index.html": "c1fb062e74375f62ce3b63a42302c7b7",
+        "slides/2017-05-01-performance/index.html": "186f0f09bee615187cb5c7e8f7bd66e6",
         "slides/2017-05-01-performance/deck.html": "66ff693617950502484ba8a75d53c5d2"
     },
     "exceptions": {

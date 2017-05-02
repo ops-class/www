@@ -4,6 +4,7 @@ date: 2017-05-01
 author: Geoffrey Challen
 description: >
   Discussion of the process of benchmarking and performance improvement.
+video: dyjPDzRl7lw
 ---
 [.nooutline.spelling_exception]
 == Technical Women
