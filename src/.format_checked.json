@@ -101,7 +101,7 @@
     "slides/2016-04-01-files/deck.html": "2d1b7f3497705cfaf28d09cce108719e",
     "slides/2016-04-04-filesystems/deck.html": "715dc0909772ce37e167afd61531b3fa",
     "slides/2016-02-01-forkandfilehandles/deck.html": "7de424e93d3cd9368667e3f0461a0fa9",
-    "slides/2016-04-27-hints/deck.html": "ad19f2dbda711eb9c9584a142c0cae34",
+    "slides/2016-04-27-hints/deck.html": "58122f683784ecf4fabd53dc5f98921b",
     "slides/2016-04-06-filesystemstructures/deck.html": "2dbd115d2f6af42b9082144797315153",
     "slides/2016-02-15-interrupts/deck.html": "a0820f3e28641c9c31c5d3148eb7e9bf",
     "slides/2016-02-03-forksynch/deck.html": "65b090e700404e7b59400f62224f72d1",
@@ -126,7 +126,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "763b8829e1c9adb59dae99fd0e65ec11",
     "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-    "slides/index.html": "64e909644c02a8b356541fcc9a93073a",
+    "slides/index.html": "cf869c0e799aefe67fc70b65fb7c810f",
     "slides/2017-03-13-pagetranslation/index.html": "864ca495f902ac44af8e050f326f2473",
     "slides/2017-03-13-pagetranslation/deck.html": "5e0d2aa1cb56fb3ef5b433ffab36c058",
     "slides/2017-03-15-paging/index.html": "cdfb367c188dc5a11b3e2ec0863ab372",
@@ -159,6 +159,10 @@
     "slides/2017-04-26-xen/index.html": "56aba6ff718dce0d87759d82fc263be9",
     "slides/2017-04-28-containers/deck.html": "e9b42c0b1d34ac38bc33d1976173152b",
     "slides/2017-04-28-containers/index.html": "97ef3c9795468225d49c1e489dc95d73",
-    "slides/2017-05-01-performance/index.html": "ab60edb3f5f2b618b6c455c7bdd2c09d",
-    "slides/2017-05-01-performance/deck.html": "0e0b6f3aa13177ca6935a3a1951bba2d"
+    "slides/2017-05-01-performance/index.html": "73f76f957b6de94e84c2542eca5f8e7d",
+    "slides/2017-05-01-performance/deck.html": "0e0b6f3aa13177ca6935a3a1951bba2d",
+    "slides/2017-05-08-hints/index.html": "8f104e9bf63769dc0600d0a59c53e90c",
+    "slides/2017-05-03-amdahls/deck.html": "5e8833a90e6bb00c250fd0b6a23b632d",
+    "slides/2017-05-03-amdahls/index.html": "6ff1ee3ad01067d8854d1fd3ba862b8e",
+    "slides/2017-05-08-hints/deck.html": "a060c2ebb8eb55f56d4fe955e34611f7"
 }

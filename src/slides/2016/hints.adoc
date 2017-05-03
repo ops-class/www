@@ -34,7 +34,7 @@ video::{music}[youtube,width=0,height=0]
 [.slider]
 * Please attend the distinguished lecture tomorrow! *3:30PM in Clemens 120.*
 * Office hours tomorrow will end at 3:30PM.
-* http://nms.csail.mit.edu/~hari/[Hari Balakrishnan] is an extremely famous
+* https://www.csail.mit.edu/user/881[Hari Balakrishnan] is an extremely famous
 systems and networking researcher and the talk is about an app and will be quite interesting.
 ** You might also discover what a good driver I am...
 

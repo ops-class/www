@@ -100,7 +100,7 @@
         "slides/2016-04-06-filesystemstructures/deck.html": "d59e27207e21886d36ed36f65a56eefd",
         "slides/2016-02-01-forkandfilehandles/deck.html": "7d6ab09c1ef51b5e368a4ef77dd78192",
         "slides/2016-02-03-forksynch/deck.html": "4b81d3c154cee96d516279f527cda932",
-        "slides/2016-04-27-hints/deck.html": "c3236c769083cc28cface386c8aed7b2",
+        "slides/2016-04-27-hints/deck.html": "b7eda2207effe66b120f9da97255b60b",
         "slides/2016-02-15-interrupts/deck.html": "f91bc5e144700731cfdd4f64e2db27fc",
         "slides/2016-01-25-intro/deck.html": "1d58ba4dc399add536b2ccb9b608e55c",
         "slides/2016-04-13-lfs/deck.html": "6c0a1fb99f694c57952067222bbd7e2b",
@@ -123,7 +123,7 @@
         "slides/2016-04-18-virtualization/deck.html": "c43e0e093e83f77fc96db745ee3969d2",
         "slides/2016-04-20-xen/deck.html": "10208850c463985b0379e48734f09888",
         "exams/index.html": "8b796f6c9413dd6b8cfeab8544b846f2",
-        "slides/index.html": "a1ec90e8e004e326825136aa1e827d4b",
+        "slides/index.html": "1ed43495e51d4af8d999af904cb9109b",
         "slides/2017-03-06-addressspaces/index.html": "e6f71dcf6482e6a45fb734163493945a",
         "slides/2017-03-06-addressspaces/deck.html": "c4194d6952d150869b254b625b377f16",
         "slides/2017-03-08-virtualaddresses/index.html": "6a339c10823db69887e3c2655108882c",
@@ -164,8 +164,12 @@
         "slides/2017-04-26-xen/deck.html": "ab3fe0ba6ee3aeba3ba7d8cbf64f49ea",
         "slides/2017-04-28-containers/index.html": "42ff6b414e420110f930523fe8570f0e",
         "slides/2017-04-28-containers/deck.html": "ce47fd528c4fc2991425760aae459828",
-        "slides/2017-05-01-performance/index.html": "186f0f09bee615187cb5c7e8f7bd66e6",
-        "slides/2017-05-01-performance/deck.html": "66ff693617950502484ba8a75d53c5d2"
+        "slides/2017-05-01-performance/index.html": "85526652ec4c3c4dd47cf02079f6eef2",
+        "slides/2017-05-01-performance/deck.html": "66ff693617950502484ba8a75d53c5d2",
+        "slides/2017-05-03-amdahls/index.html": "7fc1557214f6df01a51951647071e9f6",
+        "slides/2017-05-08-hints/index.html": "30c45db1ee61d33ccb97fc75aed3e29d",
+        "slides/2017-05-03-amdahls/deck.html": "a44f4af9b0c3280e47b751e9b47fd265",
+        "slides/2017-05-08-hints/deck.html": "7d8c95df1f0f306d5e37b00677166cf9"
     },
     "exceptions": {
         "index.html": "a518da6c047849880bba76a1a05b0b20d687e886",
@@ -331,6 +335,10 @@
         "slides/2017-04-28-containers/index.html": "65c8befe858f5a595bc44e6cba4b6e84874bf79b",
         "slides/2017-04-28-containers/deck.html": "65c8befe858f5a595bc44e6cba4b6e84874bf79b",
         "slides/2017-05-01-performance/index.html": "a518da6c047849880bba76a1a05b0b20d687e886",
-        "slides/2017-05-01-performance/deck.html": "a518da6c047849880bba76a1a05b0b20d687e886"
+        "slides/2017-05-01-performance/deck.html": "a518da6c047849880bba76a1a05b0b20d687e886",
+        "slides/2017-05-03-amdahls/index.html": "a518da6c047849880bba76a1a05b0b20d687e886",
+        "slides/2017-05-08-hints/index.html": "a518da6c047849880bba76a1a05b0b20d687e886",
+        "slides/2017-05-03-amdahls/deck.html": "a518da6c047849880bba76a1a05b0b20d687e886",
+        "slides/2017-05-08-hints/deck.html": "a518da6c047849880bba76a1a05b0b20d687e886"
     }
 }
