@@ -5,11 +5,20 @@ author: Geoffrey Challen
 description: >
   Continuation of a discussion of performance and benchmarking, and
   introduction to Amdahl's Law.
+song:
+  name: "Hunger"
+  author: "Of Monsters and Men"
+  youtube: n106Qo0D948
 ---
 [.nooutline.spelling_exception]
 == Technical Women
 
 image::women/010.jpg[width="100%",title="Jennifer Tour Chayes",link="http://research.microsoft.com/en-us/um/people/jchayes/"]
+
+[.h4.center]
+icon:music[] http://www.ofmonstersandmen.com/[{song}]
+
+video::{music}[youtube,width=0,height=0]
 
 [.nooutline]
 == Congrats on Finishing ASST3
