@@ -24,31 +24,7 @@ https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/acrobat-17.p
 for Computer System Design"] by
 https://en.wikipedia.org/wiki/Butler_Lampson[Butler Lampson].
 
-== Systems Are More Complicated Than Algorithms
-
-(Don't tell [.spelling_exception]#Atri#.)
-
-[.slider]
-.Why is designing a computer system different from designing an algorithm?
-* "The external interface (that is, the requirement) is less precisely
-defined, more complex, and more subject to change."
-* "The system has much more internal structure, and hence many internal
-interfaces."
-* "The measure of success is much less clear."
-
-<<<
-
-[quote, "Butler Lampson", role='small']
-____
-I have designed and built a number of computer systems, some that worked and
-some that didn’t. I have also used and studied many other systems, both
-successful and unsuccessful. From this experience come some general hints for
-designing successful systems. I claim no originality for them; most are part
-of the folk wisdom of experienced designers. Nonetheless, even the expert
-often forgets, and after the second system [6] comes the fourth one.
-____
-
-== Three Goals
+== Review: Three Goals
 
 [.slider]
 .What are the three goals Lampson focuses on?
@@ -69,10 +45,7 @@ image::figures/papers/hints_table.jpg[width="100%"]
 == To The Paper
 
 ++++
-<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
-<iframe style="width:100%" height="440" class="embed-responsive-item"
-src="http://research.microsoft.com/en-us/um/people/blampson/33-hints/webpage.html"></iframe>
-</div>
+<object data="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/acrobat-17.pdf" type="application/pdf" width="760" height="360">
 ++++
 
 [.nooutline]

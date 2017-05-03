@@ -1537,14 +1537,14 @@
     },
     "slides/amdahls.html": {
         "filename": "slides/amdahls.html",
-        "hash": "c186788bf5ff793c15735f19b67a4695",
+        "hash": "4daad3312fc46848e426e4384edc4390",
         "created": "2017-05-03T13:12:44.921Z",
-        "updated": "2017-05-03T13:33:17.935Z"
+        "updated": "2017-05-03T19:39:48.240Z"
     },
     "slides/hints.html": {
         "filename": "slides/hints.html",
-        "hash": "1a979aa5f69de38ba625c901c4d00f77",
+        "hash": "be724e9699de50cf8b46d10c67cb166c",
         "created": "2017-05-03T13:24:18.196Z",
-        "updated": "2017-05-03T13:24:18.196Z"
+        "updated": "2017-05-03T19:28:26.923Z"
     }
 }
