@@ -1,0 +1,83 @@
+---
+title: "Hints for Computer System Design"
+date: 2017-05-08
+author: Geoffrey Challen
+description: >
+  Discussion of introduction to Hints for Computer System Design by Butler
+  Lampson.
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+image::women/010.jpg[width="100%",title="Jennifer Tour Chayes",link="http://research.microsoft.com/en-us/um/people/jchayes/"]
+
+[.nooutline]
+== Congrats on Finishing ASST3
+
+++++
+<iframe style="width:1024px; height:700px; max-width:1024px; transform: translate(-130px,-240px); transform-origin: 0 0; z-index:-1; position: relative" src="https://test161.ops-class.org/leaders#asst3"></iframe>
+++++
+
+== Hints for Computer System Design
+
+https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/acrobat-17.pdf["Hints
+for Computer System Design"] by
+https://en.wikipedia.org/wiki/Butler_Lampson[Butler Lampson].
+
+== Systems Are More Complicated Than Algorithms
+
+(Don't tell [.spelling_exception]#Atri#.)
+
+[.slider]
+.Why is designing a computer system different from designing an algorithm?
+* "The external interface (that is, the requirement) is less precisely
+defined, more complex, and more subject to change."
+* "The system has much more internal structure, and hence many internal
+interfaces."
+* "The measure of success is much less clear."
+
+<<<
+
+[quote, "Butler Lampson", role='small']
+____
+I have designed and built a number of computer systems, some that worked and
+some that didn’t. I have also used and studied many other systems, both
+successful and unsuccessful. From this experience come some general hints for
+designing successful systems. I claim no originality for them; most are part
+of the folk wisdom of experienced designers. Nonetheless, even the expert
+often forgets, and after the second system [6] comes the fourth one.
+____
+
+== Three Goals
+
+[.slider]
+.What are the three goals Lampson focuses on?
+* Functionality
+* Speed
+* Fault-tolerance
+
+[.slider]
+.What are the three parts of the design task he identifies?
+* Ensuring completeness
+* Choosing interfaces
+* Designing implementations
+
+== Summary of the Hints
+
+image::figures/papers/hints_table.jpg[width="100%"]
+
+== To The Paper
+
+++++
+<div class="responsive-embed embed-responsive-4by3" style="height:440px;">
+<iframe style="width:100%" height="440" class="embed-responsive-item"
+src="http://research.microsoft.com/en-us/um/people/blampson/33-hints/webpage.html"></iframe>
+</div>
+++++
+
+[.nooutline]
+== Next Time
+
+* Exam review.
+
+// vim: ts=2:sw=2:et
