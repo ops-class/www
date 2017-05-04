@@ -9,6 +9,7 @@ song:
   name: "Hunger"
   author: "Of Monsters and Men"
   youtube: n106Qo0D948
+video: oJmXir-9hsk
 ---
 [.nooutline.spelling_exception]
 == Technical Women
