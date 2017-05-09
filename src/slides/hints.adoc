@@ -5,6 +5,7 @@ author: Geoffrey Challen
 description: >
   Discussion of introduction to Hints for Computer System Design by Butler
   Lampson.
+video: JrQVcwv4OfU
 ---
 [.nooutline.spelling_exception]
 == Technical Women
