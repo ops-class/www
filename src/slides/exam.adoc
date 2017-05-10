@@ -29,21 +29,19 @@ video::{music}[youtube,width=1,height=1]
 [.nooutline]
 == Congrats on Finishing ASST3
 
-////
 ++++
 <iframe style="width:1024px; height:700px; max-width:1024px; transform: translate(-130px,-240px); transform-origin: 0 0; z-index:-1; position: relative" src="https://test161.ops-class.org/leaders#asst3"></iframe>
 ++++
-////
 
 [.nooutline]
 == Course Evaluations
 
-Just below 70%.
+Around 72%.
 //
 Please complete https://www.smartevals.com/login.aspx?s=buffalo[the evaluation].
 
 As a reminder:
-//
+
 * 70%: short answer released
 //
 * 80%: medium answer released
@@ -124,7 +122,7 @@ Format is identical to last year:
 //
 * 10 easy multiple choice questions, 1 point each
 //
-* 6 choose 4 short answer questions, 5 points each (close to releasing one...)
+* 6 choose 4 short answer questions, 5 points each (one will be released)
 //
 * *1 medium answer question*, 20 points
 //
@@ -147,7 +145,7 @@ But I did after 421/521
 
 Undergraduate and first-year graduate courses that you may enjoy:
 
-[.slider.spelling_exception.small]
+[.slider.spelling_exception]
 //
 * 462/562: Databases
 //
@@ -159,14 +157,26 @@ Undergraduate and first-year graduate courses that you may enjoy:
 
 More advanced courses:
 
-[.slider.spelling_exception.small]
+[.spelling_exception]
 //
 * 622: Advanced Computer Systems
+
+<<<
+
+Better systems programming languages:
+
+[.slider]
+//
+* https://golang.org[Go]
+//
+* https://www.rust-lang.org/[Rust]
+//
+* Anything but C
 
 [.nooutline]
 == Now You Can Hack
 
-image:https://img0.etsystatic.com/101/0/11436356/il_fullxfull.847973196_o5nh.jpg[width="80%"]
+image:https://img0.etsystatic.com/101/0/11436356/il_fullxfull.847973196_o5nh.jpg[width="70%"]
 
 [.nooutline]
 == Next Time
