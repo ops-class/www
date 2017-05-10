@@ -20,18 +20,20 @@ icon:music[] https://boniver.org/[22 (OVER S∞∞N)]
 [.h4.center]
 icon:music[] http://www.arcadefire.com[{song}]
 
-video::JTeZuIbj1y0[youtube,width=0,height=0]
+video::JTeZuIbj1y0[youtube,width=1,height=1]
 //
-video::{music}[youtube,width=0,height=0]
+video::{music}[youtube,width=1,height=1]
 
 == Exam AMA
 
 [.nooutline]
 == Congrats on Finishing ASST3
 
+////
 ++++
 <iframe style="width:1024px; height:700px; max-width:1024px; transform: translate(-130px,-240px); transform-origin: 0 0; z-index:-1; position: relative" src="https://test161.ops-class.org/leaders#asst3"></iframe>
 ++++
+////
 
 [.nooutline]
 == Course Evaluations
@@ -69,7 +71,7 @@ As a reminder:
 
 .Ninjas:
 //
-[.slider.smallest]
+[.smaller]
 //
 * Adhish Chugh
 //
@@ -162,6 +164,9 @@ More advanced courses:
 * 622: Advanced Computer Systems
 
 [.nooutline]
-== Next Time
+== Now You Can Hack
 
-* See you at the exam Monday! Good luck...
+image:https://img0.etsystatic.com/101/0/11436356/il_fullxfull.847973196_o5nh.jpg[width="80%"]
+
+[.nooutline]
+== Next Time
