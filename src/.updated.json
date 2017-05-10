@@ -1546,5 +1546,11 @@
         "hash": "be724e9699de50cf8b46d10c67cb166c",
         "created": "2017-05-03T13:24:18.196Z",
         "updated": "2017-05-03T19:28:26.923Z"
+    },
+    "slides/exam.html": {
+        "filename": "slides/exam.html",
+        "hash": "437f8a34841a8d45d4b53e07f5775470",
+        "created": "2017-05-10T15:18:59.333Z",
+        "updated": "2017-05-10T15:41:58.239Z"
     }
 }

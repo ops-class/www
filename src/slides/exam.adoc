@@ -1,0 +1,167 @@
+---
+title: "Exam Review"
+date: 2017-05-10
+author: Geoffrey Challen
+description: >
+  Exam review ask me anything session.
+song:
+  name: Keep the Car Running
+  author: Arcade Fire
+  youtube: GEZockGkEyY
+---
+[.nooutline.spelling_exception]
+== Technical Women
+
+* Look around you!
+
+[.h4.center]
+icon:music[] https://boniver.org/[22 (OVER S∞∞N)]
+
+[.h4.center]
+icon:music[] http://www.arcadefire.com[{song}]
+
+video::JTeZuIbj1y0[youtube,width=0,height=0]
+//
+video::{music}[youtube,width=0,height=0]
+
+== Exam AMA
+
+[.nooutline]
+== Congrats on Finishing ASST3
+
+++++
+<iframe style="width:1024px; height:700px; max-width:1024px; transform: translate(-130px,-240px); transform-origin: 0 0; z-index:-1; position: relative" src="https://test161.ops-class.org/leaders#asst3"></iframe>
+++++
+
+[.nooutline]
+== Course Evaluations
+
+Just below 70%.
+//
+Please complete https://www.smartevals.com/login.aspx?s=buffalo[the evaluation].
+
+As a reminder:
+//
+* 70%: short answer released
+//
+* 80%: medium answer released
+//
+* 95%: long answer released
+
+[.nooutline.spelling_exception]
+== Staff Appreciation
+
+.TA and Substitute Instructor
+//
+* Carl Nuessle
+
+<<<
+
+.TAs/Recitation Teachers and Dedicated Exam Graders
+//
+* Carl Nuessle
+//
+* Ali Ben Ali
+//
+* Vicky Zheng
+
+<<<
+
+.Ninjas:
+//
+[.slider.smallest]
+//
+* Adhish Chugh
+//
+* Ben Rueda
+//
+* Brijesh Rakholia
+//
+* Grant Wrazen
+//
+* Guru Prasad
+//
+* James Droste
+//
+* Matthew McGovern
+//
+* Rob Rymarczyk
+//
+* Scott Haseley
+//
+* Sriram Shantharam
+//
+* Steve Bass
+//
+* Timothy Eilinger
+//
+* William Burgin
+//
+* Yousuf Zubairi
+//
+* Zach Wieand
+//
+* And others I've forgotten to mention...
+
+[.slide]
+--
+These people are _volunteers_!
+--
+
+== Exam
+
+Monday, May 15th, 3:30-6:30PM, Cooke 121.
+//
+*No makeups will be given.*
+//
+Come or get a zero.
+
+Format is identical to last year:
+
+.100 points, 180 minutes.
+//
+* 10 easy multiple choice questions, 1 point each
+//
+* 6 choose 4 short answer questions, 5 points each (close to releasing one...)
+//
+* *1 medium answer question*, 20 points
+//
+* *2 long answer questions*, 25 points each
+
+[.nooutline]
+== Questions
+
+== !
+[.background]
+image:http://www.flask.com/wp-content/uploads/dos-equis-most-interesting-guy-in-the-world.jpeg[]
+
+[.meme-top.small]
+I don't always have free time
+
+[.meme-bottom.small]
+But I did after 421/521
+
+== What To Do Next?
+
+Undergraduate and first-year graduate courses that you may enjoy:
+
+[.slider.spelling_exception.small]
+//
+* 462/562: Databases
+//
+* 486/586: Distributed Systems
+//
+* 489/589: Networking
+
+<<<
+
+More advanced courses:
+
+[.slider.spelling_exception.small]
+//
+* 622: Advanced Computer Systems
+
+[.nooutline]
+== Next Time
+
+* See you at the exam Monday! Good luck...
