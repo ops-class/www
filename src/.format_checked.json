@@ -126,7 +126,7 @@
     "slides/2016-04-18-virtualization/deck.html": "5a5ab54c00eeebb0d5798d0255f54ba3",
     "slides/2016-04-20-xen/deck.html": "763b8829e1c9adb59dae99fd0e65ec11",
     "exams/index.html": "8b07c6f076b5b94021303739ceb18284",
-    "slides/index.html": "436e38225b3dc0d8fd56c739657d491e",
+    "slides/index.html": "49c755eec4df78248400617a5ee02f2c",
     "slides/2017-03-13-pagetranslation/index.html": "864ca495f902ac44af8e050f326f2473",
     "slides/2017-03-13-pagetranslation/deck.html": "5e0d2aa1cb56fb3ef5b433ffab36c058",
     "slides/2017-03-15-paging/index.html": "cdfb367c188dc5a11b3e2ec0863ab372",
@@ -165,6 +165,6 @@
     "slides/2017-05-03-amdahls/deck.html": "ea1df27ed8234787a6bc98578c202cc7",
     "slides/2017-05-03-amdahls/index.html": "fe55d4cab79e369d3fa4908d99a44b3d",
     "slides/2017-05-08-hints/deck.html": "9a83098944eee5cd7bb9da6eb34a4a15",
-    "slides/2017-05-10-exam/deck.html": "e1e169cf041813d53072f3c511d442b6",
-    "slides/2017-05-10-exam/index.html": "ea1596d5f2db7409847302cc203a5b2b"
+    "slides/2017-05-10-exam/deck.html": "1a89e556407e426bd9d08bfee123cbb7",
+    "slides/2017-05-10-exam/index.html": "f22c4a09f61ca2f09f952739c9aabcb4"
 }
