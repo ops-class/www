@@ -54,10 +54,6 @@ and delete (`dtime`) times.
 
 image::figures/disks/debugfs-stat.svg[width="100%"]
 
-== `ext4` inodes
-
-image::figures/disks/debugfs-stat.svg[width="100%"]
-
 == Locating inodes
 
 [.slider]
