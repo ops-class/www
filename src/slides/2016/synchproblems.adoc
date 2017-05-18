@@ -175,7 +175,7 @@ image::figures/synch/spinlocks.svg[width="70%"]
 == How to Sleep
 
 [.slider]
-.The kernel provide functionality allowing kernel threads to sleep and wake on a *key*:
+.The kernel provides functionality allowing kernel threads to sleep and wake on a *key*:
 * `thread_sleep(key)`: "Hey kernel, I'm going to sleep, but please wake
 me up when *`key`* happens."
 * `thread_wake(key)`: "Hey kernel, please wake up all (or one of) the
