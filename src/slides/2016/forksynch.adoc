@@ -183,7 +183,7 @@ if (returnCode == 0) {
 
   # Read some data from the pipe.
   char data[14];
-  read(pipeEnds[0], data, 16);
+  read(pipeEnds[0], data, 14);
 } else {
 
   # Don't need a loopback.
