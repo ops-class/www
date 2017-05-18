@@ -206,7 +206,7 @@ effective.
 
 [.slider]
 * 4K is a very common page size. 8K or larger pages are also sometimes used.
-* 4K pages and a 128-entry TLB allow caching translations for 1 MB of
+* 4K pages and a 128-entry TLB allow caching translations for 512 KB of
 memory.
 * You can think of pages as *fixed size* segments, so the *bound* is the
 same for each.
