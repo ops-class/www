@@ -129,7 +129,7 @@ spaces and virtual memory.
 == Processes v. Threads
 
 [.small.slider]
-* Potential confusing due to overlapping terminology--we can describe
+* Potentially confusing due to overlapping terminology--we can describe
 both a *process* and a *thread* as running.
 * Terminology can be helpful for remembering the distinction:
 ** A computing *process* requires multiple resources: the CPU, memory,
