@@ -475,7 +475,7 @@ withdraw items.
 
 [.slider]
 .Why are condition variables a synchronization mechanism?
-* Want to ensure that the condition *does not change* between checking it and
+* Want to ensure that the condition *does not change* between checking it
 and deciding to wait!
 
 [cols="2*",options='header',role='slide']
