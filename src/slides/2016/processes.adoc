@@ -233,7 +233,7 @@ received.
 send a signal to any process.
 * Processes can ignore most signals.
 ** `SIGKILL` is a notable exception; used for non-graceful termination.
-** `SIGTERM` is used for graceful shutdown and sent by Control-C.
+** `SIGTERM` is used for graceful shutdown.
 
 == !
 
