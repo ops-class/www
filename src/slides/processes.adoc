@@ -210,7 +210,7 @@ other.
 
 [.slider]
 * What you do in your own process is your own business *but it shouldn't
-be able to crash the machine or effect other processes*—or at least
+be able to crash the machine or affect other processes*—or at least
 processes started by other users.
 * Thus: safe intra-process communication is *your* problem; safe
 inter-process communication is an *operating system* problem.

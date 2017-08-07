@@ -409,7 +409,7 @@ ____
 * Priority defines the levels at which each task can run.
 ** High priority tasks: *more* levels, *more* chances to run.
 ** Low priority tasks: *fewer* levels, *fewer* chances to run.
-* Tasks can run more at most a fixed amount of time per level.
+* Tasks can run for at most a fixed amount of time per level.
 * Each level can also run for at most a fixed amount of time--ensures *bounded
 latency*.
 

@@ -338,12 +338,12 @@ has not changed since the load-link.
 ----
 y = 1;
 __asm volatile(
-    ".set push;"    /* save assembler mode */
-    ".set mips32;"  /* allow MIPS32 instructions */
-    ".set volatile; /* avoid unwanted optimization */
-    "ll %0, 0(%2);" /*   x = *sd */
-    "sc %1, 0(%2);" /*   *sd = y; y = success? */
-    ".set pop"      /* restore assembler mode */
+    ".set push;"     /* save assembler mode */
+    ".set mips32;"   /* allow MIPS32 instructions */
+    ".set volatile;" /* avoid unwanted optimization */
+    "ll %0, 0(%2);"  /*   x = *sd */
+    "sc %1, 0(%2);"  /*   *sd = y; y = success? */
+    ".set pop"       /* restore assembler mode */
     : "=r" (x), "+r" (y) : "r" (sd));
 if (y == 0) {
   return 1;
