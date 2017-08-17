@@ -32,6 +32,6 @@ statics:
 	@wget https://www.google-analytics.com/analytics.js -O src/js/analytics.js 2>/dev/null
 
 findspace:
-	@find src -type f -exec egrep -Il " +$$" {} \;
+	@find src lib -type f -exec egrep -Il " +$$" {} \;
 
 .PHONY: run clean silent build install

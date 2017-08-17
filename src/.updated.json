@@ -1033,9 +1033,9 @@
     },
     "asst/0.html": {
         "filename": "asst/0.html",
-        "hash": "8f19ac11361882529201b6c0f6e68eaa",
+        "hash": "108dcb43adca758b8ad061da7bababd0",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "asst/1.html": {
         "filename": "asst/1.html",
@@ -1045,9 +1045,9 @@
     },
     "asst/2.html": {
         "filename": "asst/2.html",
-        "hash": "95b7667f6a83618e635e7b9fca6b0a4b",
+        "hash": "8c72a562aba3d905292d503a22eb5640",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-20T21:50:38.381Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "asst/3.html": {
         "filename": "asst/3.html",
@@ -1057,15 +1057,15 @@
     },
     "asst/overview.html": {
         "filename": "asst/overview.html",
-        "hash": "ddbc5e50dfe982a1a0422fa65403d4c0",
+        "hash": "37a4b455b88dd2104c0e3999ce8aff5f",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "asst/repos.html": {
         "filename": "asst/repos.html",
-        "hash": "4ab73582547b40682de82c8b7bf463cc",
+        "hash": "23787f98727fbdf75d3d166b53e34e55",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "asst/setup.html": {
         "filename": "asst/setup.html",
@@ -1099,51 +1099,51 @@
     },
     "courses/buffalo/CSE421_Spring2016.html": {
         "filename": "courses/buffalo/CSE421_Spring2016.html",
-        "hash": "0fbf635cfafe57ae1ca4eb707b13592f",
+        "hash": "27d26bb4afe200184f5e4f888cbfba22",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-03-29T10:42:23.610Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "courses/buffalo/CSE421_Spring2017.html": {
         "filename": "courses/buffalo/CSE421_Spring2017.html",
-        "hash": "830795af125d55e2dfb374e913eb9dfa",
+        "hash": "b662969d71d83609f5ca57839dfaa484",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-03-29T10:42:23.610Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/execwait.html": {
         "filename": "slides/execwait.html",
-        "hash": "0046a9a9ca8aadc1e770b4057b83d40a",
+        "hash": "7ca86cf8ce29948814d5364d9a11d159",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T20:22:57.988Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/forkandfilehandles.html": {
         "filename": "slides/forkandfilehandles.html",
-        "hash": "6579216f3c33174bbc6e2272d45028c6",
+        "hash": "adc279ed673e2eea2f765816572826e1",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/forksynch.html": {
         "filename": "slides/forksynch.html",
-        "hash": "4dfdb4ac2557a16022769234c1de15cc",
+        "hash": "687f9b86515ef0ecebda18385236bddf",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/intro.html": {
         "filename": "slides/intro.html",
-        "hash": "45b6e9bf0762f7c3d6012113ab2ec6f8",
+        "hash": "d0c685afe7c03130c84521a6cb69129d",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/moreprocesses.html": {
         "filename": "slides/moreprocesses.html",
-        "hash": "5525f783e45df200e500919ab67ab3cc",
+        "hash": "a86f22564e924c296f6864d868b8fe4c",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/processes.html": {
         "filename": "slides/processes.html",
-        "hash": "3ab272b549849830af730bc4d0a9ff41",
+        "hash": "bafbc21e86f751ec84e10d6a8c5de4ea",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/setup.html": {
         "filename": "slides/setup.html",
@@ -1153,404 +1153,404 @@
     },
     "slides/synchproblems.html": {
         "filename": "slides/synchproblems.html",
-        "hash": "8cff6aab154216c6ace23bdb3973ed10",
+        "hash": "25211c96164cd25bc3eb35f511579022",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/synchprimitives.html": {
         "filename": "slides/synchprimitives.html",
-        "hash": "deb880e5a6f4dd8b92cdfda666a083c2",
+        "hash": "2adbb73723770b93a3b9b25b06a7fb83",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/addressspaces.html": {
         "filename": "slides/2016/addressspaces.html",
-        "hash": "545e9a1f9db9acfa8db1c0b6bd102af7",
+        "hash": "8ecaa00cae82464e0ed9ffab8911bc3f",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T19:30:25.632Z"
     },
     "slides/2016/atlantis.html": {
         "filename": "slides/2016/atlantis.html",
-        "hash": "16706d53c6de26ae2ce486d6a6268106",
+        "hash": "9d1ce2d3b6283e9eccd7592b1f2fec8a",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/addresstranslation.html": {
         "filename": "slides/2016/addresstranslation.html",
-        "hash": "cc48e77b1a7490ad93c404d92fb86ade",
+        "hash": "21f989e6988d4399ee6ffc7318d012f9",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/cells.html": {
         "filename": "slides/2016/cells.html",
-        "hash": "e042a7630ac1a4cf7f4b6cfd43aac5a3",
+        "hash": "db603d7660187bd182e3146537ed60a2",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/contextswitching.html": {
         "filename": "slides/2016/contextswitching.html",
-        "hash": "7ba1e4640ce74d8f0442787d9e38da0f",
+        "hash": "08a74bbc439f82df90dd32a26fe503c1",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/disks.html": {
         "filename": "slides/2016/disks.html",
-        "hash": "647148aabed220ddcded3efd2b21c0cb",
+        "hash": "75f463a6ce0642f5f2559615d50870fe",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/exam.html": {
         "filename": "slides/2016/exam.html",
-        "hash": "064164623bd4c3720d9822d076c65a72",
+        "hash": "4a5a195cba62b0094d38485a4eff7f24",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/execwait.html": {
         "filename": "slides/2016/execwait.html",
-        "hash": "4d5cbe444738a82a7844f8a0b04f86db",
+        "hash": "2f37896f53d9c34fc4a42cb582e46b50",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/ffs.html": {
         "filename": "slides/2016/ffs.html",
-        "hash": "01654572728fe5e7fceb4edcca034216",
+        "hash": "423bc4547e64c06ea9ec93196151aa48",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/files.html": {
         "filename": "slides/2016/files.html",
-        "hash": "d64218004dc22dfa78f5703ad32c4d0b",
+        "hash": "45aca3c46d4ed253f83b12700897d81c",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/filesystemcaching.html": {
         "filename": "slides/2016/filesystemcaching.html",
-        "hash": "0809f11e6d5e59a82ac41255b37df3d9",
+        "hash": "79250c7c9b9caed74281b73735d2482e",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/filesystemstructures.html": {
         "filename": "slides/2016/filesystemstructures.html",
-        "hash": "b952aa1ea00be030006f222c5558df79",
+        "hash": "ffade1311ec363d088a04dbafcef8dab",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/filesystems.html": {
         "filename": "slides/2016/filesystems.html",
-        "hash": "592e66d360ee02b06b55a0624cfc2e5f",
+        "hash": "80ed314667f7671f008ffeacda0a4ef4",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/forkandfilehandles.html": {
         "filename": "slides/2016/forkandfilehandles.html",
-        "hash": "d7c329e21f3e2ba1bbe59f442db82e45",
+        "hash": "c000a86302bee6aa8077e41253e65982",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/forksynch.html": {
         "filename": "slides/2016/forksynch.html",
-        "hash": "a8495939631be678946b158f1cb7a3e7",
+        "hash": "30c5fc7f9889f07e20d81729532d8cf9",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:54:56.927Z"
     },
     "slides/2016/hints.html": {
         "filename": "slides/2016/hints.html",
-        "hash": "61c3e464ba98ec8db7baf99ef75b2083",
+        "hash": "4f0e5bc309cc6b9e8b92e8cff88191d2",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-05-03T13:31:17.073Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/interrupts.html": {
         "filename": "slides/2016/interrupts.html",
-        "hash": "3b165a28dfee60c1e110f652c2f49f6e",
+        "hash": "9910ee1aa36909a73ea298df12ab43c1",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/lfs.html": {
         "filename": "slides/2016/lfs.html",
-        "hash": "aa0bbacdface2a39d9917a02e94d3d9e",
+        "hash": "745241474dd576c38eef142436cd8154",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/intro.html": {
         "filename": "slides/2016/intro.html",
-        "hash": "330d315649ef25ef01b5c60951e48b2b",
+        "hash": "bc0492616995a62245ac521c31e1d25b",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/multiprocessing.html": {
         "filename": "slides/2016/multiprocessing.html",
-        "hash": "2da2af11d3b4c6d5707d36a7904e6336",
+        "hash": "6b2a17c6587a7b92c580a05251f410f6",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/pagereplacement.html": {
         "filename": "slides/2016/pagereplacement.html",
-        "hash": "f3fbb66e549ed3db309eb0f2c810bcd9",
+        "hash": "5c12fe2febdef79d7920e1724680acad",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/pagetranslation.html": {
         "filename": "slides/2016/pagetranslation.html",
-        "hash": "5b9a760c0a66a0e86685482df7231075",
+        "hash": "eb148cfced2689eb627120086faf4563",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/paging.html": {
         "filename": "slides/2016/paging.html",
-        "hash": "c2d85ea497b88cfebdd120a095fa5fd1",
+        "hash": "db6a07c4a446fb001b8dc9ea067823ce",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/performance.html": {
         "filename": "slides/2016/performance.html",
-        "hash": "51e566a465dceb74fdd4422fe8ee17b9",
+        "hash": "acdd13df012a269b36790932c0a178dc",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/processes.html": {
         "filename": "slides/2016/processes.html",
-        "hash": "979636c04106165e519aad55620357fd",
+        "hash": "c6708a09eb9755ebfc37679286621188",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/raid.html": {
         "filename": "slides/2016/raid.html",
-        "hash": "16639101ed0015a9a728b5eaefc09e25",
+        "hash": "ba781a4455665a79ba198a1a749c384a",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-04-26T20:58:42.325Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/scaling.html": {
         "filename": "slides/2016/scaling.html",
-        "hash": "29bef99339ec2909a9f1ccbb93c298c9",
+        "hash": "4e80ec7a24e5a041fb05ec8a59a6de58",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/schedulingintro.html": {
         "filename": "slides/2016/schedulingintro.html",
-        "hash": "2b3d6ab141d29e496867409a40047c6d",
+        "hash": "a33a243933b319fbb8a0383c00f3d454",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/schedulingstory.html": {
         "filename": "slides/2016/schedulingstory.html",
-        "hash": "81f367c08ef20ee27e7298cce2829769",
+        "hash": "bf3ac8dfaaa583cbe8cd3ff01f5614d7",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/simpleschedulers.html": {
         "filename": "slides/2016/simpleschedulers.html",
-        "hash": "ea646894ad9c2fe6f5deee35653a751c",
+        "hash": "fb1bca7a16e8046cdeca7a314bb402ba",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/swapping.html": {
         "filename": "slides/2016/swapping.html",
-        "hash": "e6af6fb0b50be7278d40dde8d14c4578",
+        "hash": "8a6fa632f56cb80f92b159da7079ada6",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/synchprimitives.html": {
         "filename": "slides/2016/synchprimitives.html",
-        "hash": "c9c669ed54769129bf15feb374205efd",
+        "hash": "f47d301422d4b63a9a3a7499e1746c16",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/synchproblems.html": {
         "filename": "slides/2016/synchproblems.html",
-        "hash": "44919e0fadfbd5cb88b16457ea1f797b",
+        "hash": "a255f5e75879568c056d1de01ff5fbf6",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/threading.html": {
         "filename": "slides/2016/threading.html",
-        "hash": "b1a0519e94bf326253293397f59f2c1d",
+        "hash": "323bd8fab1456e2b407695b68bf9b622",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/virtualaddresses.html": {
         "filename": "slides/2016/virtualaddresses.html",
-        "hash": "8275a64a0d5f433efb1d1923a556d91d",
+        "hash": "0f04afda1a85c7ed12eddb05da909cc3",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T19:30:25.632Z"
     },
     "slides/2016/virtualization.html": {
         "filename": "slides/2016/virtualization.html",
-        "hash": "3a03edce5d11eecf379b6c53fa9b169c",
+        "hash": "418c81516abad425902eb2387ed7fd5c",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-02-17T18:59:32.257Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/2016/xen.html": {
         "filename": "slides/2016/xen.html",
-        "hash": "695087922faf8b8007f86f1fdc3507ec",
+        "hash": "88a9a64c69355a84025bdf02aa99f010",
         "created": "2017-02-17T18:59:32.257Z",
-        "updated": "2017-04-10T13:55:32.112Z"
+        "updated": "2017-08-17T19:12:15.730Z"
     },
     "slides/contextswitching.html": {
         "filename": "slides/contextswitching.html",
-        "hash": "4bfb29a6eee6595c4c44371d4a91b39a",
+        "hash": "83be56859c59fc79699a2b6dc3876694",
         "created": "2017-02-17T20:22:57.988Z",
-        "updated": "2017-02-17T20:22:57.988Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/interrupts.html": {
         "filename": "slides/interrupts.html",
-        "hash": "119b582bb0f77069165f85f775112805",
+        "hash": "1e735f55ff27c5561d951217d17886bb",
         "created": "2017-02-17T20:22:57.988Z",
-        "updated": "2017-02-17T20:32:38.825Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/threading.html": {
         "filename": "slides/threading.html",
-        "hash": "04ae295c6568115d44b112255b03e5a6",
+        "hash": "a9e069536c4b739bde1db8c11c8a9d3f",
         "created": "2017-02-17T20:22:57.988Z",
-        "updated": "2017-02-17T20:22:57.988Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/schedulingintro.html": {
         "filename": "slides/schedulingintro.html",
-        "hash": "a0d8307eff53ee96c067eede6a706948",
+        "hash": "44f68092b3154b151900bf934629628a",
         "created": "2017-02-27T16:12:14.500Z",
-        "updated": "2017-02-27T18:25:27.496Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/simpleschedulers.html": {
         "filename": "slides/simpleschedulers.html",
-        "hash": "3502ce89ca7add55a8f7f8a473634db5",
+        "hash": "201675937a5b26f46f98779ef88d61ee",
         "created": "2017-03-01T16:11:36.764Z",
-        "updated": "2017-03-01T20:46:33.189Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/schedulingstory.html": {
         "filename": "slides/schedulingstory.html",
-        "hash": "af69e82b8d17370fa29116f0d0c4b3b6",
+        "hash": "23da3d47321ab67ea11d6f2562f32ddf",
         "created": "2017-03-01T20:46:33.189Z",
-        "updated": "2017-03-03T17:21:00.633Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/addressspaces.html": {
         "filename": "slides/addressspaces.html",
-        "hash": "eb5a7298582f37e59f238104431e6e18",
+        "hash": "7758ec67f3007c4113193eecf0c63d2d",
         "created": "2017-03-05T18:47:45.309Z",
-        "updated": "2017-03-05T18:47:45.309Z"
+        "updated": "2017-08-17T19:30:25.632Z"
     },
     "slides/virtualaddresses.html": {
         "filename": "slides/virtualaddresses.html",
-        "hash": "d700ffc3cd3e95bd25e6447142b1b35d",
+        "hash": "796e0222676917f823b5669dd3a86015",
         "created": "2017-03-07T16:51:10.607Z",
-        "updated": "2017-03-07T21:08:32.554Z"
+        "updated": "2017-08-17T19:30:25.632Z"
     },
     "slides/addresstranslation.html": {
         "filename": "slides/addresstranslation.html",
-        "hash": "c8b3a9a035134ffed5e63fb8c8e6be14",
+        "hash": "a74bf62f3dd1adbfdeeaa5b158635cdb",
         "created": "2017-03-09T16:30:43.834Z",
-        "updated": "2017-03-09T16:30:43.834Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/pagetranslation.html": {
         "filename": "slides/pagetranslation.html",
-        "hash": "92f1f78955c4e71e98a2cac8f8e95c0f",
+        "hash": "a24f959d539fce0f9bd774a231929923",
         "created": "2017-03-11T17:09:58.122Z",
-        "updated": "2017-03-31T19:04:59.431Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/paging.html": {
         "filename": "slides/paging.html",
-        "hash": "d524e5abf3fcf7f13dd3af30af976239",
+        "hash": "dd653b04c158fc4b983e4c2f4fd6bdf0",
         "created": "2017-03-13T20:09:38.914Z",
-        "updated": "2017-03-13T20:09:38.914Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/swapping.html": {
         "filename": "slides/swapping.html",
-        "hash": "d8c0a0843ca0ab5317b54774434b50c5",
+        "hash": "e073dc8b38727151220b986a069ccc98",
         "created": "2017-03-27T12:50:29.293Z",
-        "updated": "2017-03-27T12:50:29.293Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/pagereplacement.html": {
         "filename": "slides/pagereplacement.html",
-        "hash": "244d3ed477544dbf24630a5dcc33b097",
+        "hash": "f60e183c913ff7dfcc06bf85e8dc36e2",
         "created": "2017-03-27T12:57:25.461Z",
-        "updated": "2017-03-29T17:30:09.733Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/disks.html": {
         "filename": "slides/disks.html",
-        "hash": "d8955939d74cb285fa6b54a6f86c34da",
+        "hash": "c0c3cc73307ec203212da733e5555863",
         "created": "2017-03-29T16:12:55.856Z",
-        "updated": "2017-03-29T16:19:44.146Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/files.html": {
         "filename": "slides/files.html",
-        "hash": "a33772930c708ed127a595c3dbb2bb17",
+        "hash": "f713db0d554d9993482f0d92cbec78cd",
         "created": "2017-04-04T13:14:54.795Z",
-        "updated": "2017-04-05T19:21:26.107Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/filesystems.html": {
         "filename": "slides/filesystems.html",
-        "hash": "d4859112ad250de5695a4679c8d18483",
+        "hash": "dbfcd5627bc0ddf00582045e2b8f837d",
         "created": "2017-04-05T19:14:22.677Z",
-        "updated": "2017-04-07T19:10:04.082Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/filesystemstructures.html": {
         "filename": "slides/filesystemstructures.html",
-        "hash": "39095106087660b8c7f6ddc4cea4fa4c",
+        "hash": "1e4d394bce8755b0ca6fee3f4bebf4f9",
         "created": "2017-04-07T17:15:39.555Z",
-        "updated": "2017-04-10T13:51:37.456Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/filesystemcaching.html": {
         "filename": "slides/filesystemcaching.html",
-        "hash": "0a7fabbffb0ba109042ffbeffaa946db",
+        "hash": "eaf301e15f7550eb9eaa8bd10b1b1307",
         "created": "2017-04-10T13:51:37.456Z",
-        "updated": "2017-04-12T17:43:22.530Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/ffs.html": {
         "filename": "slides/ffs.html",
-        "hash": "0c0cece19c622f2302b0a15d7d6d464c",
+        "hash": "8fad407fe227418fce7c8868655d4d56",
         "created": "2017-04-12T17:43:22.530Z",
-        "updated": "2017-04-14T17:40:50.721Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/lfs.html": {
         "filename": "slides/lfs.html",
-        "hash": "e99d4661e196180d5622c8936b560f57",
+        "hash": "1c6629d18d88fbe31045d0f33568c08e",
         "created": "2017-04-12T19:23:07.444Z",
-        "updated": "2017-04-17T20:06:47.102Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/raid.html": {
         "filename": "slides/raid.html",
-        "hash": "88df0dd5c154c0346ec72df26ced948f",
+        "hash": "dce00f2d0be576a28f693fca755c7892",
         "created": "2017-04-17T20:06:47.102Z",
-        "updated": "2017-04-26T20:54:12.753Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/virtualization.html": {
         "filename": "slides/virtualization.html",
-        "hash": "b71831ccc00a322e00a1bf23a8e05ab4",
+        "hash": "9443d6baf4eae2d1017888141aec4936",
         "created": "2017-04-20T20:27:14.897Z",
-        "updated": "2017-04-24T15:37:25.657Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/xen.html": {
         "filename": "slides/xen.html",
-        "hash": "b93c6afdfa137b32350acf3a8217a93b",
+        "hash": "7aa5c8cfa807026973f439a12c1bd622",
         "created": "2017-04-24T19:22:12.679Z",
-        "updated": "2017-04-26T15:16:15.910Z"
+        "updated": "2017-08-17T18:54:56.927Z"
     },
     "slides/containers.html": {
         "filename": "slides/containers.html",
-        "hash": "fb06b8b3e3affd4ade546c7427431169",
+        "hash": "657e4f7ff6d6ec96d955f871d30d4e13",
         "created": "2017-04-28T13:26:15.039Z",
-        "updated": "2017-04-28T17:25:08.661Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/performance.html": {
         "filename": "slides/performance.html",
-        "hash": "c6335ed21abd4477081f4df156a5fee7",
+        "hash": "85bd8e41aa7d7e7899bf889ede690dbb",
         "created": "2017-04-28T16:28:52.722Z",
-        "updated": "2017-04-28T16:28:52.722Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/amdahls.html": {
         "filename": "slides/amdahls.html",
-        "hash": "4daad3312fc46848e426e4384edc4390",
+        "hash": "773cddff2ee9b4d8e20e0b1112b9d07c",
         "created": "2017-05-03T13:12:44.921Z",
-        "updated": "2017-05-03T19:39:48.240Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/hints.html": {
         "filename": "slides/hints.html",
-        "hash": "be724e9699de50cf8b46d10c67cb166c",
+        "hash": "7ff912cd150bdb83539450aa93510e4e",
         "created": "2017-05-03T13:24:18.196Z",
-        "updated": "2017-05-03T19:28:26.923Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     },
     "slides/exam.html": {
         "filename": "slides/exam.html",
-        "hash": "2b4b1bdc2206ad0e8cc0b03a88bbb2cc",
+        "hash": "38f823c4fa23e9572a61795b20593b28",
         "created": "2017-05-10T15:18:59.333Z",
-        "updated": "2017-05-10T17:35:57.288Z"
+        "updated": "2017-08-17T18:26:21.119Z"
     }
 }

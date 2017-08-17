@@ -15,7 +15,7 @@ song:
 == Welcome
 
 [.h3.center]
-icon:music[] http://socialhub.courtneybarnett.com.au/[{song}]
+icon:music[] https://www.courtneybarnett.com.au/[{song}]
 
 video::{music}[youtube,width=0,height=0]
 

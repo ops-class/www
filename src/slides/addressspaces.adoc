@@ -370,7 +370,7 @@ foo->bar = 10;
 == !
 
 [.background]
-image:http://laportecreative.com/blog/wp-content/uploads/2012/11/woman-mad-at-computer1.jpg[]
+image:https://img.buzzfeed.com/buzzfeed-static/static/campaign_images/webdr01/2013/6/26/14/what-happens-when-women-get-mad-at-computers-1-3798-1372269890-12_big.jpg[]
 
 [.meme-top]
 Segmentation fault

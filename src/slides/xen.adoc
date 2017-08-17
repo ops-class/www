@@ -13,7 +13,7 @@ video: 2moUsgMOie4
 [.nooutline.spelling_exception]
 == Technical Women
 
-image::women/007.jpg[width="100%",title="Valerie Taylor",link="https://engineering.tamu.edu/cse/people/vtaylor"]
+image::women/007.jpg[width="100%",title="Valerie Taylor",link="https://en.wikipedia.org/wiki/Valerie_Taylor_(computer_scientist)"]
 
 [.h4.center]
 icon:music[] http://www.katyperry.com/[{song}]
