@@ -88,7 +88,7 @@ later.
 
 [.slider]
 .The *operating system* itself is one of the most difficult concurrent programs to write. Why?
-* It is multiplexing access to hardware resources and therefor sharing
+* It is multiplexing access to hardware resources and therefore sharing
 a great deal of state between multiple processes!
 * It frequently uses many threads to hide hardware delays while
 servicing devices and application requests.

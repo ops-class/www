@@ -119,7 +119,7 @@ block.
 == Data Blocks: Flat Array
 
 A second solution: store all data blocks in the inode in a single
-array allocate at file creation time.
+array allocated at file creation time.
 
 [.slider]
 .Pros:
